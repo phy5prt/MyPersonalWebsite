@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Help Phil Find His Marbles</title>
+
+
+  <!-- bootstrap -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="icon" href="Images/favicon.ico">
+  <!-- need reducing to two font families one style each once know which i need-->
+  <!--font awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Noto+Sans:400,400i|PT+Serif:400,400i|Roboto:300,500,500i" rel="stylesheet">
+
+
+</head>
+
+
+<body class="Scroll">
+  <!--button for testing-->
+  <!--
+<a href="#" class="positionHref"></a>
+-->
+<!--
+<body class="noScroll">
+-->
+<!--pages are the full view port X and Y are the coordinates so if had a T
+made of 3 screens in width and 3 screens in height
+the middles of the top of T may be X2Y3-->
+
+<!--think i need like a look here function and it put you in the area of the class-->
+<!--the marble divs are relative so that they stay on the first page but, this means
+when they move to move the marble they push the top page, either the top pages
+should be absolute as well or the start location of the marble is done with different
+units or contained in something relative that isnt moved should re read and watch on positioning
+now i have more context
+maybe making it inline but not sure thats really the issues
+also cause a white space at bottom because now contributes to the height-->
+<!--wheren section has content it tries to be part of initial view screen-->
+
+
+<section class="page2X0Y1">
+<!--something i read said use button because comes with lots of good defaults but im struggling with them-->
+
+
+
+</section>
+
+<section class="page1X0Y0">
+  <p class="tab invisible"><i class="fas fa-sort-up"></i><i class="fas fa-caret-up"></i>Trapezoid tab</p>
+<!-- next page tab  http://lea.verou.me/2013/10/slanted-tabs-with-css-3d-transforms/   -->
+<!-- think i will only use tab page transition once, then will probably
+if do keep using it will want to keep cards and marbles in it
+will want the marble smaller do i do it by adding a class or have the page1 class have something to shrink it
+ -->
+ <!--
+<button type="page1Tab" name="button">  amazing font up arrow and a marble <img class="myMarble" src="Images\marbles\wellItsAFace.png" alt="My Picture Marble">
+</button>
+-->
+  <!--theres no question mark but i dont like the mark-->
+  <!--can remove the spans if not fading-->
+  <!--maybe flash name gold or flash out the other writing, or use it for the transition-->
+
+  <!--currently not shrinking down together tried container fluid
+maybe put text in row and column -->
+  <!--need some way to make it fit the pages so always looks same-->
+  <section class="businessCard">
+
+
+    <!--I like the grey maybe it should fade in or it should roll in -->
+    <!--or it rolls in the glass is clicked and slides to the corner, the corner
+becomes the corner navbar, as the marble hits the bottom and jumps up
+should happen in 2 second 1 second to bounce and fall and place drink one to fire up
+on firing up the screen should move a little up to indicate you can scroll or use a little tab with a chevron
+-->
+<!--invisible-->
+<!--lots issues with animations and transforms on same object overwriting so a div for x axis one for y and the image itself for spin-->
+<div class= "myMarbleY">
+  <div class="myMarbleX">
+    <img class="myMarble rolling invisible" src="Images\marbles\wellItsAFace.png" alt="My Picture Marble">
+</div>
+</div>
+    <!--grab delay appear with the javascript-->
+
+
+
+    <div class="buisnessCardText">
+
+
+      <h1>
+        <span class=delayAppear>Hi I'm </span>Phil Tate<span class=delayAppear> a programmer <br>
+          & full stack developer <br>
+          <span class=fontOrnaments delayAppear>o </span><span class="h1Subtitle"> fancy a drink </span><span class=fontOrnaments> p</span>
+        </span>
+
+
+
+        <!-- h-100 for row 100% height
+ if i want to half col width i could just put all of it in one half size column i think-->
+        <!--when on phone should only have one opetion using @media which is the tea
+shrinking with view port looks wrong because nothing else is shrinking-->
+
+        <!--taken out fluid img from the img classes as im adjusing them anyway-->
+        <!-- need subtle indication they are drinks made a under line fades in left to right under each
+need to tip a little left when hovered over
+-->
+
+        <!--trying to avoid inline css with buttons but the class isnt overiding them
+style="background-color: Transparent;"
+
+-->
+        <!--still have issue rows not tight to images because have bottom Workspace
+wrapping button around the column instead of the img means atleast all same size selectable area
+this however has made the column widths the same size
+so instead changed div to button
+
+
+<button type="button" name="button">
+<div class="col-md-1 colTight">
+
+  <img  id="tea" class=" drinkImages" src="Images/tea.png" alt="tea">
+
+</div>
+</button>
+
+so this becomes
+
+
+<button type="button" name="button" class="col-md-1 colTight">
+
+  <img  id="tea" class=" drinkImages" src="Images/tea.png" alt="tea">
+
+
+</button>
+
+-->
+
+        <!--maybe should of drilled down the hierachy instead of butting the columns as buttons when really images should ahve been-->
+
+
+<!--buttons would be better as checkboxes as then when checked can just disable without doing it in js and avoid hover issue-->
+
+        <div class="row drinkChoices">
+
+
+          <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+            <img id="cocktailOlive" class=" drinkImages" src="Images/cocktailOlive.png" alt="cocktail">
+
+
+          </button>
+
+          <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+            <img id="cocktailStraw" class="drinkImages" src="Images/cocktailStraw.png" alt="cocktail">
+
+
+          </button>
+
+          <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+            <img id="tea" class=" drinkImages" src="Images/tea.png" alt="tea">
+
+
+          </button>
+
+          <button type="button" name="button" class="drinkButton col-md-1 colTight ">
+
+            <img id="martini" class=" drinkImages" src="Images/martiniGlass.png" alt="martini">
+
+
+          </button>
+        </div>
+
+        <div class="row drinkChoices">
+
+          <button type="button" name="button" class="drinkButton col-md-1 colTight">
+            <img id="shotGlass" class=" drinkImages" src="Images/shotGlass.png" alt="shot glass">
+
+
+          </button>
+
+          <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+            <img class=" drinkImages" src="Images/waterGlass.png" alt="water glass" id="waterGlass">
+
+
+          </button>
+
+          <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+            <img id="wineGlass" class=" drinkImages" src="Images/wineGlass.png" alt="wine glass">
+
+
+          </button>
+
+          <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+            <img id="wineGlassSimple" class=" drinkImages" src="Images/wineGlassSimple.png" alt="wine glass">
+
+
+          </button>
+        </div>
+
+    </div>
+
+
+
+
+    </h1>
+
+    <!-- Back to top button -->
+    <!--just for testing-->
+    <!--
+    <a id="goUp" class="btnbefore"></a>
+-->
+
+    <!--for this section have the drinks reduce to one choice for mobile-->
+    <!--instead of the images maybe use font awesome icon Images-->
+    <!--drinking choice container in the page container coz i want it after the text on same page does this mean the text need to be in a row?-->
+
+
+
+
+
+
+
+
+
+
+  </section>
+
+  <!--need to rename drink images coz using it for other stuff-->
+
+
+      <section id="corner-nav" class="corner-background ">
+
+
+
+
+
+<div class="corner-table">
+
+
+
+        <div class="row">
+          <div class="col-sm-4">
+            <i class="fas fa-expand-arrows-alt corner-links"></i>
+          </div>
+          <div class="col-sm-4">
+            <i class="far fa-envelope corner-links"></i>
+          </div>
+          <div class="col-sm-4">
+            <!--later will change source to the image they picked-->
+
+            <img id="chosen-beverage" class="corner-links " src="Images/tea.png" alt="tea">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h1><i class="fas fa-file-download "></i></h1>
+          </div>
+
+        </div>
+
+</div>
+
+      </section>
+<!-- changed from jquery uncompressed need to look into it and see if slim but not min is better
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-->
+<script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+  <script src="index.js" charset="utf-8"></script>
+</section>
+
+
+
+
+
+
+
+</body>
+
+
+<!--
+CREDITS
+
+<div>Icon made from <a href="http://www.onlinewebfonts.com/icon">Icon Fonts</a> is licensed by CC BY 3.0</div>
+
+<div>Icon made from <a href="http://www.onlinewebfonts.com/icon">Icon Fonts</a> is licensed by CC BY 3.0</div>
+-->
+
+</html>

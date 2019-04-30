@@ -1,0 +1,615 @@
+/*
+usinf this grey at moment later a black satin with stars as a patterned image  #262626 or something with card texture;
+a gold may want 	#59450d;
+*/
+@font-face {
+  font-family: 'nymphetteregular';
+  src: url('Nymphette-webfont.eot');
+  src: url('Nymphette-webfont.eot?#iefix') format('embedded-opentype'),
+    /*url('Nymphette-webfont.woff2') format('woff2'),*/
+    url('Nymphette-webfont.woff') format('woff'),
+    url('Nymphette-webfont.ttf') format('truetype'),
+    url('Nymphette-webfont.svg#nymphetteregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-family: 'PT Serif', serif;
+  line-height: 1.5em;
+}
+
+.h1Subtitle {
+  font-family: 'Dancing Script', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/*just for testing*/
+/*because basing it off example im changing p and tabs depend on it which should be the case*/
+p {
+  position: absolute;
+}
+
+p::before {
+  content: '';
+  /* To generate the box */
+  position: absolute;
+  top: 0px;
+  left: 80vw;
+  height: 100px;
+  width: 200px;
+  z-index: 1;
+  color: black;
+  background: DimGrey;
+  transform: perspective(4px) rotateX(-1deg);
+}
+
+p.tab::before {
+  /* Tip by @krofdrakula */
+  border-radius: 0 0 10px 10px;
+}
+
+#goUp {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  bottom: 30px;
+  right: 30px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.btnbefore {
+  background-color: yellow;
+}
+
+.btnafter {
+  background-color: purple;
+}
+
+.page2X0Y1 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+
+}
+
+.page1X0Y0 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.noScroll {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.Scroll {
+  overflow-x: hidden;
+}
+
+/*the :: pseudo code will be better for manipulating axis seperately
+https://tobiasahlin.com/blog/curved-path-animations-in-css/
+ but for now using divs and classes*/
+/* original marble code
+.myMarble{
+border-radius: 100%;
+
+
+width:100px;
+height:100px;
+position:absolute;
+}
+
+.myMarbleY{
+
+position:absolute;
+  top:100px;
+}
+.myMarbleX{
+  position:absolute;
+left:-110px;
+}
+
+.invisible{
+  opacity:0;
+}
+*/
+.myMarble {
+  border-radius: 40%;
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.invisible {
+  opacity: 0;
+  transition: opacity 2s linear;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.myMarbleY {
+  /*i wanted to control all y transform aspects throught his however moving it did not move the marble*/
+  position: relative;
+  top: 100px;
+}
+
+.myMarbleX {
+  position: relative;
+  left: -110px;
+}
+
+/*name duration function delay direction iteration fill state*/
+/*page1stage1*/
+/*maybe a set distance and put in repititions*/
+.myMarbleYAnim {
+  /*drop on text*/
+  animation: yAxisStep1 1s cubic-bezier(1, .02, .91, .48) 1s normal 1 forwards running,
+    /*waits till roll across text then falls*/
+    yAxisStep2 0.5s cubic-bezier(1, .02, .91, .48) 3s normal 1 forwards running,
+    /*shoots up*/
+    yAxisStep3 0.5s cubic-bezier(.03, .86, .69, .78) 3.5s normal 1 forwards running;
+  /*
+   yAxisStep1 1s linear 2s forwards;
+*/
+}
+
+.myMarbleXAnim {
+  /*traj to text*/
+  animation: xAxisStep1 1s linear 1s normal 1 forwards running,
+    /*across text*/
+    xAxisStep2 1s linear 2s normal 1 forwards running,
+    /*fall off end*/
+    xAxisStep3 0.5s ease-out 3s normal 1 forwards running;
+  /*,
+     xAxisStep1 1.5s linear 3s forwards,
+      xAxisStep1 1.5s linear 4.5s reverse;
+*/
+  /*although made y 140 doesnt seem able to disappear of bottom of the screen way it goes off top*/
+}
+
+/*to make scroll available think i have to add a class to body with javascript
+so whole anmation may be better in jquery so dont have time in both css and jquery*/
+@keyframes yAxisStep1 {
+  100% {
+    transform: translateY(20vh)
+  }
+}
+
+@keyframes yAxisStep2 {
+  0% {
+    transform: translateY(20vh)
+  }
+
+  100% {
+    transform: translateY(140vh)
+  }
+}
+
+@keyframes yAxisStep3 {
+  0% {
+    transform: translateY(140vh)
+  }
+
+  70% {}
+
+  100% {
+    transform: translateY(-20vh)
+  }
+}
+
+/*i dont like having to seperate steps should
+just translate from new position
+but doesnt recognise new position as its
+position seems to know its translated
+this could work but its not where i want it
+https://css-tricks.com/restart-css-animation/
+*/
+@keyframes xAxisStep1 {
+  100% {
+    transform: translateX(35vw)
+  }
+}
+
+@keyframes xAxisStep2 {
+  0% {
+    transform: translateX(35vw)
+  }
+
+  100% {
+    transform: translateX(65vw)
+  }
+}
+
+@keyframes xAxisStep3 {
+  0% {
+    transform: translateX(65vw)
+  }
+
+  100% {
+    transform: translateX(85vw)
+  }
+}
+
+/*make it so can toggle between rolling and end rolling with pseudo ::*/
+.end-rolling {}
+
+.rolling {
+  animation:
+    spin 2s linear infinite forwards;
+}
+
+@keyframes spin {
+
+  /* trick will be starting from position it is in  */
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(720deg);
+  }
+
+  /*this should be additional rotation not set rotation*/
+  /* rotate should be a plan */
+}
+
+.businessCard {
+  /*there shouldnt be a scrolled bar is it because of border? */
+  /*one way of getting a business card look is by have a card shape maybe rest of website as background
+or a table wooden pattern behind
+*/
+  /*
+  margin: 12vh 2vw;
+  height:76vh;
+
+
+*/
+  background-color: #262626;
+  border-style: groove;
+  border-color: black;
+  color: black;
+  /* the px are making it so there is a scroll bar should put them as % and deduct from height*/
+  border-width: 5px 8px 8px 5px;
+}
+
+.buisnessCardText {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+.delayAppear{
+  opacity:0;
+
+  animation: fadeIn 2s  linear forwards;
+
+}
+
+@keyframes  fadeIn {
+
+  0%{opacity:0}
+  100%{opacity:1;}
+
+
+  /*
+0%{color:black}
+    100%{color: slategray}
+*/
+/*
+}
+*/
+.fontOrnaments {
+  font-size: 3rem;
+  font-family: 'nymphetteregular';
+}
+
+.drinkChoices {
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/*want to use button as has description key presses built in put struggling to override styling effects on images*/
+/*doing this works however does this mean all my buttons will have this setup! i may not want them all centered
+maybe can drill down with type and name
+*/
+/*need to specify drink buttons*/
+/*.drinkButton */
+.drinkButton {
+  justify-content: center;
+  align-content: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-align: inherit;
+  transition: background 250ms ease-in-out,
+    transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.drinkButton:hover,
+.drinkButton:focus {
+  /*at the moment when the mouse is over the drink and clicks
+it is still classed as hovering until the mouse is moved offset
+the button at which point the duration kicks in the drink rights itself
+this is despite removiing pointer event in js. a solution would be putting
+a new object on button press over the button and disapearing the buttonsso the
+new instantiated image is same rotation but isnt same object. Or if there
+was a way of liberating the image from its hierachy position absolute not work
+because it is still absolute relative to the thing it is in not a 0,0 coordinate
+*/
+  transition-duration: 1s;
+  transform: rotate(-15deg);
+}
+
+.drinkButton:focus {
+  /*
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+    */
+  outline: none;
+  /*works but click off and stops*/
+  /*
+    position: absolute;
+    animation: takeDrink 2s linear infinite;
+    */
+}
+
+/*
+button:active {
+    transform: scale(0.99);*/
+/*so here all buttons need to become unpressable and glass need to float to spot*/
+/*should i be using webkit transform?*/
+/*  background: #0053ba; */
+/*disable other buttons, put image overtop of button same location and float bottom left
+roll ball same time top left and bounce across the words and down
+then fade in corner stuff and have drink appear under the drink icon and the icon disappear
+same time bounce the ball up and move view up slightly and reveal tab as it get to last 10% of screen
+do both halfs of this action in 1s each
+    */
+/*
+  transition-duration: 0.75s;
+    transform: rotate(-15deg);
+*/
+/*should i be moving with jquery*/
+/*this is moving cell not just image!*/
+.drinkButton:active {
+  /*jquery here
+  position: absolute;
+  animation: takeDrink 2s linear infinite;
+  part of my animation issues have been using the animation twice and them clashing
+  and using them on the same object rather than say moving the box somthing is in
+  so going to try 2 divs call them x and y and the image can spin
+  translate saves on redraw! https://tobiasahlin.com/blog/curved-path-animations-in-css/
+  timed slide https://codepen.io/phy5prt/pen/eobwWB
+  */
+}
+
+.my-animation {
+  position: absolute;
+  /*need to set (not add) rotation because can end up rotated more than wanted on second trajectory*/
+  /*really want to delete and replace with another image unless its possible to make it fly to the new cell and go in it*/
+  /*was 2*/
+  animation: takeDrink 1s linear forwards;
+}
+
+/*put code into this see if can get working*/
+/*try animating tin dog see what happens*/
+@keyframes takeDrink {
+
+  /*could just use transition*/
+  /*https://css-tricks.com/using-multi-step-animations-transitions/*/
+  /*if set position it cant go over the top of the table*/
+  /*if set its start position it will slide but how do i get position its already at
+jquery
+*/
+  /*currently relative to self*/
+  0% {
+    right: 0vw;
+    top: 0vh;
+    /*may already be rotated so want to be able just to set it*/
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  60% {
+    transform: rotate(0);
+  }
+
+  80% {
+    transform: rotate(-15deg);
+  }
+
+  100% {
+    right: 50vw;
+    top: 40vh;
+    Opacity: 0;
+  }
+}
+
+/*
+
+
+with tin dog this worked
+  animation: takeDrink 3s linear infinite;
+  @keyframes takeDrink {
+0%{left:0px}
+  50% {
+
+left:1000px;
+
+   }100%{left:0px}}
+*/
+.drinkImages {
+  /* theyre not centered in their boxes*/
+  vertical-align: top;
+  max-height: 60px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/*
+background-image: none;v ---also not worked
+
+
+button{
+  background-color: Transparent;
+   background-repeat:no-repeat;
+   border: none;
+   cursor:pointer;
+   overflow: hidden;
+   outline:none;
+ }
+   button:focus {
+    border: none;
+}
+*/
+/*
+max-height:8vh;
+max-width:8vh;
+padding: 0 1vw 0 1vw;
+*/
+.colTight {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/*tried corners etc but not managed to change the corner colour within the code of the corner*/
+.corner-background {
+  /*if can get container to work wont need angles here*/
+  background-color: grey;
+  /*background: linear-gradient(45deg, yellow 0 50%, grey 50% 100%);
+/*background: linear-gradient(45deg, yellow 0 50%, Transparent 50% 100%);
+  */
+  position: fixed;
+  height: 375px;
+  width: 350px;
+  Transform: rotate(45deg);
+  bottom: -200px;
+  Left: -200px;
+  opacity: 0;
+}
+
+.corner-table {
+  /* visibility: hidden; */
+  /*update when got buttons*/
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
+  max-height: 30px;
+  border: 0;
+  padding: 0px 75px 0px 75px;
+  margin: 0px 0px 5px 7px;
+  font-size: 3rem;
+  color: #262626;
+}
+
+.corner-links {
+  Transform: rotate(-45deg);
+  max-height: 60px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#chosen-beverage {
+  opacity: 0;
+  /*change source and fade in*/
+}
+
+/*jquery for animations insteaD?
+https://css-tricks.com/controlling-css-animations-transitions-javascript/
+*/
+.fade-in-beverage {
+  /*careful i am animating it twice as fading in the section it is in too*/
+  /*was 3 and 2*/
+  animation: fadeIn 1.5s linear;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-corner {
+  /*delay isnt working*/
+  /*was 3*/
+  animation: fadeIn 1.5s linear forwards;
+  animation-fill-mode: forwards;
+}
+
+/*start end rolling could just be replaced by having rotation in the marble class and a transition not sure would slow it though*/
+/*should be able to get it so can toggle rolling and end rolling*/
+.end-rolling {
+  animation: spin ease-out linear 1s forwards;
+}
+
+/*overcome the ease issue by using from and to and the delay issue by instead of having two animation conflicting it one animation instyruction for both with delay*/
+/*http://cubic-bezier.com/#.42,0,1,1*/
+@keyframes {}
+
+@keyframes spin {
+
+  /* trick will be starting from position it is in  */
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(720deg);
+  }
+
+  /*
+0%{transform:rotate(0deg);}
+12.5%{transform:rotate(90deg);}
+25%{transform:rotate(180deg);}
+37.5%{transform:rotate(270deg);}
+50%{transform:rotate(360deg);}
+62.5%{transform:rotate(450deg);}
+75%{transform:rotate(540deg);}
+87.5%{transform:rotate(630deg);}
+100%{transform:rotate(720deg);}
+*/
+  /*this should be additional rotation not set rotation*/
+  /* rotate should be a plan */
+}
+
+@keyframes fadeIn {
+
+  /*reverts when anim complete*/
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*use something like this to reduce to just the tea icon*/
+@media (max-width:1028px) {}
