@@ -1,6 +1,10 @@
 
 
 $(document).ready(function(){
+$(".page1X0Y0").get(0).scrollIntoView();
+
+
+
 
 
 
@@ -11,11 +15,9 @@ var windowHeight=$(window).height();
 /*
 var goUp = $('#goUp');
 var windowHeight=$(window).height();
-
   goUp.on('click', function(e) {
   e.preventDefault();
   $('html, body').animate({scrollTop: windowHeight-20}, '300');
-
 });*/
 
 
@@ -78,18 +80,14 @@ $('.myMarbleX').addClass("myMarbleXAnim");
 
 /*as the ball reaches the top of the screen we want to follow it a little and drop
 a tab with an arrow and the marble collected that when clicked on move you to the next screen
-
-
-
 goUp.removeClass("btnbefore").addClass("btnafter");
-
 /*scroll  working can just do 0.95* however but want fixed number*/
 /*the delay is to allow the css animation which i dont like i feel all animation should be in one place*/
 /*.delay(350)*/
 e.preventDefault();
-$('html, body').delay(3800).animate({scrollTop: windowHeight-20}, '300');
+$('html, body').delay(3500).animate({scrollTop: windowHeight-20}, '300');
+setTimeout(function(){$(".tab2").removeClass("invisible").addClass("visible");},3800);
 
-$(".tab").delay(4000).removeClass("invisible").addClass("visible");
 
 
 
@@ -114,6 +112,13 @@ $(".page2X0Y1").get(0).scrollIntoView();
 
 });
 
+$(".tab2").click(function(){
+  /*maybe later allow it to toggle between backward and forward navigation*/
+$(".drinkButton").prop("disabled", true);
+$('html, body').animate({
+    scrollTop: $(".page2X0Y1").offset().top
+}, 800);
 
+});
 
 });

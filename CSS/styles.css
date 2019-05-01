@@ -2,6 +2,9 @@
 usinf this grey at moment later a black satin with stars as a patterned image  #262626 or something with card texture;
 a gold may want 	#59450d;
 */
+
+/*ive made it with my browser on 67% zoom!*/
+
 @font-face {
   font-family: 'nymphetteregular';
   src: url('Nymphette-webfont.eot');
@@ -32,28 +35,68 @@ body {
 
 /*just for testing*/
 /*because basing it off example im changing p and tabs depend on it which should be the case*/
-p {
-  position: absolute;
+
+.tab2 {
+	position: absolute;
+  display: inline-block;
+font-size: 4rem;
+height:90px;
+width:200px;
+
+  right:15vw;
+  top:-20px;
+
+/*change to button making it less buttony*/
+justify-content: center;
+align-content: center;
+border: none;
+padding: 0;
+margin: 0;
+text-decoration: none;
+background: inherit;
+color: inherit;
+font-family: inherit;
+cursor: pointer;
+text-align: inherit;
+
+
 }
 
-p::before {
-  content: '';
-  /* To generate the box */
-  position: absolute;
-  top: 0px;
-  left: 80vw;
-  height: 100px;
-  width: 200px;
-  z-index: 1;
-  color: black;
-  background: DimGrey;
-  transform: perspective(4px) rotateX(-1deg);
+
+.tab2::before {
+	content: ''; /* To generate the box */
+	position: absolute;
+  /*  top: 0px; right: 0px; bottom: 0px; left:0px;*/
+display:inline-block;
+
+
+	background: DimGrey;
+	transform: perspective(4px) rotateX(-1deg);
+
+  height:90px;
+  width:200px;
+  border-bottom-right-radius: 30px 50px;
+  border-bottom-left-radius: 30px 50px;
+  line-height : 35px;
+  text-overflow: ellipsis;
+
+}
+.tab2>Img{
+
+max-height: 50px;
+max-width:50px;
+padding:0px;
+position:relative;
+margin:10px 10px 30px;
+
+}
+.tab2>i{
+
+position:relative;
+margin:10px 10px 10px 30px;
+color:white;
 }
 
-p.tab::before {
-  /* Tip by @krofdrakula */
-  border-radius: 0 0 10px 10px;
-}
 
 #goUp {
   display: inline-block;
@@ -101,15 +144,11 @@ https://tobiasahlin.com/blog/curved-path-animations-in-css/
 /* original marble code
 .myMarble{
 border-radius: 100%;
-
-
 width:100px;
 height:100px;
 position:absolute;
 }
-
 .myMarbleY{
-
 position:absolute;
   top:100px;
 }
@@ -117,7 +156,6 @@ position:absolute;
   position:absolute;
 left:-110px;
 }
-
 .invisible{
   opacity:0;
 }
@@ -138,6 +176,15 @@ left:-110px;
 .visible {
   opacity: 1;
   transition: opacity 2s linear;
+}
+.tab2.invisible {
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+
+.tab2.visible {
+  opacity: 1;
+  transition: opacity 1s linear;
 }
 
 .myMarbleY {
@@ -274,8 +321,6 @@ or a table wooden pattern behind
   /*
   margin: 12vh 2vw;
   height:76vh;
-
-
 */
   background-color: #262626;
   border-style: groove;
@@ -296,17 +341,11 @@ or a table wooden pattern behind
 /*
 .delayAppear{
   opacity:0;
-
   animation: fadeIn 2s  linear forwards;
-
 }
-
 @keyframes  fadeIn {
-
   0%{opacity:0}
   100%{opacity:1;}
-
-
   /*
 0%{color:black}
     100%{color: slategray}
@@ -453,16 +492,12 @@ jquery
 }
 
 /*
-
-
 with tin dog this worked
   animation: takeDrink 3s linear infinite;
   @keyframes takeDrink {
 0%{left:0px}
   50% {
-
 left:1000px;
-
    }100%{left:0px}}
 */
 .drinkImages {
@@ -476,8 +511,6 @@ left:1000px;
 
 /*
 background-image: none;v ---also not worked
-
-
 button{
   background-color: Transparent;
    background-repeat:no-repeat;
