@@ -84,6 +84,8 @@ goUp.removeClass("btnbefore").addClass("btnafter");
 /*scroll  working can just do 0.95* however but want fixed number*/
 /*the delay is to allow the css animation which i dont like i feel all animation should be in one place*/
 /*.delay(350)*/
+
+/*used to be a bit of kick with bounce which i liked lost it not need tuning*/
 e.preventDefault();
 $('html, body').delay(3500).animate({scrollTop: windowHeight-20}, '300');
 setTimeout(function(){$(".tab2").removeClass("invisible").addClass("visible");},3800);
@@ -115,9 +117,18 @@ $(".page2X0Y1").get(0).scrollIntoView();
 $(".tab2").click(function(){
   /*maybe later allow it to toggle between backward and forward navigation*/
 $(".drinkButton").prop("disabled", true);
+
+/*place marble may animate later*/
+$(".myMarble").removeClass("rolling");
+$(".myMarbleY").css("top","-53vh").css("right","16vw");
+
+
+
+
 $('html, body').animate({
     scrollTop: $(".page2X0Y1").offset().top
 }, 800);
+/*im not dealing with this at moment so getting marble in the right place is just so i can see what im making*/
 
 /*should i delete the other page with transition*/
 /*for now I am going to delete the bits im not ready to use*/
@@ -126,7 +137,7 @@ $(".tab2").removeClass("visible").addClass("invisible");
 /*probably dont need time out probs can just put it on the end*/
 setTimeout(function(){
 $(".tab2").remove();
-$(".myMarbleY").remove();
+
 
 },3000);
 
@@ -137,6 +148,16 @@ $(".test").click(function(){
   $('html, body').animate({
       scrollTop: $(".page2X0Y1").offset().top
   }, 1);
+  $(".myMarble").removeClass("invisible");
 
+   $(".myMarble").addClass("visible");
+   $(".myMarble").removeClass("rolling");
+  $(".myMarbleY").css("transform","translateY(-81vh)");
+  $(".myMarbleX").css("transform","translateX(69vw)");
 });
 });
+
+
+
+
+/*nice underline*/
