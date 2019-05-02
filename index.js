@@ -119,6 +119,24 @@ $('html, body').animate({
     scrollTop: $(".page2X0Y1").offset().top
 }, 800);
 
-});
+/*should i delete the other page with transition*/
+/*for now I am going to delete the bits im not ready to use*/
+/*i should be using toggle*/
+$(".tab2").removeClass("visible").addClass("invisible");
+/*probably dont need time out probs can just put it on the end*/
+setTimeout(function(){
+$(".tab2").remove();
+$(".myMarbleY").remove();
 
+},3000);
+
+});
+/*the test button is like cheat short cut of the moment*/
+$(".test").click(function(){
+
+  $('html, body').animate({
+      scrollTop: $(".page2X0Y1").offset().top
+  }, 1);
+
+});
 });

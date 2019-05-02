@@ -5,6 +5,9 @@ a gold may want 	#59450d;
 
 /*ive made it with my browser on 67% zoom!*/
 
+/*  use to get my wall paper effects  https://themarklee.com/2013/11/29/get-started-css-gradients/   */
+
+
 @font-face {
   font-family: 'nymphetteregular';
   src: url('Nymphette-webfont.eot');
@@ -117,9 +120,107 @@ color:white;
 }
 
 .page2X0Y1 {
+/*its going to be important that with different screen ratios that background angle still matches the words*/
+
+
+/*how i make the background work will probably change when i animate and want the two to match*/
+
+  /*may have to make some divs in funny shapes to get effect i want*/
+  /*or several backgrounds using background size*/
+  /*different screen will have different ratios so do i keep vh vw same and alter gradients
+  ot just have gradient going corner to corner - think later*/
   position: relative;
   height: 100vh;
   width: 100vw;
+  /*https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients*/
+  /*would the parabola program i used for animation time work here?*/
+  /*build in steps*/
+  /*first want colour in linear gradient coming from top to middle*/
+/*
+  background: linear-gradient(beige, plum);
+  */
+    /*second want colour solid 5px between where they meet*/
+    /*background: linear-gradient(white, yellow 35%, #262626 35%,plum 37%, white);*/
+
+
+    /*third want not the gradient but the stopping point of the line and colours diagnol*/
+/*third and a bit diagnol*/
+/*the angle is true angle so may need to get the window ratio
+to from corners is also true angles
+i can change angle and i can change background size i think my best option is set them
+angle based on window ratio and move based on background size
+if use negative angle reverse order of colours
+can also adjust background size to adjust for screen ration by multiplying an element
+also the gradient is based off the centre see
+https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Composition_of_a_linear_gradient
+ig set starting point elsewhere could work
+*/
+/*use ful for angles https://medium.com/@patrickbrosset/do-you-really-understand-css-linear-gradients-631d9a895caf*/
+/*use two percentage for start and stop*/
+/*  background: linear-gradient(to bottom right,white, yellow 35%, #262626 35%,plum 37%, white);*/
+/*background-size: 130vw 100vh; width then height*/
+/*background-position: +30vh ; width then height*/
+
+/*this code is only the area the line is in so if made colours transparent or made this the top layer
+and put a replica underneith then will get effect im after however in this code the gradient is starting
+from the reduced background size window so maybe it is better just to have it full size and put z layers over the top
+of the same without the line - though this would have line in wrong place so maybe better to
+adjust the numbers to account for the change in background size so start at negative and go over position
+its percentages so these arnt the right numbers but the idea would be white -20% 120%, yellow 45%, #262626 45%,plum 47%, white);
+or maybe straight using vw vh will ignore the background size the issue is white and yellow not starting in top corner and plum white not ending in it
+so could try find a way to use vh vw with it but its percentages of the gradient
+*/
+
+/*layering https://codepen.io/thebabydino/pen/Kuvom*/
+/*
+background: linear-gradient(36deg, #272b66 42.34%, transparent 42.34%),
+    linear-gradient(72deg, #2d559f 75.48%, transparent 75.48%),
+    linear-gradient(-36deg, #9ac147 42.34%, transparent 42.34%) 100% 0,
+    linear-gradient(-72deg, #639b47 75.48%, transparent 75.48%) 100% 0,
+    linear-gradient(36deg, transparent 57.66%, #e1e23b 57.66%) 100% 100%,
+    linear-gradient(72deg, transparent 24.52%, #f7941e 24.52%) 100% 100%,
+    linear-gradient(-36deg, transparent 57.66%, #662a6c 57.66%) 0 100%,
+    linear-gradient(-72deg, transparent 24.52%, #9a1d34 24.52%) 0 100%,
+    #43a1cd linear-gradient(#ba3e2e, #ba3e2e) 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  animation: layer 10s infinite linear;
+}
+*/
+
+
+/*
+background:
+background-size: 80vw 60vh;
+background-position: top 10vh left 0px;
+background-repeat:no-repeat;
+*/
+
+/*need to blend edges*/
+background:
+/*top level*/
+/*pink yellow slice*/
+/*
+linear-gradient(to bottom right, white, yellow 45%, transparent 45%,plum 46%, white),*/
+linear-gradient(to bottom right, white, yellow 45%,yellow, transparent,plum,plum 47%, white),
+/*middle black layer with transparent cornet*/
+
+linear-gradient(to top right, black 70%, transparent 71%),
+/*bottom layer that will be reveal through gap on both*/
+
+linear-gradient(to bottom right, white, yellow ,plum , white);
+
+
+/*top and right seem to be altering by pushing of the view pot not the area outside */
+/*transform:rotate(-25deg); doesnt seem to offer an advantage at this point thought might if using seperate divs*/
+      /*forth want the stops and line to be 0 to 80% from left then the rest of diagonal
+      a blend with blending diagnol but gradient vertical*/
+      /*is it adjusting to show whole background even if i make it bigger than view port
+      is the colour limitied to a percentage of the 100% size not actual so would i need for
+      a 200vw a 200% colour spread
+      look at background attachment works with scroll but may be relavent*/
+
+
 
 }
 
@@ -162,6 +263,7 @@ left:-110px;
 */
 .myMarble {
   border-radius: 40%;
+  /*background delete*/
   background-color: blue;
   width: 100px;
   height: 100px;
@@ -604,7 +706,7 @@ https://css-tricks.com/controlling-css-animations-transitions-javascript/
 
 /*overcome the ease issue by using from and to and the delay issue by instead of having two animation conflicting it one animation instyruction for both with delay*/
 /*http://cubic-bezier.com/#.42,0,1,1*/
-@keyframes {}
+
 
 @keyframes spin {
 
