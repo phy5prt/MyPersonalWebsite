@@ -152,11 +152,11 @@ or a border over the top of both which is the pattern with transparency it has t
 */
 .case2position {
   /*a few marbles width*/
-  width: 220px;
+  width: 120px;
   height: 70vh;
   position: absolute;
   z-index: 86;
-  right: -170px;
+  right: -70px;
   /*to accommodate border something like this would be useful top: 50vh - 40px;*/
   top: 10vh;
   margin: 4em auto;
@@ -180,11 +180,11 @@ or a border over the top of both which is the pattern with transparency it has t
   position: absolute;
   bottom: -40px;
   left: -36px;
-  z-index: -1;
+  z-index: 80;/*-1;*/
 
   /*will this change to inherit*/
-  width: 220px;
-  height: 220px;
+  width: inherit;
+  height: inherit;
   border-bottom: 40px solid brown;
   border-left: 40px solid transparent;
 }
@@ -199,20 +199,25 @@ or a border over the top of both which is the pattern with transparency it has t
   position: absolute;
   bottom: -40px;
   left: -40px;
-  z-index: -1;
-  /*will this change to inherit*/
-  width: 220px;
+  z-index: 80;/*-1;*/
+  /*if this is set to inherit the pattern moves as the object is stretched
+  so width needs to match the maximum_size in the js*/
+
+  width: 800px;
   height: inherit;
   border-top: 0px;
   border-right: 0px;
   border-bottom: 40px solid;
-  /*if i use rgb colours and put transparency into the colours of the grain I could make the black not be as clearly drawn over*/
   border-left: 40px solid;
   border-image: repeating-radial-gradient(transparent, olive 5px, brown 5px, olive 5px) 30;
+  /*the grain looks nicer when the width is 220px so maybe alter the setting for the pattern
+    try to recreate it by altering the numbers for the gradient*/
+    /*if i use rgb colours and put transparency into the colours of the grain I could make the black not be as clearly drawn over*/
+  /*  border-image: repeating-radial-gradient(transparent, olive 10px, brown 10px, olive 10px) 30;*/
 }
 
 .case2Inside {
-  filter: blur(8px);
+  filter: blur(8px);/*8*/
   /*
   backdrop-filter:blur(1000px);
   isnt supported on chrome and most work around have found are based of using transparency in the background and pseudo layers which wont work for me as i want to be able to slide over elements
@@ -274,6 +279,45 @@ or a border over the top of both which is the pattern with transparency it has t
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.9), inset 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
+.myflex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  flex-wrap: wrap-reverse;
+  display: flex;
+  width:inherit;
+  /*height:inherit; if set height it will spread pictures evenly needs to respond
+  to them and make itself tall enough maybe maximum height and overflow hidden
+  would help when lots of marbles*/
+    /*justify-content:flex-end;*/
+    position:absolute;
+    bottom:40px;
+    padding:0px 0px 10px 15px;
+    /* max-height: height:inherit; not supported in ie "custom properties"*/
+  /* doesnt work max-height:100;
+    overflow:hidden;*/
+/*max width works not height
+    max-width:100%;
+    max-height:10%;*/
+  }
+
+/*del when have images*/
+.myflex-item {
+  width: 100px;
+  height: 100px;
+
+  outline:solid black 2px;
+  outline-offset:-2px;
+  border-radius:100px;
+  background: deepskyblue;
+  padding: 0;
+  margin: 0;
+
+}
+
+
+
 .pCard {
   /*need an equation for gradient and put the bottom centre 1/7th down it*/
   width: 3vw;
@@ -316,7 +360,7 @@ or a border over the top of both which is the pattern with transparency it has t
 .Scroll {
   overflow-x: hidden;
 }
-
+/*make a and mymarble the same*/
 .myMarble {
   border-radius: 40%;
   /*background delete*/
@@ -324,6 +368,14 @@ or a border over the top of both which is the pattern with transparency it has t
   width: 100px;
   height: 100px;
   position: absolute;
+}
+.aMarble{
+  border-radius: 40%;
+  /*background delete*/
+  background-color: white;
+  width: 100px;
+  height: 100px;
+
 }
 
 .invisible {

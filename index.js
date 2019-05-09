@@ -95,50 +95,43 @@ $(document).ready(function() {
     $(".myMarbleX").css("transform", "translateX(69vw)");
   });
 
-
-
-
   /*Make resizable div a simplified version base on one by Hung Nguyen*/
-  function makeResizableDiv(div) {
-    const element = document.querySelector('div');
+    function makeResizableDiv(div) {
+      const element = document.querySelector('div');
 
-    const minimum_size = 220;
-    const maximum_size = 400;
-    let original_width = 0;
-    let original_x = 0;
-    let original_mouse_x = 0;
+      const minimum_size = 180;
+      const maximum_size = 800;
+      let original_width = 0;
+      let original_x = 0;
+      let original_mouse_x = 0;
 
+        element.addEventListener('mousedown', function(e) {
+          e.preventDefault();
+          original_width = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));
 
-      element.addEventListener('mousedown', function(e) {
-        e.preventDefault();
-        original_width = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));
+          original_x = element.getBoundingClientRect().left;
+          original_mouse_x = e.pageX;
 
-        original_x = element.getBoundingClientRect().left;
-        original_mouse_x = e.pageX;
+          window.addEventListener('mousemove', resize);
+          window.addEventListener('mouseup', stopResize);
+        });
 
-        window.addEventListener('mousemove', resize);
-        window.addEventListener('mouseup', stopResize);
-      });
+        function resize(e) {
 
-      function resize(e) {
+            const width = original_width - (e.pageX - original_mouse_x);
 
-          const width = original_width - (e.pageX - original_mouse_x);
+            if (width > minimum_size && width < maximum_size) {
+              element.style.width = width + 'px';
+              element.style.left = original_x + (e.pageX - original_mouse_x) + 'px';
+            }
 
-          if (width > minimum_size && width < maximum_size) {
-            element.style.width = width + 'px';
-            element.style.left = original_x + (e.pageX - original_mouse_x) + 'px';
           }
 
+        function stopResize() {
+          window.removeEventListener('mousemove', resize);
         }
 
-
-
-
-      function stopResize() {
-        window.removeEventListener('mousemove', resize);
-      }
-
-  }
-  /*applies resizeable*/
-  makeResizableDiv('.case2position');
+    }
+    /*applies resizeable*/
+    makeResizableDiv('.case2position');
 });
