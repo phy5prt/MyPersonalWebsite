@@ -112,22 +112,58 @@ body {
     linear-gradient(165deg, white, yellow, plum, white);
 }
 
-.pg2Do {
+.pg2Text {
   position: absolute;
   height: 50vh;
   width: 50vw;
   /*to match the angle of the gradient will have to find the viewport ratio*/
   transform: rotate(-15deg);
-  top: 0;
-  left: 0vw;
+
   font-family: 'Noto Sans', sans-serif;
   font-size: 5rem;
-  text-decoration: underline;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  white-space: pre;
+  /*this was so i could use spaces to get an underline but was unable to make my underline
+  an arrow
+  white-space: pre;*/
+}
+/*need a proper arrow <------ */
+/*need position off top so always in right place compared to text*/
+/*tried percent and pix etc, i think issue is the text behaviour*/
+/*this is because the arrow was positioned relative to the top not centre and the text is centred
+this means that arrow moves with shrink but text doesnt so need to be in identical boxes
+but with something pushing the arrow down while still central e.g. padding, being in a div
+with top from it
+*/
+.pg2Text.higher{
+  top: 0;
+  left: 0vw;
+}
+.pg2Text.lower {
+
+  /*to match the angle of the gradient will have to find the viewport ratio*/
+
+  bottom: 5vh;
+  right: 25vw;
+
+
+}
+
+.arrow{
+  position:absolute;
+
+  /*matching font size to try and get in underline position
+  top:15rem;top:18vh;  height: 15rem;width: 90rem;*max-width: 60px;
+  height: inherit;width: 100%;top:36.5%;*/
+  /*match padding to text size*/
+padding-top: 5rem;
+height: 250px;
+width: 1250px;
+}
+.arrow.right{
+   transform: scaleX(-1);
 }
 
 /*
@@ -329,22 +365,7 @@ or a border over the top of both which is the pattern with transparency it has t
   transform: perspective(4px) rotateY(2deg);
 }
 
-.pg2CanUse {
-  height: 50vh;
-  width: 50vw;
-  /*to match the angle of the gradient will have to find the viewport ratio*/
-  position: absolute;
-  bottom: 5vh;
-  right: 25vw;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 5rem;
-  text-decoration: underline;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  white-space: pre;
-}
+
 
 .page1X0Y0 {
   position: relative;
