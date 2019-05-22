@@ -39,8 +39,8 @@ $(document).ready(function() {
 
     $('.myMarbleX').addClass("myMarbleXAnim");
     /*use transition to make it fade in*/
-    $(".myMarble").removeClass("invisible");
-    $(".myMarble").addClass("visible");
+    $(".myMarbleImg").removeClass("invisible");
+    $(".myMarbleImg").addClass("visible");
 
     /*as the ball reaches the top of the screen we want to follow it a little and drop
     a tab with an arrow and the marble collected that when clicked on move you to the next screen
@@ -61,9 +61,27 @@ $(document).ready(function() {
     $(".drinkButton").prop("disabled", true);
 
     /*place marble may animate later*/
-    $(".myMarble").removeClass("rolling");
-    $(".myMarbleY").css("top", "-53vh").css("right", "16vw");
+    $(".myMarbleImg").removeClass("rollingClockwise");
+    /*think i need to contain the whole marble in someting to move it so can keep its animate x and y div*/
+    /*also there is two! so need to select only first*/
+    /*myMarbleX and myMarble y have a left and top position, but they should just be handles the marble should of started in a container with these handles
+when redo animation will have to put it in such a container or have it start invisible and change the animation start location for Now
+will just remove these attributes
+    */
+    $('.myMarbleY').removeClass("myMarbleYAnim");
+    $('.myMarbleX').removeClass("myMarbleXAnim");
+    $('.myMarbleY').css({"top":"0"});
+    $('.myMarbleX').css({"left":"0"});
+    /*
+    $(".myMarble").detach().prependTo(".containerToReceiveMyMarblePG2");*/
+    /*going to put it in the page as im hoping if in the same space as the background can move it in parrallel easier */
+    $(".myMarble").detach().prependTo(".page2X0Y1");
+    $(".myMarble").addClass("myMarblePg2Start");
 
+
+    /*
+    $(".myMarbleY").css("top", "-53vh").css("right", "16vw");
+*/
 
     $('html, body').animate({
       scrollTop: $(".page2X0Y1").offset().top
@@ -79,7 +97,9 @@ $(document).ready(function() {
       $(".tab2").remove();
 
     }, 3000);
-
+    /*later make the handle slide into view instead from the right*/
+    /*dont like should be positioned where i want it then should change it fixed*/
+    $(".case2position");
   });
   /*the test button is like cheat short cut of the moment*/
   $(".test").click(function() {
@@ -87,13 +107,80 @@ $(document).ready(function() {
     $('html, body').animate({
       scrollTop: $(".page2X0Y1").offset().top
     }, 1);
-    $(".myMarble").removeClass("invisible");
+    $(".myMarbleImg").removeClass("invisible");
 
-    $(".myMarble").addClass("visible");
-    $(".myMarble").removeClass("rolling");
+    $(".myMarbleImg").addClass("visible");
+    $(".myMarbleImg").removeClass("rollingClockwise");
+
+
     $(".myMarbleY").css("transform", "translateY(-81vh)");
     $(".myMarbleX").css("transform", "translateX(69vw)");
+
+    /*once cant see bottom screen should replace it with another ready for when we follow the ball down diagonally to the third*/
   });
+
+  $(".pCard").click(function() {
+    /*later replace making it invisible with rotating it looking at it and popping a second marble out of its middles
+shrink and drop it behind and both can roll to next page
+    */
+$(".pCard").addClass("invisible");
+/*make spin*/
+$(".myMarbleImg").addClass("rollingAntiClockwise");
+/*move marble same angle as the background gap 135*/
+/*really need some code to trace the trajectory */
+/*
+instead use jquery animate
+
+$(".containerToReceiveMyMarblePG2").addClass("pg2MarbleAnimX");
+$(".containerToReceiveMyMarblePG2").addClass("pg2MarbleAnimY");
+$(".myMarbleX").addClass("pg2MarbleAnimX");
+$(".myMarbleY").addClass("pg2MarbleAnimY");
+*/
+
+/*seems to ease in and ease out which dont want */
+/*here is the math to make it work but already seems to https://medium.com/@patrickbrosset/do-you-really-understand-css-linear-gradients-631d9a895caf*/
+$(".myMarble").animate({left: '-10vw', top:'50vh',
+
+
+/*
+  scrollTop: $(".page2X0Y1").offset().top,
+
+  */
+
+
+
+},1000, 'linear');
+
+/*detach page 1 replace with page 4*/
+/*where keep pg4*/
+/*code whole page in*/
+$(".page1X0Y0").replaceWith(
+  "<section class='page4X0Y0'  ></section>"
+);
+/*the issue is that the page isnt existing*/
+
+
+/*
+$('html, body').animate({
+
+/*worked before isnt now does work if replace it with 4X0Y0*/
+/*  scrollTop: $(".page3X-1Y0.5").offset().top
+}, 1000);
+*/
+$('html, body').animate({
+  scrollTop: $(".page3X-1Y0.5").offset().top
+}, 1);
+
+/*
+.prependTo(".page2X0Y1");
+*/
+
+/*here or elsewhere change pg1 replace it with pg 4*/
+/*load up pg 3 it middle at the join between one a two and screen one screen to left*/
+/*roll the myMarble down the slope and follow it*/
+
+  });
+
 
   /*Make resizable div a simplified version base on one by Hung Nguyen*/
     function makeResizableDiv(div) {
