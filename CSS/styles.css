@@ -864,6 +864,48 @@ border-width: 10px 0px 10px 2px;
 }
 */
 
+
+/*so if i set their start position different can i apply the same code to move them instead of having their own*/
+/*marbles set by 100px sio that they are next to each other with space for the rolling in marbles
+
+*/
+
+.marbleOnShape1{
+  position:absolute;
+  right:500px;
+  top:3vh;
+  z-index:3;
+}
+.marbleOnShape1Y{}
+.marbleOnShape1X{}
+
+.marbleOnShape2{
+  position:absolute;
+  right:600px;
+  top:3vh;
+    z-index:3;
+}
+.marbleOnShape2Y{}
+.marbleOnShape2X{}
+
+.marbleOnShape3{
+  position:absolute;
+  right:400px;
+  top:3vh;
+    z-index:3;
+}
+.marbleOnShape3Y{}
+.marbleOnShape3X{}
+
+
+
+
+
+
+
+
+
+
 .bestCardsArea {
 
 /*at large sizes of px or vh vw get border bottom difference in hieght between two objects
@@ -874,7 +916,7 @@ the two objects are exactly the same i think
   /*
    position:absolute;
 */
-  z-index: 86;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -945,6 +987,25 @@ however this will make the curve small
  border-radius: 0% 0% 0% 7%;
 
 }
+
+.pg3ShapeTxtTop{
+position:absolute;
+top:0;
+right:0;
+color:white;
+/*padding matches h1 space*/
+padding-right:3.5rem;
+
+}
+.pg3ShapeTxtBottom{
+
+  position:absolute;
+    left:0;
+    bottom:0;
+    color:white;
+    padding-left:3.5rem;
+}
+
 .card{
   /*later will have set objects to go i  n but for now*/
  /*
@@ -973,6 +1034,26 @@ however this will make the curve small
     margin-right: auto;
     margin-left: auto;
 }
+
+
+.pg4Text{
+  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
+when refactor set the h's to the same font but different font sizes and have this one as h1
+  */
+  font-size: 5rem;
+  font-family: 'PT Serif', serif;
+  line-height: 1.5em;
+
+  color:black;
+  position:absolute;
+  right:0;
+  top:0;
+  
+  /*use margin or */
+  margin:5vh 5vw;
+}
+
+
 
 .corner-background {
   background-color: grey;

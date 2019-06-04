@@ -120,6 +120,15 @@ will just remove these attributes
   });
 
   $(".pCard").click(function() {
+
+    /*detach page 1 replace with page 4*/
+    /*where keep pg4*/
+    /*code whole page in*/
+    /*im building the html in here maybe its better to have it at the beginning but hidden or something or build it somewhere offscreen and then swap it in*/
+    $(".page1X0Y0").replaceWith(
+      "<section class='page4X0Y0'><div class='pg4Text'>Phil Tate</div>      </section>"
+    );
+
     /*later replace making it invisible with rotating it looking at it and popping a second marble out of its middles
 shrink and drop it behind and both can roll to next page
     */
@@ -148,15 +157,12 @@ $(".myMarble").animate({left: '-10vw', top:'50vh',
   */
 
 
+/*remvoing the class sets it back to where it was it would be better just to stop and start, i thought using forward kept the animation end state
+may not work though when removing class instead of just pausing animation so need to change that
+*/
+},800, 'linear').animate({left:'-20vw', top:'53vh'},200, function(){$(".myMarbleImg").removeClass("rollingAntiClockwise");});
 
-},1000, 'linear');
 
-/*detach page 1 replace with page 4*/
-/*where keep pg4*/
-/*code whole page in*/
-$(".page1X0Y0").replaceWith(
-  "<section class='page4X0Y0'  ></section>"
-);
 /*the issue is that the page isnt existing*/
 
 
@@ -167,9 +173,14 @@ $('html, body').animate({
 /*  scrollTop: $(".page3X-1Y0.5").offset().top
 }, 1000);
 */
+
+
 $('html, body').animate({
-  scrollTop: $(".page3X-1Y0.5").offset().top
-}, 1);
+  scrollTop: $(".page3").offset().top,
+  scrollLeft: $(".page3").offset().left
+}, 1000);
+
+
 
 /*
 .prependTo(".page2X0Y1");
