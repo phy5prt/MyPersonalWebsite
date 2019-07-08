@@ -1,0 +1,293 @@
+/*do i need object can i just use marbleOnShape*/
+.page3 {
+  position: absolute;
+  /*for centering its shape*/
+  display: flex;
+  flex-direction: column;
+  top: 50vh;
+  height: 100vh;
+  width: 100vw;
+  /*screen extend right but not left*/
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(
+    /*trying to get a glow around it ideally eliptical angle
+     you can negative inset border then transparent out circle
+     or i could put thee background in its own dive
+
+     circle at 50%,*/
+    yellow, yellow, white);
+}
+.marbleOnShape1{
+  position:absolute;
+  right:0px;
+
+  z-index:3;
+    top:-100px;
+}
+.marbleOnShape1Y{}
+.marbleOnShape1X{}
+
+.marbleOnShape2{
+  position:absolute;
+  right:0px;
+  top:-100px;
+    z-index:3;
+}
+.marbleOnShape2Y{}
+.marbleOnShape2X{}
+
+
+
+
+
+
+
+
+
+
+
+
+.bestCardsArea {
+
+/*at large sizes of px or vh vw get border bottom difference in hieght between two objects
+the two objects are exactly the same i think
+*/
+  width: 80vw;
+ 	height: 80vh;
+  /*
+   position:absolute;
+*/
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+
+.shape2 {
+
+
+
+width: inherit;
+height: inherit;
+position:absolute;
+/*z-index:1;*/
+  /*padding is to get bootstrap in place*/
+padding:10vh 15vw;
+margin:0px 0px 0px 0px;
+
+ background:radial-gradient(ellipse at 50%, purple 50%, plum);
+ /*border colour a black with alpha*/
+
+  border-color:rgba(0, 0, 0, 0.75);
+  border-style: solid;
+  /*make bottom 10px again later just trying to se the gap*/
+
+  border-bottom-color:black;
+  border-width: 10px 0px 10px 2px;
+ 
+  border-radius: 60% 0% 60% 0%; 
+
+  /* nice how it cuts over edge of card but lose the flick too so would need to be on a second container, only hides does not make the contents shrink to fit
+   overflow-y:hidden;*/
+
+
+}
+
+.shape2:after {
+/*why is this 10px lower down*/
+  bottom:-10px;
+
+  /*this is off the 80px*/
+  /*this left amount needs to be proportional to the width or
+the radial on the border needs to be so the curve does not start curving before
+it should
+maybe altering the width could acheive this and setting a full curve
+  */
+  /*needs to be minimum marble size calc(-5vw -40px not working)*/
+  left: -5vw;
+
+  z-index: -1;
+  content: "";
+  /*the width needs to put the centre point on the boundary*/
+  /*its straight now so it can be the width it needs to be and left the width it needs to be
+however this will make the curve small
+  */
+  /* width needs to be half  and currently its 70 no doesnt work*/
+  width:20vw;
+	height: inherit;
+  position: absolute;
+  padding:0px 0px 0px 0px;
+  margin:0px 0px 0px 0px;
+
+ /*transparent transparent black transparent*/
+ border-color:transparent transparent black transparent;
+ border-style: solid;
+
+ border-width: 10px 0px 10px 2px;
+ /*only need bottom left*/
+ border-radius: 0% 0% 0% 7%;
+
+}
+
+.pg3ShapeTxtTop{
+position:absolute;
+top:0;
+right:0;
+color:white;
+/*padding matches h1 space*/
+padding-right:3.5rem;
+
+}
+.pg3ShapeTxtBottom{
+
+  position:absolute;
+    left:0;
+    bottom:0;
+    color:white;
+    padding-left:3.5rem;
+}
+
+.card{
+  /*later will have set objects to go i  n but for now*/
+ /*
+  width:15vw;
+  height:35vh;
+  */
+  /*need something to keep the ratio*/
+  min-width:125px;
+  min-height:150px;
+  background:grey;
+
+
+  /*or use bootstrap center-block*/
+  display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+.magnifier{
+  width:100px;
+  height:100px;
+  background:green;
+
+  /*or use bootstrap center-block*/
+  display: inline;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.pg4Text{
+  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
+when refactor set the h's to the same font but different font sizes and have this one as h1
+  */
+  font-size: 5rem;
+  font-family: 'PT Serif', serif;
+  line-height: 1.5em;
+
+  color:black;
+  position:absolute;
+  right:0;
+  top:0;
+  
+  /*use margin or */
+  margin:5vh 5vw;
+}
+
+.aMarble {
+  border-radius: 40%;
+  /*background delete*/
+  background-color: white;
+  width: 100px;
+  height: 100px;
+}
+
+
+.object1{
+  height:10px;
+  width:10px;
+  background:red;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:100;
+}
+.object2{
+  height:10px;
+  width:10px;
+  background:orange;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:100;
+}
+.object3{
+  height:10px;
+  width:10px;
+  background:blue;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:100;
+}
+
+.marbleOnShape3{
+  position:absolute;
+  right:0px;
+  /*top is -100px because thats its own height and want the blue dot in its bottom right*/
+  top:-100px;
+    z-index:3;
+  
+  
+}
+.marbleOnShape3Y{}
+.marbleOnShape3X{}
+
+
+
+.containerMagnifier {
+	width: 100px;
+  height:100px;
+	margin:  auto;
+box-sizing: border-box;
+   /*transform-origin:350*3/10 350*6/10;*/
+/*
+  this works for providing a starting angle however it seems to cause the magnifier to exclude some of its circle
+   transform:rotate(230deg);
+  */
+}
+
+.dial {
+  /*ive halfed the image size and set its height and width as the width and height. if this were to be dynamic and the image change size with the viewport then i would need to write some code calculating the center for the origin to set transform origin and it may be necessary to change the jquery code as well to catch these variables*/
+	width: 100px;
+	height: 100px;
+
+   
+  /*x y*/
+  /*if open magnifier on paint and find the exact pixel center of magnifier works perfectly*/
+     transform-origin:40px 70px;    
+  /*put in percent to be more flexible if change size of the img but keep the ratio but for now i want easy access to number of pixels for using in the jquery
+  transform-origin:44% 29%;*/
+ 
+
+  
+ /*transform-origin:350*3/10 350*6/10;*/
+position:absolute;
+}
+.theMagnifier{
+  /*center image*/
+/*its 1022 833 so half size 511 417*/
+  position:absolute;
+  margin:auto;
+ display:flex;
+width:inherit;
+  height:inherit;
+/*if change image rotation need to change the mouse and rotation center points*/
+
+  transform:  rotate(220deg);
+
+  /*could code to center the image on the middle of the magnifying glass however */
+}
+

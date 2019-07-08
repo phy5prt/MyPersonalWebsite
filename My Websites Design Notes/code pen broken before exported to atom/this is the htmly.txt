@@ -1,0 +1,129 @@
+﻿<button>JQuery test</button>
+<section  class="page3">
+
+  <!--rows supposed to be in container dont know how to do this-->
+
+<div class="object1" >
+  <div class="marbleOnShape1">
+    <div class="marbleOnShape1Y">
+      <div class="marbleOnShape1X">
+        <img class="aMarble " src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/C_Sharp_wordmark.svg/1200px-C_Sharp_wordmark.svg.png" alt="nodejs marble">
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="object2">
+  <div class="marbleOnShape2">
+    <div class="marbleOnShape2Y">
+      <div class="marbleOnShape2X">
+        <img class="aMarble " src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/C_Sharp_wordmark.svg/1200px-C_Sharp_wordmark.svg.png" alt="csharp marble">
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="object3" >
+    <div class="marbleOnShape3">
+    <div class="marbleOnShape3Y">
+      <div class="marbleOnShape3X">
+        <img class="aMarble " src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/C_Sharp_wordmark.svg/1200px-C_Sharp_wordmark.svg.png" alt="unity marble">
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="bestCardsArea">
+     <div class="shape2">
+       <div class="pg3ShapeTxtTop">
+      <h1>   My Favourite Projects </h1>
+       </div>
+       <div class="container-fluid bestCardsContainer text-center">
+       <!--container needs to be centered and contents-->
+       <!--order effects order they collapse to no more useful that actually putting them in that order think would be more useful for grabbing with jq-->
+       <!--should order for mobile then push and pull for desktop-->
+
+
+ <div class="row ">
+   <!--centered by pushing probably not the best way-->
+     <div class="col-sm-8 offset-sm-2 ">
+
+      <div class="alert alert-warning ">
+        <div class="magnifier">
+          
+          
+
+<div class="container containerMagnifier">
+  
+	<div class="dial">
+    <img class="theMagnifier " src="        https://www.clipart1001.com/wp-content/uploads/2018/08/Magnifying-Glass-Clipart-Transparent-Background.png" alt="a magnifier">
+    
+  </div>
+</div>
+
+           <!-- keep theses as other options for the future
+                  <img class="aMarble " src="        https://longfordpc.com/images/lens-clipart-spy-glass-9.png" alt="a magnifier">
+           <img class="aMarble " src="        http://www.sclance.com/pngs/magnifying-glass-clipart-png/magnifying_glass_clipart_png_831987.jpg">
+                   <img class="aMarble " src="https://www.clipartmax.com/png/middle/305-3050949_pin-magnifying-glass-clipart-free-advertising.png" alt="a magnifier">
+       Magnifier
+-->
+          </div>
+
+      </div>
+       
+    </div>
+   </div>
+  <div class="row">
+
+
+    <div class="col-md-12 col-lg-4  order-1 order-lg-2">
+      <div class="alert alert-warning">
+        <div class="card">
+               <img class="aMarble " src="https://www.nicepng.com/png/full/71-712607_magnifying-glass-clipart-png-magnifying-glass.png" alt="a magnifier">
+          
+               important card
+          
+          </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1">
+      <div class="alert alert-info ">
+         <div class="card">
+                          <img class="aMarble " src="https://i0.wp.com/blogs.perficient.com/files/2014/10/magnifying_glass.png?fit=469%2C296&ssl=1" alt="a magnifier">
+               left card
+          </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-4  order-3 order-lg-3 ">
+      <div class="alert alert-danger ">
+      <div class="card">
+        
+               right card
+        <img class="aMarble " src="        https://www.clipart1001.com/wp-content/uploads/2018/08/Magnifying-Glass-Clipart-Transparent-Background.png" alt="a magnifier">
+
+          </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+ </div>
+       <div class="pg3ShapeTxtBottom"><h1>
+
+<!--
+http://xahlee.info/comp/unicode_arrows.html
+-->
+<!--dont like the arrow when get proper ones for pg2 use that-->
+         See the whole deck → </h1></div>
+</div>
+</div>
+
+
+
+</section>
