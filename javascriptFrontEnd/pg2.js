@@ -9,7 +9,7 @@ $(document).ready(function() {
     /*code whole page in*/
     /*im building the html in here maybe its better to have it at the beginning but hidden or something or build it somewhere offscreen and then swap it in*/
     $(".page1X0Y0").replaceWith(
-      "<section class='page4X0Y0'><div class='pg4Text'>Phil Tate</div>      </section>"
+      "<section class='page4X0Y0'>      </section>"
     );
 
     /*later replace making it invisible with rotating it looking at it and popping a second marble out of its middles

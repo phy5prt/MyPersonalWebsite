@@ -27,7 +27,7 @@ body {
   /*dont need this but making explicit as can extend element out right of screen not left so need to make from bottom right*/
 /*  width: 200vw;
   height: 200vh;*/
-  background-color: red;
+  background:linear-gradient(  white, yellow 50%, yellow 50%,white);
   /*red useful for now but later background: radial-gradient( */
      /*trying to get a glow around it ideally eliptical angle
      you can negative inset border then transparent out circle
@@ -451,19 +451,7 @@ height: 100px;
   left: 100vw;
 }
 
-.page4X0Y0 {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  left: 100vw;
-  /*top level*/
-  /*pink yellow slice*/
-  /*should percents be vh vw*/
-  /*because the size of the two pink sections is different the colours dont blend perfectly*/
-  /*this is currently fine as colurs will probably change */
-  background: linear-gradient(-165deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
-  background-position: center;
-}
+
 
 .page3 {
   position: absolute;
@@ -1180,6 +1168,99 @@ when refactor set the h's to the same font but different font sizes and have thi
     opacity: 1;
   }
 }
+
+/*///////////////////////////////////PG4*/
+/*
+.page4X0Y0 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
+  /*top level*/
+  /*pink yellow slice*/
+  /*should percents be vh vw*/
+  /*because the size of the two pink sections is different the colours dont blend perfectly*/
+  /*this is currently fine as colurs will probably change */
+  /*
+  background: linear-gradient(-165deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
+  background-position: center;
+}
+
+*/
+.page4X0Y0 {
+  /*to blend the edge of pg4 and 2 could use blur*/
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
+    background: linear-gradient(-165deg, white, plum 43%, plum,  yellow, yellow 45%, white);
+  background-position: center;
+
+}
+.page4X0Y0::after{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  /*left: 100vw;*/
+/*195 same as -165*/
+
+
+content:'';
+  /*some options for the line with different looks*/
+   /*background: linear-gradient(-165deg, white, plum 43%, black 43%, black 43.5%, transparent 45%);*/
+  background: linear-gradient(-165deg, white, plum 43%, black 43%, black 44%, transparent 44%);
+    background-position: center;
+  z-index:2;
+}
+
+.pg4Text{
+  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
+when refactor set the h's to the same font but different font sizes and have this one as h1
+  */
+  font-size: 5rem;
+  font-family: 'PT Serif', serif;
+  line-height: 1.5em;
+
+  color:black;
+  position:absolute;
+  right:0;
+  top:0;
+
+  /*use margin or */
+  margin:5vh 5vw;
+  z-index:3;
+}
+
+.cardPG4{
+  width:150px;
+  height:200px;
+  margin:0px 10px 10px;
+  background-color:lightCyan;/*lightBlue*/
+  font-size:5rem;
+  position:absolute;
+}
+
+
+/*/////////// Testing*/
+.dot{
+  position: absolute;
+  height:10px; width:10px;
+
+  background-color:red;
+}
+.dot2{
+  position: absolute;
+  height:10px; width:10px;
+
+  background-color:blue;
+}
+
+
+
+
+
+
+
 
 /*use something like this to reduce to just the tea icon see media notes in notes document*/
 @media (max-width:1028px) {}

@@ -239,10 +239,14 @@ var wheelListnerIncMagRad = function(e){
  //  return false; //to stop the scroll bar scroll might work outside of code pen
     }
 window.addEventListener('wheel', wheelListnerIncMagRad,  false);
+window.addEventListener("resize", updatePG3VarsWithWindow); //this seemed to be missing from moving it over form codepen
 
 function runPageTransistion(){console.log("page transistion triggered");
+
 window.removeEventListener("resize", updatePG3VarsWithWindow);
 window.removeEventListener("wheel",  wheelListnerIncMagRad);
+placementLoop();
+window.addEventListener("resize", updatePG4WithWindow);
 
 $(".aMarble").addClass("rollingClockwise");
 $(".myMarbleImg").addClass("rollingClockwise");
