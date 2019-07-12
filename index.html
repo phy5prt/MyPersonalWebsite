@@ -16,6 +16,7 @@
 
 
   <link rel="stylesheet" href="CSS/styles.css">
+
   <link rel="icon" href="Images/favicon.ico">
   <!-- need reducing to two font families one style each once know which i need-->
   <!--font awesome-->
@@ -28,7 +29,8 @@
 <!--put no scroll back in later-->
 <!--class="no Scroll"-->
 
-<body>
+<body >
+  <div class="grayTillViewPortMove"></div>
   <!--the marble case works here for now but needs to go in section eventually
 so need either to drill down with css or js depending what is inhibiting it needs a transition
 for opening and closing maybe if opened more than half way continues less than a quater closes
@@ -261,135 +263,137 @@ changes to what it would of been if it had not been at an angle because of hover
 
     </section>
   </section>
-<!--all the pushes and pulls and centering worked in bootstrap sandstone on codepen, changed the bootstrap when
+  <!--all the pushes and pulls and centering worked in bootstrap sandstone on codepen, changed the bootstrap when
 found didnt work here and didnt work on both
 in 4.3.1 need use order and offset
 -->
-<section  class="page3">
+  <section class="page3">
 
-  <!--rows supposed to be in container dont know how to do this-->
+    <!--rows supposed to be in container dont know how to do this-->
 
 
-  <div class="marbleOnShape1">
-    <div class="marbleOnShape1Y">
-      <div class="marbleOnShape1X">
-        <img class="aMarble " src="Images\marbles\nodejs.png" alt="nodejs marble">
+    <div class="marbleOnShape1">
+      <div class="marbleOnShape1Y">
+        <div class="marbleOnShape1X">
+          <img class="aMarble " src="Images\marbles\nodejs.png" alt="nodejs marble">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="marbleOnShape2">
-    <div class="marbleOnShape2Y">
-      <div class="marbleOnShape2X">
-        <img class="aMarble " src="Images\marbles\Csharp_logo.png" alt="csharp marble">
+    <div class="marbleOnShape2">
+      <div class="marbleOnShape2Y">
+        <div class="marbleOnShape2X">
+          <img class="aMarble " src="Images\marbles\Csharp_logo.png" alt="csharp marble">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="marbleOnShape3">
-    <div class="marbleOnShape3Y">
-      <div class="marbleOnShape3X">
-        <img class="aMarble " src="Images\marbles\git.png" alt="git marble">
+    <div class="marbleOnShape3">
+      <div class="marbleOnShape3Y">
+        <div class="marbleOnShape3X">
+          <img class="aMarble " src="Images\marbles\git.png" alt="git marble">
+        </div>
       </div>
     </div>
-  </div>
 
 
 
-  <div class="bestCardsArea">
-   <div class="shape2">
-     <div class="pg3ShapeTxtTop">
-    <h1>   My Favourite Projects </h1>
-     </div>
-     <div class="container-fluid bestCardsContainer text-center">
-     <!--container needs to be centered and contents-->
-     <!--order effects order they collapse to no more useful that actually putting them in that order think would be more useful for grabbing with jq-->
-     <!--should order for mobile then push and pull for desktop-->
+    <div class="bestCardsArea">
+      <div class="shape2">
+        <div class="pg3ShapeTxtTop">
+          <h1> My Favourite Projects </h1>
+        </div>
+        <div class="container-fluid bestCardsContainer text-center">
+          <!--container needs to be centered and contents-->
+          <!--order effects order they collapse to no more useful that actually putting them in that order think would be more useful for grabbing with jq-->
+          <!--should order for mobile then push and pull for desktop-->
 
 
-<div class="row ">
- <!--centered by pushing probably not the best way-->
-   <div class="col-sm-8 offset-sm-2 ">
+          <div class="row ">
+            <!--centered by pushing probably not the best way-->
+            <div class="col-sm-8 offset-sm-2 ">
 
-    <div class="alert alert-warning ">
-      <div class="magnifier">
+              <div class="alert alert-warning ">
+                <div class="magnifier">
 
 
 
-<div class="container containerMagnifier">
+                  <div class="container containerMagnifier">
 
-<div class="dial">
-  <img class="theMagnifier " src="        https://www.clipart1001.com/wp-content/uploads/2018/08/Magnifying-Glass-Clipart-Transparent-Background.png" alt="a magnifier">
+                    <div class="dial">
+                      <img class="theMagnifier " src="        https://www.clipart1001.com/wp-content/uploads/2018/08/Magnifying-Glass-Clipart-Transparent-Background.png" alt="a magnifier">
 
-</div>
-</div>
+                    </div>
+                  </div>
 
-         <!-- keep theses as other options for the future
+                  <!-- keep theses as other options for the future
                 <img class="aMarble " src="        https://longfordpc.com/images/lens-clipart-spy-glass-9.png" alt="a magnifier">
          <img class="aMarble " src="        http://www.sclance.com/pngs/magnifying-glass-clipart-png/magnifying_glass_clipart_png_831987.jpg">
                  <img class="aMarble " src="https://www.clipartmax.com/png/middle/305-3050949_pin-magnifying-glass-clipart-free-advertising.png" alt="a magnifier">
      Magnifier
 -->
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+
+
+            <div class="col-md-12 col-lg-4  order-1 order-lg-2">
+              <div class="alert alert-warning">
+                <div class="card">
+                  <img class="aMarble " src="https://www.nicepng.com/png/full/71-712607_magnifying-glass-clipart-png-magnifying-glass.png" alt="a magnifier">
+
+                  important card
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1">
+              <div class="alert alert-info ">
+                <div class="card">
+                  <img class="aMarble " src="https://i0.wp.com/blogs.perficient.com/files/2014/10/magnifying_glass.png?fit=469%2C296&ssl=1" alt="a magnifier">
+                  left card
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-lg-4  order-3 order-lg-3 ">
+              <div class="alert alert-danger ">
+                <div class="card">
+
+                  right card
+                  <img class="aMarble " src="        https://www.clipart1001.com/wp-content/uploads/2018/08/Magnifying-Glass-Clipart-Transparent-Background.png" alt="a magnifier">
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+
         </div>
+        <div class="pg3ShapeTxtBottom">
+          <h1>
 
-    </div>
-
-  </div>
- </div>
-<div class="row">
-
-
-  <div class="col-md-12 col-lg-4  order-1 order-lg-2">
-    <div class="alert alert-warning">
-      <div class="card">
-             <img class="aMarble " src="https://www.nicepng.com/png/full/71-712607_magnifying-glass-clipart-png-magnifying-glass.png" alt="a magnifier">
-
-             important card
-
-        </div>
-
-    </div>
-  </div>
-
-  <div class="col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1">
-    <div class="alert alert-info ">
-       <div class="card">
-                        <img class="aMarble " src="https://i0.wp.com/blogs.perficient.com/files/2014/10/magnifying_glass.png?fit=469%2C296&ssl=1" alt="a magnifier">
-             left card
-        </div>
-    </div>
-  </div>
-
-  <div class="col-xs-12 col-md-6 col-lg-4  order-3 order-lg-3 ">
-    <div class="alert alert-danger ">
-    <div class="card">
-
-             right card
-      <img class="aMarble " src="        https://www.clipart1001.com/wp-content/uploads/2018/08/Magnifying-Glass-Clipart-Transparent-Background.png" alt="a magnifier">
-
-        </div>
-    </div>
-  </div>
-
-
-
-</div>
-
-
-</div>
-     <div class="pg3ShapeTxtBottom"><h1>
-
-<!--
+            <!--
 http://xahlee.info/comp/unicode_arrows.html
 -->
-<!--dont like the arrow when get proper ones for pg2 use that-->
-       See the whole deck → </h1></div>
-</div>
-</div>
+            <!--dont like the arrow when get proper ones for pg2 use that-->
+            See the whole deck → </h1>
+        </div>
+      </div>
+    </div>
 
 
 
-</section>
+  </section>
 
 
 
@@ -441,13 +445,13 @@ http://xahlee.info/comp/unicode_arrows.html
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="javascriptFrontEnd/pageIndepent.js" charset="utf-8"></script>
-<script src="javascriptFrontEnd/pg1.js" charset="utf-8"></script>
-<script src="javascriptFrontEnd/pg2.js" charset="utf-8"></script>
-<script src="javascriptFrontEnd/pg3.js" charset="utf-8"></script>
-<script src="javascriptFrontEnd/pg4.js" charset="utf-8"></script>
+  <script src="javascriptFrontEnd/pageIndepent.js" charset="utf-8"></script>
+  <script src="javascriptFrontEnd/pg1.js" charset="utf-8"></script>
+  <script src="javascriptFrontEnd/pg2.js" charset="utf-8"></script>
+  <script src="javascriptFrontEnd/pg3.js" charset="utf-8"></script>
+  <script src="javascriptFrontEnd/pg4.js" charset="utf-8"></script>
 
-<script src="javascriptFrontEnd/testCode.js" charset="utf-8"></script>
+  <script src="javascriptFrontEnd/testCode.js" charset="utf-8"></script>
 
 
 </body>

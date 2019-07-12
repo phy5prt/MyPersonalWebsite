@@ -37,6 +37,17 @@ body {
      /*      yellow 50%, yellow, white);   */
 }
 
+
+.grayTillViewPortMove{
+  position:absolute;
+  z-index:100;
+  background: #262626;
+  width:200vw;
+  height:200vh;
+  top:0vh;
+  left:0vw;
+}
+
 /*just for testing*/
 .tab2 {
   position: absolute;
@@ -139,7 +150,7 @@ causes it to behave undesireably with heigh change */
   position: absolute;
   top: 24vh;
   left: 67vw;
-  z-index: 100;
+  z-index: 3;
 }
 
 .pg2Text {
@@ -484,7 +495,7 @@ height: 100px;
 
 /*make a and mymarble the same*/
 .myMarbleImg {
-  border-radius: 40%;
+  border-radius: 50%;
   /*background delete*/
   background-color: blue;
   width: 100px;
