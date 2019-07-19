@@ -37,6 +37,14 @@ body {
      /*      yellow 50%, yellow, white);   */
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+a :hover { color:
+/*  white;*/
+yellow;
+}
 
 .grayTillViewPortMove{
   position:absolute;
@@ -469,6 +477,7 @@ height: 100px;
   /*for centering its shape*/
   display: flex;
   flex-direction: column;
+
   top: 50vh;
   height: 100vh;
   width: 100vw;
@@ -1071,8 +1080,15 @@ padding-right:3.5rem;
 
   /*or use bootstrap center-block*/
   display: block;
+
     margin-right: auto;
     margin-left: auto;
+
+}
+.bestCardsContainer{/*unnecessary take outhtml too*/
+  /*width:inherit;
+  height:inherit;*/
+  /*display:block;*/
 
 }
 .magnifier{

@@ -30,6 +30,7 @@
 <!--class="no Scroll"-->
 
 <body >
+<!----><!--button for testing-->
   <div class="grayTillViewPortMove"></div>
   <!--the marble case works here for now but needs to go in section eventually
 so need either to drill down with css or js depending what is inhibiting it needs a transition
@@ -41,7 +42,7 @@ for opening and closing maybe if opened more than half way continues less than a
 
 
 
-  <!--button for testing-->
+
   <!--
 <a href="#" class="positionHref"></a>
 -->
@@ -299,11 +300,13 @@ in 4.3.1 need use order and offset
 
 
     <div class="bestCardsArea">
+
+
       <div class="shape2">
         <div class="pg3ShapeTxtTop">
           <h1> My Favourite Projects </h1>
         </div>
-        <div class="container-fluid bestCardsContainer text-center">
+        <div class="bestCardsContainer container text-center"><!--rows should always be in containers column in row and a div in column before anything else-->
           <!--container needs to be centered and contents-->
           <!--order effects order they collapse to no more useful that actually putting them in that order think would be more useful for grabbing with jq-->
           <!--should order for mobile then push and pull for desktop-->
@@ -311,6 +314,7 @@ in 4.3.1 need use order and offset
 
           <div class="row ">
             <!--centered by pushing probably not the best way-->
+
             <div class="col-sm-8 offset-sm-2 ">
 
               <div class="alert alert-warning ">
@@ -344,20 +348,19 @@ in 4.3.1 need use order and offset
             <div class="col-md-12 col-lg-4  order-1 order-lg-2">
               <div class="alert alert-warning">
                 <div class="card">
-                  <img class="aMarble " src="https://www.nicepng.com/png/full/71-712607_magnifying-glass-clipart-png-magnifying-glass.png" alt="a magnifier">
+
 
                   important card
 
-                </div>
-
+      #
+</div>
               </div>
             </div>
 
             <div class="col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1">
               <div class="alert alert-info ">
                 <div class="card">
-                  <img class="aMarble " src="https://i0.wp.com/blogs.perficient.com/files/2014/10/magnifying_glass.png?fit=469%2C296&ssl=1" alt="a magnifier">
-                  left card
+                left card
                 </div>
               </div>
             </div>
@@ -367,7 +370,6 @@ in 4.3.1 need use order and offset
                 <div class="card">
 
                   right card
-                  <img class="aMarble " src="        https://www.clipart1001.com/wp-content/uploads/2018/08/Magnifying-Glass-Clipart-Transparent-Background.png" alt="a magnifier">
 
                 </div>
               </div>
@@ -412,17 +414,25 @@ http://xahlee.info/comp/unicode_arrows.html
           <i class="fas fa-expand-arrows-alt corner-links"></i>
         </div>
         <div class="col-sm-4">
-          <i class="far fa-envelope corner-links"></i>
+          <a href="mailto:philip.r.tate@gmail.com?&subject=Cool%20website%20we%20want%20to%20offer%20you%20a%20job&body=Amazing%20job%20goes%20here!">
+          <i class="far fa-envelope corner-links"></i></a>
+
+
+
         </div>
         <div class="col-sm-4">
           <!--later will change source to the image they picked-->
 
-          <img id="chosen-beverage" class="corner-links " src="Images/tea.png" alt="tea">
+          <img id="chosen-beverage" class="corner-links " src="Images/tea.png" alt="tea" >
+<!--     <a href="https://github.com/phy5prt/CV">--> <!--this is wrong place but it works-->
+
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <h1><i class="fas fa-file-download "></i></h1>
+           <a href="https://github.com/phy5prt/CV">
+          <h1><i class="fas fa-file-download "></i></h1></a>
+
         </div>
 
       </div>
@@ -445,13 +455,15 @@ http://xahlee.info/comp/unicode_arrows.html
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <script src="javascriptFrontEnd/pageIndepent.js" charset="utf-8"></script>
-  <script src="javascriptFrontEnd/pg1.js" charset="utf-8"></script>
-  <script src="javascriptFrontEnd/pg2.js" charset="utf-8"></script>
-  <script src="javascriptFrontEnd/pg3.js" charset="utf-8"></script>
-  <script src="javascriptFrontEnd/pg4.js" charset="utf-8"></script>
+  <script src="Javascript/pageIndependent.js" charset="utf-8"></script>
+  <script src="Javascript/pg1.js" charset="utf-8"></script>
+  <script src="Javascript/pg2.js" charset="utf-8"></script>
+  <script src="Javascript/pg3.js" charset="utf-8"></script>
+  <script src="Javascript/pg4.js" charset="utf-8"></script>
 
-  <script src="javascriptFrontEnd/testCode.js" charset="utf-8"></script>
+  <script src="Javascript/testCode.js" charset="utf-8"></script>
+
+
 
 
 </body>

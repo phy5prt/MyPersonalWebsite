@@ -1,7 +1,6 @@
 /*jshint esversion: 6 */
 
 
-
 //the line im after is about at 44
 /*  background: linear-gradient(-165deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;*/
 
@@ -80,6 +79,7 @@ function placementLoop() {
   var cardsPlaced = 0;
   var cardsConsecutivelyNotPlaced = 0;
   var htmlString = "";
+
 
 
   while (cardsStillToBePlaced) {
