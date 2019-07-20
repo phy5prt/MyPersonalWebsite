@@ -12,15 +12,13 @@ var path = require("path");
 
 app.use(express.static(path.resolve(__dirname+"/../frontEnd")));
 
-//app.use("view-engine", "ejs");
 
 app.get("/", function(req,res){
 
 
 
 res.sendFile(path.resolve(__dirname+"/../frontEnd/index.html"));   //should i not put index in the static folder it makes this line redundant
-//put res . render here
-//res.render("index", {});
+
 });
 
 
