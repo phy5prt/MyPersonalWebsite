@@ -31,7 +31,7 @@
 
 <body >
 <!----><!--button for testing-->
-  <div class="grayTillViewPortMove"></div>
+  <div class="grayUntilJQueryLoads"></div>
   <!--the marble case works here for now but needs to go in section eventually
 so need either to drill down with css or js depending what is inhibiting it needs a transition
 for opening and closing maybe if opened more than half way continues less than a quater closes
@@ -123,7 +123,7 @@ maybe even ajoining a space for the marble
 -->
     <div class="pg2CardLocation">
       <div class="pCard">Make a card class</div>
-      <div class="containerToReceiveMyMarblePG2"></div>
+      <div class="containerToReceivephilProfileMarblePG2"></div>
     </div>
 
 
@@ -134,14 +134,14 @@ maybe even ajoining a space for the marble
 
   </section>
 
-  <section class="page1X0Y0">
+  <section class="bottomRightPage1">
     <!--<i class="fas fa-sort-up"></i>-->
 
 
-    <button class="tab2 invisible">
+    <button class="tabPage1To2 invisible">
 
       <i class="fas fa-caret-up"></i>
-      <img class="myMarbleImg " src="Images\marbles\wellItsAFace.png" alt="My Picture Marble tab">
+      <img class="philProfileMarbleImg " src="Images\marbles\wellItsAFace.png" alt="My Picture Marble tab">
 
     </button>
 
@@ -156,12 +156,12 @@ maybe even ajoining a space for the marble
 
       <!--lots issues with animations and transforms on same object overwriting so a
 div for x axis one for y and the image itself for spin-->
-      <div class="myMarble">
+      <div class="philProfileMarble">
 
 
-        <div class="myMarbleY">
-          <div class="myMarbleX">
-            <img class="myMarbleImg rollingClockwise invisible" src="Images\marbles\wellItsAFace.png" alt="My Picture Marble">
+        <div class="philProfileMarbleY">
+          <div class="philProfileMarbleX">
+            <img class="philProfileMarbleImg rollingClockwise invisible" src="Images\marbles\wellItsAFace.png" alt="My Picture Marble">
           </div>
         </div>
       </div>
@@ -455,7 +455,7 @@ http://xahlee.info/comp/unicode_arrows.html
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <script src="Javascript/pageIndependent.js" charset="utf-8"></script>
+  <script src="Javascript/utils.js" charset="utf-8"></script>
   <script src="Javascript/pg1.js" charset="utf-8"></script>
   <script src="Javascript/pg2.js" charset="utf-8"></script>
   <script src="Javascript/pg3.js" charset="utf-8"></script>

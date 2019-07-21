@@ -8,7 +8,7 @@ $(".pCard").click(function() {
   /*where keep pg4*/
   /*code whole page in*/
   /*im building the html in here maybe its better to have it at the beginning but hidden or something or build it somewhere offscreen and then swap it in*/
-  $(".page1X0Y0").replaceWith(
+  $(".bottomRightPage1").replaceWith(
     "<section class='page4X0Y0'>      </section>"
   );
 
@@ -17,16 +17,16 @@ shrink and drop it behind and both can roll to next page
     */
   $(".pCard").addClass("invisible");
   /*make spin*/
-  $(".myMarbleImg").addClass("rollingAntiClockwise");
+  $(".philProfileMarbleImg").addClass("rollingAntiClockwise");
   /*move marble same angle as the background gap 135*/
   /*really need some code to trace the trajectory */
   /*
   instead use jquery animate
 
-  $(".containerToReceiveMyMarblePG2").addClass("pg2MarbleAnimX");
-  $(".containerToReceiveMyMarblePG2").addClass("pg2MarbleAnimY");
-  $(".myMarbleX").addClass("pg2MarbleAnimX");
-  $(".myMarbleY").addClass("pg2MarbleAnimY");
+  $(".containerToReceivephilProfileMarblePG2").addClass("pg2MarbleAnimX");
+  $(".containerToReceivephilProfileMarblePG2").addClass("pg2MarbleAnimY");
+  $(".philProfileMarbleX").addClass("pg2MarbleAnimX");
+  $(".philProfileMarbleY").addClass("pg2MarbleAnimY");
   */
 
   /*seems to ease in and ease out which dont want */
@@ -36,7 +36,7 @@ shrink and drop it behind and both can roll to next page
   window.addEventListener("resize", updatePG3VarsWithWindow);
   ifInArcApplyDrag(setInitVars());
 
-  $(".myMarble").animate({
+  $(".philProfileMarble").animate({
     left: '-10vw',
     top: '50vh',
 
@@ -54,8 +54,8 @@ shrink and drop it behind and both can roll to next page
     left: '-20vw',
     top: '53vh'
   }, 200, function() {
-    $(".myMarbleImg").removeClass("rollingAntiClockwise");
-    makeMarble3MyMarble();
+    $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
+    makeMarble3philProfileMarble();
   });
 
 
@@ -84,7 +84,7 @@ shrink and drop it behind and both can roll to next page
 
   /*here or elsewhere change pg1 replace it with pg 4*/
   /*load up pg 3 it middle at the join between one a two and screen one screen to left*/
-  /*roll the myMarble down the slope and follow it*/
+  /*roll the philProfileMarble down the slope and follow it*/
 
   window.addEventListener('wheel', wheelListnerIncMagRad, false);
   window.addEventListener("resize", updatePG3VarsWithWindow);

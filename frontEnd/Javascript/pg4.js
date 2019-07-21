@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-
+//can i replace card placement with res.write
 
 //the line im after is about at 44
 /*  background: linear-gradient(-165deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;*/

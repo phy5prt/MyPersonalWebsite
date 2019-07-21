@@ -108,6 +108,10 @@ app.route("/projectCards/:projectName")
 
 app.get("/", function(req,res){
 
+//res.sendFile(__dirname+"/indexEJS.html") - replaced by res render
+//res.render("myWebsite",{myData:desiredData});
+ProjectCard.find(function(err,projectCards){res.render("myWebsite",{myData:projectCards});});
+
 
 
 

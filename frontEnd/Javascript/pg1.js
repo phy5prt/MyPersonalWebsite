@@ -1,34 +1,20 @@
 /*jshint esversion: 6 */
-$(".page1X0Y0").get(0).scrollIntoView();
-$(".grayTillViewPortMove").remove();
-
-
-//think will need document ready in all the code files
-
-var windowHeight = $(window).height();
+$(".bottomRightPage1").get(0).scrollIntoView();
+$(".grayUntilJQueryLoads").remove();
 
 $(" .drinkButton ").click(function(e) {
 
+  $(".drinkButton").prop("disabled", true); //TODO need to stop unhovering from drinks Div changing animation trajectory
 
-  /*need to set it to permament tilt then disable or when mouse comes off hover will set
-  directory off the other trajectory*/
-  $(".drinkButton").prop("disabled", true);
-  /*so hovering doesnt tilt it during flight*/
-  /*
-  $(this).find("img").unbind("mouseenter mouseleave");
-  $(this).unbind("mouseenter mouseleave");
-  */
   $(this).find("img").css(
     "pointer-events", "none"
   );
   $(this).css(
     "pointer-events", "none"
   );
-  /*doesnt seem to stop it reverting on not hover*/
 
   /*this moves the chosen glass*/
   $(this).find("img").addClass("my-animation");
-
 
   /*this fades in corner*/
   $("#corner-nav").addClass("fade-in-corner");
@@ -38,32 +24,22 @@ $(" .drinkButton ").click(function(e) {
   $("#chosen-beverage").addClass("fade-in-beverage");
 
 
-  $('.myMarbleY').addClass("myMarbleYAnim");
-
-  $('.myMarbleX').addClass("myMarbleXAnim");
+  $('.philProfileMarbleY').addClass("philProfileMarbleYAnim");
+  $('.philProfileMarbleX').addClass("philProfileMarbleXAnim");
   /*use transition to make it fade in*/
-  $(".myMarbleImg").removeClass("invisible");
-  $(".myMarbleImg").addClass("visible");
+  $(".philProfileMarbleImg").removeClass("invisible");
+  $(".philProfileMarbleImg").addClass("visible");
 
-  /*as the ball reaches the top of the screen we want to follow it a little and drop
-  a tab with an arrow and the marble collected that when clicked on move you to the next screen
+  //as the ball reaches the top of the screen we want to follow it a little and drop
 
-  /*used to be a bit of kick with bounce which i liked lost it not needs tuning*/
+  //used to be a bit of kick with bounce which i liked lost it not needs tuning
   e.preventDefault();
+
   $('html, body').delay(3500).animate({
     scrollTop: windowHeight - 20
   }, '300');
   setTimeout(function() {
-    $(".tab2").removeClass("invisible").addClass("visible");
-
-
-
-
-
-
-
-
-
+    $(".tabPage1To2").removeClass("invisible").addClass("visible");
   }, 3800);
 
   setTimeout(function() {
@@ -72,30 +48,30 @@ $(" .drinkButton ").click(function(e) {
     $(".drinkButton").prop("disabled", true);
 
     /*place marble may animate later*/
-    $(".myMarbleImg").removeClass("rollingClockwise");
+    $(".philProfileMarbleImg").removeClass("rollingClockwise");
     /*think i need to contain the whole marble in someting to move it so can keep its animate x and y div*/
     /*also there is two! so need to select only first*/
-    /*myMarbleX and myMarble y have a left and top position, but they should just be handles the marble should of started in a container with these handles
+    /*philProfileMarbleX and philProfileMarble y have a left and top position, but they should just be handles the marble should of started in a container with these handles
        when redo animation will have to put it in such a container or have it start invisible and change the animation start location for Now
        will just remove these attributes
         */
-    $('.myMarbleY').removeClass("myMarbleYAnim");
-    $('.myMarbleX').removeClass("myMarbleXAnim");
-    $('.myMarbleY').css({
+    $('.philProfileMarbleY').removeClass("philProfileMarbleYAnim");
+    $('.philProfileMarbleX').removeClass("philProfileMarbleXAnim");
+    $('.philProfileMarbleY').css({
       "top": "0"
     });
-    $('.myMarbleX').css({
+    $('.philProfileMarbleX').css({
       "left": "0"
     });
     /*
-    $(".myMarble").detach().prependTo(".containerToReceiveMyMarblePG2");*/
+    $(".philProfileMarble").detach().prependTo(".containerToReceivephilProfileMarblePG2");*/
     /*going to put it in the page as im hoping if in the same space as the background can move it in parrallel easier */
-    $(".myMarble").detach().prependTo(".page2X0Y1");
-    $(".myMarble").addClass("myMarblePg2Start");
+    $(".philProfileMarble").detach().prependTo(".page2X0Y1");
+    $(".philProfileMarble").addClass("philProfileMarblePg2Start");
 
 
     /*
-        $(".myMarbleY").css("top", "-53vh").css("right", "16vw");
+        $(".philProfileMarbleY").css("top", "-53vh").css("right", "16vw");
        */
 
   }, 4150); //this is a magic number at moment it should be all the animation times added together
@@ -103,7 +79,7 @@ $(" .drinkButton ").click(function(e) {
 });
 
 
-$(".tab2").click(function() {
+$(".tabPage1To2").click(function() {
 
 
   $('html, body').animate({
@@ -114,11 +90,11 @@ $(".tab2").click(function() {
   /*should i delete the other page with transition*/
   /*for now I am going to delete the bits im not ready to use*/
   /*i should be using toggle*/
-  $(".tab2").removeClass("visible").addClass("invisible");
-  $(".tab2").children('img').removeClass("visible").addClass("invisible");
+  $(".tabPage1To2").removeClass("visible").addClass("invisible");
+  $(".tabPage1To2").children('img').removeClass("visible").addClass("invisible");
   /*probably dont need time out probs can just put it on the end*/
   setTimeout(function() {
-    $(".tab2").remove();
+    $(".tabPage1To2").remove();
 
   }, 3000);
   /*later make the handle slide into view instead from the right*/
