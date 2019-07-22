@@ -1,15 +1,482 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- bootstrap -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Help Phil Find His Marbles</title>
 
 
 
 
-    <h1>IM HERE! <%=myData%></h1>
 
-  </body>
+  <link rel="stylesheet" href="CSS/styles.css">
+
+  <link rel="icon" href="Images/favicon.ico">
+  <!-- need reducing to two font families one style each once know which i need-->
+  <!--font awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Noto+Sans:400,400i|PT+Serif:400,400i|Roboto:300,500,500i" rel="stylesheet">
+
+
+</head>
+<!--put no scroll back in later-->
+<!--class="no Scroll"-->
+
+<body >
+  <h6>  <%=page2BestCard.projectName   %> </h6>
+  <h2>  <%= page3SecondBestCard.overallProjectRating  %>  </h2>
+  <h5>  <%= page3ThirdBestCard.projectDescription  %>  </h5>
+  <h4>  <%= page3ForthBestCard.projectImage  %>   </h4>
+
+  <div class="grayUntilJQueryLoads"></div>
+  <!--the marble case works here for now but needs to go in section eventually
+so need either to drill down with css or js depending what is inhibiting it needs a transition
+for opening and closing maybe if opened more than half way continues less than a quater closes
+-->
+
+
+  <!--need invisible then remove. latter have it slide into view on pg2-->
+
+
+
+
+  <!--
+<a href="#" class="positionHref"></a>
+-->
+  <!--
+<body class="noScroll">
+-->
+  <!--pages are the full view port X and Y are the coordinates so if had a T
+made of 3 screens in width and 3 screens in height
+the middles of the top of T may be X2Y3-->
+
+  <!--think i need like a look here function and it put you in the area of the class-->
+  <!--the marble divs are relative so that they stay on the first page but, this means
+when they move to move the marble they push the top page, either the top pages
+should be absolute as well or the start location of the marble is done with different
+units or contained in something relative that isnt moved should re read and watch on positioning
+now i have more context
+maybe making it inline but not sure thats really the issues
+also cause a white space at bottom because now contributes to the height-->
+  <!--wheren section has content it tries to be part of initial view screen-->
+
+
+  <section class="page2X0Y1 ">
+    <!--something i read said use button because comes with lots of good defaults but im struggling with them-->
+    <!--want an arrow that underlines text-->
+
+    <div class="case2position">
+
+      <div class="handle"></div>
+      <div class="case2border ">
+
+
+        <!--if i child the felx container it will receive the blur so need to seperate out elements
+      make one absolute
+      I want blur to affect the shine on the glass but not the Marbles
+      I want the shine on the marbles throughso they just need to be behind
+      -->
+
+
+
+        <ul class="myflex-container">
+
+          <li><img class="aMarble " src="Images\marbles\codepen.png" alt="codepen marble"></li>
+          <li><img class="aMarble " src="Images\marbles\atom-4-logo-png-transparent.png" alt="atom marble"></li>
+          <li><img class="aMarble " src="Images\marbles\Csharp_logo.png" alt="csharp marble"></li>
+          <li><img class="aMarble " src="Images\marbles\css.png" alt="css marble"></li>
+          <li><img class="aMarble " src="Images\marbles\ejslandscape.png" alt="ejs marble"></li>
+          <li><img class="aMarble " src="Images\marbles\git.png" alt="git marble"></li>
+          <li><img class="aMarble " src="Images\marbles\html.png" alt="html marble"></li>
+          <li><img class="aMarble " src="Images\marbles\javascript-shield.png" alt="js marble"></li>
+          <li><img class="aMarble " src="Images\marbles\mongooselogo.jpg" alt="mongoose marble"></li>
+          <li><img class="aMarble " src="Images\marbles\nodejs.png" alt="nodejs marble"></li>
+          <li><img class="aMarble " src="Images\marbles\unity.png" alt="unity marble"></li>
+
+        </ul>
+
+        <div class="glassEffect"></div>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+    <div class="pg2Text higher">What I Can Do
+      <img class="arrow " src="Images\replaceGeometricArrow.png" alt="arrow left">
+    </div>
+
+
+
+    <!--how do i make a card follow the background gradient end black line
+and how make marble go to location
+giving it vh vw does not help however psx0y1 lower text box mostly keep its distance
+so maybe an angled containing div
+maybe even ajoining a space for the marble
+-->
+    <div class="pg2CardLocation">
+      <div class="pCard">Make a card class</div>
+      <div class="containerToReceivephilProfileMarblePG2"></div>
+    </div>
+
+
+    <div class="pg2Text lower">What I Can Use<img class="arrow right" src="Images\replaceGeometricArrow.png" alt="arrow right">
+    </div>
+
+
+
+  </section>
+
+  <section class="bottomRightPage1">
+    <!--<i class="fas fa-sort-up"></i>-->
+
+
+    <button class="tabPage1To2 invisible">
+
+      <i class="fas fa-caret-up"></i>
+      <img class="philProfileMarbleImg " src="Images\marbles\wellItsAFace.png" alt="My Picture Marble tab">
+
+    </button>
+
+
+
+
+
+
+    <section class="businessCard">
+
+
+
+      <!--lots issues with animations and transforms on same object overwriting so a
+div for x axis one for y and the image itself for spin-->
+      <div class="philProfileMarble">
+
+
+        <div class="philProfileMarbleY">
+          <div class="philProfileMarbleX">
+            <img class="philProfileMarbleImg rollingClockwise invisible" src="Images\marbles\wellItsAFace.png" alt="My Picture Marble">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="buisnessCardText">
+
+
+        <h1>
+          <span class=delayAppear>Hi I'm </span>Phil Tate<span class=delayAppear> a programmer <br>
+            & full stack developer <br>
+            <span class=fontOrnaments delayAppear>o </span><span class="h1Subtitle"> fancy a drink </span><span class=fontOrnaments> p</span>
+          </span>
+
+
+
+
+
+
+
+
+          <!--maybe should of drilled down the hierachy instead of butting the columns as buttons when really images should ahve been-->
+          <!--buttons would be better as checkboxes as then when checked can just disable without doing it in js and avoid hover issue-->
+          <!--the jquery when it disables does no disable unhovering only hovering so when mouse moves during glass flight its stackpath
+changes to what it would of been if it had not been at an angle because of hover-->
+
+          <div class="row drinkChoices">
+
+
+            <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+              <img id="cocktailOlive" class=" drinkImages" src="Images/cocktailOlive.png" alt="cocktail">
+
+
+            </button>
+
+            <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+              <img id="cocktailStraw" class="drinkImages" src="Images/cocktailStraw.png" alt="cocktail">
+
+
+            </button>
+
+            <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+              <img id="tea" class=" drinkImages" src="Images/tea.png" alt="tea">
+
+
+            </button>
+
+            <button type="button" name="button" class="drinkButton col-md-1 colTight ">
+
+              <img id="martini" class=" drinkImages" src="Images/martiniGlass.png" alt="martini">
+
+
+            </button>
+          </div>
+
+          <div class="row drinkChoices">
+
+            <button type="button" name="button" class="drinkButton col-md-1 colTight">
+              <img id="shotGlass" class=" drinkImages" src="Images/shotGlass.png" alt="shot glass">
+
+
+            </button>
+
+            <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+              <img class=" drinkImages" src="Images/waterGlass.png" alt="water glass" id="waterGlass">
+
+
+            </button>
+
+            <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+              <img id="wineGlass" class=" drinkImages" src="Images/wineGlass.png" alt="wine glass">
+
+
+            </button>
+
+            <button type="button" name="button" class="drinkButton col-md-1 colTight">
+
+              <img id="wineGlassSimple" class=" drinkImages" src="Images/wineGlassSimple.png" alt="wine glass">
+
+
+            </button>
+          </div>
+        </h1>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </section>
+  </section>
+  <!--all the pushes and pulls and centering worked in bootstrap sandstone on codepen, changed the bootstrap when
+found didnt work here and didnt work on both
+in 4.3.1 need use order and offset
+-->
+  <section class="page3">
+
+    <!--rows supposed to be in container dont know how to do this-->
+
+
+    <div class="marbleOnShape1">
+      <div class="marbleOnShape1Y">
+        <div class="marbleOnShape1X">
+          <img class="aMarble " src="Images\marbles\nodejs.png" alt="nodejs marble">
+        </div>
+      </div>
+    </div>
+
+    <div class="marbleOnShape2">
+      <div class="marbleOnShape2Y">
+        <div class="marbleOnShape2X">
+          <img class="aMarble " src="Images\marbles\Csharp_logo.png" alt="csharp marble">
+        </div>
+      </div>
+    </div>
+
+    <div class="marbleOnShape3">
+      <div class="marbleOnShape3Y">
+        <div class="marbleOnShape3X">
+          <img class="aMarble " src="Images\marbles\git.png" alt="git marble">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="bestCardsArea">
+
+
+      <div class="shape2">
+        <div class="pg3ShapeTxtTop">
+          <h1> My Favourite Projects </h1>
+        </div>
+        <div class="bestCardsContainer container text-center"><!--rows should always be in containers column in row and a div in column before anything else-->
+          <!--container needs to be centered and contents-->
+          <!--order effects order they collapse to no more useful that actually putting them in that order think would be more useful for grabbing with jq-->
+          <!--should order for mobile then push and pull for desktop-->
+
+
+          <div class="row ">
+            <!--centered by pushing probably not the best way-->
+
+            <div class="col-sm-8 offset-sm-2 ">
+
+              <div class="alert alert-warning ">
+                <div class="magnifier">
+
+
+
+                  <div class="container containerMagnifier">
+
+                    <div class="dial">
+                      <img class="theMagnifier " src="        https://www.clipart1001.com/wp-content/uploads/2018/08/Magnifying-Glass-Clipart-Transparent-Background.png" alt="a magnifier">
+
+                    </div>
+                  </div>
+
+                  <!-- keep theses as other options for the future
+                <img class="aMarble " src="        https://longfordpc.com/images/lens-clipart-spy-glass-9.png" alt="a magnifier">
+         <img class="aMarble " src="        http://www.sclance.com/pngs/magnifying-glass-clipart-png/magnifying_glass_clipart_png_831987.jpg">
+                 <img class="aMarble " src="https://www.clipartmax.com/png/middle/305-3050949_pin-magnifying-glass-clipart-free-advertising.png" alt="a magnifier">
+     Magnifier
+-->
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+
+
+            <div class="col-md-12 col-lg-4  order-1 order-lg-2">
+              <div class="alert alert-warning">
+                <div class="card">
+
+
+                  important card
+
+      #
+</div>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1">
+              <div class="alert alert-info ">
+                <div class="card">
+                left card
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-lg-4  order-3 order-lg-3 ">
+              <div class="alert alert-danger ">
+                <div class="card">
+
+                  right card
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+        </div>
+        <div class="pg3ShapeTxtBottom">
+          <h1>
+
+            <!--
+http://xahlee.info/comp/unicode_arrows.html
+-->
+            <!--dont like the arrow when get proper ones for pg2 use that-->
+            See the whole deck → </h1>
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
+
+
+
+  <section id="corner-nav" class="corner-background ">
+
+
+
+
+
+    <div class="corner-table">
+
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <i class="fas fa-expand-arrows-alt corner-links"></i>
+        </div>
+        <div class="col-sm-4">
+          <a href="mailto:philip.r.tate@gmail.com?&subject=Cool%20website%20we%20want%20to%20offer%20you%20a%20job&body=Amazing%20job%20goes%20here!">
+          <i class="far fa-envelope corner-links"></i></a>
+
+
+
+        </div>
+        <div class="col-sm-4">
+          <!--later will change source to the image they picked-->
+
+          <img id="chosen-beverage" class="corner-links " src="Images/tea.png" alt="tea" >
+<!--     <a href="https://github.com/phy5prt/CV">--> <!--this is wrong place but it works-->
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+           <a href="https://github.com/phy5prt/CV">
+          <h1><i class="fas fa-file-download "></i></h1></a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+  </section>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="Javascript/utils.js" charset="utf-8"></script>
+  <script src="Javascript/pg1.js" charset="utf-8"></script>
+  <script src="Javascript/pg2.js" charset="utf-8"></script>
+  <script src="Javascript/pg3.js" charset="utf-8"></script>
+  <script src="Javascript/pg4.js" charset="utf-8"></script>
+
+  <script src="Javascript/testCode.js" charset="utf-8"></script>
+
+
+
+
+</body>
+
+
+<!--
+CREDITS
+<div>Icon made from <a href="http://www.onlinewebfonts.com/icon">Icon Fonts</a> is licensed by CC BY 3.0</div>
+<div>Icon made from <a href="http://www.onlinewebfonts.com/icon">Icon Fonts</a> is licensed by CC BY 3.0</div>
+-->
+
 </html>
