@@ -427,29 +427,26 @@ or just plan out each elements
 top:21%;
 right:35%;
 */
-  top: 50vh;
-  left: 50vw;
-  transform: rotate(-15deg);
+  top: 15vh;
+  left: 55vw;
+
   /*setting div size becuase its size may affect location and current adapts to size of card*/
-  width: 100px;
-  height: 200px;
+
 }
 
 .pCard {
   /*need an equation for gradient and put the bottom centre 1/7th down it*/
   /*seems better by moving it relative to centre but the black line will always shrink in height with width so card need to as well by some amount*/
-  transform: rotate(+15deg);
-  position: relative;
-  left: 20vw;
-  bottom: 23vh;
-  width: 100px;
-  height: 12vh;
+
+
+
   /*
   top:21%;
   right:35%;
   */
-  background-color: white;
-  transform: perspective(4px) rotateY(2deg);
+
+transform: perspective(400px) rotateY(75deg);
+
 }
 
 .containerToReceivephilProfileMarblePG2 {
@@ -1067,25 +1064,7 @@ padding-right:3.5rem;
     padding-left:3.5rem;
 }
 
-.card{
-  /*later will have set objects to go i  n but for now*/
- /*
-  width:15vw;
-  height:35vh;
-  */
-  /*need something to keep the ratio*/
-  min-width:125px;
-  min-height:150px;
-  background:grey;
 
-
-  /*or use bootstrap center-block*/
-  display: block;
-
-    margin-right: auto;
-    margin-left: auto;
-
-}
 .bestCardsContainer{/*unnecessary take outhtml too*/
   /*width:inherit;
   height:inherit;*/
@@ -1268,6 +1247,127 @@ when refactor set the h's to the same font but different font sizes and have thi
   position:absolute;
 }
 
+/*////////////////// CARD STYLES ///////////////////////*/
+
+.aCard{
+  background:beige;
+
+
+  width:125px;
+  height:150px;
+  border: 2.5px solid black;
+  border-radius: 5px;
+
+
+}
+.topRightProjectTechnologiesArea{
+  height:auto;
+  width:19px;
+
+  float:right;
+  background:lightCyan;
+  margin:0.5px 5px;
+  padding:2px 0;
+
+
+
+  overflow:hidden;
+}
+
+.technologyButtonImg{
+  display: block;
+  width:15px;
+  height:15px;
+  overflow:hidden;
+  padding:0;margin:0 auto;
+}
+
+.technologyButton img{
+padding:0;margin:0;
+  width: 15px;
+  height: 15px;}
+
+.technologyCaracellIsDisplaying {
+   width: 15px;
+  height: 15px;
+  background:PaleGreen;
+ border: 2px solid green;
+  border-radius: 5px;
+  padding:0;
+  margin:0;
+}
+
+.aCardWritingArea
+{
+   width:auto;
+  height:auto;
+  padding:0 0 0 10px; /*width of the balls div and a bit extra of the right marble area*/
+    overflow:hidden;
+}
+.projectTitle{
+  text-align: center;
+
+  font-size:0.9rem;
+  font-family: 'PT Serif, Serif';
+  line-height:1.5em;
+  margin:5px 0 3px;
+  height:20px;
+
+}
+.projectImage{
+ height:40px; /*want 30% of the box really*/
+width:auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+
+}
+.projectImage img {
+
+  max-width: 100%;
+  max-height: 100%;}
+
+.projectDescriptionSubtitle{
+  font-size:0.6rem;
+  font-family: 'PT Serif, Serif';
+  line-height:1rem;
+  margin:1px 0 2px;
+}
+.projectDescriptionText{
+  font-size:0.2rem;
+  font-family:'Noto Sans', sans-serif; ;
+  line-height:auto;
+  margin:1px 0 5px;
+  height:40px;
+  overflow:hidden; /*need tp set min text size and decide how deal overflow*/
+  padding-top:0px;
+  margin-top:0px;
+}
+
+.cardHyperlinksArea{
+   position:inline-block;
+  height:15px;
+  width:auto;
+  margin-left: 2px;
+margin-right: auto;
+  overflow:hidden;
+}
+.cardHyperlinksImg{
+
+width:inherit;
+height:15px;
+display: block-inline;
+margin-left: auto;
+margin-right: auto;
+  overflow:hidden;
+
+
+}
+
+.cardHyperlinkImg img{
+
+  max-width: 100%;
+  max-height: 100%;}
 
 /*/////////// Testing*/
 .dot{
