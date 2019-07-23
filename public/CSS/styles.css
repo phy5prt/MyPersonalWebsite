@@ -1242,9 +1242,10 @@ when refactor set the h's to the same font but different font sizes and have thi
   width:150px;
   height:200px;
   margin:0px 10px 10px;
-  background-color:lightCyan;/*lightBlue*/
+  background-color:lightCyan;
   font-size:5rem;
   position:absolute;
+
 }
 
 /*////////////////// CARD STYLES ///////////////////////*/
@@ -1258,6 +1259,7 @@ when refactor set the h's to the same font but different font sizes and have thi
   border: 2.5px solid black;
   border-radius: 5px;
 
+margin:0 auto;
 
 }
 .topRightProjectTechnologiesArea{
@@ -1303,6 +1305,7 @@ padding:0;margin:0;
   height:auto;
   padding:0 0 0 10px; /*width of the balls div and a bit extra of the right marble area*/
     overflow:hidden;
+
 }
 .projectTitle{
   text-align: center;
@@ -1337,7 +1340,7 @@ margin-right: auto;
   font-size:0.2rem;
   font-family:'Noto Sans', sans-serif; ;
   line-height:auto;
-  margin:1px 0 5px;
+  margin:1px 0 3px;
   height:40px;
   overflow:hidden; /*need tp set min text size and decide how deal overflow*/
   padding-top:0px;
@@ -1348,9 +1351,10 @@ margin-right: auto;
    position:inline-block;
   height:15px;
   width:auto;
-  margin-left: 2px;
-margin-right: auto;
+  margin:0 auto 0 2px;
+padding:0;
   overflow:hidden;
+  vertical-align: top;
 }
 .cardHyperlinksImg{
 
@@ -1361,11 +1365,11 @@ margin-left: auto;
 margin-right: auto;
   overflow:hidden;
 
-
+vertical-align: top;
 }
 
 .cardHyperlinkImg img{
-
+vertical-align: top;
   max-width: 100%;
   max-height: 100%;}
 

@@ -1,4 +1,4 @@
-
+//later should store all the images on the database so i can change them easier and then just pupulate the image folder have them in an array of their path and themselves
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -16,12 +16,27 @@ app.use(express.static("public"));
 
 mongoose.connect('mongodb://localhost:27017/projectCardsDB',{useNewUrlParser:true});
 
-
+//later use a second collection so do not repeatedly store image paths, image paths ....
 const projectCardSchema = new mongoose.Schema({
-  projectName:{type:String, required:[true,"missing projectNAme"]},
+  projectName:{type:String, required:[true,"missing projectName"]},
   overallProjectRating:{type:Number, required:[true,"missing overall project rating"]},
   projectDescription:{type:String,required:[true,"missing projectDescription"]},
-  projectImage:{type:String, required:[true, "missing projectImage"]}
+  projectImagePath:{type:String, required:[true, "missing projectImagePath"]},
+
+  technologiesArray:[
+    {technologyName:{type:String, required:[true, "technologiesArray element missing technology name"]},
+      technologyImagePath:{type:String, required:[true, "technologiesArray element missing technology image path"]},
+      technologyExampleRating:{type:Number, required:[true, "technologiesArray element missing technology image path"]}
+    }
+  ],
+  linksArray:[
+    {linkName:{type:String, required:[true, "linksArray element missing link name"]},
+      linkImagePath:{type:String, required:[true, "linksArray element missing link image path"]},
+      linkHyperlink:{type:String, required:[true, "linksArray element missing link url"]}
+    }
+  ]
+
+
   //technologies and their ratings list eg git 5 unity 1 csharp 3
   //hyperlinks list eg youtube linke phil.playlist ...
 });
@@ -45,7 +60,10 @@ app.route("/projectCards")
       projectName:req.body.projectName,
       overallProjectRating:req.body.overallProjectRating,
       projectDescription:req.body.projectDescription,
-      projectImage:req.body.projectImage
+      projectImagePath:req.body.projectImagePath,
+      technologiesArray:req.body.technologiesArray,
+      linksArray:req.body.linksArray
+
 
     })
     newProjectCard.save(function(err){
@@ -54,9 +72,9 @@ app.route("/projectCards")
 
   })
     .delete(function(req,res){
-        //  Article.deleteMany(function(err){if(!err){res.send("I'm sorry Dave I can't do that");}else{res.send(err);}}})
+        ProjectCard.deleteMany(function(err){if(!err){res.send("SuccessfulDelete");}else{res.send(err);}})
 
-          res.send(" 'I'm sorry Dave I can't do that' - Hal");
+          //res.send(" 'I'm sorry Dave I can't do that' - Hal");
         })
 
 //requests single cards !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
@@ -79,7 +97,9 @@ app.route("/projectCards/:projectName")
               projectName:req.body.projectName,
               overallProjectRating:req.body.overallProjectRating,
               projectDescription:req.body.projectDescription,
-              projectImage:req.body.projectImage
+              projectImagePath:req.body.projectImagePath,
+              technologiesArray:req.body.technologiesArray,
+              linksArray:req.body.linksArray
             },
             {overwrite:true},
             function(err){if(!err){res.send("put update successful");}else{res.send(err);}}
