@@ -129,33 +129,6 @@ app.route("/projectCards/:projectName")
 app.route("/")
 .get(function(req,res){
 
-//res.sendFile(__dirname+"/indexEJS.html") - replaced by res render
-//res.render("myWebsite",{myData:desiredData});
-
-//ProjectCard.find(function(err,projectCards){
-
-//can i put some sorts on projectCards from here an return it
-
-//}).sort({overallProjectRating,-1}).limit(4); //find first 4 cards
-
-//res.render("myWebsite"
-//,{
-
-//,page2BestCard:best4Cards[0]
-//,page3SecondBestCard:best4Cards[1]
-//,page3ThirdBestCard:best4Cards[2]
-//,page3ForthBestCard:best4Cards[3]
-
-//}
-//);
-
-//).sort({overallProjectRating,-1}).limit(4);
-
-//ProjectCard.find(
-//).sort({overallProjectRating,-1}).limit(4);
-  //{},function(err,projectCards){
-
-
 ProjectCard.find()
 .sort({overallProjectRating:-1})
 .limit(4)
