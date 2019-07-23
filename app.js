@@ -137,7 +137,7 @@ ProjectCard.find()
     page2BestCard:best4Cards[0]
     ,page3SecondBestCard:best4Cards[1]
     ,page3ThirdBestCard:best4Cards[2]
-    ,page3ForthBestCard:best4Cards[3]
+    ,page3FourthBestCard:best4Cards[3]
 
 
   });
