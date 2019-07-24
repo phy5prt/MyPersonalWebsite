@@ -75,9 +75,34 @@ app.route("/projectCards")
         ProjectCard.deleteMany(function(err){if(!err){res.send("SuccessfulDelete");}else{res.send(err);}})
 
           //res.send(" 'I'm sorry Dave I can't do that' - Hal");
-        })
+        });
 
-//requests single cards !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+//requests single cards !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+/*
+app.route("/carousel/:technologyName")
+.get(function(req,res){
+    ProjectCard.find({technologyName:req.params.technologyName},function(err,projectCards){
+      if(projectCards){
+        res.send(projectCards);
+      }else{
+        res.send("no project cards found matching that technology");}
+});
+*/
+
+app.route("/carousel") /*make a version that takes projectName and it just takes one project displays it and all others are randomly sorted around*/
+            .get(function(req, res){
+              ProjectCard.find( {technologiesArray:{$elemMatch : {technologyName:req.query.techButton}}},function(err,projectCardsWithSpecificTechnology){
+                if(projectCardsWithSpecificTechnology){
+                  console.log(req.query.techButton);
+                  console.log(projectCardsWithSpecificTechnology);
+                  res.send(projectCardsWithSpecificTechnology);
+                }else{
+                  res.send("no projectCardsWithSpecificTechnology found");}
+              });
+
+
+            });
 
 //need a method to order database maybe not here though
 app.route("/projectCards/:projectName")
