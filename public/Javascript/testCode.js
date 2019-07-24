@@ -11,5 +11,6 @@ var received = "nout";
 $(".test").click(function() {
 
 
-alert(received);
+
+alert(  );
 })

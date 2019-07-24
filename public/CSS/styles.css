@@ -1356,18 +1356,20 @@ margin-right: auto;
   font-family:'Noto Sans', sans-serif; ;
   line-height:auto;
   margin:1px 0 3px;
-  height:40px;
+  height:37px;
   overflow:hidden; /*need tp set min text size and decide how deal overflow*/
   padding-top:0px;
   margin-top:0px;
 }
 
 .cardHyperlinksArea{
-   position:inline-block;
+
+   position:absolute;
+   bottom:4px;
   height:15px;
   width:auto;
   margin:0 auto 0 2px;
-padding:0;
+padding:0 ;
   overflow:hidden;
   vertical-align: top;
 }

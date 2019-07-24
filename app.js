@@ -100,14 +100,15 @@ ProjectCard.aggregate([
 app.route("/carousel") /*make a version that takes projectName and it just takes one project displays it and all others are randomly sorted around*/
             .get(function(req, res){
 
-
+/* this is more complicated that i expected will need to read docs and also maybe good excuse stackover flow question
+desired behaviour is to only show project cards which have the specifiec technology. And to order the projects by the rating of that technology for them
             ProjectCard.aggregate([
                 {$unwind:"$technologiesArray"},
                 {$match:{"technologiesArray.technologyName":req.query.techButton}},
               {$sort : { "technologyName.technologyExampleRating" : -1 }},
-            /*  {$project:({})} dont want data limited by matches*/
+             {$project:({})} dont want data limited by matches
             ]).exec(function(err,aggregate){console.log(aggregate);});
-
+*/
 
 
 

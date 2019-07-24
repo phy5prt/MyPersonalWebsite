@@ -35,6 +35,8 @@
   <h5>  <%= page3ThirdBestCard.projectDescription  %>  </h5>
   <h4>  <%= page3FourthBestCard.projectImage  %>   </h4>
 -->
+<button class="test">ClickMe</button>
+
   <div class="grayUntilJQueryLoads"></div>
   <!--the marble case works here for now but needs to go in section eventually
 so need either to drill down with css or js depending what is inhibiting it needs a transition
@@ -128,13 +130,16 @@ maybe even ajoining a space for the marble
     <div class="pg2CardLocation pCard">
 
 
-
           <div class="aCard">
             <div class="topRightProjectTechnologiesArea">
-              <% for (let i = 0; i<page3FourthBestCard.technologiesArray.length; i++) { %>
+              <% for (let i = 0; i<page2BestCard.technologiesArray.length; i++) { %>
+<form class="formTechBtn" action="/carousel" method="get">
+  <button class="submitButtonNoStyle" type="submit" name="techButton" value=<%= page2BestCard.technologiesArray[i].technologyName %> >
 
+             <Img class="cardHyperlinksImg" src= <%=page2BestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+             </button>
+             </form>
 
-             <Img class="cardHyperlinksImg" src= <%=page3FourthBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
 <% }%></div>
 
 
@@ -396,14 +401,13 @@ in 4.3.1 need use order and offset
 
                             <div class="aCard">
                               <div class="topRightProjectTechnologiesArea">
-<!--loop throough the number of tech items-->
                                 <% for (let i = 0; i<page3SecondBestCard.technologiesArray.length; i++) { %>
 
-
-
-
+                                  <form class="formTechBtn" action="/carousel" method="get">
+                                    <button class="submitButtonNoStyle" type="submit" name="techButton" value=<%= page3SecondBestCard.technologiesArray[i].technologyName %> >
                                   <img type="image" class="cardHyperlinksImg" src= <%=page3SecondBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
-
+                                </button>
+                                </form>
 <% }%>
                           </div>
 
@@ -485,7 +489,11 @@ in 4.3.1 need use order and offset
                                                                <% for (let i = 0; i<page3FourthBestCard.technologiesArray.length; i++) { %>
 
 
+                                                                 <form class="formTechBtn" action="/carousel" method="get">
+                                                                   <button class="submitButtonNoStyle" type="submit" name="techButton" value=<%= page3FourthBestCard.technologiesArray[i].technologyName %> >
                                                               <Img class="cardHyperlinksImg" src= <%=page3FourthBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+                                                              </button>
+                                                              </form>
                                <% }%></div>
 
 
