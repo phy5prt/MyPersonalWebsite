@@ -89,13 +89,34 @@ app.route("/carousel/:technologyName")
         res.send("no project cards found matching that technology");}
 });
 */
+/*
+ProjectCard.aggregate([
+  {$unwind:"$technologiesArray"},
+  {$match:{"technologiesArray.technologyName":"req.query.techButton"}},
+{$sort : { "technologyName.technologyExampleRating" : -1 }}
+])
+*/
 
 app.route("/carousel") /*make a version that takes projectName and it just takes one project displays it and all others are randomly sorted around*/
             .get(function(req, res){
-              ProjectCard.find( {technologiesArray:{$elemMatch : {technologyName:req.query.techButton}}},function(err,projectCardsWithSpecificTechnology){
+
+
+            ProjectCard.aggregate([
+                {$unwind:"$technologiesArray"},
+                {$match:{"technologiesArray.technologyName":req.query.techButton}},
+              {$sort : { "technologyName.technologyExampleRating" : -1 }},
+            /*  {$project:({})} dont want data limited by matches*/
+            ]).exec(function(err,aggregate){console.log(aggregate);});
+
+
+
+
+              ProjectCard
+              .find( {technologiesArray:{$elemMatch : {technologyName:req.query.techButton}}})
+      .sort({"technologiesArray.technologyExampleRating":1})
+              .exec(function(err,projectCardsWithSpecificTechnology){
                 if(projectCardsWithSpecificTechnology){
-                  console.log(req.query.techButton);
-                  console.log(projectCardsWithSpecificTechnology);
+
                   res.send(projectCardsWithSpecificTechnology);
                 }else{
                   res.send("no projectCardsWithSpecificTechnology found");}
