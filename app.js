@@ -191,9 +191,6 @@ ProjectCard.find()
     });
 
 
-
-
-
 //.toArray((err,projectCards)=>{ this needs cursor
 //  if(err)return console.log(err);
 //  res.send(projectCards);

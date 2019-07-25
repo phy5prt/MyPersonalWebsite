@@ -5,12 +5,15 @@
 import {projectCards} from "D:\website\backend\server.js"
 */
 
-var received = "nout";
+
+
+
+
 
 
 $(".test").click(function() {
 
 
 
-alert(  );
-})
+alert( );
+});
