@@ -75,10 +75,13 @@ function placementLoop() {
   blackLineC = intersectY - blackLineGrad * intersectX;
   var numCols = Math.ceil(W / cardWidth);
   var cardsStillToBePlaced = true;
+  var arrayLoopInt = 0;
   var steps = 0;
   var cardsPlaced = 0;
   var cardsConsecutivelyNotPlaced = 0;
   var htmlString = "";
+  var techArrayHtml="";
+  var linksArrayHtml="";
 
 var cardHtml1 = " <div class='aCard'> <div class='topRightProjectTechnologiesArea'> "
 //<% for (let i = 0; i<page2BestCard.technologiesArray.length; i++) { %>
@@ -88,9 +91,10 @@ var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <bu
 var cardHtml2technologyName = " 'unity' >";
 //<%= page2BestCard.technologiesArray[i].technologyName %> >
 var cardHtml3 = " <Img class='cardHyperlinksImg' src= ";
-var cardHtml3technologyImagePath = " Images/tea.png ";
+var cardHtml3technologyImagePath = " 'Images/tea.png' ";
 //<%=page2BestCard.technologiesArray[i].technologyImagePath %>
-var cardHtml4 = " alt='gitLink'>  </button>  </form> </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
+var cardHtml4 = " alt='gitLink'>  </button>  </form> "
+var cardHtml4Endloop = " </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
 var cardHtml4projectName = "Project Title";
 //<%= page2BestCard.projectName %>
 var cardHtml5 = " </div> <img class='projectImage ' src= ";
@@ -107,18 +111,57 @@ var cardHtml8linkHyperlink = "https://unity.com/ ";
  var cardHtml9 =  " ><Img class='cardHyperlinksImg' src= ";
 var cardHtml9linkImagePath = " 'Images/cocktailStraw.png' ";
 // <%= page2BestCard.linksArray[i].linkImagePath %>
- var cardHtml10 = " alt='gitLink'> </a></div></div> ";
+ var cardHtml10 = " alt='gitLink'> </a> "
+ var cardHtml11 = " </div></div> ";
+
+var projectCards = [{
+  projectName:cardHtml4projectName,
+  overallProjectRating:"10",
+  projectDescription:cardHtml6projectDescription,
+  projectImagePath:cardHtml5projectImagePath,
+  technologiesArray:[{
+    technologyName:cardHtml2technologyName,
+    technologyImagePath:cardHtml3technologyImagePath,
+    technologyExampleRating:"10"
+  }],
+  linksArray:[{
+    linkName:"unity",
+    linkImagePath:cardHtml9linkImagePath,
+    linkHyperlink:cardHtml8linkHyperlink
+  }]
+}]
+
 
   while (cardsStillToBePlaced) {
 
     x = (steps % numCols) * cardWidth + inset;
     y = blackLineGrad * (x + measureFromCardCenter) + blackLineC + cardHeight * Math.floor(steps / numCols); //but some cards wont be placed
+//this is so when we run out of project cards we just start again at the begginging
+arrayLoopInt = ((cardsPlaced)%projectCards.length);//not certanin will place whole loop// ((cardsPlaced-1)%projectCards.length)+1; //ones so modulus doesnt end on zero before steps incremented as want to start at zerosa
+//alert(cardsPlaced + "<--cardsPlaced" + projectCards.length + "  <--length  " + "array loop int -->"+arrayLoopInt);
     steps++;
     if (y < H) {
       cardsConsecutivelyNotPlaced = 0;
     cardsPlaced++; //put this where aCardHtml is to get the numbers
     // htmlString+= cardHtml;
-      htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " + cardHtml1+cardHtml2 + cardHtml2technologyName +cardHtml3+cardHtml3technologyImagePath+cardHtml4 + cardHtml4projectName + cardHtml5 +cardHtml5projectImagePath+cardHtml6 +cardHtml6projectDescription+cardHtml7+cardHtml8+cardHtml8linkHyperlink+cardHtml9+cardHtml9linkImagePath+cardHtml10+ " </div> ";
+      htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " +   cardHtml1+
+
+//start technologies array loop
+for(j=0; j<projectCards[arrayLoopInt].technologiesArray.length; j++ ){
+      techArrayHtml += cardHtml2 + projectCards[arrayLoopInt].technologiesArray[j].technologyName +
+      cardHtml3+projectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
+
+//end technologies array loop
++techArrayHtml+
+      cardHtml4Endloop + projectCards[arrayLoopInt].projectName + cardHtml5 +projectCards[arrayLoopInt].projectImagePath+
+      cardHtml6 +projectCards[arrayLoopInt].projectDescription+cardHtml7+
+//start links loop
+for(k=0; k<projectCards[arrayLoopInt].linksArray.length; k++){
+    linksArrayHtml +=  cardHtml8+projectCards[arrayLoopInt].linksArray[0].linkHyperlink+cardHtml9+projectCards[arrayLoopInt].linksArray[0].linkImagePath+cardHtml10
+}
+//end links loop
++linksArrayHtml+
+      + cardHtml11+" </div> ";
     } else {
       cardsConsecutivelyNotPlaced++;
       if (cardsConsecutivelyNotPlaced > numCols) {
