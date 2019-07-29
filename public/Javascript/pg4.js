@@ -57,6 +57,8 @@ var cardWidth = 125+gapAroundCard;
 var cardHeight = 150 + gapAroundCard;
 var inset = cardWidth / 120;
 var measureFromCardCenter = (cardWidth - gapAroundCard) / 2;
+var x;
+var y;
 
 
 
@@ -123,10 +125,56 @@ var projectCards = [{
     technologyName:cardHtml2technologyName,
     technologyImagePath:cardHtml3technologyImagePath,
     technologyExampleRating:"10"
+  },
+  {
+    technologyName:cardHtml2technologyName,
+    technologyImagePath:cardHtml3technologyImagePath,
+    technologyExampleRating:"10"
+  },
+  {
+    technologyName:cardHtml2technologyName,
+    technologyImagePath:" 'Images/postman.jpg' ",
+    technologyExampleRating:"10"
   }],
   linksArray:[{
     linkName:"unity",
-    linkImagePath:cardHtml9linkImagePath,
+    linkImagePath:" 'Images/postman.jpg' ",
+    linkHyperlink:cardHtml8linkHyperlink
+  },
+  {
+    linkName:"unity",
+    linkImagePath:" 'Images/Shotglass.png' ",
+    linkHyperlink:cardHtml8linkHyperlink
+  },
+  {
+    linkName:"unity",
+    linkImagePath:" 'Images/postman.jpg' ",
+    linkHyperlink:cardHtml8linkHyperlink
+  }]
+}, {
+  projectName: " Example2  ",
+  overallProjectRating:"10",
+  projectDescription:" Lauren Ipsum Latin bloke some writting here as vague as smoke, all it gives is space and shape, with less draw backs than a vape",
+  projectImagePath: " 'Images/cocktailOlive.png' " ,
+  technologiesArray:[
+  {
+    technologyName:cardHtml2technologyName,
+    technologyImagePath:" ' Images/cocktailOlive.png ' ",
+    technologyExampleRating:"10"
+  },
+  {
+    technologyName:cardHtml2technologyName,
+    technologyImagePath:" 'Images/postman.jpg' ",
+    technologyExampleRating:"10"
+  }],
+  linksArray:[{
+    linkName:"unity",
+    linkImagePath:" 'Images/postman.jpg' ",
+    linkHyperlink:cardHtml8linkHyperlink
+  },
+  {
+    linkName:"unity",
+    linkImagePath:" 'Images/waterglass.png' ",
     linkHyperlink:cardHtml8linkHyperlink
   }]
 }]
@@ -144,24 +192,29 @@ arrayLoopInt = ((cardsPlaced)%projectCards.length);//not certanin will place who
       cardsConsecutivelyNotPlaced = 0;
     cardsPlaced++; //put this where aCardHtml is to get the numbers
     // htmlString+= cardHtml;
+techArrayHtml="";
+linksArrayHtml="";
+console.log(" arrayLoopInt " +arrayLoopInt +" cardsPlaced " + cardsPlaced + " projectCards.length " + projectCards.length);
+    for(var j=0; j<projectCards[arrayLoopInt].technologiesArray.length; j++ ){
+          techArrayHtml += cardHtml2 + projectCards[arrayLoopInt].technologiesArray[j].technologyName +
+          cardHtml3+projectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
+
+    for(var k=0; k<projectCards[arrayLoopInt].linksArray.length; k++){
+              linksArrayHtml +=  cardHtml8+projectCards[arrayLoopInt].linksArray[0].linkHyperlink+cardHtml9+projectCards[arrayLoopInt].linksArray[0].linkImagePath+cardHtml10;
+          }
       htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " +   cardHtml1+
 
 //start technologies array loop
-for(j=0; j<projectCards[arrayLoopInt].technologiesArray.length; j++ ){
-      techArrayHtml += cardHtml2 + projectCards[arrayLoopInt].technologiesArray[j].technologyName +
-      cardHtml3+projectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
 
 //end technologies array loop
-+techArrayHtml+
+techArrayHtml+
       cardHtml4Endloop + projectCards[arrayLoopInt].projectName + cardHtml5 +projectCards[arrayLoopInt].projectImagePath+
       cardHtml6 +projectCards[arrayLoopInt].projectDescription+cardHtml7+
 //start links loop
-for(k=0; k<projectCards[arrayLoopInt].linksArray.length; k++){
-    linksArrayHtml +=  cardHtml8+projectCards[arrayLoopInt].linksArray[0].linkHyperlink+cardHtml9+projectCards[arrayLoopInt].linksArray[0].linkImagePath+cardHtml10
-}
+
 //end links loop
-+linksArrayHtml+
-      + cardHtml11+" </div> ";
+linksArrayHtml+
+      cardHtml11+" </div> ";
     } else {
       cardsConsecutivelyNotPlaced++;
       if (cardsConsecutivelyNotPlaced > numCols) {
