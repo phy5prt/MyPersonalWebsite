@@ -37,7 +37,7 @@ const projectCardSchema = new mongoose.Schema({
   ]
 
 
-  //technologies and their ratings list eg git 5 unity 1 csharp 3
+//technologies and their ratings list eg git 5 unity 1 csharp 3
   //hyperlinks list eg youtube linke phil.playlist ...
 });
 //in future will have a mySite/admin with oauth and it will have the same caracell but a new button delete button and be edditable

@@ -86,98 +86,19 @@ function placementLoop() {
   var linksArrayHtml="";
 
 var cardHtml1 = " <div class='aCard'> <div class='topRightProjectTechnologiesArea'> "
-//<% for (let i = 0; i<page2BestCard.technologiesArray.length; i++) { %>
-
-
 var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <button class='submitButtonNoStyle' type='submit' name='techButton' value= ";
-var cardHtml2technologyName = " 'unity' >";
-//<%= page2BestCard.technologiesArray[i].technologyName %> >
-var cardHtml3 = " <Img class='cardHyperlinksImg' src= ";
-var cardHtml3technologyImagePath = " 'Images/tea.png' ";
-//<%=page2BestCard.technologiesArray[i].technologyImagePath %>
+var cardHtml3 = " ><Img class='cardHyperlinksImg' src= ";
 var cardHtml4 = " alt='gitLink'>  </button>  </form> "
 var cardHtml4Endloop = " </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
-var cardHtml4projectName = "Project Title";
-//<%= page2BestCard.projectName %>
 var cardHtml5 = " </div> <img class='projectImage ' src= ";
-var cardHtml5projectImagePath = " Images/postman.jpg ";
-//<%= page2BestCard.projectImagePath %>
 var cardHtml6 = " alt='projectImg'>  <div class='projectDescriptionSubtitle'>Description</div>  <div class='projectDescriptionText'> ";
-var cardHtml6projectDescription = "A very very good project";
- //<%= page2BestCard.projectDescription %>
 var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
-// <% for (let i = 0; i<page2BestCard.linksArray.length; i++) { %>
 var cardHtml8 =  " <a href= ";
-var cardHtml8linkHyperlink = "https://unity.com/ ";
-// <%= page2BestCard.linksArray[i].linkHyperlink %>
  var cardHtml9 =  " ><Img class='cardHyperlinksImg' src= ";
-var cardHtml9linkImagePath = " 'Images/cocktailStraw.png' ";
-// <%= page2BestCard.linksArray[i].linkImagePath %>
  var cardHtml10 = " alt='gitLink'> </a> "
  var cardHtml11 = " </div></div> ";
 
-var projectCards = [{
-  projectName:cardHtml4projectName,
-  overallProjectRating:"10",
-  projectDescription:cardHtml6projectDescription,
-  projectImagePath:cardHtml5projectImagePath,
-  technologiesArray:[{
-    technologyName:cardHtml2technologyName,
-    technologyImagePath:cardHtml3technologyImagePath,
-    technologyExampleRating:"10"
-  },
-  {
-    technologyName:cardHtml2technologyName,
-    technologyImagePath:cardHtml3technologyImagePath,
-    technologyExampleRating:"10"
-  },
-  {
-    technologyName:cardHtml2technologyName,
-    technologyImagePath:" 'Images/postman.jpg' ",
-    technologyExampleRating:"10"
-  }],
-  linksArray:[{
-    linkName:"unity",
-    linkImagePath:" 'Images/postman.jpg' ",
-    linkHyperlink:cardHtml8linkHyperlink
-  },
-  {
-    linkName:"unity",
-    linkImagePath:" 'Images/Shotglass.png' ",
-    linkHyperlink:cardHtml8linkHyperlink
-  },
-  {
-    linkName:"unity",
-    linkImagePath:" 'Images/postman.jpg' ",
-    linkHyperlink:cardHtml8linkHyperlink
-  }]
-}, {
-  projectName: " Example2  ",
-  overallProjectRating:"10",
-  projectDescription:" Lauren Ipsum Latin bloke some writting here as vague as smoke, all it gives is space and shape, with less draw backs than a vape",
-  projectImagePath: " 'Images/cocktailOlive.png' " ,
-  technologiesArray:[
-  {
-    technologyName:cardHtml2technologyName,
-    technologyImagePath:" ' Images/cocktailOlive.png ' ",
-    technologyExampleRating:"10"
-  },
-  {
-    technologyName:cardHtml2technologyName,
-    technologyImagePath:" 'Images/postman.jpg' ",
-    technologyExampleRating:"10"
-  }],
-  linksArray:[{
-    linkName:"unity",
-    linkImagePath:" 'Images/postman.jpg' ",
-    linkHyperlink:cardHtml8linkHyperlink
-  },
-  {
-    linkName:"unity",
-    linkImagePath:" 'Images/waterglass.png' ",
-    linkHyperlink:cardHtml8linkHyperlink
-  }]
-}]
+
 
 
   while (cardsStillToBePlaced) {
