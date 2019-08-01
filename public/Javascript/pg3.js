@@ -8,7 +8,7 @@
 //ask woody about the geometry and refining the equations, first look up the css code for curving the sides, try do it then stack overflow
 
 
-//the code is moving myMarble in page 2 this code should not be exectued until the transistion is finished
+//the code is moving philProfileMarble in page 2 this code should not be exectued until the transistion is finished
 
 //This code moves the balls around the squared ellipse anticlockwise with wheelscroll or pulling the magnifier or a combination
 //at the end of the arc next page animation is triggered
@@ -23,16 +23,16 @@ var marb3Img = $(".marbleOnShape3").find("img");
 //the marble
 var marbleOnShape1 = ".marbleOnShape1";
 var marbleOnShape2 = ".marbleOnShape2";
-var marbleOnShape3 = ".marbleOnShape3"; // replace with ".myMarble";
-function makeMarble3MyMarble() {
+var marbleOnShape3 = ".marbleOnShape3"; // replace with ".philProfileMarble";
+function makeMarble3philProfileMarble() {
 
   //marb3Img =  $(marbleOnShape3).find("img"); // maybe better to remove the html just get rid but sort on next run through
 
-  $(".myMarble").css("left", $(marbleOnShape3).css("left"));
-  $(".myMarble").css("top", $(marbleOnShape3).css("top"));
-  $(".myMarble").detach().appendTo(".page3"); //append rather than prepend because better as last child just for consistency
+  $(".philProfileMarble").css("left", $(marbleOnShape3).css("left"));
+  $(".philProfileMarble").css("top", $(marbleOnShape3).css("top"));
+  $(".philProfileMarble").detach().appendTo(".page3"); //append rather than prepend because better as last child just for consistency
   $(".marbleOnShape3").detach();
-  marbleOnShape3 = ".myMarble";
+  marbleOnShape3 = ".philProfileMarble";
 
 
 
@@ -288,7 +288,7 @@ function runPageTransistion() {
   window.addEventListener("resize", updatePG4WithWindow);
 
   $(".aMarble").addClass("rollingClockwise");
-  $(".myMarbleImg").addClass("rollingClockwise");
+  $(".philProfileMarbleImg").addClass("rollingClockwise");
 
 
   //maybe use calc to adjust for lower marbles have them all to same percentage minus their widths
@@ -307,8 +307,8 @@ function runPageTransistion() {
     left: '195vw',
     top: '105vh'
   }, 1500, 'swing', function() {
-    $(".myMarbleImg").removeClass("rollingAntiClockwise");
-    makeMarble3MyMarble();
+    $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
+    makeMarble3philProfileMarble();
   });
 
   //a little wait first 50ms
@@ -323,10 +323,10 @@ function runPageTransistion() {
     top: '103vh'
   }, 1500, 'swing', function() {
     $(".aMarble").removeClass("rollingClockwise");
-    makeMarble3MyMarble();
+    makeMarble3philProfileMarble();
   }), 100);
 
-  setTimeout($(".myMarble").animate({
+  setTimeout($(".philProfileMarble").animate({
     left: '96vw',
     top: '20vh',
   }, 200, 'swing').animate({
@@ -336,8 +336,8 @@ function runPageTransistion() {
     left: '185vw',
     top: '100vh'
   }, 1500, 'swing', function() {
-    $(".myMarbleImg").removeClass("rollingClockwise");
-    makeMarble3MyMarble();
+    $(".philProfileMarbleImg").removeClass("rollingClockwise");
+    makeMarble3philProfileMarble();
   }), 200);
 
   setTimeout($('html, body').animate({

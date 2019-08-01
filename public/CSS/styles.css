@@ -46,7 +46,7 @@ a :hover { color:
 yellow;
 }
 
-.grayTillViewPortMove{
+.grayUntilJQueryLoads{
   position:absolute;
   z-index:100;
   background: #262626;
@@ -57,7 +57,7 @@ yellow;
 }
 
 /*just for testing*/
-.tab2 {
+.tabPage1To2 {
   position: absolute;
   display: inline-block;
   font-size: 4rem;
@@ -80,7 +80,7 @@ yellow;
   text-align: inherit;
 }
 
-.tab2::before {
+.tabPage1To2::before {
   content: '';
   /* To generate the box */
   position: absolute;
@@ -96,7 +96,7 @@ yellow;
   text-overflow: ellipsis;
 }
 
-.tab2>Img {
+.tabPage1To2>Img {
   max-height: 50px;
   max-width: 50px;
   padding: 0;
@@ -104,7 +104,7 @@ yellow;
   margin: 10px 10px 30px;
 }
 
-.tab2>i {
+.tabPage1To2>i {
   position: relative;
   margin: 10px 10px 10px 30px;
   color: white;
@@ -153,7 +153,7 @@ causes it to behave undesireably with heigh change */
   background-position: center;
 }
 
-.myMarblePg2Start {
+.philProfileMarblePg2Start {
   /*dont know how should use the 165deg and the to top right type starting corner to make sure moves right*/
   position: absolute;
   top: 24vh;
@@ -427,32 +427,29 @@ or just plan out each elements
 top:21%;
 right:35%;
 */
-  top: 50vh;
-  left: 50vw;
-  transform: rotate(-15deg);
+  top: 15vh;
+  left: 55vw;
+
   /*setting div size becuase its size may affect location and current adapts to size of card*/
-  width: 100px;
-  height: 200px;
+
 }
 
 .pCard {
   /*need an equation for gradient and put the bottom centre 1/7th down it*/
   /*seems better by moving it relative to centre but the black line will always shrink in height with width so card need to as well by some amount*/
-  transform: rotate(+15deg);
-  position: relative;
-  left: 20vw;
-  bottom: 23vh;
-  width: 100px;
-  height: 12vh;
+
+
+
   /*
   top:21%;
   right:35%;
   */
-  background-color: white;
-  transform: perspective(4px) rotateY(2deg);
+
+transform: perspective(400px) rotateY(75deg);
+
 }
 
-.containerToReceiveMyMarblePG2 {
+.containerToReceivephilProfileMarblePG2 {
   position: relative;
   left: 21vw;
   bottom: 28vh;
@@ -463,7 +460,7 @@ height: 100px;
 */
 }
 
-.page1X0Y0 {
+.bottomRightPage1 {
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -502,8 +499,8 @@ height: 100px;
   overflow-x: hidden;
 }
 
-/*make a and mymarble the same*/
-.myMarbleImg {
+/*make a and philProfileMarble the same*/
+.philProfileMarbleImg {
   border-radius: 50%;
   /*background delete*/
   background-color: blue;
@@ -530,22 +527,22 @@ height: 100px;
   transition: opacity 2s linear;
 }
 
-.tab2.invisible {
+.tabPage1To2.invisible {
   opacity: 0;
   transition: opacity 1s linear;
 }
 
-.tab2.visible {
+.tabPage1To2.visible {
   opacity: 1;
   transition: opacity 1s linear;
 }
 
-.myMarbleY {
+.philProfileMarbleY {
   position: relative;
   top: 100px;
 }
 
-.myMarbleX {
+.philProfileMarbleX {
   position: relative;
   left: -110px;
 }
@@ -553,7 +550,7 @@ height: 100px;
 /*name duration function delay direction iteration fill state*/
 /*page1stage1*/
 /*maybe a set distance and put in repititions*/
-.myMarbleYAnim {
+.philProfileMarbleYAnim {
   /*drop on text*/
   animation: yAxisStep1 1s cubic-bezier(1, .02, .91, .48) 1s normal 1 forwards running,
     /*waits till roll across text then falls*/
@@ -562,7 +559,7 @@ height: 100px;
     yAxisStep3 0.5s cubic-bezier(.03, .86, .69, .78) 3.5s normal 1 forwards running;
 }
 
-.myMarbleXAnim {
+.philProfileMarbleXAnim {
   /*traj to text*/
   animation: xAxisStep1 1s linear 1s normal 1 forwards running,
     /*across text*/
@@ -687,6 +684,7 @@ the screen may be a different ratio
 
 .businessCard {
   background-color: #262626;
+
   border-style: groove;
   border-color: black;
   color: black;
@@ -1066,25 +1064,7 @@ padding-right:3.5rem;
     padding-left:3.5rem;
 }
 
-.card{
-  /*later will have set objects to go i  n but for now*/
- /*
-  width:15vw;
-  height:35vh;
-  */
-  /*need something to keep the ratio*/
-  min-width:125px;
-  min-height:150px;
-  background:grey;
 
-
-  /*or use bootstrap center-block*/
-  display: block;
-
-    margin-right: auto;
-    margin-left: auto;
-
-}
 .bestCardsContainer{/*unnecessary take outhtml too*/
   /*width:inherit;
   height:inherit;*/
@@ -1259,15 +1239,171 @@ when refactor set the h's to the same font but different font sizes and have thi
 }
 
 .cardPG4{
-  width:150px;
-  height:200px;
+  width:125px;
+  height:150px;
   margin:0px 10px 10px;
-  background-color:lightCyan;/*lightBlue*/
+  background-color:lightCyan;
   font-size:5rem;
   position:absolute;
+  border:2.5px;
+  border-radius:5px;
+
 }
 
+/*////////////////// CARD STYLES ///////////////////////*/
 
+.submitButtonNoStyle{
+  background:none;
+  color:inherit;
+  border:none;
+  padding:0;margin:0;
+  font:inherit;
+  outline:inherit;
+  width: 19px;
+  height:15px;/*inherit;*/
+}
+
+.aCard{
+  background:beige;
+
+
+  width:125px;
+  height:150px;
+  border: 2.5px solid black;
+  border-radius: 5px;
+
+margin:0 auto;
+
+}
+.topRightProjectTechnologiesArea{
+  height:auto;
+  width:19px;
+
+  float:right;
+  background:lightCyan;
+  margin:0.5px 5px;
+  padding:2px 0;
+max-height:150px;
+
+
+  overflow:hidden;
+}
+/*so if you making the form have a larger margin find actually the button is triggered up to 10px below
+but there are no boxed ending there on pesticide so i think it is the button click area, some reading suggests can effect it with whether elements are inline block etc or text aligned for position
+im going to leave it till later*/
+.formTechBtn{margin: 0 0 2px 0; padding:0; width:19px; height:15px;}
+.technologyButtonImg{
+  display: block;
+  width:15px;
+  height:15px;
+  overflow:hidden;
+  padding:0;margin:0 auto;
+
+}
+
+.technologyButton img{
+padding:0;margin:0;
+  width: 15px;
+  height: 15px;}
+
+.technologyCaracellIsDisplaying {
+   width: 15px;
+  height: 15px;
+  background:PaleGreen;
+ border: 2px solid green;
+  border-radius: 5px;
+  padding:0;
+  margin:0;
+}
+
+.aCardWritingArea
+{
+   width:auto;
+  height:auto;
+  padding:0 0 0 10px; /*width of the balls div and a bit extra of the right marble area*/
+    overflow:hidden;
+
+}
+.projectTitle{
+  text-align: center;
+
+  font-size:0.9rem;
+  font-family: 'PT Serif, Serif';
+  line-height:1.5em;
+  margin:5px 0 3px;
+  height:20px;
+
+}
+.projectImage{
+ height:40px; /*want 30% of the box really*/
+width:auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+
+}
+.projectImage img {
+
+  max-width: 100%;
+  max-height: 100%;}
+
+.projectDescriptionSubtitle{
+  font-size:0.6rem;
+  font-family: 'PT Serif, Serif';
+  line-height:1rem;
+  margin:1px 0 2px;
+}
+.projectDescriptionText{
+  font-size:0.2rem;
+  font-family:'Noto Sans', sans-serif; ;
+  line-height:auto;
+  margin:1px 0 3px;
+  height:37px;
+  overflow:hidden; /*need tp set min text size and decide how deal overflow*/
+  padding-top:0px;
+  margin-top:0px;
+}
+
+.cardHyperlinksArea{
+
+   position:absolute;
+   bottom:4px;
+  height:15px;
+  width:auto;
+  margin:0 auto 0 2px;
+padding:0 ;
+  overflow:hidden;
+  vertical-align: top;
+  text-align: left;
+  font-size:0;
+}
+.cardHyperlinksImg{
+
+width:15px;
+height:15px;
+display: inline;
+font-size:0;
+/*margin-left: auto;
+margin-right: auto;*/
+  overflow:hidden;
+
+vertical-align: top;
+  border-radius:50%;
+}
+
+.cardHyperlinkImg img{
+vertical-align: top;
+  max-width: 100%;
+  max-height: 100%;}
+
+a{
+
+  display:inline-block;margin:0; padding:0;text-align: left; height:inherit;font-size:inherit;
+/*
+  width:15px;
+  height:15px;
+*/
+}
 /*/////////// Testing*/
 .dot{
   position: absolute;

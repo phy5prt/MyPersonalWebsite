@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-
+//can i replace card placement with res.write
 
 //the line im after is about at 44
 /*  background: linear-gradient(-165deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;*/
@@ -52,11 +52,13 @@ var intersectX = W / 2 + deltaX;
 var intersectY = H / 2 - deltaY;
 var blackLineC = intersectY - blackLineGrad * intersectX;
 
-
-var cardWidth = 170;
-var cardHeight = 220;
+var gapAroundCard=20;
+var cardWidth = 125+gapAroundCard;
+var cardHeight = 150 + gapAroundCard;
 var inset = cardWidth / 120;
-var measureFromCardCenter = (cardWidth - 20) / 2;
+var measureFromCardCenter = (cardWidth - gapAroundCard) / 2;
+var x;
+var y;
 
 
 
@@ -75,10 +77,27 @@ function placementLoop() {
   blackLineC = intersectY - blackLineGrad * intersectX;
   var numCols = Math.ceil(W / cardWidth);
   var cardsStillToBePlaced = true;
+  var arrayLoopInt = 0;
   var steps = 0;
   var cardsPlaced = 0;
   var cardsConsecutivelyNotPlaced = 0;
   var htmlString = "";
+  var techArrayHtml="";
+  var linksArrayHtml="";
+
+var cardHtml1 = " <div class='aCard'> <div class='topRightProjectTechnologiesArea'> "
+var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <button class='submitButtonNoStyle' type='submit' name='techButton' value= ";
+var cardHtml3 = " ><Img class='cardHyperlinksImg' src= ";
+var cardHtml4 = " alt='gitLink'>  </button>  </form> "
+var cardHtml4Endloop = " </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
+var cardHtml5 = " </div> <img class='projectImage ' src= ";
+var cardHtml6 = " alt='projectImg'>  <div class='projectDescriptionSubtitle'>Description</div>  <div class='projectDescriptionText'> ";
+var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
+var cardHtml8 =  " <a href= ";
+ var cardHtml9 =  " ><Img class='cardHyperlinksImg' src= ";
+ var cardHtml10 = " alt='gitLink'> </a> "
+ var cardHtml11 = " </div></div> ";
+
 
 
 
@@ -86,11 +105,37 @@ function placementLoop() {
 
     x = (steps % numCols) * cardWidth + inset;
     y = blackLineGrad * (x + measureFromCardCenter) + blackLineC + cardHeight * Math.floor(steps / numCols); //but some cards wont be placed
+//this is so when we run out of project cards we just start again at the begginging
+arrayLoopInt = ((cardsPlaced)%projectCards.length);//not certanin will place whole loop// ((cardsPlaced-1)%projectCards.length)+1; //ones so modulus doesnt end on zero before steps incremented as want to start at zerosa
+//alert(cardsPlaced + "<--cardsPlaced" + projectCards.length + "  <--length  " + "array loop int -->"+arrayLoopInt);
     steps++;
     if (y < H) {
       cardsConsecutivelyNotPlaced = 0;
-      cardsPlaced++;
-      htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'>" + cardsPlaced + "</div>";
+    cardsPlaced++; //put this where aCardHtml is to get the numbers
+    // htmlString+= cardHtml;
+techArrayHtml="";
+linksArrayHtml="";
+console.log(" arrayLoopInt " +arrayLoopInt +" cardsPlaced " + cardsPlaced + " projectCards.length " + projectCards.length);
+    for(var j=0; j<projectCards[arrayLoopInt].technologiesArray.length; j++ ){
+          techArrayHtml += cardHtml2 + projectCards[arrayLoopInt].technologiesArray[j].technologyName +
+          cardHtml3+projectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
+
+    for(var k=0; k<projectCards[arrayLoopInt].linksArray.length; k++){
+              linksArrayHtml +=  cardHtml8+projectCards[arrayLoopInt].linksArray[0].linkHyperlink+cardHtml9+projectCards[arrayLoopInt].linksArray[0].linkImagePath+cardHtml10;
+          }
+      htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " +   cardHtml1+
+
+//start technologies array loop
+
+//end technologies array loop
+techArrayHtml+
+      cardHtml4Endloop + projectCards[arrayLoopInt].projectName + cardHtml5 +projectCards[arrayLoopInt].projectImagePath+
+      cardHtml6 +projectCards[arrayLoopInt].projectDescription+cardHtml7+
+//start links loop
+
+//end links loop
+linksArrayHtml+
+      cardHtml11+" </div> ";
     } else {
       cardsConsecutivelyNotPlaced++;
       if (cardsConsecutivelyNotPlaced > numCols) {

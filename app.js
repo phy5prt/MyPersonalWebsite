@@ -1,4 +1,4 @@
-
+//later should store all the images on the database so i can change them easier and then just pupulate the image folder have them in an array of their path and themselves
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -16,13 +16,28 @@ app.use(express.static("public"));
 
 mongoose.connect('mongodb://localhost:27017/projectCardsDB',{useNewUrlParser:true});
 
-
+//later use a second collection so do not repeatedly store image paths, image paths ....
 const projectCardSchema = new mongoose.Schema({
-  projectName:{type:String, required:[true,"missing projectNAme"]},
+  projectName:{type:String, required:[true,"missing projectName"]},
   overallProjectRating:{type:Number, required:[true,"missing overall project rating"]},
   projectDescription:{type:String,required:[true,"missing projectDescription"]},
-  projectImage:{type:String, required:[true, "missing projectImage"]}
-  //technologies and their ratings list eg git 5 unity 1 csharp 3
+  projectImagePath:{type:String, required:[true, "missing projectImagePath"]},
+
+  technologiesArray:[
+    {technologyName:{type:String, required:[true, "technologiesArray element missing technology name"]},
+      technologyImagePath:{type:String, required:[true, "technologiesArray element missing technology image path"]},
+      technologyExampleRating:{type:Number, required:[true, "technologiesArray element missing technology image path"]}
+    }
+  ],
+  linksArray:[
+    {linkName:{type:String, required:[true, "linksArray element missing link name"]},
+      linkImagePath:{type:String, required:[true, "linksArray element missing link image path"]},
+      linkHyperlink:{type:String, required:[true, "linksArray element missing link url"]}
+    }
+  ]
+
+
+//technologies and their ratings list eg git 5 unity 1 csharp 3
   //hyperlinks list eg youtube linke phil.playlist ...
 });
 //in future will have a mySite/admin with oauth and it will have the same caracell but a new button delete button and be edditable
@@ -45,7 +60,10 @@ app.route("/projectCards")
       projectName:req.body.projectName,
       overallProjectRating:req.body.overallProjectRating,
       projectDescription:req.body.projectDescription,
-      projectImage:req.body.projectImage
+      projectImagePath:req.body.projectImagePath,
+      technologiesArray:req.body.technologiesArray,
+      linksArray:req.body.linksArray
+
 
     })
     newProjectCard.save(function(err){
@@ -54,12 +72,59 @@ app.route("/projectCards")
 
   })
     .delete(function(req,res){
-        //  Article.deleteMany(function(err){if(!err){res.send("I'm sorry Dave I can't do that");}else{res.send(err);}}})
+        ProjectCard.deleteMany(function(err){if(!err){res.send("SuccessfulDelete");}else{res.send(err);}})
 
-          res.send(" 'I'm sorry Dave I can't do that' - Hal");
-        })
+          //res.send(" 'I'm sorry Dave I can't do that' - Hal");
+        });
 
-//requests single cards !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+//requests single cards !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+
+/*
+app.route("/carousel/:technologyName")
+.get(function(req,res){
+    ProjectCard.find({technologyName:req.params.technologyName},function(err,projectCards){
+      if(projectCards){
+        res.send(projectCards);
+      }else{
+        res.send("no project cards found matching that technology");}
+});
+*/
+/*
+ProjectCard.aggregate([
+  {$unwind:"$technologiesArray"},
+  {$match:{"technologiesArray.technologyName":"req.query.techButton"}},
+{$sort : { "technologyName.technologyExampleRating" : -1 }}
+])
+*/
+
+app.route("/carousel") /*make a version that takes projectName and it just takes one project displays it and all others are randomly sorted around*/
+            .get(function(req, res){
+
+/* this is more complicated that i expected will need to read docs and also maybe good excuse stackover flow question
+desired behaviour is to only show project cards which have the specifiec technology. And to order the projects by the rating of that technology for them
+            ProjectCard.aggregate([
+                {$unwind:"$technologiesArray"},
+                {$match:{"technologiesArray.technologyName":req.query.techButton}},
+              {$sort : { "technologyName.technologyExampleRating" : -1 }},
+             {$project:({})} dont want data limited by matches
+            ]).exec(function(err,aggregate){console.log(aggregate);});
+*/
+
+
+
+              ProjectCard
+              .find( {technologiesArray:{$elemMatch : {technologyName:req.query.techButton}}})
+      .sort({"technologiesArray.technologyExampleRating":1})
+              .exec(function(err,projectCardsWithSpecificTechnology){
+                if(projectCardsWithSpecificTechnology){
+
+                  res.send(projectCardsWithSpecificTechnology);
+                }else{
+                  res.send("no projectCardsWithSpecificTechnology found");}
+              });
+
+
+            });
 
 //need a method to order database maybe not here though
 app.route("/projectCards/:projectName")
@@ -79,7 +144,9 @@ app.route("/projectCards/:projectName")
               projectName:req.body.projectName,
               overallProjectRating:req.body.overallProjectRating,
               projectDescription:req.body.projectDescription,
-              projectImage:req.body.projectImage
+              projectImagePath:req.body.projectImagePath,
+              technologiesArray:req.body.technologiesArray,
+              linksArray:req.body.linksArray
             },
             {overwrite:true},
             function(err){if(!err){res.send("put update successful");}else{res.send(err);}}
@@ -106,11 +173,42 @@ app.route("/projectCards/:projectName")
           })})
 
 
-app.get("/", function(req,res){
+app.route("/")
+.get(function(req,res){
+
+ProjectCard.find()
+.sort({overallProjectRating:-1})
+.limit(4)
+.exec(function(err,best4Cards){
+  res.render("myWebsite", {
+    page2BestCard:best4Cards[0]
+    ,page3SecondBestCard:best4Cards[1]
+    ,page3ThirdBestCard:best4Cards[2]
+    ,page3FourthBestCard:best4Cards[3]
+
+
+  });
+    });
+
+
+//.toArray((err,projectCards)=>{ this needs cursor
+//  if(err)return console.log(err);
+//  res.send(projectCards);
+//});
 
 
 
+//.sort({overallProjectRating,-1}).limit(4); //find first 4 cards
 
+//res.render("myWebsite"
+//,{
+
+
+
+})
+.post(function(req,res){
+  var post = "posted";
+  res.render("myWebsite",{myData:post});
 });
 
 
