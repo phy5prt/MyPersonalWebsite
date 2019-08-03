@@ -35,6 +35,7 @@ body {
 
      circle at 50%,*/
      /*      yellow 50%, yellow, white);   */
+
 }
 
 a {
@@ -129,6 +130,7 @@ yellow;
 }
 
 .page2X0Y1 {
+
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -1404,6 +1406,36 @@ a{
   height:15px;
 */
 }
+/*Carousel Stylings*/
+
+.carouselOverlay{
+  position:fixed;
+  top:0; left:0;
+  width:100vw;
+  height:100vh;
+  margin:0;
+  padding:0;
+
+z-index:10;
+}
+.carouselOverlayBackground{
+  height:inherit;
+  width:inherit;
+  position:absolute;
+  margin:0; padding:0;
+  /*for now using same styling as the marble case*/
+  filter: blur(8px); /*doesnt blur the things underneath use jquery make a blur style and add it to all sections except this one or to body and counteract for this section this will not blur the areas produced by body but shouldnt be noticable*/
+  /*8*/
+  /*tone down the yellow and blue and add grey from first page*/
+  background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.7), rgba(255, 255, 255, 0.9) 15%, rgba(254, 241, 96, 0.6) 20%) content-box;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.9);
+  /*the blur is nice with the black edge (especially with the box shadow on it too)*/
+  /*is not blurring the background behind though!*/
+  outline: 4px solid black;
+  outline-offset: -4px;
+
+}
+
 /*/////////// Testing*/
 .dot{
   position: absolute;
