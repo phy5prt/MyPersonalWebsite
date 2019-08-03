@@ -1368,7 +1368,7 @@ margin-right: auto;
 
 .cardHyperlinksArea{
 
-   position:absolute;
+   position:absolute; /*this positions not relative to aCard but container its in so needs to be block but if change it check everything else still works like pg4*/
    bottom:4px;
   height:15px;
   width:auto;
@@ -1424,17 +1424,24 @@ z-index:10;
   position:absolute;
   margin:0; padding:0;
   /*for now using same styling as the marble case*/
-  filter: blur(8px); /*doesnt blur the things underneath use jquery make a blur style and add it to all sections except this one or to body and counteract for this section this will not blur the areas produced by body but shouldnt be noticable*/
+  filter: blur(10px); /*doesnt blur the things underneath use jquery make a blur style and add it to all sections except this one or to body and counteract for this section this will not blur the areas produced by body but shouldnt be noticable*/
   /*8*/
   /*tone down the yellow and blue and add grey from first page*/
+
   background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.7), rgba(255, 255, 255, 0.9) 15%, rgba(254, 241, 96, 0.6) 20%) content-box;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.9);
   /*the blur is nice with the black edge (especially with the box shadow on it too)*/
   /*is not blurring the background behind though!*/
-  outline: 4px solid black;
-  outline-offset: -4px;
+  outline: 8px solid black;
+  outline-offset: -8px;
 
 }
+
+#carousel .cloud9-item, #buttons button {
+  cursor: pointer;
+}
+
+
 
 /*/////////// Testing*/
 .dot{
