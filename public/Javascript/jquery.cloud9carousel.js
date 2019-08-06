@@ -25,6 +25,9 @@
  *     http://plugins.jquery.com/mousewheel/
  */
 
+
+
+
 ;(function($) {
   //
   // Detect CSS transform support
@@ -290,6 +293,8 @@
       clearInterval( this.autoPlayTimer );
       if( options.buttonLeft ) options.buttonLeft.unbind( 'click' );
       if( options.buttonRight ) options.buttonRight.unbind( 'click' );
+      /*I've added*/
+      if( options.buttonBottom ) options.buttonBottom.unbind( 'click' );
       $container.unbind( '.cloud9' );
     }
 
@@ -314,6 +319,25 @@
       this.autoPlay();
     }
 
+/*I've added*/
+    var showCarouselTop = function() {
+     $('.carouselOverlay').removeClass("carouselDisplayNone");
+      $('section').not('.carouselOverlay').addClass("carouselBlur");
+
+
+
+/*should we use this activate disactivate change it a bit*/
+
+      /*maybe just use this render, if so will probably need add options.buttonTop.bind( 'click', showCarouselTop
+    ); to the down button OR NOT is the issue its binding multiple times because it is in generateCaroulsel doesnt work         self.render();self.finishInit;self.autoPlay();*/
+         
+         options.buttonTop.unbind( 'click', showCarouselTop   );
+generateCarousel();
+
+         return false;
+        }
+
+
     this.bindControls = function() {
       if( options.buttonLeft ) {
         options.buttonLeft.bind( 'click', function() {
@@ -328,6 +352,20 @@
           return false;
         } );
       }
+/*i've added*/
+            if( options.buttonBottom ) {
+              options.buttonBottom.bind( 'click', function() {
+               $('.carouselOverlay').addClass("carouselDisplayNone");
+
+                $('section').not('.carouselOverlay').removeClass("carouselBlur");
+                return false;
+              } );
+            }
+
+            if( options.buttonTop ) {
+              options.buttonTop.bind( 'click', showCarouselTop
+               );
+            }
 
       if( options.mouseWheel ) {
         $container.bind( 'mousewheel.cloud9', function( event, delta ) {

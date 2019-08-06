@@ -14,6 +14,7 @@ import {projectCards} from "D:\website\backend\server.js"
 $(".test").click(function() {
 
 
-
-alert( );
+$(".carouselOverlay").toggleClass("carouselDisplayNone");
+$('section').not('.carouselOverlay').toggleClass("carouselBlur");
+  generateCarousel();
 });
