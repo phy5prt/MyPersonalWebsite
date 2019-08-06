@@ -126,12 +126,12 @@ function generateAllCarouselCards(){
 
   for (var i = 0; i < projectCards.length; i++) {
     var projectCard = projectCards[i];
-    var cloud9CardTemplate = $("#cloud9CardTemplate").clone(true);
-    cloud9CardTemplate.find('.projectTitle').html = projectCard.projectTitle;
-    cloud9CardTemplate.find('.projectDescriptionText').html = projectCard.projectDescription;
-$("#showcase").append(cloud9CardTemplate.contents());
+    var cloud9CardTemplate = $("#cloud9CardTemplate").contents();
+
+  cloud9CardTemplate.find('.projectTitle').html(projectCard.projectName);
+    cloud9CardTemplate.find('.projectDescriptionText').html(projectCard.projectDescription);
+$("#showcase").append(cloud9CardTemplate.clone(true))
 }
 
 
 }
-  generateCarousel();
