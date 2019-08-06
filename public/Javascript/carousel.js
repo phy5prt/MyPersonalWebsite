@@ -1,66 +1,5 @@
 
-var projectCards = [{
-  projectName:" Banana ",
-  overallProjectRating:"10",
-  projectDescription: "A very very good project",
-  projectImagePath:" Images/postman.jpg ",
-  technologiesArray:[{
-    technologyName:"unity",
-    technologyImagePath:" 'Images/tea.png' ",
-    technologyExampleRating:"10"
-  },
-  {
-    technologyName:"unity",
-    technologyImagePath:" 'Images/tea.png' ",
-    technologyExampleRating:"10"
-  },
-  {
-    technologyName:"unity",
-    technologyImagePath:" 'Images/postman.jpg' ",
-    technologyExampleRating:"10"
-  }],
-  linksArray:[{
-    linkName:"unity",
-    linkImagePath:" 'Images/postman.jpg' ",
-    linkHyperlink:"https://unity.com/ "
-  },
-  {
-    linkName:"unity",
-    linkImagePath:" 'Images/Shotglass.png' ",
-    linkHyperlink:"https://unity.com/ "
-  },
-  {
-    linkName:"unity",
-    linkImagePath: " 'Images/cocktailStraw.png' ",
-    linkHyperlink:"https://unity.com/ "
-  }]
-}, {
-  projectName: " Example2  ",
-  overallProjectRating:"10",
-  projectDescription:" Lauren Ipsum Latin bloke some writting here as vague as smoke, all it gives is space and shape, with less draw backs than a vape",
-  projectImagePath: " 'Images/cocktailOlive.png' " ,
-  technologiesArray:[
-  {
-    technologyName:"unity",
-    technologyImagePath:" ' Images/cocktailOlive.png ' ",
-    technologyExampleRating:"10"
-  },
-  {
-    technologyName:"unity",
-    technologyImagePath:" 'Images/postman.jpg' ",
-    technologyExampleRating:"10"
-  }],
-  linksArray:[{
-    linkName:"unity",
-    linkImagePath:" 'Images/postman.jpg' ",
-    linkHyperlink:"https://unity.com/ "
-  },
-  {
-    linkName:"unity",
-    linkImagePath:" 'Images/waterglass.png' ",
-    linkHyperlink:"https://unity.com/ "
-  }]
-}]
+
  function generateCarousel() {
 
 generateAllCarouselCards();
@@ -120,16 +59,34 @@ generateAllCarouselCards();
 }
 
 function generateAllCarouselCards(){
-  /*
-  const cloud9CardTemplate = document.querySelector('#cloud9CardTemplate');
-  const node = document.importNode(cloud9CardTemplate.content, true); works but trying something else*/
-
+  //lots of finds and searches but really only need the template and components once
+  //so if just make a copy that stays in the loop will reduce the searches
+//master and working template one global as var then using let to make second copy
   for (var i = 0; i < projectCards.length; i++) {
+
     var projectCard = projectCards[i];
-    var cloud9CardTemplate = $("#cloud9CardTemplate").contents();
+    var cloud9CardTemplate = $("#cloud9CardTemplate").contents().clone(true); /*not sure if clone is needed just worried about overwriting template*/
 
   cloud9CardTemplate.find('.projectTitle').html(projectCard.projectName);
-    cloud9CardTemplate.find('.projectDescriptionText').html(projectCard.projectDescription);
+  cloud9CardTemplate.find('.projectDescriptionText').html(projectCard.projectDescription);
+    cloud9CardTemplate.find('.projectImage').attr("src", projectCard.projectImagePath);
+
+
+for (var j = 0; j < projectCard.technologiesArray.length; j++){
+      var technology = projectCard.technologiesArray[j];
+  var cardTechnologyButtonTemplate = $("#cardTechnologyButtonTemplate").contents().clone(true); /*not sure if clone is needed just worried about overwriting template*/
+ cardTechnologyButtonTemplate.find('.cardHyperlinksImg').attr("src", technology.technologyImagePath);
+cloud9CardTemplate.find('.topRightProjectTechnologiesArea').append(cardTechnologyButtonTemplate.clone(true))
+}
+for (var k = 0; k < projectCard.linksArray.length; k++){
+  var link = projectCard.linksArray[k];
+var cardHyperlinkTemplate = $("#cardHyperlinkTemplate").contents().clone(true); /*not sure if clone is needed just worried about overwriting template*/
+cardHyperlinkTemplate.find('.cardHyperlinksImg').attr("src", link.linkImagePath);
+cardHyperlinkTemplate.find('.hyperlinkAnchor').attr("href", link.linkHyperlink);
+cloud9CardTemplate.find('.cardHyperlinksArea').append(cardHyperlinkTemplate.clone(true))
+
+}
+
 $("#showcase").append(cloud9CardTemplate.clone(true))
 }
 
