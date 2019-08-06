@@ -330,10 +330,10 @@
 
       /*maybe just use this render, if so will probably need add options.buttonTop.bind( 'click', showCarouselTop
     ); to the down button OR NOT is the issue its binding multiple times because it is in generateCaroulsel doesnt work         self.render();self.finishInit;self.autoPlay();*/
-         
+
          options.buttonTop.unbind( 'click', showCarouselTop   );
 generateCarousel();
-
+ options.buttonTop.unbind( 'click', showCarouselTop   );/*can still hold up and make it run code too much */
          return false;
         }
 

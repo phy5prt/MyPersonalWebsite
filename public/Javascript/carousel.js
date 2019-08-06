@@ -1,6 +1,70 @@
 
-
+var projectCards = [{
+  projectName:" Banana ",
+  overallProjectRating:"10",
+  projectDescription: "A very very good project",
+  projectImagePath:" Images/postman.jpg ",
+  technologiesArray:[{
+    technologyName:"unity",
+    technologyImagePath:" 'Images/tea.png' ",
+    technologyExampleRating:"10"
+  },
+  {
+    technologyName:"unity",
+    technologyImagePath:" 'Images/tea.png' ",
+    technologyExampleRating:"10"
+  },
+  {
+    technologyName:"unity",
+    technologyImagePath:" 'Images/postman.jpg' ",
+    technologyExampleRating:"10"
+  }],
+  linksArray:[{
+    linkName:"unity",
+    linkImagePath:" 'Images/postman.jpg' ",
+    linkHyperlink:"https://unity.com/ "
+  },
+  {
+    linkName:"unity",
+    linkImagePath:" 'Images/Shotglass.png' ",
+    linkHyperlink:"https://unity.com/ "
+  },
+  {
+    linkName:"unity",
+    linkImagePath: " 'Images/cocktailStraw.png' ",
+    linkHyperlink:"https://unity.com/ "
+  }]
+}, {
+  projectName: " Example2  ",
+  overallProjectRating:"10",
+  projectDescription:" Lauren Ipsum Latin bloke some writting here as vague as smoke, all it gives is space and shape, with less draw backs than a vape",
+  projectImagePath: " 'Images/cocktailOlive.png' " ,
+  technologiesArray:[
+  {
+    technologyName:"unity",
+    technologyImagePath:" ' Images/cocktailOlive.png ' ",
+    technologyExampleRating:"10"
+  },
+  {
+    technologyName:"unity",
+    technologyImagePath:" 'Images/postman.jpg' ",
+    technologyExampleRating:"10"
+  }],
+  linksArray:[{
+    linkName:"unity",
+    linkImagePath:" 'Images/postman.jpg' ",
+    linkHyperlink:"https://unity.com/ "
+  },
+  {
+    linkName:"unity",
+    linkImagePath:" 'Images/waterglass.png' ",
+    linkHyperlink:"https://unity.com/ "
+  }]
+}]
  function generateCarousel() {
+
+generateAllCarouselCards();
+
   var showcase = $("#showcase")
 
   showcase.Cloud9Carousel( {
@@ -53,5 +117,21 @@
         $('.nav.right').click()
     }
   } )
+}
+
+function generateAllCarouselCards(){
+  /*
+  const cloud9CardTemplate = document.querySelector('#cloud9CardTemplate');
+  const node = document.importNode(cloud9CardTemplate.content, true); works but trying something else*/
+
+  for (var i = 0; i < projectCards.length; i++) {
+    var projectCard = projectCards[i];
+    var cloud9CardTemplate = $("#cloud9CardTemplate").clone(true);
+    cloud9CardTemplate.find('.projectTitle').html = projectCard.projectTitle;
+    cloud9CardTemplate.find('.projectDescriptionText').html = projectCard.projectDescription;
+$("#showcase").append(cloud9CardTemplate.contents());
+}
+
+
 }
   generateCarousel();
