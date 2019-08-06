@@ -121,7 +121,7 @@ console.log(" arrayLoopInt " +arrayLoopInt +" cardsPlaced " + cardsPlaced + " pr
           cardHtml3+projectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
 
     for(var k=0; k<projectCards[arrayLoopInt].linksArray.length; k++){
-              linksArrayHtml +=  cardHtml8+projectCards[arrayLoopInt].linksArray[0].linkHyperlink+cardHtml9+projectCards[arrayLoopInt].linksArray[0].linkImagePath+cardHtml10;
+              linksArrayHtml +=  cardHtml8+projectCards[arrayLoopInt].linksArray[k].linkHyperlink+cardHtml9+projectCards[arrayLoopInt].linksArray[k].linkImagePath+cardHtml10;
           }
       htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " +   cardHtml1+
 
