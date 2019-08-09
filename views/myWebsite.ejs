@@ -79,6 +79,7 @@ also cause a white space at bottom because now contributes to the height-->
 
   <template id="cloud9CardTemplate">
     <div class="cloud9-item">
+      <div class="scaleable-wrapper" >
                               <div class="aCard">
                                 <div class="topRightProjectTechnologiesArea">
 
@@ -95,6 +96,7 @@ also cause a white space at bottom because now contributes to the height-->
                                     </div>
                         </div>
     </div>
+  </div>
   </template>
 
   <template id="cardTechnologyButtonTemplate">
@@ -211,7 +213,7 @@ maybe even ajoining a space for the marble
 -->
     <div class="pg2CardLocation pCard">
 
-
+<div class="scaleable-wrapper" >
           <div class="aCard">
             <div class="topRightProjectTechnologiesArea">
               <% for (let i = 0; i<page2BestCard.technologiesArray.length; i++) { %>
@@ -251,7 +253,7 @@ maybe even ajoining a space for the marble
             </div>
 
 
-
+</div>
 
 
       <div class="containerToReceivephilProfileMarblePG2"></div>
@@ -479,7 +481,7 @@ in 4.3.1 need use order and offset
             <div class="col-md-12 col-lg-4  order-1 order-lg-2">
 
 
-
+<div class="scaleable-wrapper" >
 
                             <div class="aCard">
                               <div class="topRightProjectTechnologiesArea">
@@ -510,6 +512,7 @@ in 4.3.1 need use order and offset
                                  <a href= <%= page3SecondBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3SecondBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
   <% }%>
                                 </div>
+                              </div>
 
 
               </div>
@@ -518,7 +521,7 @@ in 4.3.1 need use order and offset
             <div class="col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1">
 
 
-
+<div class="scaleable-wrapper" >
                           <div class="aCard">
                             <div class="topRightProjectTechnologiesArea">
 
@@ -557,12 +560,13 @@ in 4.3.1 need use order and offset
                               </div>
 
               </div>
+              </div>
             </div>
 
             <div class="col-xs-12 col-md-6 col-lg-4  order-3 order-lg-3 ">
 
 
-
+<div class="scaleable-wrapper" >
                           <div class="aCard">
                             <div class="topRightProjectTechnologiesArea">
 
@@ -600,7 +604,7 @@ in 4.3.1 need use order and offset
 
 
             </div>
-
+</div>
 
 
           </div>
@@ -689,7 +693,7 @@ http://xahlee.info/comp/unicode_arrows.html
 
 <script src="Javascript/jquery.cloud9carousel.js" charset="utf-8"></script>
 <script src="Javascript/carousel.js" charset="utf-8"></script>
-
+<script src="Javascript/cards.js" charset="utf-8"></script>
 
 
   <script src="Javascript/testCode.js" charset="utf-8"></script>

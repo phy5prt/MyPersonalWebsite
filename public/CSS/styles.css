@@ -1265,8 +1265,28 @@ when refactor set the h's to the same font but different font sizes and have thi
   width: 19px;
   height:15px;/*inherit;*/
 }
+/*
+.aCard{
+
+  background:beige;
+  width:125px;
+  height:150px;
+  border: 2.5px solid black;
+  border-radius: 5px;
+margin:0 auto;
+visibility:inherit;
+}*/
+.scaleable-wrapper {
+/* position:absolute; */ /*added*/
+/* display:static; */ /*added*/
+  padding:0; margin:0;
+  resize: both;
+  height: inherit;
+  width:inherit;
+}
 
 .aCard{
+
   background:beige;
 
 
@@ -1275,10 +1295,26 @@ when refactor set the h's to the same font but different font sizes and have thi
   border: 2.5px solid black;
   border-radius: 5px;
 
-margin:0 auto;
+/* margin:0 auto; */
 visibility:inherit;
 
+      padding:0; margin:0;
+/*width:inherit;
+  height:inherit;*/
+  text-align: center;
+  /*background: pink;*/
+  position: relative;
+  /* left: 50%;
+  top: 50%; */
+  transform: translate(0%, 0%);left:0;top:0;
+  /*  transform: translate(-50%, -50%);*/
+  transform-origin: center center;
+
+
 }
+
+
+
 .topRightProjectTechnologiesArea{
   height:auto;
   width:19px;
@@ -1370,8 +1406,10 @@ margin-right: auto;
 
 .cardHyperlinksArea{
 
-   position:absolute; /*this positions not relative to aCard but container its in so needs to be block but if change it check everything else still works like pg4*/
- content:""; position:block;
+
+ content:"";
+ display:block;
+position:static;
    bottom:4px;
   height:15px;
   width:auto;
@@ -1382,6 +1420,7 @@ padding:0 ;
   text-align: left;
   font-size:0;
 }
+/*these two effecting the same element*/
 .cardHyperlinksImg{
 
 width:15px;
