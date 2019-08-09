@@ -278,13 +278,15 @@ var wheelListnerIncMagRad = function(e) {
   //  return false; //to stop the scroll bar scroll might work outside of code pen
 };
 
-
+/*change name so its runTransistionPG3To4*/
 function runPageTransistion() {
   console.log("page transistion triggered");
 
   window.removeEventListener("resize", updatePG3VarsWithWindow);
   window.removeEventListener("wheel", wheelListnerIncMagRad);
   placementLoop();
+  var pg4Cards = $('.page4X0Y0')
+    initSetCards(pg4Cards);
   window.addEventListener("resize", updatePG4WithWindow);
 
   $(".aMarble").addClass("rollingClockwise");

@@ -10,10 +10,11 @@ function initSetCards(parent){
                           $(this).height() / vsd.outerHeight()
        );
 
-     vsd.css({transform: "translate(-50%, -50%) " + "scale(" + scale + ")"  });
-     vsd.css({transform: "translate(0%, 0%) " + "scale(" + scale + ")"  });
+    // vsd.css({transform: "translate(-50%, -50%) " + "scale(" + scale + ")"  });
+     vsd.css({transform: "translate(-50%, 0%) " + "scale(" + scale + ")"  });
+console.log("updated a card");
      });
 
 }
-var allCards = $('.theBody');
+var allCards = $('body');
 initSetCards(allCards);

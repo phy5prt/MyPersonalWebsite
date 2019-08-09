@@ -145,6 +145,7 @@ linksArrayHtml+
       }
     }
   }
+
 }
 
 var updatePG4WithWindow = function() {
