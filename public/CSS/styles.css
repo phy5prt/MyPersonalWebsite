@@ -1318,7 +1318,7 @@ visibility:inherit;
   font-family: 'nymphetteregular';
   /*display:inline-block;*/
   border:0; margin:0;
-  transform:rotate(-90deg);
+
 }
 
 .topRightProjectTechnologiesArea{
@@ -1351,21 +1351,22 @@ im going to leave it till later*/
 
 
 .fontOrnamentTech {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-family: 'nymphetteregular';
 
    width:15px;
-   height:15px;
+   height:30px;
   display: inline-block;
 /*position:relative; */
 
      overflow:hidden;
 
-text-align:left;
-/* vertical-align:top; */
+text-align:right;
+
 margin:0;padding:0;
 vertical-align:top;
-
+writing-mode: vertical-lr;
+text-orientation: mixed;
 
 }
 
@@ -1373,7 +1374,7 @@ vertical-align:top;
   display: block;
 position:static;
 
-  margin: 0 0 2px 0; padding:0; width:19px; height:15px;}
+  margin: 0 0 2px 0; padding:0; width:19px; height:30px;}
 
 .submitButtonNoStyleOrnament{
   background:none;
@@ -1384,7 +1385,7 @@ position:static;
   outline:inherit;
 
   width: 15px;
-  height: 15px;
+  height: 30px;
   display:inline-block;
 
   overflow: hidden;
