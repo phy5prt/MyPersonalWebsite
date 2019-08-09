@@ -12,7 +12,7 @@ function initSetCards(parent){
 
     // vsd.css({transform: "translate(-50%, -50%) " + "scale(" + scale + ")"  });
      vsd.css({transform: "translate(-50%, 0%) " + "scale(" + scale + ")"  });
-console.log("updated a card");
+
      });
 
 }

@@ -1313,7 +1313,13 @@ visibility:inherit;
 
 }
 
-
+.aCardTechFontOrnament {
+  font-size: 3rem;
+  font-family: 'nymphetteregular';
+  /*display:inline-block;*/
+  border:0; margin:0;
+  transform:rotate(-90deg);
+}
 
 .topRightProjectTechnologiesArea{
   height:auto;
@@ -1331,21 +1337,75 @@ max-height:150px;
 /*so if you making the form have a larger margin find actually the button is triggered up to 10px below
 but there are no boxed ending there on pesticide so i think it is the button click area, some reading suggests can effect it with whether elements are inline block etc or text aligned for position
 im going to leave it till later*/
-.formTechBtn{margin: 0 0 2px 0; padding:0; width:19px; height:15px;}
+.formTechBtn{   margin: 0 0 2px 0; padding:0; width:19px; height:15px;}
 .technologyButtonImg{
-  display: block;
+
   width:15px;
   height:15px;
   overflow:hidden;
-  padding:0;margin:0 auto;
+  padding:0;
+  margin:0 auto;
 
 }
+
+
+
+.fontOrnamentTech {
+  font-size: 0.9rem;
+  font-family: 'nymphetteregular';
+
+   width:15px;
+   height:15px;
+  display: inline-block;
+/*position:relative; */
+
+     overflow:hidden;
+
+text-align:left;
+/* vertical-align:top; */
+margin:0;padding:0;
+vertical-align:top;
+
+
+}
+
+.formTechOrnament{
+  display: block;
+position:static;
+
+  margin: 0 0 2px 0; padding:0; width:19px; height:15px;}
+
+.submitButtonNoStyleOrnament{
+  background:none;
+  color:inherit;
+  border:none;
+  padding:0;margin:0;
+  font:inherit;
+  outline:inherit;
+
+  width: 15px;
+  height: 15px;
+  display:inline-block;
+
+  overflow: hidden;
+/*  vertical-align: top;*/
+
+
+}
+
+
+/*
+.technologyButton span{
+padding:0;margin:0;
+  width: 15px;
+  height: 15px;}
+
 
 .technologyButton img{
 padding:0;margin:0;
   width: 15px;
   height: 15px;}
-
+*/
 .technologyCaracellIsDisplaying {
    width: 15px;
   height: 15px;
