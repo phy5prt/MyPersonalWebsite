@@ -1327,14 +1327,36 @@ visibility:inherit;
   height:auto;
   width:19px;
 
-  float:right;
+/*  float:right;*/
   background:lightCyan;
-  margin:0.5px 5px;
-  padding:2px 0;
+  margin:0 5px 0;
+  padding:20px 0 0;
 max-height:150px;
 
 
   overflow:hidden;
+  box-shadow:  1px 1px 20px 1px plum;
+
+}
+.topRightRibbonArea{
+  float:right;
+
+}
+.ribbonEnd{
+  width:19px;
+   background:transparent;
+   margin:0 5px;
+   padding:0;
+
+ content:"";
+ font-size: 0;
+
+      border-bottom:10px solid transparent;
+      border-top:2px solid lightCyan;
+      border-left:9.5px solid lightCyan;
+   border-right:9.5px solid lightCyan;
+   overflow:hidden;
+
 }
 /*so if you making the form have a larger margin find actually the button is triggered up to 10px below
 but there are no boxed ending there on pesticide so i think it is the button click area, some reading suggests can effect it with whether elements are inline block etc or text aligned for position
@@ -1470,18 +1492,20 @@ margin-right: auto;
 .cardHyperlinksArea{
 
 
- content:"";
+/* content:"";*/
  display:block;
 position:static;
    bottom:4px;
   height:15px;
-  width:auto;
+ width:auto;
   margin:0 auto 0 2px;
 padding:0 ;
   overflow:hidden;
   vertical-align: top;
   text-align: left;
   font-size:0;
+    box-shadow:  0 0 20px 0    yellow;
+    background:transparent;
 }
 /*these two effecting the same element*/
 .cardHyperlinksImg{
