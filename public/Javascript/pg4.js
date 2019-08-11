@@ -85,11 +85,11 @@ function placementLoop() {
   var techArrayHtml="";
   var linksArrayHtml="";
 
-var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'> <div class='topRightProjectTechnologiesArea'> ";
+var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'> ";
 var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <button class='submitButtonNoStyle' type='submit' name='techButton' value= ";
 var cardHtml3 = " ><Img class='cardHyperlinksImg' src= ";
 var cardHtml4 = " alt='gitLink'>  </button>  </form> "
-var cardHtml4Endloop = " </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
+var cardHtml4Endloop = "  </div> <div class='ribbonEnd'> </div> </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
 var cardHtml5 = " </div> <img class='projectImage ' src= ";
 var cardHtml6 = " alt='projectImg'>  <div class='projectDescriptionSubtitle'>Description</div>  <div class='projectDescriptionText'> ";
 var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
