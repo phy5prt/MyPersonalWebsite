@@ -317,6 +317,22 @@ with page changes
   filter: blur(8px);
   /*8*/
   background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.4), rgba(255, 255, 255, 0.6) 15%, rgba(254, 241, 96, 0.3) 20%) content-box;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1), inset 0 0 50px rgba(0, 0, 0, 0.8);
   /*the blur is nice with the black edge (especially with the box shadow on it too)*/
   /*is not blurring the background behind though!*/
@@ -1311,7 +1327,7 @@ visibility:inherit;
 /*  transform: translate(-50%, -50%);left:50%;top:50%;*/
     transform: translate(-50%, 0%);left:50%;top:0%;
   transform-origin: center center;
-
+position:relative; z-index:1;/*added to help shadow layering*/
 /*  position:absolute;*/ /*z-index:inherit;*//*added to help shadow layering*/
      transform-style: preserve-3d; /*dirty stacking sollution*/
 }
@@ -1330,6 +1346,57 @@ z-index:-1;
     transform: rotate(3deg);
    transform: translateZ(-1px); /*dirty stacking sollution to get pseudo under acard*/
 }
+/*for card sheen*/
+
+.aCard::before{
+
+    background: linear-gradient(140deg,
+
+    rgba(255,255,255,0) 10%, rgba(255,255,255,0.2), rgba(255,255,255,0) 12%, rgba(255,255,255,0)
+    ,
+    rgba(225, 225, 225, 0) 30% , rgba(255, 255, 255, 0.3) 33%, rgba(221,160,221, 0.2)38%, rgba(255, 255, 255, 0.2), rgba(255, 255, 0, 0.1)  , rgba(255, 255, 255, 0.1), rgba(255, 255, 0, 0.1),rgba(255, 255, 255, 0.1) 43% ,rgba(255, 255, 255, 0)
+    ,
+    rgba(225, 225, 225, 0) 80% ,  rgba(225, 225, 225, 0), rgba(221,160,221, 0.2)88%, rgba(255, 255, 255, 0.2) ,  rgba(255, 255, 0, 0.1),  rgba(255, 255,255, 0.2), rgba(255, 255,255, 0.1) ,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0) 94% );
+
+/*works trying to improve
+  background: linear-gradient(140deg,
+
+    rgba(255,255,255,0) 10%, rgba(255,255,255,0.2), rgba(255,255,255,0) 12%, rgba(255,255,255,0)
+    ,
+    rgba(225, 225, 225, 0) 30% , rgba(255, 255, 255, 0.3) 33%, rgba(221,160,221, 0.2)38%, rgba(255, 255, 255, 0.2) 38%, rgba(255, 255, 0, 0.1)  , rgba(255, 255, 255, 0.1), rgba(255, 255, 0, 0.1) 41%,rgba(255, 255, 255, 0.1) 43% ,rgba(255, 255, 255, 0)
+    ,
+    rgba(225, 225, 225, 0) 80% ,  rgba(221,160,221, 0.2)88%, rgba(255, 255, 255, 0.3) 88%,  rgba(255, 255, 0, 0.2),  rgba(255, 255,255, 0.2), rgba(255, 255,255, 0.1) ,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0) 94% );
+
+*/
+
+
+
+  content:"";
+  font-size:0;
+left:0;
+  top:0;
+
+
+  border-radius: 5px;
+
+//margin:0 auto;
+visibility:inherit;
+
+      padding:0; margin:0;
+
+
+
+
+ /**/
+position:absolute;
+
+  pointer-events:none;
+
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
 
 .aCardTechFontOrnament {
   font-size: 3rem;
@@ -1351,7 +1418,7 @@ max-height:150px;
 
 
   overflow:hidden;
-  box-shadow:  1px 1px 20px 1px plum;
+  box-shadow:  1px 1px 20px 3px plum;
 
     /* offset-x | offset-y | blur-radius | spread-radius | color */;
 
@@ -1362,7 +1429,7 @@ max-height:150px;
 
 
 /*  float:right;*/
-;
+
   margin:0 5px 0;
   padding: 0;
 max-height:150px;
@@ -1377,16 +1444,39 @@ height:20px;
 content:""; font-size:0;
 z-index:1000;
 }
+.topRightProjectTechnologiesArea::after
+{
+
+
+/*  float:right;*/
+
+  margin:0;
+  padding: 0;
+max-height:0px;
+height:1px;
+
+  overflow:hidden;
+  /*black ribbon smudge at top*/
+  box-shadow:  0 0px 10px 10px black;
+
+  height:0px; width:19px;
+
+content:""; font-size:0;
+
+  z-index:1000;
+}
 
 .topRightRibbonArea{
   float:right;
 margin-top: -3px;
 
+  /*here*/
+z-index:4;position:relative; /*relative allows shine to go under but effects loop of ribbon shadow*/
 
 }
 .topRightRibbonArea::before{
-  position:absolute;
 
+position:absolute;
   font-size:0;
   content:"";
   margin: 0;
@@ -1395,7 +1485,7 @@ margin-top: -3px;
   width:0;
   margin:0;
   /*box-shadow: 5px 0 5px -5px #333;*/
-  box-shadow: 7px 1px 5px -3px black;
+  box-shadow: 7px 4px 4px -3px black;
   z-index:-1;
   right:5px;
     top:-5px;
