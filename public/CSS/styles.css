@@ -1453,7 +1453,7 @@ z-index:1000;
   margin:0;
   padding: 0;
 max-height:0px;
-height:1px;
+
 
   overflow:hidden;
   /*black ribbon smudge at top*/
@@ -1489,6 +1489,7 @@ position:absolute;
   z-index:-1;
   right:5px;
     top:-5px;
+
 
 }
 
