@@ -1328,20 +1328,64 @@ visibility:inherit;
   width:19px;
 
 /*  float:right;*/
-  background:lightCyan;
+  background:linear-gradient(lightCyan 4px, lightCyan 4px,  white ,  lightCyan 15px);
   margin:0 5px 0;
-  padding:20px 0 0;
+  padding: 0;
 max-height:150px;
 
 
   overflow:hidden;
   box-shadow:  1px 1px 20px 1px plum;
 
-}
-.topRightRibbonArea{
-  float:right;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */;
 
 }
+
+.topRightProjectTechnologiesArea::before
+{
+
+
+/*  float:right;*/
+;
+  margin:0 5px 0;
+  padding: 0;
+max-height:150px;
+height:20px;
+
+  overflow:hidden;
+  /*black ribbon smudge at top*/
+  box-shadow:  0 -30px 10px 10px black;
+    background:lightCyan;
+  height:0px; width:19px;
+
+content:""; font-size:0;
+z-index:1000;
+}
+
+.topRightRibbonArea{
+  float:right;
+margin-top: -3px;
+
+
+}
+.topRightRibbonArea::before{
+  position:absolute;
+
+  font-size:0;
+  content:"";
+  margin: 0;
+  padding:10px 10px;
+  height:0;
+  width:0;
+  margin:0;
+  /*box-shadow: 5px 0 5px -5px #333;*/
+  box-shadow: 7px 1px 5px -3px black;
+  z-index:-1;
+  right:5px;
+    top:-5px;
+
+}
+
 .ribbonEnd{
   width:19px;
    background:transparent;
@@ -1369,6 +1413,7 @@ im going to leave it till later*/
   overflow:hidden;
   padding:0;
   margin:0 auto;
+
 
 }
 
@@ -1504,13 +1549,39 @@ position:static;
   vertical-align: top;
   text-align: left;
   font-size:0;
-    box-shadow:  0 0 20px 0    yellow;
-      /*background-color: #262626; because images have transparencys doesnt work*/
-background-color: rgba(255, 255, 0, .4);;
-      outline:black;
+
+  /*two yellows dont blend so maybe need a same width zero height pseudo behind*/
+
+    /* because images have transparencys doesnt work*/
+/*background-color: rgba(255, 255, 0, .3);*/
+
+background:transparent;
+font-size:0;
+border-radius:10%;
+
+  box-shadow:  0 0 10px 2px    yellow;
+
     float:left;
+  /*    background-color: transparent;*/
 }
+
+
 /*these two effecting the same element*/
+.cardTechlinksImg{
+
+width:18px;
+height:15px;
+display: inline;
+font-size:0;
+/*margin-left: auto;
+margin-right: auto;*/
+  overflow:hidden;
+padding:0 2px;
+vertical-align: top;
+  border-radius:50%;
+
+
+}
 .cardHyperlinksImg{
 
 width:18px;
@@ -1523,6 +1594,9 @@ margin-right: auto;*/
 padding:0 2px;
 vertical-align: top;
   border-radius:50%;
+/*background-color:yellow;*/
+background-color:rgba(255, 255, 0, 0.7);
+  box-shadow:  0 0 5px 2px    yellow;
 
 }
 /*
