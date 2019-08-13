@@ -1302,27 +1302,20 @@ visibility:inherit;
 }
 
 .aCard{
-
 background-image: url(/Images/cardTextures/favourites/w1.jpg);
-
   background-repeat:repeat;
-
-
   width:125px;
   height:150px;
   border: 2.5px solid black;
   border-radius: 5px;
-
 /* margin:0 auto; */
 visibility:inherit;
-
       padding:0; margin:0;
 /*width:inherit;
   height:inherit;*/
   text-align: center;
   /*background: pink;*/
   position: relative;
-
 /*  transform: translate(0%, 0%);left:0;top:0; */
 /*  transform: translate(-50%, -50%);left:50%;top:50%;*/
     transform: translate(-50%, 0%);left:50%;top:0%;
@@ -1343,14 +1336,12 @@ position:relative; z-index:1;/*added to help shadow layering*/
    bottom:1px;
   box-shadow: 0px 0px 3px 3px white, 1px 1px 3px 3px black;
 z-index:-1;
-
     transform: rotate(3deg);
    transform: translateZ(-1px); /*dirty stacking sollution to get pseudo under acard*/
 }
 /*for card sheen*/
 
 .aCard::before{
-
     background: linear-gradient(140deg,
 
     rgba(255,255,255,0) 10%, rgba(255,255,255,0.2), rgba(255,255,255,0) 12%, rgba(255,255,255,0)
@@ -1369,30 +1360,15 @@ z-index:-1;
     rgba(225, 225, 225, 0) 80% ,  rgba(221,160,221, 0.2)88%, rgba(255, 255, 255, 0.3) 88%,  rgba(255, 255, 0, 0.2),  rgba(255, 255,255, 0.2), rgba(255, 255,255, 0.1) ,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0) 94% );
 
 */
-
-
-
   content:"";
   font-size:0;
 left:0;
   top:0;
-
-
   border-radius: 5px;
-
-
 visibility:inherit;
-
       padding:0; margin:0;
-
-
-
-
- /**/
 position:absolute;
-
   pointer-events:none;
-
   width:100%;
   height:100%;
   z-index:1;
@@ -1408,15 +1384,14 @@ position:absolute;
 /*  float:right;*/
   background:linear-gradient(lightCyan 4px, lightCyan 4px,  white ,  lightCyan 15px);
   margin:0 5px 0;
-  padding: 0;
+padding-top:22px;
 max-height:150px;
-
-
   overflow:hidden;
   box-shadow:  1px 1px 20px 3px plum;
-
     /* offset-x | offset-y | blur-radius | spread-radius | color */;
-
+    content:"";
+    font-size:0;
+    line-height:0;
 }
 /*gap at top and shadow there not sure how*/
 /*causes the height to be really big despite no height*/
@@ -1425,36 +1400,27 @@ max-height:150px;
   /*try removing margin replacing padding, height ...*/
   margin:0 5px 0;
   padding: 0;
-max-height:0px;
-
+max-height:0;
   overflow:hidden;
    box-shadow:  0 -30px 10px 10px black;
-  /*  background:lightCyan;*/
-  height:0px;
+
   width:19px;
-content:""; font-size:0;
+content:"";
+font-size:0;
 line-height:0;
 
 }
 .topRightProjectTechnologiesArea::after
 {
-
-
-/*  float:right;*/
-
   margin:0;
   padding: 0;
 max-height:0px;
-
-
   overflow:hidden;
-  /*black ribbon smudge at top*/
   box-shadow:  0 0px 10px 10px black;
-
   height:0px; width:19px;
-
-content:""; font-size:0;
-
+  content:"";
+  font-size:0;
+  line-height:0;
   z-index:1000;
 }
 
@@ -1475,13 +1441,13 @@ position:absolute;
   padding:10px 10px;
   height:0;
   width:0;
-  margin:0;
+
   /*box-shadow: 5px 0 5px -5px #333;*/
   box-shadow: 7px 4px 4px -3px black;
   z-index:-1;
   right:5px;
     top:-5px;
-
+line-height:0;
 
 }
 

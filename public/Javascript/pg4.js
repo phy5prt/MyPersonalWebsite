@@ -85,18 +85,18 @@ function placementLoop() {
   var techArrayHtml="";
   var linksArrayHtml="";
 
-var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'> ";
-var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <button class='submitButtonNoStyle' type='submit' name='techButton' value= ";
-var cardHtml3 = " ><img type='image' class='cardTechlinksImg' src= ";
-var cardHtml4 = " alt='gitLink'>  </button>  </form> "
-var cardHtml4Endloop = "  </div> <div class='ribbonEnd'> </div>  </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
-var cardHtml5 = " </div> <img class='projectImage ' src= ";
-var cardHtml6 = " alt='projectImg'>  <div class='projectDescriptionSubtitle'>Description</div>  <div class='projectDescriptionText'> ";
-var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
-var cardHtml8 =  " <a href= ";
- var cardHtml9 =  " ><Img class='cardHyperlinksImg' src= ";
- var cardHtml10 = " alt='gitLink'> </a> ";
- var cardHtml11 = " </div></div></div> ";
+  var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'> ";
+  var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <button class='submitButtonNoStyle' type='submit' name='techButton' value= "; /*make sure value given single speach marks */
+  var cardHtml3 = " ><img type='image' class='cardTechlinksImg' src= "; /*make sure gets two single marks*/
+  var cardHtml4 = " alt='gitLink'></img>  </button>  </form> "
+  var cardHtml4Endloop = "  </div> <div class='ribbonEnd'> </div>  </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
+  var cardHtml5 = " </div> <img class='projectImage ' src= ";   /* make sure gets double '' */
+  var cardHtml6 = " alt='projectImg'></img>  <div class='projectDescriptionSubtitle'>Description</div>  <div class='projectDescriptionText'> ";
+  var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
+  var cardHtml8 =  " <a href= "; /* marks needed '' */
+   var cardHtml9 =  " ><img class='cardHyperlinksImg' src= "; /* marks needed */
+   var cardHtml10 = " alt='gitLink'></img> </a> ";
+   var cardHtml11 = " </div></div></div> ";
 
 
 
