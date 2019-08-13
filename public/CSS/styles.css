@@ -1331,6 +1331,7 @@ position:relative; z-index:1;/*added to help shadow layering*/
 /*  position:absolute;*/ /*z-index:inherit;*//*added to help shadow layering*/
      transform-style: preserve-3d; /*dirty stacking sollution*/
 }
+/*card shadow*/
 .aCard::after{
 
   position:absolute;
@@ -1398,16 +1399,10 @@ position:absolute;
 }
 
 
-.aCardTechFontOrnament {
-  font-size: 3rem;
-  font-family: 'nymphetteregular';
-  /*display:inline-block;*/
-  border:0; margin:0;
 
-}
-
+/*inside ribbon*/
 .topRightProjectTechnologiesArea{
-  height:auto;
+  height:auto;  /*dont want to inherit from pseudos*/
   width:19px;
 
 /*  float:right;*/
@@ -1423,26 +1418,23 @@ max-height:150px;
     /* offset-x | offset-y | blur-radius | spread-radius | color */;
 
 }
-
+/*gap at top and shadow there not sure how*/
+/*causes the height to be really big despite no height*/
 .topRightProjectTechnologiesArea::before
 {
-
-
-/*  float:right;*/
-
+  /*try removing margin replacing padding, height ...*/
   margin:0 5px 0;
   padding: 0;
-max-height:150px;
-height:20px;
+max-height:0px;
 
   overflow:hidden;
-  /*black ribbon smudge at top*/
   box-shadow:  0 -30px 10px 10px black;
-    background:lightCyan;
-  height:0px; width:19px;
-
+  /*  background:lightCyan;*/
+  height:0px;
+  width:19px;
 content:""; font-size:0;
-z-index:1000;
+line-height:0;
+
 }
 .topRightProjectTechnologiesArea::after
 {

@@ -95,7 +95,7 @@ var cardHtml6 = " alt='projectImg'>  <div class='projectDescriptionSubtitle'>Des
 var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
 var cardHtml8 =  " <a href= ";
  var cardHtml9 =  " ><Img class='cardHyperlinksImg' src= ";
- var cardHtml10 = " alt='gitLink'> </a> "
+ var cardHtml10 = " alt='gitLink'> </a> ";
  var cardHtml11 = " </div></div></div> ";
 
 
