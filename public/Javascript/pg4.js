@@ -87,7 +87,7 @@ function placementLoop() {
 
 var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'> ";
 var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <button class='submitButtonNoStyle' type='submit' name='techButton' value= ";
-var cardHtml3 = " ><Img class='cardTechlinksImg' src= ";
+var cardHtml3 = " ><img type='image' class='cardTechlinksImg' src= ";
 var cardHtml4 = " alt='gitLink'>  </button>  </form> "
 var cardHtml4Endloop = "  </div> <div class='ribbonEnd'> </div>  </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
 var cardHtml5 = " </div> <img class='projectImage ' src= ";

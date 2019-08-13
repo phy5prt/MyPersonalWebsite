@@ -1380,7 +1380,7 @@ left:0;
 
   border-radius: 5px;
 
-//margin:0 auto;
+
 visibility:inherit;
 
       padding:0; margin:0;
@@ -1428,7 +1428,7 @@ max-height:150px;
 max-height:0px;
 
   overflow:hidden;
-  box-shadow:  0 -30px 10px 10px black;
+   box-shadow:  0 -30px 10px 10px black;
   /*  background:lightCyan;*/
   height:0px;
   width:19px;
