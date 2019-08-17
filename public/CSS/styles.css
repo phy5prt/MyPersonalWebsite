@@ -1395,6 +1395,7 @@ max-height:150px;
 }
 /*gap at top and shadow there not sure how*/
 /*causes the height to be really big despite no height*/
+/*height now provided elsewhere could put at an angle and have second shadow at few degrees so decreasing in size down right of ribbon*/
 .topRightProjectTechnologiesArea::before
 {
   /*try removing margin replacing padding, height ...*/
