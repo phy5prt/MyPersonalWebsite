@@ -28,7 +28,7 @@
 
 
 
-;(function($) {
+(function($) {
   //
   // Detect CSS transform support
   //

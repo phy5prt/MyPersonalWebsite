@@ -1841,9 +1841,6 @@ z-index:10;
       border-radius: 5px 5px 12px 12px;
     }
 
-.carouselDisplayNone{
-display:none; /*  visibility:hidden; /*need card to inherit and change the class name*/
-}
 
 
 
@@ -3709,7 +3706,10 @@ z-index:10;
     }
 
 .carouselDisplayNone{
-display:none; /*  visibility:hidden; /*need card to inherit and change the class name*/
+display:none;
+pointer-events:none;
+
+/*  visibility:hidden; /*need card to inherit and change the class name*/
 }
 
 

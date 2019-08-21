@@ -8,6 +8,7 @@ generateAllCarouselCards();
 
   showcase.Cloud9Carousel( {
   yOrigin: 150, /* Calc js and get half of the viewport height */
+
    yRadius: 150,
     farScale:0.5,
     itemClass: "cloud9-item",
@@ -26,6 +27,7 @@ generateAllCarouselCards();
   //
   // Simulate physical button click effect
   //
+
   $('.nav').click( function( e ) {
     var b =
 
@@ -59,6 +61,8 @@ generateAllCarouselCards();
 }
 
 //using const to try and reduce the ammount of searched need to do
+
+
 const cloud9CardTemplateMaster = $("#cloud9CardTemplate").contents();
 const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
