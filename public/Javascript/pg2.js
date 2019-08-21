@@ -2,7 +2,7 @@
 
 
 
-$(".pCard").click(function() {
+$(".pg2CardContainer").click(function() {
 
   /*detach page 1 replace with page 4*/
   /*where keep pg4*/
@@ -15,7 +15,7 @@ $(".pCard").click(function() {
   /*later replace making it invisible with rotating it looking at it and popping a second marble out of its middles
 shrink and drop it behind and both can roll to next page
     */
-  $(".pCard").addClass("invisible");
+  $(".pg2CardContainer").addClass("invisible");
   /*make spin*/
   $(".philProfileMarbleImg").addClass("rollingAntiClockwise");
   /*move marble same angle as the background gap 135*/
