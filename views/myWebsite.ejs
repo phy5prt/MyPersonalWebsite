@@ -217,7 +217,7 @@ giving it vh vw does not help however psx0y1 lower text box mostly keep its dist
 so maybe an angled containing div
 maybe even ajoining a space for the marble
 -->
-    <div class="pg2CardLocation pCard">
+    <div class="pg2CardContainer">
 
 <div class="scaleable-wrapper" >
           <div class="aCard">
@@ -448,19 +448,26 @@ in 4.3.1 need use order and offset
 
 
       <div class="shape2">
-        <div class="pg3ShapeTxtTop">
-          <h1> My Favourite Projects </h1>
+
+        <div class="pg2InnerShape container container-fluid d-flex h-100 flex-column ">
+
+        <!--rows should always be in containers column in row and a div in column before anything else-->
+<div class="row">
+  <div class="col">
+          <h1 class="pg3ShapeTxtTop">
+        My Favourite Projects
+          </h1>
         </div>
-        <div class="container bestCardsContainer "><!--rows should always be in containers column in row and a div in column before anything else-->
+        </div>
           <!--container needs to be centered and contents-->
           <!--order effects order they collapse to no more useful that actually putting them in that order think would be more useful for grabbing with jq-->
           <!--should order for mobile then push and pull for desktop-->
 
 
-          <div class="row ">
+          <div class="row">
             <!--centered by pushing probably not the best way-->
 
-            <div class="col-sm-8 offset-sm-2 ">
+            <div class=" col-sm-8 offset-sm-2 ">
 
               <div class="alert alert-warning ">
                 <div class="magnifier">
@@ -487,10 +494,10 @@ in 4.3.1 need use order and offset
 
             </div>
           </div>
-          <div class="row">
+          <div class="row flex-fill d-flex">
 
 
-            <div class="col-md-12 col-lg-4  order-1 order-lg-2">
+            <div class="  d-flex col-md-12 col-lg-4  order-1 order-lg-2">
 
 
 <div class="scaleable-wrapper" >
@@ -540,7 +547,7 @@ in 4.3.1 need use order and offset
               </div>
             </div>
 
-            <div class="col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1">
+            <div class="  d-flex col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1">
 
 
 <div class="scaleable-wrapper" >
@@ -590,7 +597,7 @@ in 4.3.1 need use order and offset
               </div>
             </div>
 
-            <div class="col-xs-12 col-md-6 col-lg-4  order-3 order-lg-3 ">
+            <div class=" d-flex  col-xs-12 col-md-6 col-lg-4  order-3 order-lg-3 ">
 
 
 <div class="scaleable-wrapper" >
@@ -644,20 +651,18 @@ in 4.3.1 need use order and offset
 
 
         </div>
-        <div class="pg3ShapeTxtBottom">
-          <h1>
-
-            <!--
-http://xahlee.info/comp/unicode_arrows.html
--->
-            <!--dont like the arrow when get proper ones for pg2 use that-->
-            See the whole deck → </h1>
-        </div>
-      </div>
-    </div>
 
 
+        <div class="row">
+          <div class="col">
 
+
+        <h1 class="pg3ShapeTxtBottom">See the whole deck →</h1>
+
+
+</div>
+</div></div>
+  </div>
   </section>
 
 

@@ -1,3 +1,4 @@
+<<<<<<< current
 @font-face {
   font-family: 'nymphetteregular';
   src: url('Nymphette-webfont.eot');
@@ -421,7 +422,7 @@ with page changes
   margin: 0;
 }
 
-.pg2CardLocation {
+.pg2CardContainer {
   position: absolute;
   /*try aligning in same way as background so responds the same*/
   /*align both to width as gets to low as shorten window
@@ -445,27 +446,16 @@ or just plan out each elements
 top:21%;
 right:35%;
 */
-  top: 15vh;
-  left: 55vw;
+  top: 15vh;  left: 55vw;   /* this will be replaced by calculating position putting it into the html  */
 
   /*setting div size becuase its size may affect location and current adapts to size of card*/
-
-}
-
-.pCard {
-  /*need an equation for gradient and put the bottom centre 1/7th down it*/
-  /*seems better by moving it relative to centre but the black line will always shrink in height with width so card need to as well by some amount*/
-
-
-
-  /*
-  top:21%;
-  right:35%;
-  */
-
 transform: perspective(400px) rotateY(75deg);
 
+width:20vw;
+height:20vh;
 }
+
+
 
 .containerToReceivephilProfileMarblePG2 {
   position: relative;
@@ -976,7 +966,12 @@ width:inherit;
 
 
 
-
+.pg2InnerShape{
+  display:block;
+  height:100%;
+  position:static;
+z-index:4;
+}
 
 
 
@@ -1005,11 +1000,11 @@ the two objects are exactly the same i think
 
 width: inherit;
 height: inherit;
-position:absolute;
+position:static;
 /*z-index:1;*/
   /*padding is to get bootstrap in place*/
-padding:10vh 15vw;
-margin:0px 0px 0px 0px;
+padding:0; /*10vh 15vw;*/
+margin:0;
 
  background:radial-gradient(ellipse at 50%, purple 50%, plum);
  /*border colour a black with alpha*/
@@ -1024,7 +1019,6 @@ margin:0px 0px 0px 0px;
 
   /* nice how it cuts over edge of card but lose the flick too so would need to be on a second container, only hides does not make the contents shrink to fit
    overflow-y:hidden;*/
-
 
 }
 
@@ -1075,20 +1069,20 @@ padding-right:3.5rem;
 }
 .pg3ShapeTxtBottom{
 
-  position:absolute;
-    left:0;
+
+left:0;
     bottom:0;
     color:white;
     padding-left:3.5rem;
+  position:static;
+  display:block;
+  margin-right:auto;
+  margin-top:auto;
+z-index:4;
 }
 
 
-.bestCardsContainer{/*unnecessary take outhtml too*/
-  /*width:inherit;
-  height:inherit;*/
-  /*display:block;*/
 
-}
 .magnifier{
   width:100px;
   height:100px;
@@ -1894,3 +1888,1899 @@ display:inline-block;added*/
 
 /*use something like this to reduce to just the tea icon see media notes in notes document*/
 @media (max-width:1028px) {}
+=======
+@font-face {
+  font-family: 'nymphetteregular';
+  src: url('Nymphette-webfont.eot');
+  src: url('Nymphette-webfont.eot?#iefix') format('embedded-opentype'),
+    /*url('Nymphette-webfont.woff2') format('woff2'),*/
+    url('Nymphette-webfont.woff') format('woff'),
+    url('Nymphette-webfont.ttf') format('truetype'),
+    url('Nymphette-webfont.svg#nymphetteregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-family: 'PT Serif', serif;
+  line-height: 1.5em;
+}
+
+.h1Subtitle {
+  font-family: 'Dancing Script', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /*dont need this but making explicit as can extend element out right of screen not left so need to make from bottom right*/
+/*  width: 200vw;
+  height: 200vh;*/
+  background:linear-gradient(  white, yellow 50%, yellow 50%,white);
+  /*red useful for now but later background: radial-gradient( */
+     /*trying to get a glow around it ideally eliptical angle
+     you can negative inset border then transparent out circle
+     or i could put thee background in its own dive
+
+     circle at 50%,*/
+     /*      yellow 50%, yellow, white);   */
+
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+a :hover { color:
+/*  white;*/
+yellow;
+}
+
+.grayUntilJQueryLoads{
+  position:absolute;
+  z-index:11;
+  background: #262626;
+  width:200vw;
+  height:200vh;
+  top:0vh;
+  left:0vw;
+}
+
+/*just for testing*/
+.tabPage1To2 {
+  position: absolute;
+  display: inline-block;
+  font-size: 4rem;
+  height: 90px;
+  width: 200px;
+  right: 15vw;
+  /*  top: -100vh -20px;*/
+  top: -20px;
+  /*change to button making it less buttony*/
+  justify-content: center;
+  align-content: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+.tabPage1To2::before {
+  content: '';
+  /* To generate the box */
+  position: absolute;
+  /*  top: 0px; right: 0px; bottom: 0px; left:0px;*/
+  display: inline-block;
+  background: DimGrey;
+  transform: perspective(4px) rotateX(-1deg);
+  height: 90px;
+  width: 200px;
+  border-bottom-right-radius: 30px 50px;
+  border-bottom-left-radius: 30px 50px;
+  line-height: 35px;
+  text-overflow: ellipsis;
+}
+
+.tabPage1To2>Img {
+  max-height: 50px;
+  max-width: 50px;
+  padding: 0;
+  position: relative;
+  margin: 10px 10px 30px;
+}
+
+.tabPage1To2>i {
+  position: relative;
+  margin: 10px 10px 10px 30px;
+  color: white;
+}
+
+#goUp {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  bottom: 30px;
+  right: 30px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.btnbefore {
+  background-color: yellow;
+}
+
+.btnafter {
+  background-color: purple;
+}
+
+.page2X0Y1 {
+
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
+  /*need to blend edges*/
+  background:
+    /*top level*/
+    /*pink yellow slice*/
+    /*should percents be vh vw*/
+    linear-gradient(165deg, white, yellow 43%, yellow, transparent, plum, plum 45%, white),
+    /*middle black layer with transparent cornet*/
+    linear-gradient(to top right, black 70%, transparent 71%),
+    /*bottom layer that will be reveal through gap on both*/
+    linear-gradient(165deg, white, yellow, plum, white);
+  /*to make it line up better with card and image tried to put it in vw but doing so
+causes it to behave undesireably with heigh change */
+  /*
+        linear-gradient(165deg, white, yellow 33vw, yellow, transparent, plum, plum 35vw, white),
+              linear-gradient(to top right, black 70vw, transparent 71vw),
+              linear-gradient(165deg, white, yellow, plum, white);*/
+  /*default top left so maybe card needs to be relative to top left*/
+  background-position: center;
+}
+
+.philProfileMarblePg2Start {
+  /*dont know how should use the 165deg and the to top right type starting corner to make sure moves right*/
+  position: absolute;
+  top: 24vh;
+  left: 67vw;
+  z-index: 3;
+}
+
+.pg2Text {
+  position: absolute;
+  height: 50vh;
+  width: 50vw;
+  /*to match the angle of the gradient will have to find the viewport ratio*/
+  transform: rotate(-15deg);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*this was so i could use spaces to get an underline but was unable to make my underline
+  an arrow
+  white-space: pre;*/
+}
+
+/*need a proper arrow <------ */
+/*need position off top so always in right place compared to text*/
+/*tried percent and pix etc, i think issue is the text behaviour*/
+/*this is because the arrow was positioned relative to the top not centre and the text is centred
+this means that arrow moves with shrink but text doesnt so need to be in identical boxes
+but with something pushing the arrow down while still central e.g. padding, being in a div
+with top from it
+*/
+.pg2Text.higher {
+  top: 0;
+  left: 0vw;
+}
+
+.pg2Text.lower {
+  /*to match the angle of the gradient will have to find the viewport ratio*/
+  bottom: 5vh;
+  right: 25vw;
+}
+
+.arrow {
+  position: absolute;
+  /*matching font size to try and get in underline position
+  top:15rem;top:18vh;  height: 15rem;width: 90rem;*max-width: 60px;
+  height: inherit;width: 100%;top:36.5%;*/
+  /*match padding to text size*/
+  padding-top: 5rem;
+  /*
+height: 250px;
+width: 1250px;
+*/
+  /*this squishes nice but needs a min width height setting*/
+  height: 20vh;
+  width: 50vw;
+}
+
+.arrow.right {
+  transform: scaleX(-1);
+}
+
+/*
+effect i want is two different colours of wood with a 45 degree angle black line for the join between in bottom left corner and a grey line to be the transparency
+
+
+hitting same issues with my background i want to apply an image or gradient but the requires whole background an excludes being able to make it curved aswell which needed for handle.
+
+some ways to overcome this would be pseudo element to colour over the top of the border however this will still not result in diagonal as will be working with a whole border just not showing some so wont get the join i want
+
+by using pseudo i could do an element up a pixel one across a pixel and have a border with transparencies except bottom for one left for other
+and put a black square behind corner
+
+I could then chop the top (tried to clip it but not sure can clip divs think just images and cant hide it as need to be transparent)
+
+one way to do it would be to make
+one beam a full border and just set width to 0 where dont want it
+and just make the next layer an image change perspective to get angle
+
+or a border over the top of both which is the pattern with transparency it has the grain and is the same over all borders but looks different because of the colours pushing through, if grain complex enough it will look alright, if it is possible to use images with alpha could do it that way
+
+*/
+.case2position {
+  /*a few marbles width*/
+  /*it is not sticking to right
+if going to be on other screen making it fixed and then just toggle it sliding off and on screens
+with page changes
+  */
+  width: 120px;
+  height: 70vh;
+  position: absolute;
+  z-index: 8;
+  right: -70px;
+  /*to accommodate border something like this would be useful top: 50vh - 40px;*/
+  top: 10vh;
+  margin: 4em auto;
+}
+
+.case2border {
+  filter: blur(1.5px);
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  border-top: 5px solid rgba(103, 128, 100, 0.7);
+
+  border-bottom: 40px solid black;
+  border-left: 40px solid orange;
+  border-right: 0 solid black;
+
+  /*Now need it circle or even better semi circle*/
+}
+
+.case2border:before {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: -36px;
+  z-index: 7;
+  /*-1;*/
+  /*will this change to inherit*/
+  width: inherit;
+  height: inherit;
+  border-bottom: 40px solid brown;
+  border-left: 40px solid transparent;
+}
+
+.case2border:after {
+  /*outline is here because here i can alter the height and width without effecting other elements
+  the element will never be dragged into full view so right side doesnt matter
+  altering the height does over extend the border so i will need to clip
+
+  */
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  z-index: 7;
+  /*-1;*/
+  /*if this is set to inherit the pattern moves as the object is stretched
+  so width needs to match the maximum_size in the js*/
+  width: 800px;
+  height: inherit;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 40px solid;
+  border-left: 40px solid;
+  border-image: repeating-radial-gradient(transparent, olive 5px, brown 5px, olive 5px) 30;
+  /*the grain looks nicer when the width is 220px so maybe alter the setting for the pattern
+    try to recreate it by altering the numbers for the gradient*/
+  /*if i use rgb colours and put transparency into the colours of the grain I could make the black not be as clearly drawn over*/
+  /*  border-image: repeating-radial-gradient(transparent, olive 10px, brown 10px, olive 10px) 30;*/
+}
+
+/*rather than classes could just apply to first last child*/
+.glassEffect {
+  height: inherit;
+  content: "";
+  filter: blur(8px);
+  /*8*/
+  background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.4), rgba(255, 255, 255, 0.6) 15%, rgba(254, 241, 96, 0.3) 20%) content-box;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1), inset 0 0 50px rgba(0, 0, 0, 0.8);
+  /*the blur is nice with the black edge (especially with the box shadow on it too)*/
+  /*is not blurring the background behind though!*/
+  outline: 4px solid black;
+  outline-offset: -4px;
+}
+
+.handle {
+  position: absolute;
+  top: 40%;
+  left: -40px;
+  width: 120px;
+  height: 15%;
+  border-radius: 100px 100px 100px 100px;
+  /*if i can cut image down to a quater then this would work
+      border-radius: 100px 0px 0px 100px;
+  */
+  overflow: hidden;
+  z-index: 9;/*90*/
+}
+
+.handle::before {
+  border: 20px solid brown;
+  border-image-source: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NEYbD7_RG24-GQAwnWakNo22wnJMQi9Ra9i0obx6kSGLxUJ7);
+  border-right: 0;
+}
+
+.handle::before,
+.handle::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  box-sizing: border-box;
+  border-image-source: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NEYbD7_RG24-GQAwnWakNo22wnJMQi9Ra9i0obx6kSGLxUJ7);
+  /*number|%|fill|initial|inherit;*/
+  border-image-slice: 30%;
+  /*number|%|auto|initial|inherit;*/
+  border-image-width: -10px;
+  /*length|number|initial|inherit;*/
+  border-image-outset: -10px;
+  /*30px 100px 30px 40px; this puts the squeare in place too*/
+  /*stretch|repeat|round|initial|inherit;*/
+  border-image-repeat: round;
+  /*close but not rounded on the inside*/
+  /*trying to do something*/
+  /*seems to do nothing*/
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.9), inset 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.myflex-container {
+  /*would be nice if balls spin a bit with size change*/
+  /*the balls on left appear on right and vice versa with size change*/
+  /*make a code pen and ask for help and show the issue*/
+  /*if could wrap reverse and plain wrap alternatively between rows?*/
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-wrap: wrap-reverse;
+  display: flex;
+  width: inherit;
+  /*height:inherit; if set height it will spread pictures evenly needs to respond
+  to them and make itself tall enough maybe maximum height and overflow hidden
+  would help when lots of marbles*/
+  /*justify-content:flex-end;*/
+  position: absolute;
+  bottom: 0px;
+  padding: 0px 0px 10px 15px;
+  /* max-height: height:inherit; not supported in ie "custom properties"*/
+  /* doesnt work max-height:100;
+    overflow:hidden;*/
+  /*max width works not height
+    max-width:100%;
+    max-height:10%;*/
+}
+
+/*del when have images*/
+.myflex-item {
+  width: 100px;
+  height: 100px;
+  outline: solid black 2px;
+  outline-offset: -2px;
+  border-radius: 100px;
+  background: deepskyblue;
+  padding: 0;
+  margin: 0;
+}
+
+.pg2CardContainer {
+  position: absolute;
+  /*try aligning in same way as background so responds the same*/
+  /*align both to width as gets to low as shorten window
+do i need to calculate position using pythagorous
+the line is a percentage of the hypotenuse of full dimensions or screens
+tried a few things havet managed it at this point having a seperate
+container doesnt seem useful
+could try altering background behaviour it moves at moment in a way that isnt a normal shrink
+look into background centre and then move relative to that
+card seemed to follow when centered but then when used margin to push from centre to loaction wanted
+it did not shrink as desired have not yet tried making the box centered and floating the image from it
+or using a second div to push into the space
+or make part of background
+or have the line not a background but a floating image with alpha giving a bit a of parralax feel on shrink
+or a large square top right and its bottom left it the card?
+or just plan out each elements
+ think about all the elements involved maybe background in vh vw,
+ position in it to everything centerd then moved relative to center
+*/
+  /*
+top:21%;
+right:35%;
+*/
+  top: 15vh;  left: 55vw;   /* this will be replaced by calculating position putting it into the html  */
+
+  /*setting div size becuase its size may affect location and current adapts to size of card*/
+transform: perspective(400px) rotateY(75deg);
+
+width:20vw;
+height:20vh;
+}
+
+
+
+.containerToReceivephilProfileMarblePG2 {
+  position: relative;
+  left: 21vw;
+  bottom: 28vh;
+  /*
+width: 100px;
+height: 100px;
+  background-color: pink;
+*/
+}
+
+.bottomRightPage1 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
+}
+
+
+
+.page3 {
+  position: absolute;
+  /*for centering its shape*/
+  display: flex;
+  flex-direction: column;
+
+  top: 50vh;
+  height: 100vh;
+  width: 100vw;
+  /*screen extend right but not left*/
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(
+    /*trying to get a glow around it ideally eliptical angle
+     you can negative inset border then transparent out circle
+     or i could put thee background in its own dive
+
+     circle at 50%,*/
+    yellow, yellow, white);
+}
+
+.noScroll {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.Scroll {
+  overflow-x: hidden;
+}
+
+/*make a and philProfileMarble the same*/
+.philProfileMarbleImg {
+  border-radius: 50%;
+  /*background delete*/
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.aMarble {
+  border-radius: 50%;
+  /*background delete*/
+  background-color: white;
+  width: 100px;
+  height: 100px;
+}
+
+.invisible {
+  opacity: 0;
+  transition: opacity 2s linear;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.tabPage1To2.invisible {
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+
+.tabPage1To2.visible {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.philProfileMarbleY {
+  position: relative;
+  top: 100px;
+}
+
+.philProfileMarbleX {
+  position: relative;
+  left: -110px;
+}
+
+/*name duration function delay direction iteration fill state*/
+/*page1stage1*/
+/*maybe a set distance and put in repititions*/
+.philProfileMarbleYAnim {
+  /*drop on text*/
+  animation: yAxisStep1 1s cubic-bezier(1, .02, .91, .48) 1s normal 1 forwards running,
+    /*waits till roll across text then falls*/
+    yAxisStep2 0.5s cubic-bezier(1, .02, .91, .48) 3s normal 1 forwards running,
+    /*shoots up*/
+    yAxisStep3 0.5s cubic-bezier(.03, .86, .69, .78) 3.5s normal 1 forwards running;
+}
+
+.philProfileMarbleXAnim {
+  /*traj to text*/
+  animation: xAxisStep1 1s linear 1s normal 1 forwards running,
+    /*across text*/
+    xAxisStep2 1s linear 2s normal 1 forwards running,
+    /*fall off end*/
+    xAxisStep3 0.5s ease-out 3s normal 1 forwards running;
+  /*although made y 140 doesnt seem able to disappear of bottom of the screen way it goes off top*/
+}
+
+@keyframes yAxisStep1 {
+  100% {
+    transform: translateY(20vh)
+  }
+}
+
+@keyframes yAxisStep2 {
+  0% {
+    transform: translateY(20vh)
+  }
+
+  100% {
+    transform: translateY(140vh)
+  }
+}
+
+@keyframes yAxisStep3 {
+  0% {
+    transform: translateY(140vh)
+  }
+
+  70% {}
+
+  100% {
+    transform: translateY(-20vh)
+  }
+}
+
+@keyframes xAxisStep1 {
+  100% {
+    transform: translateX(35vw)
+  }
+}
+
+@keyframes xAxisStep2 {
+  0% {
+    transform: translateX(35vw)
+  }
+
+  100% {
+    transform: translateX(65vw)
+  }
+}
+
+@keyframes xAxisStep3 {
+  0% {
+    transform: translateX(65vw)
+  }
+
+  100% {
+    transform: translateX(85vw)
+  }
+}
+
+/*make it so can toggle between rolling and end rolling with pseudo ::*/
+/*pg2*/
+.pg2MarbleAnimX {
+  animation: xAxisPg2 1s linear 0s normal 1 forwards running;
+}
+
+
+
+.pg2MarbleAnimY {
+  animation: yAxisPg2 1s linear 0s normal 1 forwards running;
+}
+
+
+
+/*dont expect this to work because ive put it in a container I could take it out of
+it container, i could not put it in in first place and just give it the values*/
+@keyframes xAxisPg2 {}
+
+/*not expecting this to work as really need to calculate where the line hits the left side considering
+the screen may be a different ratio
+*/
+@keyframes yAxisPg2 {}
+
+.end-rolling {}
+
+.rollingClockwise {
+  animation:
+    spinClockwise 2s linear infinite forwards;
+}
+
+.rollingAntiClockwise {
+  animation:
+    spinAntiClockwise 2s linear infinite forwards;
+}
+
+@keyframes spinClockwise {
+
+  /* trick will be starting from position it is in  */
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes spinAntiClockwise {
+
+  /* trick will be starting from position it is in  */
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-720deg);
+  }
+}
+
+.businessCard {
+  background-color: #262626;
+
+  border-style: groove;
+  border-color: black;
+  color: black;
+  border-width: 5px 8px 8px 5px;
+}
+
+.buisnessCardText {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fontOrnaments {
+  font-size: 3rem;
+  font-family: 'nymphetteregular';
+}
+
+.drinkChoices {
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.drinkButton {
+  justify-content: center;
+  align-content: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-align: inherit;
+  transition: background 250ms ease-in-out,
+    transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.drinkButton:hover,
+.drinkButton:focus {
+  /*at the moment when the mouse is over the drink and clicks
+it is still classed as hovering until the mouse is moved offset
+the button at which point the duration kicks in the drink rights itself
+this is despite removiing pointer event in js. a solution would be putting
+a new object on button press over the button and disapearing the buttonsso the
+new instantiated image is same rotation but isnt same object. Or if there
+was a way of liberating the image from its hierachy position absolute not work
+because it is still absolute relative to the thing it is in not a 0,0 coordinate
+*/
+  transition-duration: 1s;
+  transform: rotate(-15deg);
+}
+
+.drinkButton:focus {
+  outline: none;
+}
+
+/*
+
+/*disable other buttons, put image overtop of button same location and float bottom left
+roll ball same time top left and bounce across the words and down
+then fade in corner stuff and have drink appear under the drink icon and the icon disappear
+same time bounce the ball up and move view up slightly and reveal tab as it get to last 10% of screen
+do both halfs of this action in 1s each
+
+is this a div issue?
+    */
+.drinkButton:active {}
+
+.my-animation {
+  position: absolute;
+  /*really want to delete and replace with another image unless its possible to make it fly to the new cell and go in it*/
+  animation: takeDrink 1s linear forwards;
+}
+
+@keyframes takeDrink {
+
+  /*could just use transition*/
+  /*if set its start position it will slide but how do i get position its already at
+jquery
+*/
+  /*currently relative to self*/
+  0% {
+    right: 0vw;
+    top: 0vh;
+    /*may already be rotated so want to be able just to set it*/
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  60% {
+    transform: rotate(0);
+  }
+
+  80% {
+    transform: rotate(-15deg);
+  }
+
+  100% {
+    right: 50vw;
+    top: 40vh;
+    Opacity: 0;
+  }
+}
+
+.drinkImages {
+  vertical-align: top;
+  max-height: 60px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.colTight {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* I've tried to use pseudo and otherwise found issues with vh vw and pixel dont know why
+is it 10px + short it is a proportion from somewhere
+it is working! it is that the flick flicks to soon
+   */
+/*shape and shaoe flick not working now but did in the code pen*/
+/*
+.shape{
+    background:radial-gradient(ellipse at 50%, purple 50%, plum);
+ /*border colour a black with alpha*/
+/*
+  border-color:rgba(0, 0, 0, 0.75);
+  border-style: solid;
+  /*make bottom 10px again later just trying to se the gap*/
+/*
+  border-width: 10px 0px 10px 2px;
+ border-bottom-color:red;
+  height: 60vh;
+  width: 60vw;
+  border-radius: 60% 0% 60% 0%;
+  display: flex;
+
+  padding:0px 0px 0px 0px;
+  margin:0px 0px 0px 40px;
+
+}
+*/
+/*i want to extend the border left so trying to use a pseudo element
+to make a lip to catch the ball
+*/
+/*
+.shapeflick{
+  position:absolute;
+ /*if the flick reveals colour underneath when moving about could bake the ".shape" bottom border 0 and add margin 10px to top or padding or make the bottom colour transparent*/
+/*border colour a black with alpha*/
+/*margin ballencing out space lost from border*/
+/*by having margin and padding can move into padded area*/
+/*the curve will not be exact doing this so make it fat*/
+/*could also shift it down a bit and put own background on*/
+/*could also make it the bottom element*/
+/*
+  padding:0px 0px 0px 40px;
+  margin:0px 0px 0px 0px;
+
+  border-color:rgba(0, 0, 0, 1);
+  border-style: solid;
+  /*make 10 px later just need to see where it falls*/
+/*
+border-width: 10px 0px 10px 2px;
+  border-color:transparent transparent black transparent;
+
+  height: 60vh;
+  width: 60vw;
+  border-radius: 60% 10% 60% 7%;
+  display: flex;
+
+}
+*/
+
+
+/*so if i set their start position different can i apply the same code to move them instead of having their own*/
+/*marbles set by 100px sio that they are next to each other with space for the rolling in marbles
+
+*/
+
+.marbleOnShape1{
+  position:absolute;
+  right:0px;
+  top:-100px;
+    z-index:3;
+
+}
+.marbleOnShape1Y{}
+.marbleOnShape1X{}
+
+.marbleOnShape2{
+  position:absolute;
+  right:0px;
+  top:-100px;
+    z-index:3;
+
+}
+.marbleOnShape2X{}
+.marbleOnShape2Y{}
+
+.marbleOnShape3{
+    position:absolute;
+    right:0px;
+    top:-100px;
+      z-index:3;
+
+  }
+  .marbleOnShape3Y{}
+  .marbleOnShape3X{}
+
+
+
+
+
+.containerMagnifier {
+	width: 100px;
+  height:100px;
+	margin:  auto;
+box-sizing: border-box;
+   /*transform-origin:350*3/10 350*6/10;*/
+/*
+  this works for providing a starting angle however it seems to cause the magnifier to exclude some of its circle
+   transform:rotate(230deg);
+  */
+}
+
+.dial {
+  /*ive halfed the image size and set its height and width as the width and height. if this were to be dynamic and the image change size with the viewport then i would need to write some code calculating the center for the origin to set transform origin and it may be necessary to change the jquery code as well to catch these variables*/
+	width: 100px;
+	height: 100px;
+
+
+  /*x y*/
+  /*if open magnifier on paint and find the exact pixel center of magnifier works perfectly*/
+     transform-origin:40px 70px;
+  /*put in percent to be more flexible if change size of the img but keep the ratio but for now i want easy access to number of pixels for using in the jquery
+  transform-origin:44% 29%;*/
+
+
+
+ /*transform-origin:350*3/10 350*6/10;*/
+position:absolute;
+}
+.theMagnifier{
+  /*center image*/
+/*its 1022 833 so half size 511 417*/
+  position:absolute;
+  margin:auto;
+ display:flex;
+width:inherit;
+  height:inherit;
+/*if change image rotation need to change the mouse and rotation center points*/
+
+  transform:  rotate(220deg);
+
+  /*could code to center the image on the middle of the magnifying glass however */
+}
+
+
+
+
+
+.pg2InnerShape{
+  display:block;
+  height:100%;
+  position:static;
+z-index:4;
+}
+
+
+
+
+
+.bestCardsArea {
+
+/*at large sizes of px or vh vw get border bottom difference in hieght between two objects
+the two objects are exactly the same i think
+*/
+  width: 80vw;
+ 	height: 80vh;
+  /*
+   position:absolute;
+*/
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+
+.shape2 {
+
+
+
+width: inherit;
+height: inherit;
+position:absolute;
+/*z-index:1;*/
+  /*padding is to get bootstrap in place*/
+/*padding:10vh 15vw;*/
+margin:0px 0px 0px 0px;
+
+ background:radial-gradient(ellipse at 50%, purple 50%, plum);
+ /*border colour a black with alpha*/
+
+  border-color:rgba(0, 0, 0, 0.75);
+  border-style: solid;
+  /*make bottom 10px again later just trying to se the gap*/
+
+  border-bottom-color:black;
+  border-width: 10px 0px 10px 2px;
+  border-radius: 60% 0% 60% 0%;
+
+  /* nice how it cuts over edge of card but lose the flick too so would need to be on a second container, only hides does not make the contents shrink to fit
+   overflow-y:hidden;*/
+
+
+}
+
+.shape2:after {
+/*why is this 10px lower down*/
+  bottom:-10px;
+
+  /*this is off the 80px*/
+  /*this left amount needs to be proportional to the width or
+the radial on the border needs to be so the curve does not start curving before
+it should
+maybe altering the width could acheive this and setting a full curve
+  */
+  /*needs to be minimum marble size calc(-5vw -40px not working)*/
+  left: -5vw;
+
+  z-index: -1;
+  content: "";
+  /*the width needs to put the centre point on the boundary*/
+  /*its straight now so it can be the width it needs to be and left the width it needs to be
+however this will make the curve small
+  */
+  /* width needs to be half  and currently its 70 no doesnt work*/
+  width:20vw;
+	height: inherit;
+  position: absolute;
+  padding:0px 0px 0px 0px;
+  margin:0px 0px 0px 0px;
+
+ /*transparent transparent black transparent*/
+ border-color:transparent transparent black transparent;
+ border-style: solid;
+
+ border-width: 10px 0px 10px 2px;
+ /*only need bottom left*/
+ border-radius: 0% 0% 0% 7%;
+
+}
+
+.pg3ShapeTxtTop{
+position:static;
+
+
+
+color:white;
+/*padding matches h1 space*/
+
+display:flex;
+justify-content: flex-end;
+}
+.pg3ShapeTxtBottom{
+
+
+
+    color:white;
+
+  position:static;
+
+
+
+z-index:4;
+display:flex;
+justify-content: flex-start;
+
+}
+.pg2TableContainer{height:100%}
+
+.magnifier{
+  width:100px;
+  height:100px;
+    background:green;
+
+  /*or use bootstrap center-block*/
+  display: block;
+    margin-right: auto;
+    margin-left: auto;
+    display:flex;
+}
+
+
+.pg4Text{
+  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
+when refactor set the h's to the same font but different font sizes and have this one as h1
+  */
+  font-size: 5rem;
+  font-family: 'PT Serif', serif;
+  line-height: 1.5em;
+
+  color:black;
+  position:absolute;
+  right:0;
+  top:0;
+
+  /*use margin or */
+  margin:5vh 5vw;
+}
+
+
+
+.corner-background {
+  background-color: grey;
+  position: fixed;
+  height: 375px;
+  width: 350px;
+  Transform: rotate(45deg);
+  bottom: -200px;
+  Left: -200px;
+  opacity: 0;
+  z-index:9;
+}
+
+.corner-table {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
+  max-height: 30px;
+  border: 0;
+  padding: 0px 75px 0px 75px;
+  margin: 0px 0px 5px 7px;
+  font-size: 3rem;
+  color: #262626;
+}
+
+.corner-links {
+  Transform: rotate(-45deg);
+  max-height: 60px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#chosen-beverage {
+  opacity: 0;
+}
+
+.fade-in-beverage {
+  /*careful i am animating it twice as fading in the section it is in too*/
+  animation: fadeIn 1.5s linear;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-corner {
+  animation: fadeIn 1.5s linear forwards;
+  animation-fill-mode: forwards;
+}
+
+.end-rolling {
+  animation: spin ease-out linear 1s forwards;
+}
+
+@keyframes spin {
+
+  /* trick will be starting from position it is in  */
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*///////////////////////////////////PG4*/
+/*
+.page4X0Y0 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
+  /*top level*/
+  /*pink yellow slice*/
+  /*should percents be vh vw*/
+  /*because the size of the two pink sections is different the colours dont blend perfectly*/
+  /*this is currently fine as colurs will probably change */
+  /*
+  background: linear-gradient(-165deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
+  background-position: center;
+}
+
+*/
+.page4X0Y0 {
+  /*to blend the edge of pg4 and 2 could use blur*/
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 100vw;
+    background: linear-gradient(-165deg, white, plum 43%, plum,  yellow, yellow 45%, white);
+  background-position: center;
+
+}
+.page4X0Y0::after{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  /*left: 100vw;*/
+/*195 same as -165*/
+
+
+content:'';
+  /*some options for the line with different looks*/
+   /*background: linear-gradient(-165deg, white, plum 43%, black 43%, black 43.5%, transparent 45%);*/
+  background: linear-gradient(-165deg, white, plum 43%, black 43%, black 44%, transparent 44%);
+    background-position: center;
+  z-index:2;
+}
+
+.pg4Text{
+  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
+when refactor set the h's to the same font but different font sizes and have this one as h1
+  */
+  font-size: 5rem;
+  font-family: 'PT Serif', serif;
+  line-height: 1.5em;
+
+  color:black;
+  position:absolute;
+  right:0;
+  top:0;
+
+  /*use margin or */
+  margin:5vh 5vw;
+  z-index:3;
+}
+
+.cardPG4{
+  width:125px;
+  height:150px;
+  margin:0px 10px 10px;
+  background-color:lightCyan;
+  font-size:5rem;
+  position:absolute;
+  border:2.5px;
+  border-radius:5px;
+
+}
+
+/*////////////////// CARD STYLES ///////////////////////*/
+
+.submitButtonNoStyle{
+  background:none;
+  color:inherit;
+  border:none;
+  padding:0;margin:0;
+  font:inherit;
+  outline:inherit;
+  width: 19px;
+  height:15px;/*inherit;*/
+}
+/*
+.aCard{
+
+  background:beige;
+  width:125px;
+  height:150px;
+  border: 2.5px solid black;
+  border-radius: 5px;
+margin:0 auto;
+visibility:inherit;
+}*/
+.scaleable-wrapper {
+/* position:absolute; */ /*added*/
+/* display:static; */ /*added*/
+  padding:0; margin:0;
+  resize: both;
+  height: inherit;
+  width:inherit;
+}
+
+.aCard{
+background-image: url(/Images/cardTextures/favourites/w1.jpg);
+  background-repeat:repeat;
+  width:125px;
+  height:150px;
+  border: 2.5px solid black;
+  border-radius: 5px;
+/* margin:0 auto; */
+visibility:inherit;
+      padding:0; margin:0;
+/*width:inherit;
+  height:inherit;*/
+  text-align: center;
+  /*background: pink;*/
+  position: relative;
+/*  transform: translate(0%, 0%);left:0;top:0; */
+/*  transform: translate(-50%, -50%);left:50%;top:50%;*/
+    transform: translate(-50%, 0%);left:50%;top:0%;
+  transform-origin: center center;
+position:relative; z-index:1;/*added to help shadow layering*/
+/*  position:absolute;*/ /*z-index:inherit;*//*added to help shadow layering*/
+     transform-style: preserve-3d; /*dirty stacking sollution*/
+}
+/*card shadow*/
+.aCard::after{
+
+  position:absolute;
+  content:"";
+  font-size:0;
+  width:80%;
+  height:80%;
+  right:1px;
+   bottom:1px;
+  box-shadow: 0px 0px 3px 3px white, 1px 1px 3px 3px black;
+z-index:-1;
+    transform: rotate(3deg);
+   transform: translateZ(-1px); /*dirty stacking sollution to get pseudo under acard*/
+}
+/*for card sheen*/
+
+.aCard::before{
+    background: linear-gradient(140deg,
+
+    rgba(255,255,255,0) 10%, rgba(255,255,255,0.2), rgba(255,255,255,0) 12%, rgba(255,255,255,0)
+    ,
+    rgba(225, 225, 225, 0) 30% , rgba(255, 255, 255, 0.3) 33%, rgba(221,160,221, 0.2)38%, rgba(255, 255, 255, 0.2), rgba(255, 255, 0, 0.1)  , rgba(255, 255, 255, 0.1), rgba(255, 255, 0, 0.1),rgba(255, 255, 255, 0.1) 43% ,rgba(255, 255, 255, 0)
+    ,
+    rgba(225, 225, 225, 0) 80% ,  rgba(225, 225, 225, 0), rgba(221,160,221, 0.2)88%, rgba(255, 255, 255, 0.2) ,  rgba(255, 255, 0, 0.1),  rgba(255, 255,255, 0.2), rgba(255, 255,255, 0.1) ,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0) 94% );
+
+/*works trying to improve
+  background: linear-gradient(140deg,
+
+    rgba(255,255,255,0) 10%, rgba(255,255,255,0.2), rgba(255,255,255,0) 12%, rgba(255,255,255,0)
+    ,
+    rgba(225, 225, 225, 0) 30% , rgba(255, 255, 255, 0.3) 33%, rgba(221,160,221, 0.2)38%, rgba(255, 255, 255, 0.2) 38%, rgba(255, 255, 0, 0.1)  , rgba(255, 255, 255, 0.1), rgba(255, 255, 0, 0.1) 41%,rgba(255, 255, 255, 0.1) 43% ,rgba(255, 255, 255, 0)
+    ,
+    rgba(225, 225, 225, 0) 80% ,  rgba(221,160,221, 0.2)88%, rgba(255, 255, 255, 0.3) 88%,  rgba(255, 255, 0, 0.2),  rgba(255, 255,255, 0.2), rgba(255, 255,255, 0.1) ,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0) 94% );
+
+*/
+  content:"";
+  font-size:0;
+left:0;
+  top:0;
+  border-radius: 5px;
+visibility:inherit;
+      padding:0; margin:0;
+position:absolute;
+  pointer-events:none;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+
+
+/*inside ribbon*/
+.topRightProjectTechnologiesArea{
+  height:auto;  /*dont want to inherit from pseudos*/
+  width:19px;
+
+/*  float:right;*/
+  background:linear-gradient(lightCyan 4px, lightCyan 4px,  white ,  lightCyan 15px);
+  margin:0 5px 0;
+padding-top:22px;
+max-height:150px;
+  overflow:hidden;
+  box-shadow:  1px 1px 20px 3px plum;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */;
+    content:"";
+    font-size:0;
+    line-height:0;
+}
+/*gap at top and shadow there not sure how*/
+/*causes the height to be really big despite no height*/
+/*height now provided elsewhere could put at an angle and have second shadow at few degrees so decreasing in size down right of ribbon*/
+.topRightProjectTechnologiesArea::before
+{
+  /*try removing margin replacing padding, height ...*/
+  margin:0 5px 0;
+  padding: 0;
+max-height:0;
+  overflow:hidden;
+   box-shadow:  0 -30px 10px 10px black;
+
+  width:19px;
+content:"";
+font-size:0;
+line-height:0;
+
+}
+.topRightProjectTechnologiesArea::after
+{
+  margin:0;
+  padding: 0;
+max-height:0px;
+  overflow:hidden;
+  box-shadow:  0 0px 10px 10px black;
+  height:0px; width:19px;
+  content:"";
+  font-size:0;
+  line-height:0;
+  z-index:1000;
+}
+
+.topRightRibbonArea{
+  float:right;
+margin-top: -3px;
+
+  /*here*/
+z-index:4;position:relative; /*relative allows shine to go under but effects loop of ribbon shadow*/
+
+}
+.topRightRibbonArea::before{
+
+position:absolute;
+  font-size:0;
+  content:"";
+  margin: 0;
+  padding:10px 10px;
+  height:0;
+  width:0;
+
+  /*box-shadow: 5px 0 5px -5px #333;*/
+  box-shadow: 7px 4px 4px -3px black;
+  z-index:-1;
+  right:5px;
+    top:-5px;
+line-height:0;
+
+}
+
+.ribbonEnd{
+  width:19px;
+   background:transparent;
+   margin:0 5px;
+   padding:0;
+
+ content:"";
+ font-size: 0;
+
+      border-bottom:10px solid transparent;
+      border-top:2px solid lightCyan;
+      border-left:9.5px solid lightCyan;
+   border-right:9.5px solid lightCyan;
+   overflow:hidden;
+
+}
+/*so if you making the form have a larger margin find actually the button is triggered up to 10px below
+but there are no boxed ending there on pesticide so i think it is the button click area, some reading suggests can effect it with whether elements are inline block etc or text aligned for position
+im going to leave it till later*/
+.formTechBtn{   margin: 0 0 2px 0; padding:0; width:19px; height:15px;}
+.technologyButtonImg{
+
+  width:15px;
+  height:15px;
+  overflow:hidden;
+  padding:0;
+  margin:0 auto;
+
+
+}
+
+
+
+.fontOrnamentTech {
+  font-size: 0.8rem;
+  font-family: 'nymphetteregular';
+
+   width:15px;
+   height:30px;
+  display: inline-block;
+/*position:relative; */
+
+     overflow:hidden;
+
+text-align:right;
+
+margin:0;padding:0;
+vertical-align:top;
+writing-mode: vertical-lr;
+text-orientation: mixed;
+
+}
+
+.formTechOrnament{
+  display: block;
+position:static;
+
+  margin: 0 0 2px 0; padding:0; width:19px; height:30px;}
+
+.submitButtonNoStyleOrnament{
+  background:none;
+  color:inherit;
+  border:none;
+  padding:0;margin:0;
+  font:inherit;
+  outline:inherit;
+
+  width: 15px;
+  height: 30px;
+  display:inline-block;
+
+  overflow: hidden;
+/*  vertical-align: top;*/
+
+
+}
+
+
+/*
+.technologyButton span{
+padding:0;margin:0;
+  width: 15px;
+  height: 15px;}
+
+
+.technologyButton img{
+padding:0;margin:0;
+  width: 15px;
+  height: 15px;}
+*/
+.technologyCaracellIsDisplaying {
+   width: 15px;
+  height: 15px;
+  background:PaleGreen;
+ border: 2px solid green;
+  border-radius: 5px;
+  padding:0;
+  margin:0;
+}
+
+.aCardWritingArea
+{
+   width:auto;
+  height:auto;
+  padding:0 0 0 10px; /*width of the balls div and a bit extra of the right marble area*/
+    overflow:hidden;
+
+}
+.projectTitle{
+  text-align: center;
+
+  font-size:0.9rem;
+  font-family: 'PT Serif, Serif';
+  line-height:1.5em;
+  margin:5px 0 3px;
+  height:20px;
+
+}
+.projectImage{
+ height:40px; /*want 30% of the box really*/
+width:auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+
+}
+.projectImage img {
+
+  max-width: 100%;
+  max-height: 100%;}
+
+.projectDescriptionSubtitle{
+  font-size:0.6rem;
+  font-family: 'PT Serif, Serif';
+  line-height:1rem;
+  margin:1px 0 2px;
+}
+.projectDescriptionText{
+  font-size:0.2rem;
+  font-family:'Noto Sans', sans-serif; ;
+  line-height:auto;
+  margin:1px 0 3px;
+  height:37px;
+  overflow:hidden; /*need tp set min text size and decide how deal overflow*/
+  padding-top:0px;
+  margin-top:0px;
+}
+
+.cardHyperlinksArea{
+
+
+/* content:"";*/
+ display:inline-block;
+position:static;
+   bottom:4px;
+  height:15px;
+ width:auto;
+  margin:0 auto 0 2px;
+
+  overflow:hidden;
+  vertical-align: top;
+  text-align: left;
+  font-size:0;
+
+  /*two yellows dont blend so maybe need a same width zero height pseudo behind*/
+
+    /* because images have transparencys doesnt work*/
+/*background-color: rgba(255, 255, 0, .3);*/
+
+background:transparent;
+font-size:0;
+border-radius:10%;
+
+  box-shadow:  0 0 10px 2px    yellow;
+
+    float:left;
+  /*    background-color: transparent;*/
+}
+
+
+/*these two effecting the same element*/
+.cardTechlinksImg{
+
+width:18px;
+height:15px;
+display: inline;
+font-size:0;
+/*margin-left: auto;
+margin-right: auto;*/
+  overflow:hidden;
+padding:0 2px;
+vertical-align: top;
+  border-radius:50%;
+
+
+}
+.cardHyperlinksImg{
+
+width:18px;
+height:15px;
+display: inline;
+font-size:0;
+/*margin-left: auto;
+margin-right: auto;*/
+  overflow:hidden;
+padding:0 2px;
+vertical-align: top;
+  border-radius:50%;
+/*background-color:yellow;*/
+background-color:rgba(255, 255, 0, 0.7);
+  box-shadow:  0 0 5px 2px    yellow;
+
+}
+/*
+.cardHyperlinkImg img{
+vertical-align: top;
+  max-width: 100%;
+  max-height: 100%;}
+  */
+/*why does this not have own class!!!*/
+a{
+
+  display:inline-block;margin:0; padding:0;text-align: left; height:inherit;font-size:inherit;
+
+  width:18px;
+  height:15px;
+
+
+}
+/*Carousel Stylings*/
+
+.carouselBlur{
+  filter:blur(5px);
+}
+
+.carouselOverlayBackground{
+  height:inherit;
+  width:inherit;
+  position:absolute;
+  margin:0; padding:0;
+  /*for now using same styling as the marble case*/
+  filter: blur(10px); /*doesnt blur the things underneath use jquery make a blur style and add it to all sections except this one or to body and counteract for this section this will not blur the areas produced by body but shouldnt be noticable*/
+  /*8*/
+  /*tone down the yellow and blue and add grey from first page*/
+
+  background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.5), rgba(255, 255, 255, 0.7) 15%, rgba(254, 241, 96, 0.4) 20%), rgba(0, 0, 0, 0.6)  content-box;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.9);
+  /*the blur is nice with the black edge (especially with the box shadow on it too)*/
+  /*is not blurring the background behind though!*/
+  outline: 8px solid black;
+  outline-offset: -8px;
+
+
+}
+
+
+.carouselOverlay{
+  position:fixed;
+  top:0; left:0;
+  width:100vw;
+  height:100vh;
+  margin:0;
+  padding:0;
+
+
+z-index:10;
+}
+
+#carousel .cloud9-item, #buttons button {
+  cursor: pointer;
+}
+
+.wrap {
+  width: 80vw; /* fixed width, centered in viewport */
+  left: -40vw;
+  margin-left: 50%;
+  position: relative;
+}
+.wrap > h1 {
+  font-size: 2.5em;
+  text-align: center;
+  padding-bottom: 3px;
+  color:black;
+}
+.nav {
+      width: 64px;
+      height: 134px;
+      color: #ccc;
+      font: bold 3em "Lucida Grande";
+      text-align: center;
+      text-shadow: 0px 1px 0px #f5f5f5;
+      background:rgba(254, 241, 96, 0.4); /*rgba(180, 180, 180, 0.5);*/
+      border: solid 2px rgba(0, 0, 0, 0.4);
+      -webkit-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
+      -moz-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      position: absolute;
+      top: 33%;
+    }
+    .nav:active,
+    .nav.left.down {
+      background: rgba(255, 255, 255, 0.5);
+      border: solid 2px rgba(0, 0, 0, 0.5);
+    }
+    .nav.right.down {
+      background: rgba(255, 255, 255, 0.5);
+      border: solid 2px rgba(0, 0, 0, 0.5);
+    }
+    .nav.bottom.down {
+      font: bold 2em "Lucida Grande";
+      background: rgba(255, 255, 255, 0.5);/*not being overwritten by click*/
+      width: 201px;
+      height: 44px;
+      position:absolute;
+      display:block;
+      right:5vw;
+      color:red;
+      text-shadow:0px 1px 0px red;
+
+      -webkit-border-radius: 12px 5px 5px 12px;
+      -moz-border-radius: 12px 5px 5px 12px;
+      border-radius: 5px 5px 12px 12px;
+
+
+    }
+    .nav.left {
+      color:green;
+        text-shadow:0px 1px 0px green;
+      left: -43px;
+      -webkit-border-radius: 12px 5px 5px 12px;
+      -moz-border-radius: 12px 5px 5px 12px;
+      border-radius: 12px 5px 5px 12px;
+    }
+    .nav.right {
+
+      display:inline-block;
+        color:green;
+              text-shadow:0px 1px 0px green;
+        text-align: right;
+    padding-left: auto;
+    margin-left:auto;
+      right: -43px;
+      -webkit-border-radius: 5px 12px 12px 5px;
+      -moz-border-radius: 5px 12px 12px 5px;
+      border-radius: 5px 12px 12px 5px;
+}
+
+
+
+    .nav.bottom {
+      font: bold 2em "Lucida Grande";
+      background: rgba(221, 160, 221, 0.5);/*not being overwritten by click*/
+      width: 201px;
+      height: 44px;
+      position:absolute;
+      display:block;
+      right:5vw;
+      color:red;
+      text-shadow:0px 1px 0px red;
+
+      -webkit-border-radius: 12px 5px 5px 12px;
+      -moz-border-radius: 12px 5px 5px 12px;
+      border-radius: 5px 5px 12px 12px;
+    }
+
+.carouselDisplayNone{
+display:none; /*  visibility:hidden; /*need card to inherit and change the class name*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#showcase {
+  visibility: hidden;
+}
+#showcase img {
+  cursor: pointer;
+}
+
+
+
+
+
+#showcase {
+  margin-top:5vh;
+  height: 70vh;
+ overflow: visible !important;
+  visibility:inherit; /*I added*/
+}
+.cloud9-item {
+  width: auto;
+height:auto;
+  padding: 0;
+  text-align: center;
+  background-color: rgba(61, 9, 9, 0.8);
+/*  position:absolute;
+display:inline-block;added*/
+}
+
+/*Carousel Stylings*/
+
+
+
+
+
+/*/////////// Testing*/
+.dot{
+  position: absolute;
+  height:10px; width:10px;
+
+  background-color:red;
+}
+.dot2{
+  position: absolute;
+  height:10px; width:10px;
+
+  background-color:blue;
+}
+
+.test{
+  z-index: 1000;
+  display:block;
+  position:fixed;
+}
+
+
+
+
+
+
+/*use something like this to reduce to just the tea icon see media notes in notes document*/
+@media (max-width:1028px) {}
+>>>>>>> before discard
