@@ -1285,14 +1285,7 @@ when refactor set the h's to the same font but different font sizes and have thi
 margin:0 auto;
 visibility:inherit;
 }*/
-.scaleable-wrapper {
-/* position:absolute; */ /*added*/
-/* display:static; */ /*added*/
-  padding:0; margin:0;
-  resize: both;
-  height: inherit;
-  width:inherit;
-}
+
 
 .aCard{
 background-image: url(/Images/cardTextures/favourites/w1.jpg);
@@ -3187,6 +3180,7 @@ visibility:inherit;
   resize: both;
   height: inherit;
   width:inherit;
+
 }
 
 .aCard{
