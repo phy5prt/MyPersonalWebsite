@@ -523,7 +523,40 @@ height: 100px;
   background-color: white;
   width: 100px;
   height: 100px;
+
+  /*added for marble loook*/
+   filter:opacity(95%);
+     background-size: 100%;
 }
+.aMarble::before {
+  content: "";
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+
+
+  background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%), 	  radial-gradient(circle closest-side, rgba(240, 240, 240, 0.33), rgba(50, 50, 50, 0.42));
+  -webkit-filter: blur(5px);
+  z-index: 2;
+}
+.aMarble::after {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(245, 237, 248, 0), rgba(220, 200, 230, 0.2) 50%, gray 100%);
+  /*last colour should be dominant colour of marble*/
+
+ filter:opacity(50%);
+}
+
+
 
 .invisible {
   opacity: 0;
@@ -2402,13 +2435,7 @@ height: 100px;
   position: absolute;
 }
 
-.aMarble {
-  border-radius: 50%;
-  /*background delete*/
-  background-color: white;
-  width: 100px;
-  height: 100px;
-}
+
 
 .invisible {
   opacity: 0;
