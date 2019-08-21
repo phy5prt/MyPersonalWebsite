@@ -1294,21 +1294,24 @@ background-image: url(/Images/cardTextures/favourites/w1.jpg);
   height:150px;
   border: 2.5px solid black;
   border-radius: 5px;
-/* margin:0 auto; */
+ margin:auto auto;
 visibility:inherit;
-      padding:0; margin:0;
+
 /*width:inherit;
   height:inherit;*/
   text-align: center;
   /*background: pink;*/
-  position: relative;
+
 /*  transform: translate(0%, 0%);left:0;top:0; */
 /*  transform: translate(-50%, -50%);left:50%;top:50%;*/
-    transform: translate(-50%, 0%);left:50%;top:0%;
-  transform-origin: center center;
-position:relative; z-index:1;/*added to help shadow layering*/
+  transform: translate(0%, 50%);
+left:50%; top:0%;
+  transform-origin: top center;
+position:absolute;
+ z-index:1;/*added to help shadow layering*/
 /*  position:absolute;*/ /*z-index:inherit;*//*added to help shadow layering*/
      transform-style: preserve-3d; /*dirty stacking sollution*/
+
 }
 /*card shadow*/
 .aCard::after{
@@ -3183,29 +3186,6 @@ visibility:inherit;
 
 }
 
-.aCard{
-background-image: url(/Images/cardTextures/favourites/w1.jpg);
-  background-repeat:repeat;
-  width:125px;
-  height:150px;
-  border: 2.5px solid black;
-  border-radius: 5px;
-/* margin:0 auto; */
-visibility:inherit;
-      padding:0; margin:0;
-/*width:inherit;
-  height:inherit;*/
-  text-align: center;
-  /*background: pink;*/
-  position: relative;
-/*  transform: translate(0%, 0%);left:0;top:0; */
-/*  transform: translate(-50%, -50%);left:50%;top:50%;*/
-    transform: translate(-50%, 0%);left:50%;top:0%;
-  transform-origin: center center;
-position:relative; z-index:1;/*added to help shadow layering*/
-/*  position:absolute;*/ /*z-index:inherit;*//*added to help shadow layering*/
-     transform-style: preserve-3d; /*dirty stacking sollution*/
-}
 /*card shadow*/
 .aCard::after{
 
