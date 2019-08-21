@@ -526,6 +526,7 @@ height: 100px;
 
   /*added for marble loook*/
    filter:opacity(95%);
+   background:inherit;
      background-size: 100%;
 }
 .aMarble::before {
