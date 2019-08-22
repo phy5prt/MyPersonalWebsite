@@ -291,11 +291,11 @@
     this.deactivate = function() {
       this.pause();
       clearInterval( this.autoPlayTimer );
-      if( options.buttonLeft ) options.buttonLeft.unbind( 'click' );
-      if( options.buttonRight ) options.buttonRight.unbind( 'click' );
+      if( options.buttonLeft ) options.buttonLeft.unon( 'click' );
+      if( options.buttonRight ) options.buttonRight.unon( 'click' );
       /*I've added*/
-      if( options.buttonBottom ) options.buttonBottom.unbind( 'click' );
-      $container.unbind( '.cloud9' );
+      if( options.buttonBottom ) options.buttonBottom.unon( 'click' );
+      $container.unon( '.cloud9' );
     }
 
     this.autoPlay = function() {
@@ -307,12 +307,12 @@
 
     this.enableAutoPlay = function() {
       // Stop auto-play on mouse over
-      $container.bind( 'mouseover.cloud9', function() {
+      $container.on( 'mouseover.cloud9', function() {
         clearInterval( self.autoPlayTimer );
       } );
 
       // Resume auto-play when mouse leaves the container
-      $container.bind( 'mouseout.cloud9', function() {
+      $container.on( 'mouseout.cloud9', function() {
         self.autoPlay();
       } );
 
@@ -328,33 +328,33 @@
 
 /*should we use this activate disactivate change it a bit*/
 
-      /*maybe just use this render, if so will probably need add options.buttonTop.bind( 'click', showCarouselTop
-    ); to the down button OR NOT is the issue its binding multiple times because it is in generateCaroulsel doesnt work         self.render();self.finishInit;self.autoPlay();*/
+      /*maybe just use this render, if so will probably need add options.buttonTop.on( 'click', showCarouselTop
+    ); to the down button OR NOT is the issue its oning multiple times because it is in generateCaroulsel doesnt work         self.render();self.finishInit;self.autoPlay();*/
 
-         options.buttonTop.unbind( 'click', showCarouselTop   );
+         options.buttonTop.unon( 'click', showCarouselTop   );
 generateCarousel();
- options.buttonTop.unbind( 'click', showCarouselTop   );/*can still hold up and make it run code too much */
+ options.buttonTop.unon( 'click', showCarouselTop   );/*can still hold up and make it run code too much */
          return false;
         }
 
 
-    this.bindControls = function() {
+    this.onControls = function() {
       if( options.buttonLeft ) {
-        options.buttonLeft.bind( 'click', function() {
+        options.buttonLeft.on( 'click', function() {
           self.go( -1 );
           return false;
         } );
       }
 
       if( options.buttonRight ) {
-        options.buttonRight.bind( 'click', function() {
+        options.buttonRight.on( 'click', function() {
           self.go( 1 );
           return false;
         } );
       }
 /*i've added*/
             if( options.buttonBottom ) {
-              options.buttonBottom.bind( 'click', function() {
+              options.buttonBottom.on( 'click', function() {
                $('.carouselOverlay').addClass("carouselDisplayNone");
 
                 $('section').not('.carouselOverlay').removeClass("carouselBlur");
@@ -363,19 +363,19 @@ generateCarousel();
             }
 
             if( options.buttonTop ) {
-              options.buttonTop.bind( 'click', showCarouselTop
+              options.buttonTop.on( 'click', showCarouselTop
                );
             }
 
       if( options.mouseWheel ) {
-        $container.bind( 'mousewheel.cloud9', function( event, delta ) {
+        $container.on( 'mousewheel.cloud9', function( event, delta ) {
           self.go( (delta > 0) ? 1 : -1 );
           return false;
         } );
       }
 
       if( options.bringToFront ) {
-        $container.bind( 'click.cloud9', function( event ) {
+        $container.on( 'click.cloud9', function( event ) {
           var hits = $(event.target).closest( '.' + options.itemClass );
 
           if( hits.length !== 0 ) {
@@ -409,10 +409,10 @@ generateCarousel();
         this.items.push( new Item( items[i], this.itemOptions ) );
 
       // Disable click-dragging of items
-      $container.bind( 'mousedown onselectstart', function() { return false } );
+      $container.on( 'mousedown onselectstart', function() { return false } );
 
       if( this.autoPlayAmount !== 0 ) this.enableAutoPlay();
-      this.bindControls();
+      this.onControls();
       this.render();
 
       if( typeof this.onLoaded === 'function' )
