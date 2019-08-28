@@ -105,3 +105,15 @@ $showcase.append(cloud9CardTemplate.clone(true))
 
 
 }
+
+$(".aMarble").click(
+function(){
+
+  $(".carouselOverlay").toggleClass("carouselDisplayNone");
+  $('section').not('.carouselOverlay').toggleClass("carouselBlur");
+    generateCarousel();
+
+}
+
+
+)

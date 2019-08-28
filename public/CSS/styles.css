@@ -314,25 +314,13 @@ with page changes
   background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.4), rgba(255, 255, 255, 0.6) 15%, rgba(254, 241, 96, 0.3) 20%) content-box;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1), inset 0 0 50px rgba(0, 0, 0, 0.8);
   /*the blur is nice with the black edge (especially with the box shadow on it too)*/
   /*is not blurring the background behind though!*/
   outline: 4px solid black;
   outline-offset: -4px;
+    pointer-events: none;
+     z-index:9;
 }
 
 .handle {
@@ -378,43 +366,8 @@ with page changes
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.9), inset 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
-.myflex-container {
-  /*would be nice if balls spin a bit with size change*/
-  /*the balls on left appear on right and vice versa with size change*/
-  /*make a code pen and ask for help and show the issue*/
-  /*if could wrap reverse and plain wrap alternatively between rows?*/
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  flex-wrap: wrap-reverse;
-  display: flex;
-  width: inherit;
-  /*height:inherit; if set height it will spread pictures evenly needs to respond
-  to them and make itself tall enough maybe maximum height and overflow hidden
-  would help when lots of marbles*/
-  /*justify-content:flex-end;*/
-  position: absolute;
-  bottom: 0px;
-  padding: 0px 0px 10px 15px;
-  /* max-height: height:inherit; not supported in ie "custom properties"*/
-  /* doesnt work max-height:100;
-    overflow:hidden;*/
-  /*max width works not height
-    max-width:100%;
-    max-height:10%;*/
-}
 
-/*del when have images*/
-.myflex-item {
-  width: 100px;
-  height: 100px;
-  outline: solid black 2px;
-  outline-offset: -2px;
-  border-radius: 100px;
-  background: deepskyblue;
-  padding: 0;
-  margin: 0;
-}
+
 
 .pg2CardContainer {
   position: absolute;
@@ -2181,90 +2134,10 @@ with page changes
   margin: 4em auto;
 }
 
-.case2border {
-  filter: blur(1.5px);
-  width: inherit;
-  height: inherit;
-  position: absolute;
-  border-top: 5px solid rgba(103, 128, 100, 0.7);
-
-  border-bottom: 40px solid black;
-  border-left: 40px solid orange;
-  border-right: 0 solid black;
-
-  /*Now need it circle or even better semi circle*/
-}
-
-.case2border:before {
-  content: "";
-  position: absolute;
-  bottom: -40px;
-  left: -36px;
-  z-index: 7;
-  /*-1;*/
-  /*will this change to inherit*/
-  width: inherit;
-  height: inherit;
-  border-bottom: 40px solid brown;
-  border-left: 40px solid transparent;
-}
-
-.case2border:after {
-  /*outline is here because here i can alter the height and width without effecting other elements
-  the element will never be dragged into full view so right side doesnt matter
-  altering the height does over extend the border so i will need to clip
-
-  */
-  content: "";
-  position: absolute;
-  bottom: -40px;
-  left: -40px;
-  z-index: 7;
-  /*-1;*/
-  /*if this is set to inherit the pattern moves as the object is stretched
-  so width needs to match the maximum_size in the js*/
-  width: 800px;
-  height: inherit;
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 40px solid;
-  border-left: 40px solid;
-  border-image: repeating-radial-gradient(transparent, olive 5px, brown 5px, olive 5px) 30;
-  /*the grain looks nicer when the width is 220px so maybe alter the setting for the pattern
-    try to recreate it by altering the numbers for the gradient*/
-  /*if i use rgb colours and put transparency into the colours of the grain I could make the black not be as clearly drawn over*/
-  /*  border-image: repeating-radial-gradient(transparent, olive 10px, brown 10px, olive 10px) 30;*/
-}
-
-/*rather than classes could just apply to first last child*/
-.glassEffect {
-  height: inherit;
-  content: "";
-  filter: blur(8px);
-  /*8*/
-  background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.4), rgba(255, 255, 255, 0.6) 15%, rgba(254, 241, 96, 0.3) 20%) content-box;
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1), inset 0 0 50px rgba(0, 0, 0, 0.8);
-  /*the blur is nice with the black edge (especially with the box shadow on it too)*/
-  /*is not blurring the background behind though!*/
-  outline: 4px solid black;
-  outline-offset: -4px;
-}
 
 .handle {
   position: absolute;
@@ -2333,15 +2206,16 @@ with page changes
   /*max width works not height
     max-width:100%;
     max-height:10%;*/
+ //z-index:;*///needs to be less than glass more than case
 }
 
 /*del when have images*/
-.myflex-item {
+.myflex-item { //think this sint used
   width: 100px;
   height: 100px;
   outline: solid black 2px;
   outline-offset: -2px;
-  border-radius: 100px;
+  border-radius: 50%;
   background: deepskyblue;
   padding: 0;
   margin: 0;
