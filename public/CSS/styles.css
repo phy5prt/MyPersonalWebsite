@@ -732,6 +732,16 @@ the screen may be a different ratio
   border-width: 5px 8px 8px 5px;
 }
 
+.buisnessCardShadow{
+
+/*     */
+/*
+padding:20px;
+box-shadow:   0 -10px 10px -5px plum, 0 10px 10px -5px plum, 10px 0 10px -5px yellow, -10px 0 10px -5px yellow,  inset 0 0  2000px white;
+*/
+
+}
+
 .buisnessCardText {
   text-align: center;
   height: 100vh;
