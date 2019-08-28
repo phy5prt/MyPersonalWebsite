@@ -156,13 +156,7 @@ causes it to behave undesireably with heigh change */
   background-position: center;
 }
 
-.philProfileMarblePg2Start {
-  /*dont know how should use the 165deg and the to top right type starting corner to make sure moves right*/
-  position: absolute;
-  top: 24vh;
-  left: 67vw;
-  z-index: 3;
-}
+
 
 .pg2Text {
   position: absolute;
@@ -508,14 +502,7 @@ height: 100px;
 }
 
 /*make a and philProfileMarble the same*/
-.philProfileMarbleImg {
-  border-radius: 50%;
-  /*background delete*/
-  background-color: blue;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-}
+
 
 .aMarble {
   border-radius: 50%;
@@ -2074,7 +2061,7 @@ causes it to behave undesireably with heigh change */
 
 .philProfileMarblePg2Start {
   /*dont know how should use the 165deg and the to top right type starting corner to make sure moves right*/
-  position: absolute;
+  position: absolute;display:block;
   top: 24vh;
   left: 67vw;
   z-index: 3;
@@ -2427,7 +2414,15 @@ height: 100px;
 .philProfileMarbleImg {
   border-radius: 50%;
   /*background delete*/
-  background-color: blue;
+
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+.aMarbleImg{
+  border-radius: 50%;
+  /*background delete*/
+
   width: 100px;
   height: 100px;
   position: absolute;
@@ -2795,31 +2790,37 @@ border-width: 10px 0px 10px 2px;
 */
 
 .marbleOnShape1{
+  display:block;
   position:absolute;
   right:0px;
   top:-100px;
     z-index:3;
-
+      width:0;
+  height:0;
 }
 .marbleOnShape1Y{}
 .marbleOnShape1X{}
 
 .marbleOnShape2{
+    display:block;
   position:absolute;
   right:0px;
   top:-100px;
     z-index:3;
-
+    width:0;
+  height:0;
 }
 .marbleOnShape2X{}
 .marbleOnShape2Y{}
 
 .marbleOnShape3{
+    display:block;
     position:absolute;
     right:0px;
     top:-100px;
       z-index:3;
-
+  width:0;
+  height:0;
   }
   .marbleOnShape3Y{}
   .marbleOnShape3X{}
