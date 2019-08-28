@@ -81,7 +81,10 @@ $(" .drinkButton ").click(function(e) {
 
 $(".tabPage1To2").click(function() {
 
-updatePG3VarsWithWindow(); //this is here so balls dont start on pg2 but they still dont start in correct location they start left a bit
+  //this should end up in some setups js file
+ifInArcApplyDrag(setInitVars());//seems to work nicer than resizing not quite noticeable
+//updatePG3VarsWithWindow(); //this is here so balls dont start on pg2 but they still dont start in correct location they start left a bit
+
   $('html, body').animate({
     scrollTop: $(".page2X0Y1").offset().top
   }, 800);
