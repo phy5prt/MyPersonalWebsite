@@ -576,6 +576,18 @@ height: 100px;
   left: -110px;
 }
 
+.aMarbleY {
+  position: relative;
+  display:block;
+  top: 0;
+}
+
+.aMarbleX {
+  position: relative;
+  display:block;
+  left: 0;
+}
+
 /*name duration function delay direction iteration fill state*/
 /*page1stage1*/
 /*maybe a set distance and put in repititions*/
