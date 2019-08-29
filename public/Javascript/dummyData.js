@@ -40,7 +40,7 @@ var projectCards = [{
   projectImagePath: " Images/cocktailOlive.png " ,
   technologiesArray:[
   {
-    technologyName:"unity",
+    technologyName:"batman",
     technologyImagePath:"  Images/cocktailOlive.png  ",
     technologyExampleRating:"10"
   },

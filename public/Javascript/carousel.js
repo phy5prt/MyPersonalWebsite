@@ -1,8 +1,8 @@
 
 
- function generateCarousel() {
+ function generateCarousel(saughtTechnology = "allTechnologies") {
 
-generateAllCarouselCards();
+generateCarouselCards(saughtTechnology);
 
   var showcase = $("#showcase")
 
@@ -68,7 +68,7 @@ const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").c
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
 const $showcase = $("#showcase");
 
-function generateAllCarouselCards(){
+function generateCarouselCards(saughtTechnology = "allTechnologies"){
 
 
 
@@ -77,7 +77,21 @@ $showcase.html('');
 
   for (var i = 0; i < projectCards.length; i++) {
 
+
+
     var projectCard = projectCards[i];
+console.log("generateCarouselCards saughtTechnology value:"+ saughtTechnology);
+
+console.log("filter result:"+projectCard.technologiesArray.filter(technologyObject => (technologyObject.technologyName === saughtTechnology)));
+
+var saughtTechnologyArray =projectCard.technologiesArray.filter(technologyObject => (technologyObject.technologyName === saughtTechnology));
+var hasSaughtTechnology;
+if(saughtTechnologyArray && saughtTechnologyArray.length)
+ { hasSaughtTechnology = true;}else{hasSaughtTechnology = false;}
+
+    if(saughtTechnology == "allTechnologies" || hasSaughtTechnology){
+
+
     var cloud9CardTemplate = cloud9CardTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
 
   cloud9CardTemplate.find('.projectTitle').html(projectCard.projectName);
@@ -103,15 +117,17 @@ cloud9CardTemplate.find('.cardHyperlinksArea').append(cardHyperlinkTemplate.clon
 $showcase.append(cloud9CardTemplate.clone(true))
 }
 
-
+}
 }
 
 $(".aMarble").click(
 function(){
-
+var attr = $(this).attr('name'); /*hasAttr not working*/
   $(".carouselOverlay").toggleClass("carouselDisplayNone");
   $('section').not('.carouselOverlay').toggleClass("carouselBlur");
+   if(typeof attr !== typeof undefined && attr !== false){var saughtTechnology = $(this).attr('name'); console.log(saughtTechnology);  generateCarousel(saughtTechnology);}else{
     generateCarousel();
+  }
 
 }
 
