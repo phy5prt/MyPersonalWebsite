@@ -60,11 +60,39 @@ var measureFromCardCenter = (cardWidth - gapAroundCard) / 2;
 var x;
 var y;
 
+var marbleLineLocationArr = [];
+var blackLineCReverse = intersectY - (-1)*blackLineGrad * intersectX;
+function marbleLineLocationsPG4(){
 
+//the index will be the x in from the right
+//
+var marbleOnLineWidth = 100; // later just make marble width in utils
+var measureFromMarbleTopRight = 125;
+
+  for (i = 0; i<= (W-marbleOnLineWidth); i+=marbleOnLineWidth){
+    xForMarble = i;
+    yForMarble = (-1)*blackLineGrad * (xForMarble)+ blackLineCReverse-measureFromMarbleTopRight; //but some cards wont be placed
+//this is so when we run out of project cards we just start again at the begginging
+
+marbleLineLocationArr.push([  xForMarble, yForMarble]);
+
+      }
+
+    var htmlSquaresOnGradLine = "";
+marbleLineLocationArr.forEach(function(position){
+//make box here
+ htmlSquaresOnGradLine += " <div class=' squarePG4 ' style='top:" + position[1] + "px;right:" + position[0] + "px;'></div>";
+
+});
+return htmlSquaresOnGradLine;
+}
 
 
 //placementLoop(); called by transistion
 function placementLoop() {
+
+
+;
   //all variables could be kepted inside because only running when they have changed however i eo intend to use them later for marble placement
   W = document.documentElement.clientWidth;
   H = document.documentElement.clientHeight;
@@ -140,7 +168,7 @@ linksArrayHtml+
       cardsConsecutivelyNotPlaced++;
       if (cardsConsecutivelyNotPlaced > numCols) {
         cardsStillToBePlaced = false;
-        htmlString = "<div class='pg4Text'>Phil Tate</div>" + htmlString;
+        htmlString = "<div class='pg4Text'>Phil Tate</div>" + htmlString + marbleLineLocationsPG4();
         $(".page4X0Y0").html(htmlString);
       }
     }

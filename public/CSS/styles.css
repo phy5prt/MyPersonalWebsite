@@ -1211,6 +1211,15 @@ when refactor set the h's to the same font but different font sizes and have thi
 }
 
 */
+.squarePG4{
+  width:100px;
+  height:100px;
+  position:absolute;
+border: 10px solid blue;
+background:transparent;
+  z-index:300;
+}
+
 .page4X0Y0 {
   /*to blend the edge of pg4 and 2 could use blur*/
   position: absolute;
