@@ -248,6 +248,7 @@ with page changes
   /*to accommodate border something like this would be useful top: 50vh - 40px;*/
   top: 10vh;
   margin: 4em auto;
+  pointer-events: none;
 }
 
 .case2border {
@@ -260,7 +261,7 @@ with page changes
   border-bottom: 40px solid black;
   border-left: 40px solid orange;
   border-right: 0 solid black;
-
+pointer-events: none;
   /*Now need it circle or even better semi circle*/
 }
 
@@ -276,6 +277,7 @@ with page changes
   height: inherit;
   border-bottom: 40px solid brown;
   border-left: 40px solid transparent;
+  pointer-events: none;
 }
 
 .case2border:after {
@@ -303,6 +305,7 @@ with page changes
     try to recreate it by altering the numbers for the gradient*/
   /*if i use rgb colours and put transparency into the colours of the grain I could make the black not be as clearly drawn over*/
   /*  border-image: repeating-radial-gradient(transparent, olive 10px, brown 10px, olive 10px) 30;*/
+pointer-events: none;
 }
 
 /*rather than classes could just apply to first last child*/
@@ -335,16 +338,19 @@ with page changes
   */
   overflow: hidden;
   z-index: 9;/*90*/
+    pointer-events:auto;
 }
 
 .handle::before {
   border: 20px solid brown;
   border-image-source: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NEYbD7_RG24-GQAwnWakNo22wnJMQi9Ra9i0obx6kSGLxUJ7);
   border-right: 0;
+      pointer-events:auto;
 }
 
 .handle::before,
 .handle::after {
+      pointer-events:auto;
   content: '';
   position: absolute;
   height: 100%;
@@ -468,6 +474,7 @@ height: 100px;
    filter:opacity(95%);
    background:inherit;
      background-size: 100%;
+     pointer-events: auto;
 }
 .aMarble::before {
   content: "";
@@ -482,6 +489,7 @@ height: 100px;
   background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%), 	  radial-gradient(circle closest-side, rgba(240, 240, 240, 0.33), rgba(50, 50, 50, 0.42));
   -webkit-filter: blur(5px);
   z-index: 2;
+   pointer-events: auto;
 }
 .aMarble::after {
   content: "";
@@ -495,6 +503,7 @@ height: 100px;
   /*last colour should be dominant colour of marble*/
 
  filter:opacity(50%);
+  pointer-events: auto;
 }
 
 
@@ -2118,69 +2127,12 @@ and just make the next layer an image change perspective to get angle
 or a border over the top of both which is the pattern with transparency it has the grain and is the same over all borders but looks different because of the colours pushing through, if grain complex enough it will look alright, if it is possible to use images with alpha could do it that way
 
 */
-.case2position {
-  /*a few marbles width*/
-  /*it is not sticking to right
-if going to be on other screen making it fixed and then just toggle it sliding off and on screens
-with page changes
-  */
-  width: 120px;
-  height: 70vh;
-  position: absolute;
-  z-index: 8;
-  right: -70px;
-  /*to accommodate border something like this would be useful top: 50vh - 40px;*/
-  top: 10vh;
-  margin: 4em auto;
-}
 
 
 
 
 
 
-.handle {
-  position: absolute;
-  top: 40%;
-  left: -40px;
-  width: 120px;
-  height: 15%;
-  border-radius: 100px 100px 100px 100px;
-  /*if i can cut image down to a quater then this would work
-      border-radius: 100px 0px 0px 100px;
-  */
-  overflow: hidden;
-  z-index: 9;/*90*/
-}
-
-.handle::before {
-  border: 20px solid brown;
-  border-image-source: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NEYbD7_RG24-GQAwnWakNo22wnJMQi9Ra9i0obx6kSGLxUJ7);
-  border-right: 0;
-}
-
-.handle::before,
-.handle::after {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  box-sizing: border-box;
-  border-image-source: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NEYbD7_RG24-GQAwnWakNo22wnJMQi9Ra9i0obx6kSGLxUJ7);
-  /*number|%|fill|initial|inherit;*/
-  border-image-slice: 30%;
-  /*number|%|auto|initial|inherit;*/
-  border-image-width: -10px;
-  /*length|number|initial|inherit;*/
-  border-image-outset: -10px;
-  /*30px 100px 30px 40px; this puts the squeare in place too*/
-  /*stretch|repeat|round|initial|inherit;*/
-  border-image-repeat: round;
-  /*close but not rounded on the inside*/
-  /*trying to do something*/
-  /*seems to do nothing*/
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.9), inset 0 0 5px rgba(0, 0, 0, 0.9);
-}
 
 .myflex-container {
   /*would be nice if balls spin a bit with size change*/
@@ -2206,7 +2158,7 @@ with page changes
   /*max width works not height
     max-width:100%;
     max-height:10%;*/
- //z-index:;*///needs to be less than glass more than case
+
 }
 
 /*del when have images*/
