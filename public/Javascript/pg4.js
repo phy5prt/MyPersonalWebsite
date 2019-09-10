@@ -60,6 +60,8 @@ var measureFromCardCenter = (cardWidth - gapAroundCard) / 2;
 var x;
 var y;
 
+
+
 var marbleLineLocationArr = [];
 var blackLineCReverse = intersectY - (-1)*blackLineGrad * intersectX;
 function marbleLineLocationsPG4(){

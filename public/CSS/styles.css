@@ -399,12 +399,15 @@ or just plan out each elements
 top:21%;
 right:35%;
 */
-  top: 15vh;  left: 55vw;   /* this will be replaced by calculating position putting it into the html  */
+
 
   /*setting div size becuase its size may affect location and current adapts to size of card*/
-transform: perspective(400px) rotateY(75deg);
 
-width:20vw;
+/*transform: perspective(400px) rotateY(75deg);*/ /*this needs to be put back in*/
+
+
+/*should we define in height or width*/
+width:17vh;
 height:20vh;
 }
 
@@ -1206,7 +1209,7 @@ when refactor set the h's to the same font but different font sizes and have thi
   /*because the size of the two pink sections is different the colours dont blend perfectly*/
   /*this is currently fine as colurs will probably change */
   /*
-  background: linear-gradient(-165deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
+  background: linear-gradient(195deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
   background-position: center;
 }
 
@@ -1226,7 +1229,7 @@ background:transparent;
   height: 100vh;
   width: 100vw;
   left: 100vw;
-    background: linear-gradient(-165deg, white, plum 43%, plum,  yellow, yellow 45%, white);
+    background: linear-gradient(195deg, white, plum 43%, plum,  yellow, yellow 45%, white);
   background-position: center;
 
 }
@@ -1235,13 +1238,13 @@ background:transparent;
   height: 100vh;
   width: 100vw;
   /*left: 100vw;*/
-/*195 same as -165*/
+/*195 same as 195*/
 
 
 content:'';
   /*some options for the line with different looks*/
-   /*background: linear-gradient(-165deg, white, plum 43%, black 43%, black 43.5%, transparent 45%);*/
-  background: linear-gradient(-165deg, white, plum 43%, black 43%, black 44%, transparent 44%);
+   /*background: linear-gradient(195deg, white, plum 43%, black 43%, black 43.5%, transparent 45%);*/
+  background: linear-gradient(195deg, white, plum 43%, black 43%, black 44%, transparent 44%);
     background-position: center;
   z-index:2;
 }
@@ -2182,38 +2185,7 @@ or a border over the top of both which is the pattern with transparency it has t
   margin: 0;
 }
 
-.pg2CardContainer {
-  position: absolute;
-  /*try aligning in same way as background so responds the same*/
-  /*align both to width as gets to low as shorten window
-do i need to calculate position using pythagorous
-the line is a percentage of the hypotenuse of full dimensions or screens
-tried a few things havet managed it at this point having a seperate
-container doesnt seem useful
-could try altering background behaviour it moves at moment in a way that isnt a normal shrink
-look into background centre and then move relative to that
-card seemed to follow when centered but then when used margin to push from centre to loaction wanted
-it did not shrink as desired have not yet tried making the box centered and floating the image from it
-or using a second div to push into the space
-or make part of background
-or have the line not a background but a floating image with alpha giving a bit a of parralax feel on shrink
-or a large square top right and its bottom left it the card?
-or just plan out each elements
- think about all the elements involved maybe background in vh vw,
- position in it to everything centerd then moved relative to center
-*/
-  /*
-top:21%;
-right:35%;
-*/
-  top: 15vh;  left: 55vw;   /* this will be replaced by calculating position putting it into the html  */
 
-  /*setting div size becuase its size may affect location and current adapts to size of card*/
-transform: perspective(400px) rotateY(75deg);
-
-width:20vw;
-height:20vh;
-}
 
 
 
@@ -2975,7 +2947,7 @@ when refactor set the h's to the same font but different font sizes and have thi
   /*because the size of the two pink sections is different the colours dont blend perfectly*/
   /*this is currently fine as colurs will probably change */
   /*
-  background: linear-gradient(-165deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
+  background: linear-gradient(195deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
   background-position: center;
 }
 
@@ -2986,7 +2958,7 @@ when refactor set the h's to the same font but different font sizes and have thi
   height: 100vh;
   width: 100vw;
   left: 100vw;
-    background: linear-gradient(-165deg, white, plum 43%, plum,  yellow, yellow 45%, white);
+    background: linear-gradient(195deg, white, plum 43%, plum,  yellow, yellow 45%, white);
   background-position: center;
 
 }
@@ -2995,13 +2967,13 @@ when refactor set the h's to the same font but different font sizes and have thi
   height: 100vh;
   width: 100vw;
   /*left: 100vw;*/
-/*195 same as -165*/
+/*195 same as 195*/
 
 
 content:'';
   /*some options for the line with different looks*/
-   /*background: linear-gradient(-165deg, white, plum 43%, black 43%, black 43.5%, transparent 45%);*/
-  background: linear-gradient(-165deg, white, plum 43%, black 43%, black 44%, transparent 44%);
+   /*background: linear-gradient(195deg, white, plum 43%, black 43%, black 43.5%, transparent 45%);*/
+  background: linear-gradient(195deg, white, plum 43%, black 43%, black 44%, transparent 44%);
     background-position: center;
   z-index:2;
 }
