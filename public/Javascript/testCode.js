@@ -9,9 +9,9 @@ $(".test").click(function() {
 
 
 //  $(".page2X0Y1").html(marbleLineLocationsPG2());
-$(".page4X0Y0").html(showMarbleLocations(makeMarbLocArrPG4()));
-
-});
+//$(".page4X0Y0").html(showMarbleLocations(makeMarbLocArrPG4()));
+recalcAndPlaceMarblePosOnResizePG4();
+})
 
 
 
@@ -90,27 +90,7 @@ $(".pg2CardContainer").css({'top':marbleLineLocationArrPG2[0][1] -halfCardHeight
 }
 
 
-function makeMarbLocArrPG4(){
 
-var  marbleLineLocationArr = [];
-  var marbleOnLineWidth = 100; // later just make marble width in utils
-    var marbleOnLineHeight = 100;
-  var divTransOriginYAdjustment = -(marbleOnLineHeight+25);
-  var divTransOriginXAdjustment = 0;
-  var linearGradDeg = 195;
-  var gradPerc = 44;
-    for ( i = 0; i<= (W-marbleOnLineWidth); i+=marbleOnLineWidth){
-      var xLoc=i;
-    //  gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment)
-    var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment);
-
-  //this is so when we run out of project cards we just start again at the begginging
-
-  marbleLineLocationArr.push(pos);
-
-        }
-return marbleLineLocationArr;
-}
 
 function showMarbleLocations(  marbleLineLocationArr){
 var htmlSquaresOnGradLine = "";

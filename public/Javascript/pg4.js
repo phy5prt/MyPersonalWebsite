@@ -39,6 +39,30 @@ return marbleLineLocationArr;
 }
 
 
+// for(var i=0; i++){
+//   allMarbles[i].appendTo('.page4X0Y0'); //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
+//   allMarbles[i].css({right:locationArr[i][0] , top:locationArr[i][1]});
+
+function recalcAndPlaceMarblePosOnResizePG4(){
+  //for every marble make it part of the section and put it on line
+  var locationArr = makeMarbLocArrPG4();
+  const allMarbles = $(".aMarble");
+
+
+  allMarbles.each(function(i,value){
+
+                if(i<locationArr.length && i<allMarbles.length){ //if run out of either places or marbles stop
+                  //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
+                    $(this)
+                    .css({right:locationArr[i][0] , top:locationArr[i][1], position:'absolute'})
+                    .appendTo('.page4X0Y0');
+                    $(this).css("z-index","3");
+  console.log("locationArr.length =  " + locationArr.length +"     allMarbles.length =  " + allMarbles.length);
+}else{console.log("return called"); return false;}
+        });
+  }
+
+
 //placeCardsPG4(); called by transistion
 
   function placeCardsPG4(){
