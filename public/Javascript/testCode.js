@@ -10,7 +10,8 @@ $(".test").click(function() {
 
 //  $(".page2X0Y1").html(marbleLineLocationsPG2());
 //$(".page4X0Y0").html(showMarbleLocations(makeMarbLocArrPG4()));
-recalcAndPlaceMarblePosOnResizePG4();
+//recalcAndPlaceMarblePosOnResizePG4();
+rollMarblesInPG4();
 })
 
 

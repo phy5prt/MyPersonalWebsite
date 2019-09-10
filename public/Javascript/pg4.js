@@ -49,6 +49,8 @@ function recalcAndPlaceMarblePosOnResizePG4(){
   const allMarbles = $(".aMarble");
 
 
+
+
   allMarbles.each(function(i,value){
 
                 if(i<locationArr.length && i<allMarbles.length){ //if run out of either places or marbles stop
@@ -61,7 +63,57 @@ function recalcAndPlaceMarblePosOnResizePG4(){
 }else{console.log("return called"); return false;}
         });
   }
+  //will need a seperate bit for first 3
+  function rollMarblesInPG4(){
+    //for every marble make it part of the section and put it on line
+    var locationArr = makeMarbLocArrPG4();
+    const allMarbles = $(".aMarble");
 
+    var deltaY = Math.pow((locationArr[0][1]-locationArr[locationArr.length-1][1]),2);
+    var deltaX = Math.pow((locationArr[locationArr.length-1][0]-locationArr[0][1]),2);
+    var lineLength = Math.sqrt((deltaY+deltaX));
+
+var delayBeginningAtFirstAnim =0 ;//i*animationTimeForConstSpeed/2;
+
+    allMarbles.each(function(i,value){
+
+                  if(i<locationArr.length && i<allMarbles.length){ //if run out of either places or marbles stop
+                    //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
+//var animationTime =(2000*locationArr.length)/ (locationArr.length - i); //it takes more time to cover more distance so should be large when i small
+
+
+//animationTime calculated so all balls same speed
+var distanceToTravel = lineLength-(lineLength/locationArr.length)*i; //units of line length
+var desiredSpeed = 1;//seems yo be upset and not spin when less than 1
+
+var animationTimeForConstSpeed = (distanceToTravel)/desiredSpeed;
+delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeout with param as console log says each iteration has same value
+//var delayBeginningAtFirstAnim =0 ;//i*animationTimeForConstSpeed/2;
+
+//console.log("i = " + i + " animation time = "+animationTime+ "   timeBetweenAnimations = " + timeBetweenAnimations);
+                      var thisMarble = $(this);
+                      thisMarble
+                      .appendTo('.page4X0Y0')
+                      .css({right:W+100 , top:-100, position:'absolute'}); // change to offscreen continuation of the line
+                      thisMarble.css("z-index","3");
+                      thisMarble.addClass("rollingClockwise");
+
+//setTimeout needs to take parameters otherwise the values updatted efore it is ready
+        setTimeout(function(){
+                                  thisMarble.animate({ right:locationArr[i][0] , top:locationArr[i][1] },animationTimeForConstSpeed, 'swing', function(){thisMarble.removeClass("rollingClockwise");
+                                 //console.log("animationTimeForConstSpeed = " + animationTimeForConstSpeed + "  delayBeginningAtFirstAnim  = "+ delayBeginningAtFirstAnim);
+                                }
+                    );
+                },delayBeginningAtFirstAnim );
+                       //timeout so not all same time
+
+
+
+
+
+  }else{return false;}
+          });
+    }
 
 //placeCardsPG4(); called by transistion
 
