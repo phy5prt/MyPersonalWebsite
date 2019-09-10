@@ -10,8 +10,8 @@ $(".test").click(function() {
 
 //  $(".page2X0Y1").html(marbleLineLocationsPG2());
 
-$(".page4X0Y0").html(testPlacementFunction());
-
+//$(".page4X0Y0").html(testPlacementFunction());
+placeCardsPG4();
 });
 
 
@@ -90,7 +90,16 @@ $(".pg2CardContainer").css({'top':marbleLineLocationArrPG2[0][1] -halfCardHeight
 }
 
 
-function testPlacementFunction(){
+function makeMarbLocArrPG4(){
+
+
+
+
+
+
+
+
+
 
 
 
@@ -105,7 +114,7 @@ var  marbleLineLocationArr = [];
       var xLoc=i;
     //  gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment)
     var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment);
-console.log("pos= "+pos[0]+"  "+pos[1]);
+
   //this is so when we run out of project cards we just start again at the begginging
 
   marbleLineLocationArr.push(pos);
@@ -120,3 +129,106 @@ console.log("pos= "+pos[0]+"  "+pos[1]);
   });
   return htmlSquaresOnGradLine;
   }
+
+
+  function placeCardsPG4(){
+
+
+
+
+    var divTransOriginYAdjustment;
+    var divTransOriginXAdjustment;
+    var linearGradDeg = 195;//195
+    var gradPerc = 44;
+
+        var xLoc;
+      //  gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment)
+
+    //this is so when we run out of project cards we just start again at the begginging
+
+    var gapAroundCard=20;
+    var cardWidth = 125+gapAroundCard;
+    var cardHeight = 150 + gapAroundCard;
+    var inset = cardWidth / 120;
+    var measureFromCardCenter = (cardWidth - gapAroundCard) / 2;
+
+
+
+
+          var numCols = Math.ceil(W / cardWidth);
+          var cardsStillToBePlaced = true;
+          var arrayLoopInt = 0;
+          var steps = 0;
+          var cardsPlaced = 0;
+          var cardsConsecutivelyNotPlaced = 0;
+          var htmlString = "";
+          var techArrayHtml="";
+          var linksArrayHtml="";
+
+          var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'> ";
+          var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <button class='submitButtonNoStyle' type='submit' name='techButton' value= "; /*make sure value given single speach marks */
+          var cardHtml3 = " ><img type='image' class='cardTechlinksImg' src= "; /*make sure gets two single marks*/
+          var cardHtml4 = " alt='gitLink'></img>  </button>  </form> "
+          var cardHtml4Endloop = "  </div> <div class='ribbonEnd'> </div>  </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
+          var cardHtml5 = " </div> <img class='projectImage ' src= ";   /* make sure gets double '' */
+          var cardHtml6 = " alt='projectImg'></img>  <div class='projectDescriptionSubtitle'>Description</div>  <div class='projectDescriptionText'> ";
+          var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
+          var cardHtml8 =  " <a href= "; /* marks needed '' */
+           var cardHtml9 =  " ><img class='cardHyperlinksImg' src= "; /* marks needed */
+           var cardHtml10 = " alt='gitLink'></img> </a> ";
+           var cardHtml11 = " </div></div></div> ";
+
+
+
+
+          while (cardsStillToBePlaced) {
+
+            xLoc =  (steps % numCols) * cardWidth + inset;
+            divTransOriginYAdjustment = cardHeight * Math.floor(steps / numCols);
+           divTransOriginXAdjustment =   measureFromCardCenter;
+            var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment,false);
+var x = pos[0]; //w- because the while is based on placing using left and we use right
+var y = pos[1]
+
+
+          //this is so when we run out of project cards we just start again at the begginging
+          arrayLoopInt = ((cardsPlaced)%projectCards.length);//not certanin will place whole loop// ((cardsPlaced-1)%projectCards.length)+1; //ones so modulus doesnt end on zero before steps incremented as want to start at zerosa
+          //alert(cardsPlaced + "<--cardsPlaced" + projectCards.length + "  <--length  " + "array loop int -->"+arrayLoopInt);
+            steps++;
+            if (y < H) {
+              cardsConsecutivelyNotPlaced = 0;
+            cardsPlaced++; //put this where aCardHtml is to get the numbers
+            // htmlString+= cardHtml;
+          techArrayHtml="";
+          linksArrayHtml="";
+          console.log(" arrayLoopInt " +arrayLoopInt +" cardsPlaced " + cardsPlaced + " projectCards.length " + projectCards.length);
+            for(var j=0; j<projectCards[arrayLoopInt].technologiesArray.length; j++ ){
+                  techArrayHtml += cardHtml2 + projectCards[arrayLoopInt].technologiesArray[j].technologyName +
+                  cardHtml3+projectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
+
+            for(var k=0; k<projectCards[arrayLoopInt].linksArray.length; k++){
+                      linksArrayHtml +=  cardHtml8+projectCards[arrayLoopInt].linksArray[k].linkHyperlink+cardHtml9+projectCards[arrayLoopInt].linksArray[k].linkImagePath+cardHtml10;
+                  }
+              htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " +   cardHtml1+
+
+          //start technologies array loop
+
+          //end technologies array loop
+          techArrayHtml+
+              cardHtml4Endloop + projectCards[arrayLoopInt].projectName + cardHtml5 +projectCards[arrayLoopInt].projectImagePath+
+              cardHtml6 +projectCards[arrayLoopInt].projectDescription+cardHtml7+
+          //start links loop
+
+          //end links loop
+          linksArrayHtml+
+              cardHtml11+" </div> ";
+            } else {
+              cardsConsecutivelyNotPlaced++;
+              if (cardsConsecutivelyNotPlaced > numCols) {
+                cardsStillToBePlaced = false;
+                htmlString = "<div class='pg4Text'>Phil Tate</div>" + htmlString ;
+                $(".page4X0Y0").html(htmlString);
+              }
+            }
+          }
+    }

@@ -170,7 +170,7 @@ linksArrayHtml+
       cardsConsecutivelyNotPlaced++;
       if (cardsConsecutivelyNotPlaced > numCols) {
         cardsStillToBePlaced = false;
-        htmlString = "<div class='pg4Text'>Phil Tate</div>" + htmlString + marbleLineLocationsPG4();
+        htmlString = "<div class='pg4Text'>Phil Tate</div>" + htmlString;// + marbleLineLocationsPG4();
         $(".page4X0Y0").html(htmlString);
       }
     }

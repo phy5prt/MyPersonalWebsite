@@ -5,7 +5,9 @@ var H = document.documentElement.clientHeight;
 //its not really the center its the transforms point of rotation ..transform divTransOriginXAdjustment
 //code assumes placement based on top right // should it be bottom right?
 //adjustments should be based on same top right
-function gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment){
+function gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, useLeft =true){
+var placementSign = useLeft?  1:-1;
+
 var linearGradRad = linearGradDeg * Math.PI / 180; //gradient into radians
 
 
@@ -16,7 +18,7 @@ var linearGradRad = linearGradDeg * Math.PI / 180; //gradient into radians
 
 var angleBetweenY0AndGradLine = linearGradRad + 2 * Math.PI / 4; //(A-2*Math.PI/2)+A;//A;//( 2*Math.PI-A-2*Math.PI/4);
 var gradLineGrad = Math.tan(angleBetweenY0AndGradLine);
-var blackLineGrad = 1 / gradLineGrad;
+var blackLineGrad = placementSign*1 / gradLineGrad;
 
 //the gradline passes through 0,0 which is W/2 H/2 for us
 //y=mx+c so c=y-mx x= y-c/m
