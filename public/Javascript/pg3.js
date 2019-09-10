@@ -284,7 +284,7 @@ function runPageTransistion() {
 
   window.removeEventListener("resize", updatePG3VarsWithWindow);
   window.removeEventListener("wheel", wheelListnerIncMagRad);
-  placementLoop();
+  placeCardsPG4();
   var pg4Cards = $('.page4X0Y0')
     initSetCards(pg4Cards);
   window.addEventListener("resize", updatePG4WithWindow);
