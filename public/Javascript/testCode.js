@@ -187,7 +187,7 @@ var  marbleLineLocationArr = [];
             divTransOriginYAdjustment = cardHeight * Math.floor(steps / numCols);
            divTransOriginXAdjustment =   measureFromCardCenter;
             var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment,false);
-var x = pos[0]; //w- because the while is based on placing using left and we use right
+var x = xLoc; //w- because the while is based on placing using left and we use right
 var y = pos[1]
 
 
