@@ -85,27 +85,34 @@ var coordsLandingPoint = locationArr[locationArr.length-3];
 var lineLandPosRight = coordsLandingPoint[0]+100;
 var lineLandPosTop =  coordsLandingPoint[1];
 
-var coordsEndPoint = locationArr[0];
-var lineEndPosRight = coordsEndPoint[0]+100; //why isnt it returning it with the width ... coz i used xloc?
-var lineEndPosTop =  coordsEndPoint[1];
+var coordsEndPoint;
+var lineEndPosRight;
+var lineEndPosTop;
 
  //3 ball spaces from top right
 //here will have end point calculated using i
 
 //set to startpoint maybe later put into animate()
-  $(".marbleOnShape1").appendTo(".page4X0Y0").offset(launchLocationAsOffset);
-  var marbleWorkingOn = $(".marbleOnShape1");
-    var magicNumber = 35;
-  var calcRightFromLeft = 2*W+magicNumber - (marbleWorkingOn.offset().left +  marbleWorkingOn.outerWidth());
-   $(".marbleOnShape1").css({
-    'right':calcRightFromLeft+'px',
-    'left': 'auto'
-   });
+var marbleName;
+for(var i=0;i<=2;i++){
+   marbleName =".marbleOnShape"+(i+1).toString();
+    coordsEndPoint = locationArr[i];
+    lineEndPosRight = coordsEndPoint[0]+100; //why isnt it returning it with the width ... coz i used xloc?
+    lineEndPosTop =  coordsEndPoint[1];
+var currentMarble = keepPosChangeParentToPG4TopRightCoords($(marbleName),launchLocationAsOffset);
+  //$(".marbleOnShape1").appendTo(".page4X0Y0").offset(launchLocationAsOffset);
+  // var marbleWorkingOn = $(".marbleOnShape1");
+  //   var magicNumber = 35;
+  // var calcRightFromLeft = 2*W+magicNumber - (marbleWorkingOn.offset().left +  marbleWorkingOn.outerWidth());
+  //  $(".marbleOnShape1").css({
+  //   'right':calcRightFromLeft+'px',
+  //   'left': 'auto'
+  //  });
   //position is relative to parent and offset to doc
 //peakOfJumpLeft = ($(".marbleOnShape1").position().left)/2;
-peakOfJumpRight = ((  parseInt($(".marbleOnShape1").css('right')) -W)/2) +W;
+if(i==0){peakOfJumpRight = ((  parseInt(currentMarble.css('right')) -W)/2) +W;} // only do first time
 //animate to peak
-    $(".marbleOnShape1").animate({
+      setTimeout(currentMarble.animate({
       right: peakOfJumpRight, //'5vw', //left: '105vw',
       top: peakOfJumpTop//20vh;
     }, 200 , 'swing')
@@ -130,41 +137,42 @@ peakOfJumpRight = ((  parseInt($(".marbleOnShape1").css('right')) -W)/2) +W;
     , function() {
       $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
       makeMarble3philProfileMarble();
-    });
-
-    //a little wait first 50ms
-    setTimeout($(".marbleOnShape2").animate({
-      left: '100vw',
-      top: '20vh',
-    }, 200, 'swing').animate({
-      left: '105vw',
-      top: '60vh'
-    }, 200, 'swing').animate({
-      left: '190vw',
-      top: '103vh'
-    }, 1500, 'swing', function() {
-      $(".aMarble").removeClass("rollingClockwise");
-      makeMarble3philProfileMarble();
-    }), 100);
-
-    setTimeout($(".philProfileMarble").animate({
-      left: '96vw',
-      top: '20vh',
-    }, 200, 'swing').animate({
-      left: '100vw',
-      top: '58vh'
-    }, 200, 'swing').animate({
-      left: '185vw',
-      top: '100vh'
-    }, 1500, 'swing', function() {
-      $(".philProfileMarbleImg").removeClass("rollingClockwise");
-      makeMarble3philProfileMarble();
-    }), 200);
-
-    // setTimeout($('html, body').animate({
-    //   scrollTop: $(".page4X0Y0").offset().top,
-    //   scrollLeft: $(".page4X0Y0").offset().left
-    // }, 1400), 400);
+    }),i*200);
+  }
+    //
+    // //a little wait first 50ms
+    // setTimeout($(".marbleOnShape2").animate({
+    //   left: '100vw',
+    //   top: '20vh',
+    // }, 200, 'swing').animate({
+    //   left: '105vw',
+    //   top: '60vh'
+    // }, 200, 'swing').animate({
+    //   left: '190vw',
+    //   top: '103vh'
+    // }, 1500, 'swing', function() {
+    //   $(".aMarble").removeClass("rollingClockwise");
+    //   makeMarble3philProfileMarble();
+    // }), 100);
+    //
+    // setTimeout($(".philProfileMarble").animate({
+    //   left: '96vw',
+    //   top: '20vh',
+    // }, 200, 'swing').animate({
+    //   left: '100vw',
+    //   top: '58vh'
+    // }, 200, 'swing').animate({
+    //   left: '185vw',
+    //   top: '100vh'
+    // }, 1500, 'swing', function() {
+    //   $(".philProfileMarbleImg").removeClass("rollingClockwise");
+    //   makeMarble3philProfileMarble();
+    // }), 200);
+    //
+    // // setTimeout($('html, body').animate({
+    // //   scrollTop: $(".page4X0Y0").offset().top,
+    // //   scrollLeft: $(".page4X0Y0").offset().left
+    // // }, 1400), 400);
   }
 
 
@@ -350,3 +358,16 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
 var updatePG4WithWindow = function() {
   placeCardsPG4();
 };
+
+function keepPosChangeParentToPG4TopRightCoords(div, desiredPos){
+  div.appendTo(".page4X0Y0").offset(desiredPos);
+
+    var magicNumber = 35;
+  var calcRightFromLeft = 2*W+magicNumber - (div.offset().left); //+  div.outerWidth());
+  div.css({
+    'right':calcRightFromLeft+'px',
+    'left': 'auto'
+   });
+
+   return div;
+}
