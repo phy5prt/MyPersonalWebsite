@@ -40,26 +40,26 @@ return marbleLineLocationArr;
 
 
 // for(var i=0; i++){
-//   allMarbles[i].appendTo('.page4X0Y0'); //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
-//   allMarbles[i].css({right:locationArr[i][0] , top:locationArr[i][1]});
+//   allCaseMarbles[i].appendTo('.page4X0Y0'); //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
+//   allCaseMarbles[i].css({right:locationArr[i][0] , top:locationArr[i][1]});
 
 function recalcAndPlaceMarblePosOnResizePG4(){
   //for every marble make it part of the section and put it on line
   var locationArr = makeMarbLocArrPG4();
-  const allMarbles = $(".aMarble");
+  const allCaseMarbles = $(".aMarble");
 
 
 
 
-  allMarbles.each(function(i,value){
+  allCaseMarbles.each(function(i,value){
 
-                if(i<locationArr.length && i<allMarbles.length){ //if run out of either places or marbles stop
+                if(i<locationArr.length && i<allCaseMarbles.length){ //if run out of either places or marbles stop
                   //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
                     $(this)
                     .css({right:locationArr[i][0] , top:locationArr[i][1], position:'absolute'})
                     .appendTo('.page4X0Y0');
                     $(this).css("z-index","3");
-  console.log("locationArr.length =  " + locationArr.length +"     allMarbles.length =  " + allMarbles.length);
+  console.log("locationArr.length =  " + locationArr.length +"     allCaseMarbles.length =  " + allCaseMarbles.length);
 }else{console.log("return called"); return false;}
         });
   }
@@ -192,7 +192,7 @@ function moveScreenWithPG3Transistion(){
 
     //for every marble make it part of the section and put it on line
     var locationArr = makeMarbLocArrPG4();
-    const allMarbles = $(".aMarble");
+    const allCaseMarbles = $(".aMarble");
 
     var deltaY = Math.pow((locationArr[0][1]-locationArr[locationArr.length-1][1]),2);
     var deltaX = Math.pow((locationArr[locationArr.length-1][0]-locationArr[0][1]),2);
@@ -200,23 +200,22 @@ function moveScreenWithPG3Transistion(){
 
 var delayBeginningAtFirstAnim =0 ;//i*animationTimeForConstSpeed/2;
 
-
+var reservedLocations = 3;
 
 
 
 moveScreenWithPG3Transistion();
 
-    allMarbles.each(function(i,value){
-
-if(i<=2){
-  return true;} //dont place first 3
-                  if(i<locationArr.length && i<allMarbles.length && i>2){ //if run out of either places or marbles stop
+    allCaseMarbles.each(function(i,value){ //need to ensure
+var j=i+reservedLocations;
+ //dont place first 3
+                  if(j<locationArr.length){ //if run out of either places or marbles stop
                     //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
 //var animationTime =(2000*locationArr.length)/ (locationArr.length - i); //it takes more time to cover more distance so should be large when i small
 
 
 //animationTime calculated so all balls same speed
-var distanceToTravel = lineLength-(lineLength/locationArr.length)*i; //units of line length
+var distanceToTravel = lineLength-(lineLength/locationArr.length)*j; //units of line length
 var desiredSpeed = 1;//seems yo be upset and not spin when less than 1
 
 var animationTimeForConstSpeed = (distanceToTravel)/desiredSpeed;
@@ -233,7 +232,8 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
 
 //setTimeout needs to take parameters otherwise the values updatted efore it is ready
         setTimeout(function(){
-                                  thisMarble.animate({ right:locationArr[i][0] , top:locationArr[i][1] },animationTimeForConstSpeed, 'swing', function(){thisMarble.removeClass("rollingClockwise");
+
+                                  thisMarble.animate({ right:locationArr[j][0] , top:locationArr[j][1] },animationTimeForConstSpeed, 'swing', function(){thisMarble.removeClass("rollingClockwise");
                                  //console.log("animationTimeForConstSpeed = " + animationTimeForConstSpeed + "  delayBeginningAtFirstAnim  = "+ delayBeginningAtFirstAnim);
                                 }
                     );

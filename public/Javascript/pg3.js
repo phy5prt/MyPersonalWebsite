@@ -289,7 +289,7 @@ function runPageTransistion() {
     initSetCards(pg4Cards);
   window.addEventListener("resize", updatePG4WithWindow);
 
-rollInFirst3Marbles()
+
 rollAllMarblesInPG4();
 
 
