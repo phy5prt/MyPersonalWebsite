@@ -1198,20 +1198,7 @@ when refactor set the h's to the same font but different font sizes and have thi
 
 /*///////////////////////////////////PG4*/
 /*
-.page4X0Y0 {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  left: 100vw;
-  /*top level*/
-  /*pink yellow slice*/
-  /*should percents be vh vw*/
-  /*because the size of the two pink sections is different the colours dont blend perfectly*/
-  /*this is currently fine as colurs will probably change */
-  /*
-  background: linear-gradient(195deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
-  background-position: center;
-}
+
 
 */
 .squarePG4{
@@ -1223,31 +1210,6 @@ background:transparent;
   z-index:300;
 }
 
-.page4X0Y0 {
-  /*to blend the edge of pg4 and 2 could use blur*/
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  left: 100vw;
-    background: linear-gradient(195deg, white, plum 43%, plum,  yellow, yellow 45%, white);
-  background-position: center;
-
-}
-.page4X0Y0::after{
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  /*left: 100vw;*/
-/*195 same as 195*/
-
-
-content:'';
-  /*some options for the line with different looks*/
-   /*background: linear-gradient(195deg, white, plum 43%, black 43%, black 43.5%, transparent 45%);*/
-  background: linear-gradient(195deg, white, plum 43%, black 43%, black 44%, transparent 44%);
-    background-position: center;
-  z-index:2;
-}
 
 .pg4Text{
   /*i'm taking element from the h1 because i want the h1 properties but not the sizes
@@ -2936,22 +2898,9 @@ when refactor set the h's to the same font but different font sizes and have thi
 
 /*///////////////////////////////////PG4*/
 /*
-.page4X0Y0 {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  left: 100vw;
-  /*top level*/
-  /*pink yellow slice*/
-  /*should percents be vh vw*/
-  /*because the size of the two pink sections is different the colours dont blend perfectly*/
-  /*this is currently fine as colurs will probably change */
-  /*
-  background: linear-gradient(195deg, white, plum 43%, plum, transparent, yellow, yellow 45%, white), black;
-  background-position: center;
-}
 
 */
+
 .page4X0Y0 {
   /*to blend the edge of pg4 and 2 could use blur*/
   position: absolute;
@@ -2960,7 +2909,7 @@ when refactor set the h's to the same font but different font sizes and have thi
   left: 100vw;
     background: linear-gradient(195deg, white, plum 43%, plum,  yellow, yellow 45%, white);
   background-position: center;
-
+pointer-events: none;
 }
 .page4X0Y0::after{
   position: absolute;
@@ -2976,7 +2925,10 @@ content:'';
   background: linear-gradient(195deg, white, plum 43%, black 43%, black 44%, transparent 44%);
     background-position: center;
   z-index:2;
+  pointer-events: none;
 }
+
+
 
 .pg4Text{
   /*i'm taking element from the h1 because i want the h1 properties but not the sizes
