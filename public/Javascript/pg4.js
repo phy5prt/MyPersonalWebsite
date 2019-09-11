@@ -39,6 +39,27 @@ return marbleLineLocationArr;
 }
 
 
+function makeMarbSpawnLoc(xValueRightRelPg4){
+
+
+
+  var marbleOnLineHeight = 100;
+  var divTransOriginYAdjustment = -(marbleOnLineHeight+25);
+  var divTransOriginXAdjustment = 0;
+  var linearGradDeg = 195;
+  var gradPerc = 44;
+
+      var xLoc=xValueRightRelPg4;
+    //  gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment)
+    var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment);
+
+  //this is so when we run out of project cards we just start again at the begginging
+
+return pos;
+}
+
+
+
 // for(var i=0; i++){
 //   allCaseMarbles[i].appendTo('.page4X0Y0'); //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
 //   allCaseMarbles[i].css({right:locationArr[i][0] , top:locationArr[i][1]});
@@ -69,8 +90,8 @@ function recalcAndPlaceMarblePosOnResizePG4(){
 function rollInFirst3Marbles (){ //want to make this redundants
 
     var locationArr = makeMarbLocArrPG4();
-    $(".aMarble").addClass("rollingClockwise");
-    $(".philProfileMarbleImg").addClass("rollingClockwise");
+
+
 
 
     //maybe use calc to adjust for lower marbles have them all to same percentage minus their widths
@@ -94,12 +115,19 @@ var lineEndPosTop;
 
 //set to startpoint maybe later put into animate()
 var marbleName;
-for(var i=0;i<=2;i++){
+for(let i=0;i<=2;i++){
+
+
+setTimeout(
+  function(){
+
+
+
    marbleName =".marbleOnShape"+(i+1).toString();
     coordsEndPoint = locationArr[i];
     lineEndPosRight = coordsEndPoint[0]+100; //why isnt it returning it with the width ... coz i used xloc?
     lineEndPosTop =  coordsEndPoint[1];
-var currentMarble = keepPosChangeParentToPG4TopRightCoords($(marbleName),launchLocationAsOffset);
+let currentMarble = keepPosChangeParentToPG4TopRightCoords($(marbleName),launchLocationAsOffset);
   //$(".marbleOnShape1").appendTo(".page4X0Y0").offset(launchLocationAsOffset);
   // var marbleWorkingOn = $(".marbleOnShape1");
   //   var magicNumber = 35;
@@ -112,7 +140,9 @@ var currentMarble = keepPosChangeParentToPG4TopRightCoords($(marbleName),launchL
 //peakOfJumpLeft = ($(".marbleOnShape1").position().left)/2;
 if(i==0){peakOfJumpRight = ((  parseInt(currentMarble.css('right')) -W)/2) +W;} // only do first time
 //animate to peak
-      setTimeout(currentMarble.animate({
+let spinnableElement = currentMarble.find(".aMarble");
+spinnableElement.addClass("rollingClockwise");
+    currentMarble.animate({
       right: peakOfJumpRight, //'5vw', //left: '105vw',
       top: peakOfJumpTop//20vh;
     }, 200 , 'swing')
@@ -135,9 +165,12 @@ if(i==0){peakOfJumpRight = ((  parseInt(currentMarble.css('right')) -W)/2) +W;} 
       // top: '55vh'//top: '105vh'
     }, 1500, 'swing'
     , function() {
-      $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
-      makeMarble3philProfileMarble();
-    }),i*200);
+       spinnableElement.removeClass("rollingClockwise");//spinnableElement.removeClass("rollingClockwise");
+      // $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
+      // makeMarble3philProfileMarble();
+    });
+
+    },i*300);
   }
     //
     // //a little wait first 50ms
@@ -191,7 +224,7 @@ function moveScreenWithPG3Transistion(){
 
 
     //for every marble make it part of the section and put it on line
-    var locationArr = makeMarbLocArrPG4();
+    var locationArr = makeMarbLocArrPG4();  // i do this in both functions need to share it
     const allCaseMarbles = $(".aMarble");
 
     var deltaY = Math.pow((locationArr[0][1]-locationArr[locationArr.length-1][1]),2);
@@ -205,7 +238,10 @@ var reservedLocations = 3;
 
 
 moveScreenWithPG3Transistion();
-
+ rollInFirst3Marbles();
+ var timeToRollInFirst3 = 1200;
+ var caseMarbleSpawnPos = makeMarbSpawnLoc(W+300); //later change to 2W calculate travel time to visual area
+setTimeout(function(){
     allCaseMarbles.each(function(i,value){ //need to ensure
 var j=i+reservedLocations;
  //dont place first 3
@@ -226,7 +262,7 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
                       var thisMarble = $(this);
                       thisMarble
                       .appendTo('.page4X0Y0')
-                      .css({right:W+100 , top:-100, position:'absolute'}); // change to offscreen continuation of the line
+                      .css({right:caseMarbleSpawnPos[0] , top:caseMarbleSpawnPos[1], position:'absolute'});//.css({right:W+100 , top:-100, position:'absolute'}); // change to offscreen continuation of the line
                       thisMarble.css("z-index","3");
                       thisMarble.addClass("rollingClockwise");
 
@@ -245,7 +281,7 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
 
 
   }else{return false;}
-          });
+})},timeToRollInFirst3);
     }
 
 //placeCardsPG4(); called by transistion
