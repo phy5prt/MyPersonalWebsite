@@ -28,11 +28,21 @@ function makeMarble3philProfileMarble() {
 
   //marb3Img =  $(marbleOnShape3).find("img"); // maybe better to remove the html just get rid but sort on next run through
 
-  $(".philProfileMarble").css("left", $(marbleOnShape3).css("left"));
-  $(".philProfileMarble").css("top", $(marbleOnShape3).css("top"));
-  $(".philProfileMarble").detach().appendTo(".page3"); //append rather than prepend because better as last child just for consistency
-  $(".marbleOnShape3").detach();
-  marbleOnShape3 = ".philProfileMarble";
+//issue is we want to retain it
+
+
+$(".philProfileMarble").css("left", 'auto');
+$(".philProfileMarble").css("top", 'auto');
+$(".marbleOnShape3").empty();
+$(".philProfileMarble").detach().appendTo(".marbleOnShape3"); //append rather than prepend because better as last child just for consistency
+//$(".marbleOnShape3").detach();
+//marbleOnShape3 = ".philProfileMarble";
+
+  // $(".philProfileMarble").css("left", $(marbleOnShape3).css("left"));
+  // $(".philProfileMarble").css("top", $(marbleOnShape3).css("top"));
+  // $(".philProfileMarble").detach().appendTo(".page3"); //append rather than prepend because better as last child just for consistency
+  // $(".marbleOnShape3").detach();
+  // marbleOnShape3 = ".philProfileMarble";
 
 
 
