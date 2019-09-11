@@ -289,63 +289,8 @@ function runPageTransistion() {
     initSetCards(pg4Cards);
   window.addEventListener("resize", updatePG4WithWindow);
 
-  $(".aMarble").addClass("rollingClockwise");
-  $(".philProfileMarbleImg").addClass("rollingClockwise");
-
-
-  //maybe use calc to adjust for lower marbles have them all to same percentage minus their widths
-  //timeout so one happen after another
-  //animation goes up down then rolls down the linear
-  //later put line or marbles on the line to attack as button to bring up projects, cards under the linear
-  //need to take 3 marbles on the far left as invisible and use their position as the end point for the marbles coming from pg 3
-
-  $(".marbleOnShape1").animate({
-    left: '105vw',
-    top: '20vh',
-  }, 200, 'swing').animate({
-    left: '109vw',
-    top: '63vh'
-  }, 200, 'swing').animate({
-    left: '195vw',
-    top: '105vh'
-  }, 1500, 'swing', function() {
-    $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
-    makeMarble3philProfileMarble();
-  });
-
-  //a little wait first 50ms
-  setTimeout($(".marbleOnShape2").animate({
-    left: '100vw',
-    top: '20vh',
-  }, 200, 'swing').animate({
-    left: '105vw',
-    top: '60vh'
-  }, 200, 'swing').animate({
-    left: '190vw',
-    top: '103vh'
-  }, 1500, 'swing', function() {
-    $(".aMarble").removeClass("rollingClockwise");
-    makeMarble3philProfileMarble();
-  }), 100);
-
-  setTimeout($(".philProfileMarble").animate({
-    left: '96vw',
-    top: '20vh',
-  }, 200, 'swing').animate({
-    left: '100vw',
-    top: '58vh'
-  }, 200, 'swing').animate({
-    left: '185vw',
-    top: '100vh'
-  }, 1500, 'swing', function() {
-    $(".philProfileMarbleImg").removeClass("rollingClockwise");
-    makeMarble3philProfileMarble();
-  }), 200);
-
-  setTimeout($('html, body').animate({
-    scrollTop: $(".page4X0Y0").offset().top,
-    scrollLeft: $(".page4X0Y0").offset().left
-  }, 1400), 400);
+rollInFirst3Marbles()
+rollAllMarblesInPG4();
 
 
 

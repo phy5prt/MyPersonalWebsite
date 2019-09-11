@@ -11,11 +11,16 @@ $(".test").click(function() {
 //  $(".page2X0Y1").html(marbleLineLocationsPG2());
 //$(".page4X0Y0").html(showMarbleLocations(makeMarbLocArrPG4()));
 //recalcAndPlaceMarblePosOnResizePG4();
-rollMarblesInPG4();
+//rollMarblesInPG4();
+reparentKeepLocation();
 })
 
 
+function reparentKeepLocation(){
+  var marbleOldOffset =  $(".marbleOnShape1").offset();  $(".marbleOnShape1").appendTo(".page4X0Y0").offset( marbleOldOffset);
+//.detach().attach
 
+}
 
 //-165 195 is same
 var APG2 = -165 * Math.PI / 180; //does this angle need units changing or coordinates changed it assumes north clockwise

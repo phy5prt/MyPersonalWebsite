@@ -63,8 +63,86 @@ function recalcAndPlaceMarblePosOnResizePG4(){
 }else{console.log("return called"); return false;}
         });
   }
+
+
+
+function rollInFirst3Marbles (){ //want to make this redundants
+
+
+    $(".aMarble").addClass("rollingClockwise");
+    $(".philProfileMarbleImg").addClass("rollingClockwise");
+
+
+    //maybe use calc to adjust for lower marbles have them all to same percentage minus their widths
+    //timeout so one happen after another
+    //animation goes up down then rolls down the linear
+    //later put line or marbles on the line to attack as button to bring up projects, cards under the linear
+    //need to take 3 marbles on the far left as invisible and use their position as the end point for the marbles coming from pg 3
+  var marbleOldOffset =  $(".marbleOnShape1").offset();  $(".marbleOnShape1").appendTo(".page4X0Y0").offset( marbleOldOffset);
+    $(".marbleOnShape1").animate({
+      left: '5vw', //left: '105vw',
+      top: '-30vh',//20vh;
+    }, 200, 'swing').animate({
+      left: '9vw',//  left: '109vw',
+      top: '13vh'//top:63vh
+    }, 200, 'swing').animate({
+      left: '95vw',//  left: '195vw',
+      top: '55vh'//top: '105vh'
+    }, 1500, 'swing', function() {
+      $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
+      makeMarble3philProfileMarble();
+    });
+
+    //a little wait first 50ms
+    setTimeout($(".marbleOnShape2").animate({
+      left: '100vw',
+      top: '20vh',
+    }, 200, 'swing').animate({
+      left: '105vw',
+      top: '60vh'
+    }, 200, 'swing').animate({
+      left: '190vw',
+      top: '103vh'
+    }, 1500, 'swing', function() {
+      $(".aMarble").removeClass("rollingClockwise");
+      makeMarble3philProfileMarble();
+    }), 100);
+
+    setTimeout($(".philProfileMarble").animate({
+      left: '96vw',
+      top: '20vh',
+    }, 200, 'swing').animate({
+      left: '100vw',
+      top: '58vh'
+    }, 200, 'swing').animate({
+      left: '185vw',
+      top: '100vh'
+    }, 1500, 'swing', function() {
+      $(".philProfileMarbleImg").removeClass("rollingClockwise");
+      makeMarble3philProfileMarble();
+    }), 200);
+
+    // setTimeout($('html, body').animate({
+    //   scrollTop: $(".page4X0Y0").offset().top,
+    //   scrollLeft: $(".page4X0Y0").offset().left
+    // }, 1400), 400);
+  }
+
+
+function moveScreenWithPG3Transistion(){
+  setTimeout($('html, body').animate({
+    scrollTop: $(".page4X0Y0").offset().top,
+    scrollLeft: $(".page4X0Y0").offset().left
+  }, 1400), 400);
+}
+
+
+
   //will need a seperate bit for first 3
-  function rollMarblesInPG4(){
+  function rollAllMarblesInPG4(){
+
+
+
     //for every marble make it part of the section and put it on line
     var locationArr = makeMarbLocArrPG4();
     const allMarbles = $(".aMarble");
@@ -75,9 +153,17 @@ function recalcAndPlaceMarblePosOnResizePG4(){
 
 var delayBeginningAtFirstAnim =0 ;//i*animationTimeForConstSpeed/2;
 
+
+
+
+
+moveScreenWithPG3Transistion();
+
     allMarbles.each(function(i,value){
 
-                  if(i<locationArr.length && i<allMarbles.length){ //if run out of either places or marbles stop
+if(i<=2){
+  return true;} //dont place first 3
+                  if(i<locationArr.length && i<allMarbles.length && i>2){ //if run out of either places or marbles stop
                     //i could use detach().append this would take it from the glass case so im not copying ids because marbles cut and pasted not copied
 //var animationTime =(2000*locationArr.length)/ (locationArr.length - i); //it takes more time to cover more distance so should be large when i small
 
@@ -104,7 +190,7 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
                                  //console.log("animationTimeForConstSpeed = " + animationTimeForConstSpeed + "  delayBeginningAtFirstAnim  = "+ delayBeginningAtFirstAnim);
                                 }
                     );
-                },delayBeginningAtFirstAnim );
+                }, delayBeginningAtFirstAnim );
                        //timeout so not all same time
 
 
@@ -218,6 +304,8 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
             }
           }
 }
+
+
 
 //marble placement will need to update too later
 var updatePG4WithWindow = function() {
