@@ -68,7 +68,7 @@ function recalcAndPlaceMarblePosOnResizePG4(){
 
 function rollInFirst3Marbles (){ //want to make this redundants
 
-
+    var locationArr = makeMarbLocArrPG4();
     $(".aMarble").addClass("rollingClockwise");
     $(".philProfileMarbleImg").addClass("rollingClockwise");
 
@@ -78,17 +78,56 @@ function rollInFirst3Marbles (){ //want to make this redundants
     //animation goes up down then rolls down the linear
     //later put line or marbles on the line to attack as button to bring up projects, cards under the linear
     //need to take 3 marbles on the far left as invisible and use their position as the end point for the marbles coming from pg 3
-  var marbleOldOffset =  $(".marbleOnShape1").offset();  $(".marbleOnShape1").appendTo(".page4X0Y0").offset( marbleOldOffset);
+  var launchLocationAsOffset =  $(".marbleOnShape1").offset();
+  var peakOfJumpLeft;
+  var peakOfJumpTop = "-300px";//peak halfway between set off point and the edge pg4 let say 3 marbles high
+var coordsLandingPoint = locationArr[locationArr.length-3];
+var lineLandPosRight = coordsLandingPoint[0]+100;
+var lineLandPosTop =  coordsLandingPoint[1];
+
+var coordsEndPoint = locationArr[0];
+var lineEndPosRight = coordsEndPoint[0]+100; //why isnt it returning it with the width ... coz i used xloc?
+var lineEndPosTop =  coordsEndPoint[1];
+
+ //3 ball spaces from top right
+//here will have end point calculated using i
+
+//set to startpoint maybe later put into animate()
+  $(".marbleOnShape1").appendTo(".page4X0Y0").offset(launchLocationAsOffset);
+  var marbleWorkingOn = $(".marbleOnShape1");
+    var magicNumber = 35;
+  var calcRightFromLeft = 2*W+magicNumber - (marbleWorkingOn.offset().left +  marbleWorkingOn.outerWidth());
+   $(".marbleOnShape1").css({
+    'right':calcRightFromLeft+'px',
+    'left': 'auto'
+   });
+  //position is relative to parent and offset to doc
+//peakOfJumpLeft = ($(".marbleOnShape1").position().left)/2;
+peakOfJumpRight = ((  parseInt($(".marbleOnShape1").css('right')) -W)/2) +W;
+//animate to peak
     $(".marbleOnShape1").animate({
-      left: '5vw', //left: '105vw',
-      top: '-30vh',//20vh;
-    }, 200, 'swing').animate({
-      left: '9vw',//  left: '109vw',
-      top: '13vh'//top:63vh
-    }, 200, 'swing').animate({
-      left: '95vw',//  left: '195vw',
-      top: '55vh'//top: '105vh'
-    }, 1500, 'swing', function() {
+      right: peakOfJumpRight, //'5vw', //left: '105vw',
+      top: peakOfJumpTop//20vh;
+    }, 200 , 'swing')
+
+//animate to landing point
+  //.css('left', 'unset')
+  .animate({
+//horrible magic number because going between right and left
+    right: lineLandPosRight + "px",  //  left: W- lineLandPosRight-73 + "px",                   //left:     //'9vw',//  left: '109vw',
+      top:     lineLandPosTop + "px" //'13vh'//top:63vh
+    }, 200//200
+    , 'swing').
+
+//animate to end point
+    animate({
+
+    right:lineEndPosRight + "px",    //  left: W- lineEndPosRight-73 + "px",                   //left:     //'9vw',//  left: '109vw',
+      top:     lineEndPosTop + "px"
+      // left: '95vw',//  left: '195vw',
+      // top: '55vh'//top: '105vh'
+    }, 1500, 'swing'
+    , function() {
       $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
       makeMarble3philProfileMarble();
     });
@@ -258,7 +297,7 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
             xLoc =  (steps % numCols) * cardWidth + inset;
             divTransOriginYAdjustment = cardHeight * Math.floor(steps / numCols);
            divTransOriginXAdjustment =   measureFromCardCenter;
-            var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment,false);
+            var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, false);
   var x = xLoc; //w- because the while is based on placing using left and we use right
   var y = pos[1]
 

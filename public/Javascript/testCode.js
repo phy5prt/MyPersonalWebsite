@@ -17,8 +17,20 @@ reparentKeepLocation();
 
 
 function reparentKeepLocation(){
-  var marbleOldOffset =  $(".marbleOnShape1").offset();  $(".marbleOnShape1").appendTo(".page4X0Y0").offset( marbleOldOffset);
-//.detach().attach
+  var marbleWorkingOn = $(".marbleOnShape1");
+    var magicNumber = 35;
+  var marbleOldOffset =  marbleWorkingOn.offset();
+  marbleWorkingOn.appendTo(".page4X0Y0").offset( marbleOldOffset);
+
+//change it to right based property
+
+//$('body').width() - (el.offsetParent.offset().left + el.offsetParent().width())
+//console.log("W = " + W + "    $('body').width() = "+$('body').width()+  " $(document).width() = "+ $(document).width() +" marbleWorkingOn.offset().left =  " + marbleWorkingOn.offset().left + " marbleWorkingOn.outerWidth() = " + marbleWorkingOn.width());
+var calcRightFromLeft = 2*W+magicNumber - (marbleWorkingOn.offset().left +  marbleWorkingOn.outerWidth());
+ $(".marbleOnShape1").css({
+  'right':calcRightFromLeft+'px',
+  'left': 'auto'
+ });
 
 }
 
