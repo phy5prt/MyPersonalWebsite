@@ -36,45 +36,41 @@ shrink and drop it behind and both can roll to next page
   window.addEventListener("resize", updatePG3VarsWithWindow);
   ifInArcApplyDrag(setInitVars());
 
-  $(".philProfileMarble").animate({
-    left: '-10vw',
-    top: '50vh',
 
 
-    /*
-      scrollTop: $(".page2X0Y1").offset().top,
-
-      */
 
 
-    /*remvoing the class sets it back to where it was it would be better just to stop and start, i thought using forward kept the animation end state
-    may not work though when removing class instead of just pausing animation so need to change that
-    */
-  }, 800, 'linear').animate({
-    left: '-20vw',
-    top: '53vh'
-  }, 200, function() {
+  let marbleWorkingOnProf = $(".philProfileMarble");
+let marbleOldOffsetProf =  marbleWorkingOnProf.offset();
+  marbleWorkingOnProf.appendTo(".page3").offset( marbleOldOffsetProf);
+let marble3Offset =  $(".marbleOnShape3");
+
+  marbleWorkingOnProf
+   //down slope calculate bottom location
+  //  .animate({
+  //   left: '-10vw',
+  //   top: '50vh',
+  // }, 800, 'linear')
+
+  //to marb 3
+  .animate({
+    left: marble3Offset.css('left'),
+    top:  marble3Offset.css('top')
+  }, 2000
+  , function() {
     $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
     makeMarble3philProfileMarble();
-  });
-
-
-  /*the issue is that the page isnt existing*/
-
-
-  /*
-  $('html, body').animate({
-
-  /*worked before isnt now does work if replace it with 4X0Y0*/
-  /*  scrollTop: $(".page3X-1Y0.5").offset().top
-  }, 1000);
-  */
-
-
-  $('html, body').animate({
-    scrollTop: $(".page3").offset().top,
-    scrollLeft: $(".page3").offset().left
-  }, 1000);
+  }
+);
+//
+//
+//
+//
+//
+//   $('html, body').animate({
+//     scrollTop: $(".page3").offset().top,
+//     scrollLeft: $(".page3").offset().left
+//   }, 1000);
 
 
 
