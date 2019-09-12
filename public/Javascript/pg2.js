@@ -42,9 +42,9 @@ var endLinePosPG2 = gradLinePosCalc(165, 43,W, 0, 0);
   let marbleWorkingOnProf = $(".philProfileMarble");
 let marble3 =  $(".marbleOnShape3");
 
-let slopeTravelTime = 200;
-let jumpTravelTime = 200;
-let landTravelTime = 200;
+let slopeTravelTime = 500;
+let jumpTravelTime = 300;
+let landTravelTime = 300;
 
 let jumpRightPos = ((W - (parseInt(marble3.css('left')+100)))/2 + endLinePosPG2[0]-50);
 let jumpTopPos=(H/4);
@@ -52,7 +52,7 @@ let jumpTopPos=(H/4);
 // testHtml += " <div class=' squarePG4 ' style='top:" +jumpTopPos + "px;right:" + jumpRightPos + "px;'></div>";
 // testHtml += " <div class=' dot ' style='top:" + jumpTopPos + "px;right:" + jumpRightPos + "px;'></div>";
 // $(".page2X0Y1").html(testHtml);
-
+let marbleOldOffsetProf;
   marbleWorkingOnProf
    //down slope calculate bottom location
    .animate({
@@ -64,14 +64,16 @@ let jumpTopPos=(H/4);
 
  right:jumpRightPos, //the end vars same as pg1 the rest to calc half gap between shape and end pg2 line
  top: jumpTopPos,
-}, jumpTravelTime, 'swing');
+}, jumpTravelTime, 'swing', function(){
+  marbleOldOffsetProf =  marbleWorkingOnProf.offset();
+marbleWorkingOnProf.css({'right':'auto'}).appendTo(".page3").offset( marbleOldOffsetProf);});
 
   //to marb 3
 
   setTimeout(function(){
 
-    let marbleOldOffsetProf =  marbleWorkingOnProf.offset();
-      marbleWorkingOnProf.appendTo(".page3").offset( marbleOldOffsetProf).css({'right':'auto'});
+
+
 //marbleWorkingOnProf.css({'top': (parseInt(marbleWorkingOnProf.css('top'))-H/2)});
 
 
@@ -79,7 +81,7 @@ let jumpTopPos=(H/4);
     marbleWorkingOnProf.animate({
     left: marble3.css('left'),
     top:  marble3.css('top')
-  }, landTravelTime
+  }, (landTravelTime +100) //incase of delay
   , function() {
     $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
     makeMarble3philProfileMarble();
@@ -87,11 +89,11 @@ let jumpTopPos=(H/4);
 );
 },slopeTravelTime+jumpTravelTime);
 
-
-//   $('html, body').animate({
-//     scrollTop: $(".page3").offset().top,
-//     scrollLeft: $(".page3").offset().left
-//   }, 1000);
+//move view screen
+  $('html, body').animate({
+    scrollTop: $(".page3").offset().top,
+    scrollLeft: $(".page3").offset().left
+  }, 1000);
 
 
 
