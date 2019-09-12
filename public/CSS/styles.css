@@ -403,7 +403,7 @@ right:35%;
 
   /*setting div size becuase its size may affect location and current adapts to size of card*/
 
-/*transform: perspective(400px) rotateY(75deg);*/ /*this needs to be put back in*/
+transform: perspective(400px) rotateY(75deg);
 
 
 /*should we define in height or width*/
@@ -464,23 +464,77 @@ height: 100px;
 }
 
 /*make a and philProfileMarble the same*/
-
-
-.aMarble {
+/*make a and philProfileMarble the same*/
+.philProfileMarbleImg {
   border-radius: 50%;
   /*background delete*/
-  background-color: white;
+
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+.aMarbleImg{
+  border-radius: 50%;
+  /*background delete*/
+
+  width: 100px;
+  height: 100px;
+  position: absolute;
+
+    background-size: 100%;
+   /*trying to make white transparent*/
+}
+
+
+.philProfileMarble{
+  width:100px;height:100px;position:absolute;z-index:3;}
+
+.aMarble {
+
+  border-radius: 50%;
+  /*background delete*/
+
   width: 100px;
   height: 100px;
 
   /*added for marble loook*/
-   filter:opacity(95%);
-   background:inherit;
-     background-size: 100%;
+
+
+    background-size: 100%;
      pointer-events: auto;
 }
-.aMarble::before {
-  content: "";
+.aMarble::after {/*seem to need this or cant get click events in marble case*/
+content: "";
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+  .aMarbleGlassEffect{
+
+
+    border-radius: 50%;
+    /*background delete*/
+  /*  background-color: white;*/
+    width: 100px;
+    height: 100px;
+
+    /*added for marble loook*/
+     filter:opacity(95%);
+    background:rgba(255,255,255,0.2); 
+      background-size: 100%;
+       pointer-events: auto;
+
+
+    /*  mix-blend-mode: multiply; *//*slows my animation*/
+     }
+
+  .aMarbleGlassEffect::before {
+content: "";
   position: absolute;
   top: 1%;
   left: 5%;
@@ -493,20 +547,20 @@ height: 100px;
   -webkit-filter: blur(5px);
   z-index: 2;
    pointer-events: auto;
+
+      /* mix-blend-mode: multiply; */
 }
-.aMarble::after {
-  content: "";
+.aMarbleGlassEffect::after {
+content: "";
+
   position: absolute;
-  border-radius: 100%;
+
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(245, 237, 248, 0), rgba(220, 200, 230, 0.2) 50%, gray 100%);
-  /*last colour should be dominant colour of marble*/
 
- filter:opacity(50%);
-  pointer-events: auto;
+     /* mix-blend-mode: multiply; */
 }
 
 
@@ -2145,23 +2199,7 @@ or a border over the top of both which is the pattern with transparency it has t
   overflow-x: hidden;
 }
 
-/*make a and philProfileMarble the same*/
-.philProfileMarbleImg {
-  border-radius: 50%;
-  /*background delete*/
 
-  width: 100px;
-  height: 100px;
-  position: absolute;
-}
-.aMarbleImg{
-  border-radius: 50%;
-  /*background delete*/
-
-  width: 100px;
-  height: 100px;
-  position: absolute;
-}
 
 
 
@@ -2184,7 +2222,8 @@ or a border over the top of both which is the pattern with transparency it has t
   opacity: 1;
   transition: opacity 1s linear;
 }
-.philProfileMarble{width:100px;height:100px;position:absolute;z-index:3;}
+
+
 
 .philProfileMarbleY {
   position: relative;
