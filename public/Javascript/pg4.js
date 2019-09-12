@@ -225,7 +225,7 @@ function moveScreenWithPG3Transistion(){
 
     //for every marble make it part of the section and put it on line
     var locationArr = makeMarbLocArrPG4();  // i do this in both functions need to share it
-    const allCaseMarbles = $(".aMarble");
+    const allCaseMarbles = $("ul li .aMarble");
 
     var deltaY = Math.pow((locationArr[0][1]-locationArr[locationArr.length-1][1]),2);
     var deltaX = Math.pow((locationArr[locationArr.length-1][0]-locationArr[0][1]),2);
