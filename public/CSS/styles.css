@@ -556,14 +556,7 @@ height: 100px;
 /*name duration function delay direction iteration fill state*/
 /*page1stage1*/
 /*maybe a set distance and put in repititions*/
-.philProfileMarbleYAnim {
-  /*drop on text*/
-  animation: yAxisStep1 1s cubic-bezier(1, .02, .91, .48) 1s normal 1 forwards running,
-    /*waits till roll across text then falls*/
-    yAxisStep2 0.5s cubic-bezier(1, .02, .91, .48) 3s normal 1 forwards running,
-    /*shoots up*/
-    yAxisStep3 0.5s cubic-bezier(.03, .86, .69, .78) 3.5s normal 1 forwards running;
-}
+
 
 .philProfileMarbleXAnim {
   /*traj to text*/
@@ -599,7 +592,7 @@ height: 100px;
   70% {}
 
   100% {
-    transform: translateY(-20vh)
+    transform: translateY(-70vh)
   }
 }
 
@@ -2004,13 +1997,7 @@ causes it to behave undesireably with heigh change */
   background-position: center;
 }
 
-.philProfileMarblePg2Start {
-  /*dont know how should use the 165deg and the to top right type starting corner to make sure moves right*/
-  position: absolute;display:block;
-  top: 24vh;
-  left: 67vw;
-  z-index: 3;
-}
+
 
 .pg2Text {
   position: absolute;
@@ -2227,6 +2214,7 @@ height: 100px;
   opacity: 1;
   transition: opacity 1s linear;
 }
+.philProfileMarble{width:100px;height:100px;position:absolute;}
 
 .philProfileMarbleY {
   position: relative;
@@ -2260,33 +2248,7 @@ height: 100px;
   /*although made y 140 doesnt seem able to disappear of bottom of the screen way it goes off top*/
 }
 
-@keyframes yAxisStep1 {
-  100% {
-    transform: translateY(20vh)
-  }
-}
 
-@keyframes yAxisStep2 {
-  0% {
-    transform: translateY(20vh)
-  }
-
-  100% {
-    transform: translateY(140vh)
-  }
-}
-
-@keyframes yAxisStep3 {
-  0% {
-    transform: translateY(140vh)
-  }
-
-  70% {}
-
-  100% {
-    transform: translateY(-20vh)
-  }
-}
 
 @keyframes xAxisStep1 {
   100% {

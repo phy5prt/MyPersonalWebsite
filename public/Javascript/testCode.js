@@ -12,8 +12,17 @@ $(".test").click(function() {
 //$(".page4X0Y0").html(showMarbleLocations(makeMarbLocArrPG4()));
 //recalcAndPlaceMarblePosOnResizePG4();
 //rollMarblesInPG4();
-reparentKeepLocation();
+// reparentKeepLocation();
+newPG2PosShower();
 })
+
+function newPG2PosShower(){
+var arrMarbAndCardPos=[];
+for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 44,0.3*W-i, 25, -85));}
+//just to testing
+$(".page2X0Y1").html((showMarbleLocations(arrMarbAndCardPos)));
+console.log("should be able to see boxes");
+}
 
 
 function reparentKeepLocation(){

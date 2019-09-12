@@ -4,6 +4,10 @@ $(".grayUntilJQueryLoads").remove();
 
 $(" .drinkButton ").click(function(e) {
 
+//gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, useLeft =true)
+var arrMarbAndCardPos=[];
+for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 44,0.3*W-i, 25, -85));}
+
   $(".drinkButton").prop("disabled", true); //TODO need to stop unhovering from drinks Div changing animation trajectory
 
   $(this).find("img").css(
@@ -44,39 +48,52 @@ $(" .drinkButton ").click(function(e) {
 
   setTimeout(function() {
 
-    /*maybe later allow it to toggle between backward and forward navigation*/
+
     $(".drinkButton").prop("disabled", true);
 
-    /*place marble may animate later*/
+
     $(".philProfileMarbleImg").removeClass("rollingClockwise");
-    /*think i need to contain the whole marble in someting to move it so can keep its animate x and y div*/
-    /*also there is two! so need to select only first*/
+
     /*philProfileMarbleX and philProfileMarble y have a left and top position, but they should just be handles the marble should of started in a container with these handles
        when redo animation will have to put it in such a container or have it start invisible and change the animation start location for Now
        will just remove these attributes
         */
+
+      //!!!!!!!!!!!!!  //needs to be above screen view then remove classes and change position
+      //can i remove the Y and X I dont think i use them again for animating
+
+  let marbleOldOffsetMyMarb =    $(".philProfileMarble").offset(); //get position before move everything
+
     $('.philProfileMarbleY').removeClass("philProfileMarbleYAnim");
     $('.philProfileMarbleX').removeClass("philProfileMarbleXAnim");
-    $('.philProfileMarbleY').css({
-      "top": "0"
-    });
-    $('.philProfileMarbleX').css({
-      "left": "0"
-    });
-    /*
-    $(".philProfileMarble").detach().prependTo(".containerToReceivephilProfileMarblePG2");*/
-    /*going to put it in the page as im hoping if in the same space as the background can move it in parrallel easier */
-    $(".philProfileMarble").detach().prependTo(".page2X0Y1");
-    $(".philProfileMarble").addClass("philProfileMarblePg2Start");
+    $('.philProfileMarbleY').css({"top": "0"}); $('.philProfileMarbleX').css({"left": "0"});
 
 
-    /*
-        $(".philProfileMarbleY").css("top", "-53vh").css("right", "16vw");
-       */
+//!!!!!!!! here put into top right coords keep location
 
-  }, 4150); //this is a magic number at moment it should be all the animation times added together
+ $(".philProfileMarble").css({ 'display':'block','position':'absolute'});
+
+ $(".philProfileMarble").prependTo(".page2X0Y1").offset( marbleOldOffsetMyMarb);
+let calcRightFromLeftMyMarb = W- ($(".philProfileMarble").offset().left +  $(".philProfileMarble").outerWidth());
+
+   $(".philProfileMarble").css({
+    'right':calcRightFromLeftMyMarb+'px',
+    'left': 'auto'
+   });
+
+
+////!!!!!!!!!!!!!!!!!!!!!!!!! place marble on line
+console.log("right = " + arrMarbAndCardPos[0][0] + " top = " + arrMarbAndCardPos[0][1] );
+$(".philProfileMarble").css({
+ 'right': arrMarbAndCardPos[0][0] +'px',
+ 'top':  arrMarbAndCardPos[0][1]+'px'
 
 });
+
+
+   }, 4150); //this is a magic number at moment it should be all the animation times added together
+
+ });
 
 
 $(".tabPage1To2").click(function() {
