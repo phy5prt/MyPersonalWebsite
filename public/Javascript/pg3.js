@@ -32,6 +32,7 @@ function makeMarble3philProfileMarble() {
 
 
 $(".philProfileMarble").css("left", 'auto');
+$(".philProfileMarble").css("right", 'auto');
 $(".philProfileMarble").css("top", 'auto');
 $(".marbleOnShape3").empty();
 $(".philProfileMarble").detach().appendTo(".marbleOnShape3"); //append rather than prepend because better as last child just for consistency
