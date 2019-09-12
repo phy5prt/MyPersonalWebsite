@@ -18,7 +18,7 @@ newPG2PosShower();
 
 function newPG2PosShower(){
 var arrMarbAndCardPos=[];
-for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 44,0.3*W-i, 25, -85));}
+for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, 0, 0));}
 //just to testing
 $(".page2X0Y1").html((showMarbleLocations(arrMarbAndCardPos)));
 console.log("should be able to see boxes");
@@ -124,7 +124,7 @@ var htmlSquaresOnGradLine = "";
   marbleLineLocationArr.forEach(function(position){
   //make box here
    htmlSquaresOnGradLine += " <div class=' squarePG4 ' style='top:" + position[1] + "px;right:" + position[0] + "px;'></div>";
-
+ htmlSquaresOnGradLine += " <div class=' dot ' style='top:" + position[1] + "px;right:" + position[0] + "px;'></div>";
   });
   return htmlSquaresOnGradLine;
   }

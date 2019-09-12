@@ -6,8 +6,10 @@ $(" .drinkButton ").click(function(e) {
 
 //gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, useLeft =true)
 var arrMarbAndCardPos=[];
-for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 44,0.3*W-i, 25, -85));}
-
+// this works for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, -50, -90));}
+//the object are different sizies so not altering the x and y here really should calc seperately
+//using i as pixel doesnt make sense card is in vw and is transformed with perspective
+for(let i=0;i<51;i+=50){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, 0, 0));}
   $(".drinkButton").prop("disabled", true); //TODO need to stop unhovering from drinks Div changing animation trajectory
 
   $(this).find("img").css(
@@ -82,14 +84,19 @@ let calcRightFromLeftMyMarb = W- ($(".philProfileMarble").offset().left +  $(".p
    });
 
 
-////!!!!!!!!!!!!!!!!!!!!!!!!! place marble on line
+////!!!!!!!!!!!!!!!!!!!!!!!!! place marble on line and add ajust for that we are placing by top but want bottom on line
 console.log("right = " + arrMarbAndCardPos[0][0] + " top = " + arrMarbAndCardPos[0][1] );
 $(".philProfileMarble").css({
- 'right': arrMarbAndCardPos[0][0] +'px',
- 'top':  arrMarbAndCardPos[0][1]+'px'
+ 'right':  arrMarbAndCardPos[0][0]-50 +'px',
+ 'top':  arrMarbAndCardPos[0][1]-95+'px'
 
 });
+//the cards transform is after card placed
+$(".pg2CardContainer").css({
+ 'right': arrMarbAndCardPos[1][0]-50 +'px' , //minus 50 so touching card
+ 'top':  'calc(' + arrMarbAndCardPos[1][1]+'px' + ' - 18vh )'  //this is the height of card 20vh and a bit to adjust for perspective
 
+});
 
    }, 4150); //this is a magic number at moment it should be all the animation times added together
 

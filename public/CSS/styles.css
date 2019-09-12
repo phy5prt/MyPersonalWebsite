@@ -1812,25 +1812,6 @@ display:inline-block;added*/
 
 
 
-/*/////////// Testing*/
-.dot{
-  position: absolute;
-  height:10px; width:10px;
-
-  background-color:red;
-}
-.dot2{
-  position: absolute;
-  height:10px; width:10px;
-
-  background-color:blue;
-}
-
-.test{
-  z-index: 1000;
-  display:block;
-  position:fixed;
-}
 
 
 
@@ -2214,7 +2195,7 @@ height: 100px;
   opacity: 1;
   transition: opacity 1s linear;
 }
-.philProfileMarble{width:100px;height:100px;position:absolute;}
+.philProfileMarble{width:100px;height:100px;position:absolute;z-index:3;}
 
 .philProfileMarbleY {
   position: relative;
@@ -3439,6 +3420,7 @@ display:inline-block;added*/
   height:10px; width:10px;
 
   background-color:red;
+  z-index:1000;
 }
 .dot2{
   position: absolute;
