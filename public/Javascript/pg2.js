@@ -36,37 +36,58 @@ shrink and drop it behind and both can roll to next page
   window.addEventListener("resize", updatePG3VarsWithWindow);
   ifInArcApplyDrag(setInitVars());
 
-
-
+var endLinePosPG2 = gradLinePosCalc(165, 43,W, 0, 0);
 
 
   let marbleWorkingOnProf = $(".philProfileMarble");
-let marbleOldOffsetProf =  marbleWorkingOnProf.offset();
-  marbleWorkingOnProf.appendTo(".page3").offset( marbleOldOffsetProf);
-let marble3Offset =  $(".marbleOnShape3");
+let marble3 =  $(".marbleOnShape3");
+
+let slopeTravelTime = 200;
+let jumpTravelTime = 200;
+let landTravelTime = 200;
+
+let jumpRightPos = ((W - (parseInt(marble3.css('left')+100)))/2 + endLinePosPG2[0]-50);
+let jumpTopPos=(H/4);
+// var testHtml;
+// testHtml += " <div class=' squarePG4 ' style='top:" +jumpTopPos + "px;right:" + jumpRightPos + "px;'></div>";
+// testHtml += " <div class=' dot ' style='top:" + jumpTopPos + "px;right:" + jumpRightPos + "px;'></div>";
+// $(".page2X0Y1").html(testHtml);
 
   marbleWorkingOnProf
    //down slope calculate bottom location
-  //  .animate({
-  //   left: '-10vw',
-  //   top: '50vh',
-  // }, 800, 'linear')
+   .animate({
+    right: endLinePosPG2[0]-50, //these vars same as pg1
+    top: endLinePosPG2[1]-95,
+  },slopeTravelTime, 'linear')
+//jump
+.animate({
+
+ right:jumpRightPos, //the end vars same as pg1 the rest to calc half gap between shape and end pg2 line
+ top: jumpTopPos,
+}, jumpTravelTime, 'swing');
 
   //to marb 3
-  .animate({
-    left: marble3Offset.css('left'),
-    top:  marble3Offset.css('top')
-  }, 2000
+
+  setTimeout(function(){
+
+    let marbleOldOffsetProf =  marbleWorkingOnProf.offset();
+      marbleWorkingOnProf.appendTo(".page3").offset( marbleOldOffsetProf).css({'right':'auto'});
+//marbleWorkingOnProf.css({'top': (parseInt(marbleWorkingOnProf.css('top'))-H/2)});
+
+
+
+    marbleWorkingOnProf.animate({
+    left: marble3.css('left'),
+    top:  marble3.css('top')
+  }, landTravelTime
   , function() {
     $(".philProfileMarbleImg").removeClass("rollingAntiClockwise");
     makeMarble3philProfileMarble();
   }
 );
-//
-//
-//
-//
-//
+},slopeTravelTime+jumpTravelTime);
+
+
 //   $('html, body').animate({
 //     scrollTop: $(".page3").offset().top,
 //     scrollLeft: $(".page3").offset().left

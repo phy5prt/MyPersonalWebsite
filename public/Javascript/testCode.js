@@ -18,7 +18,8 @@ newPG2PosShower();
 
 function newPG2PosShower(){
 var arrMarbAndCardPos=[];
-for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, 0, 0));}
+//for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, 0, 0));}
+arrMarbAndCardPos.push( gradLinePosCalc(165, 43,(W), 0, 0));
 //just to testing
 $(".page2X0Y1").html((showMarbleLocations(arrMarbAndCardPos)));
 console.log("should be able to see boxes");
