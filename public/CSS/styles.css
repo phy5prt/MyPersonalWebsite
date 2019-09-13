@@ -525,7 +525,7 @@ content: "";
 
     /*added for marble loook*/
      filter:opacity(95%);
-    background:rgba(255,255,255,0.2); 
+    background:rgba(255,255,255,0.2);
       background-size: 100%;
        pointer-events: auto;
 
@@ -973,52 +973,6 @@ border-width: 10px 0px 10px 2px;
 
 
 
-.containerMagnifier {
-	width: 100px;
-  height:100px;
-	margin:  auto;
-box-sizing: border-box;
-   /*transform-origin:350*3/10 350*6/10;*/
-/*
-  this works for providing a starting angle however it seems to cause the magnifier to exclude some of its circle
-   transform:rotate(230deg);
-  */
-}
-
-.dial {
-  /*ive halfed the image size and set its height and width as the width and height. if this were to be dynamic and the image change size with the viewport then i would need to write some code calculating the center for the origin to set transform origin and it may be necessary to change the jquery code as well to catch these variables*/
-	width: 100px;
-	height: 100px;
-
-
-  /*x y*/
-  /*if open magnifier on paint and find the exact pixel center of magnifier works perfectly*/
-     transform-origin:40px 70px;
-  /*put in percent to be more flexible if change size of the img but keep the ratio but for now i want easy access to number of pixels for using in the jquery
-  transform-origin:44% 29%;*/
-
-
-
- /*transform-origin:350*3/10 350*6/10;*/
-position:absolute;
-}
-.theMagnifier{
-  /*center image*/
-/*its 1022 833 so half size 511 417*/
-  position:absolute;
-  margin:auto;
- display:flex;
-width:inherit;
-  height:inherit;
-/*if change image rotation need to change the mouse and rotation center points*/
-
-  transform:  rotate(220deg);
-
-  /*could code to center the image on the middle of the magnifying glass however */
-}
-
-
-
 
 
 .pg2InnerShape{
@@ -1137,16 +1091,6 @@ z-index:4;
 }
 
 
-.magnifier{
-  width:100px;
-  height:100px;
-    background:green;
-
-  /*or use bootstrap center-block*/
-  display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
 
 
 .pg4Text{
@@ -2578,17 +2522,6 @@ border-width: 10px 0px 10px 2px;
 
 
 
-.containerMagnifier {
-	width: 100px;
-  height:100px;
-	margin:  auto;
-box-sizing: border-box;
-   /*transform-origin:350*3/10 350*6/10;*/
-/*
-  this works for providing a starting angle however it seems to cause the magnifier to exclude some of its circle
-   transform:rotate(230deg);
-  */
-}
 
 .dial {
   /*ive halfed the image size and set its height and width as the width and height. if this were to be dynamic and the image change size with the viewport then i would need to write some code calculating the center for the origin to set transform origin and it may be necessary to change the jquery code as well to catch these variables*/
@@ -2598,7 +2531,7 @@ box-sizing: border-box;
 
   /*x y*/
   /*if open magnifier on paint and find the exact pixel center of magnifier works perfectly*/
-     transform-origin:40px 70px;
+/*     transform-origin:40px 70px;*/
   /*put in percent to be more flexible if change size of the img but keep the ratio but for now i want easy access to number of pixels for using in the jquery
   transform-origin:44% 29%;*/
 
@@ -2607,20 +2540,7 @@ box-sizing: border-box;
  /*transform-origin:350*3/10 350*6/10;*/
 position:absolute;
 }
-.theMagnifier{
-  /*center image*/
-/*its 1022 833 so half size 511 417*/
-  position:absolute;
-  margin:auto;
- display:flex;
-width:inherit;
-  height:inherit;
-/*if change image rotation need to change the mouse and rotation center points*/
 
-  transform:  rotate(220deg);
-
-  /*could code to center the image on the middle of the magnifying glass however */
-}
 
 
 
@@ -2759,7 +2679,10 @@ justify-content: flex-start;
     display:flex;
 }
 
-
+.theMagnifierImg{
+  max-width:100%;
+  max-height:100%;
+}
 .pg4Text{
   /*i'm taking element from the h1 because i want the h1 properties but not the sizes
 when refactor set the h's to the same font but different font sizes and have this one as h1
