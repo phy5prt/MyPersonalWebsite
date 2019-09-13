@@ -946,8 +946,7 @@ border-width: 10px 0px 10px 2px;
     z-index:3;
 
 }
-.marbleOnShape1Y{}
-.marbleOnShape1X{}
+
 
 .marbleOnShape2{
   position:absolute;
@@ -956,8 +955,7 @@ border-width: 10px 0px 10px 2px;
     z-index:3;
 
 }
-.marbleOnShape2X{}
-.marbleOnShape2Y{}
+
 
 .marbleOnShape3{
     position:absolute;
@@ -966,10 +964,39 @@ border-width: 10px 0px 10px 2px;
       z-index:3;
 
   }
-  .marbleOnShape3Y{}
-  .marbleOnShape3X{}
 
 
+  .marbleOnShape1{
+    display:block;
+    position:absolute;
+    right:0px;
+    top:-100px;
+      z-index:3;
+        width:0;
+    height:0;
+  }
+
+
+  .marbleOnShape2{
+      display:block;
+    position:absolute;
+    right:0px;
+    top:-100px;
+      z-index:3;
+      width:0;
+    height:0;
+  }
+
+
+  .marbleOnShape3{
+      display:block;
+      position:absolute;
+      right:0px;
+      top:-100px;
+        z-index:3;
+    width:0;
+    height:0;
+    }
 
 
 
@@ -978,7 +1005,7 @@ border-width: 10px 0px 10px 2px;
 .pg2InnerShape{
   display:block;
   height:100%;
-  position:static;
+  position:static;/*static?*/
 z-index:4;
 }
 
@@ -1006,15 +1033,23 @@ the two objects are exactly the same i think
 
 .shape2 {
 
+padding:0; /*10vh 15vw;*/
+
+}
+
+
+
+.shape2 {
+
 
 
 width: inherit;
 height: inherit;
-position:static;
+position:absolute;
 /*z-index:1;*/
   /*padding is to get bootstrap in place*/
-padding:0; /*10vh 15vw;*/
-margin:0;
+/*padding:10vh 15vw;*/
+margin:0px 0px 0px 0px;
 
  background:radial-gradient(ellipse at 50%, purple 50%, plum);
  /*border colour a black with alpha*/
@@ -1029,6 +1064,7 @@ margin:0;
 
   /* nice how it cuts over edge of card but lose the flick too so would need to be on a second container, only hides does not make the contents shrink to fit
    overflow-y:hidden;*/
+
 
 }
 
@@ -1077,6 +1113,18 @@ color:white;
 padding-right:3.5rem;
 
 }
+
+.pg3ShapeTxtTop{
+position:static;
+
+
+
+color:white;
+/*padding matches h1 space*/
+
+display:flex;
+justify-content: flex-end;
+}
 .pg3ShapeTxtBottom{
 
 
@@ -1091,6 +1139,22 @@ left:0;
 z-index:4;
 }
 
+
+.pg3ShapeTxtBottom{
+
+
+
+    color:white;
+
+  position:static;
+
+
+
+z-index:4;
+display:flex;
+justify-content: flex-start;
+
+}
 
 
 
@@ -1109,6 +1173,7 @@ when refactor set the h's to the same font but different font sizes and have thi
 
   /*use margin or */
   margin:5vh 5vw;
+    z-index:3;
 }
 
 
@@ -1369,7 +1434,7 @@ max-height:0px;
   content:"";
   font-size:0;
   line-height:0;
-  z-index:1000;
+  z-index:10;
 }
 
 .topRightRibbonArea{
@@ -1854,24 +1919,6 @@ display:inline-block;added*/
 
 
 
-
-/*use something like this to reduce to just the tea icon see media notes in notes document*/
-@media (max-width:1028px) {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*name duration function delay direction iteration fill state*/
 /*page1stage1*/
 /*maybe a set distance and put in repititions*/
@@ -1883,268 +1930,6 @@ display:inline-block;added*/
     /*shoots up*/
     yAxisStep3 0.5s cubic-bezier(.03, .86, .69, .78) 3.5s normal 1 forwards running;
 }
-
-
-
-
-
-@keyframes spinClockwise {
-
-  /* trick will be starting from position it is in  */
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(720deg);
-  }
-}
-
-@keyframes spinAntiClockwise {
-
-  /* trick will be starting from position it is in  */
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(-720deg);
-  }
-}
-
-.businessCard {
-  background-color: #262626;
-
-  border-style: groove;
-  border-color: black;
-  color: black;
-  border-width: 5px 8px 8px 5px;
-}
-
-.buisnessCardText {
-  text-align: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fontOrnaments {
-  font-size: 3rem;
-  font-family: 'nymphetteregular';
-}
-
-.drinkChoices {
-  justify-content: center;
-  align-content: center;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-.drinkButton {
-  justify-content: center;
-  align-content: center;
-  border: none;
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  background: inherit;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-  text-align: inherit;
-  transition: background 250ms ease-in-out,
-    transform 150ms ease;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.drinkButton:hover,
-.drinkButton:focus {
-  /*at the moment when the mouse is over the drink and clicks
-it is still classed as hovering until the mouse is moved offset
-the button at which point the duration kicks in the drink rights itself
-this is despite removiing pointer event in js. a solution would be putting
-a new object on button press over the button and disapearing the buttonsso the
-new instantiated image is same rotation but isnt same object. Or if there
-was a way of liberating the image from its hierachy position absolute not work
-because it is still absolute relative to the thing it is in not a 0,0 coordinate
-*/
-  transition-duration: 1s;
-  transform: rotate(-15deg);
-}
-
-.drinkButton:focus {
-  outline: none;
-}
-
-/*
-
-/*disable other buttons, put image overtop of button same location and float bottom left
-roll ball same time top left and bounce across the words and down
-then fade in corner stuff and have drink appear under the drink icon and the icon disappear
-same time bounce the ball up and move view up slightly and reveal tab as it get to last 10% of screen
-do both halfs of this action in 1s each
-
-is this a div issue?
-    */
-.drinkButton:active {}
-
-.my-animation {
-  position: absolute;
-  /*really want to delete and replace with another image unless its possible to make it fly to the new cell and go in it*/
-  animation: takeDrink 1s linear forwards;
-}
-
-@keyframes takeDrink {
-
-  /*could just use transition*/
-  /*if set its start position it will slide but how do i get position its already at
-jquery
-*/
-  /*currently relative to self*/
-  0% {
-    right: 0vw;
-    top: 0vh;
-    /*may already be rotated so want to be able just to set it*/
-    transform: rotate(0);
-    opacity: 1;
-  }
-
-  60% {
-    transform: rotate(0);
-  }
-
-  80% {
-    transform: rotate(-15deg);
-  }
-
-  100% {
-    right: 50vw;
-    top: 40vh;
-    Opacity: 0;
-  }
-}
-
-.drinkImages {
-  vertical-align: top;
-  max-height: 60px;
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-
-.colTight {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* I've tried to use pseudo and otherwise found issues with vh vw and pixel dont know why
-is it 10px + short it is a proportion from somewhere
-it is working! it is that the flick flicks to soon
-   */
-/*shape and shaoe flick not working now but did in the code pen*/
-/*
-.shape{
-    background:radial-gradient(ellipse at 50%, purple 50%, plum);
- /*border colour a black with alpha*/
-/*
-  border-color:rgba(0, 0, 0, 0.75);
-  border-style: solid;
-  /*make bottom 10px again later just trying to se the gap*/
-/*
-  border-width: 10px 0px 10px 2px;
- border-bottom-color:red;
-  height: 60vh;
-  width: 60vw;
-  border-radius: 60% 0% 60% 0%;
-  display: flex;
-
-  padding:0px 0px 0px 0px;
-  margin:0px 0px 0px 40px;
-
-}
-*/
-/*i want to extend the border left so trying to use a pseudo element
-to make a lip to catch the ball
-*/
-/*
-.shapeflick{
-  position:absolute;
- /*if the flick reveals colour underneath when moving about could bake the ".shape" bottom border 0 and add margin 10px to top or padding or make the bottom colour transparent*/
-/*border colour a black with alpha*/
-/*margin ballencing out space lost from border*/
-/*by having margin and padding can move into padded area*/
-/*the curve will not be exact doing this so make it fat*/
-/*could also shift it down a bit and put own background on*/
-/*could also make it the bottom element*/
-/*
-  padding:0px 0px 0px 40px;
-  margin:0px 0px 0px 0px;
-
-  border-color:rgba(0, 0, 0, 1);
-  border-style: solid;
-  /*make 10 px later just need to see where it falls*/
-/*
-border-width: 10px 0px 10px 2px;
-  border-color:transparent transparent black transparent;
-
-  height: 60vh;
-  width: 60vw;
-  border-radius: 60% 10% 60% 7%;
-  display: flex;
-
-}
-*/
-
-
-/*so if i set their start position different can i apply the same code to move them instead of having their own*/
-/*marbles set by 100px sio that they are next to each other with space for the rolling in marbles
-
-*/
-
-.marbleOnShape1{
-  display:block;
-  position:absolute;
-  right:0px;
-  top:-100px;
-    z-index:3;
-      width:0;
-  height:0;
-}
-.marbleOnShape1Y{}
-.marbleOnShape1X{}
-
-.marbleOnShape2{
-    display:block;
-  position:absolute;
-  right:0px;
-  top:-100px;
-    z-index:3;
-    width:0;
-  height:0;
-}
-.marbleOnShape2X{}
-.marbleOnShape2Y{}
-
-.marbleOnShape3{
-    display:block;
-    position:absolute;
-    right:0px;
-    top:-100px;
-      z-index:3;
-  width:0;
-  height:0;
-  }
-  .marbleOnShape3Y{}
-  .marbleOnShape3X{}
-
-
-
-
 
 
 .dial {
@@ -2168,114 +1953,6 @@ position:absolute;
 
 
 
-
-
-.pg2InnerShape{
-  display:block;
-  height:100%;
-  position:static;
-z-index:4;
-}
-
-
-
-
-
-
-
-.shape2 {
-
-
-
-width: inherit;
-height: inherit;
-position:absolute;
-/*z-index:1;*/
-  /*padding is to get bootstrap in place*/
-/*padding:10vh 15vw;*/
-margin:0px 0px 0px 0px;
-
- background:radial-gradient(ellipse at 50%, purple 50%, plum);
- /*border colour a black with alpha*/
-
-  border-color:rgba(0, 0, 0, 0.75);
-  border-style: solid;
-  /*make bottom 10px again later just trying to se the gap*/
-
-  border-bottom-color:black;
-  border-width: 10px 0px 10px 2px;
-  border-radius: 60% 0% 60% 0%;
-
-  /* nice how it cuts over edge of card but lose the flick too so would need to be on a second container, only hides does not make the contents shrink to fit
-   overflow-y:hidden;*/
-
-
-}
-
-.shape2:after {
-/*why is this 10px lower down*/
-  bottom:-10px;
-
-  /*this is off the 80px*/
-  /*this left amount needs to be proportional to the width or
-the radial on the border needs to be so the curve does not start curving before
-it should
-maybe altering the width could acheive this and setting a full curve
-  */
-  /*needs to be minimum marble size calc(-5vw -40px not working)*/
-  left: -5vw;
-
-  z-index: -1;
-  content: "";
-  /*the width needs to put the centre point on the boundary*/
-  /*its straight now so it can be the width it needs to be and left the width it needs to be
-however this will make the curve small
-  */
-  /* width needs to be half  and currently its 70 no doesnt work*/
-  width:20vw;
-	height: inherit;
-  position: absolute;
-  padding:0px 0px 0px 0px;
-  margin:0px 0px 0px 0px;
-
- /*transparent transparent black transparent*/
- border-color:transparent transparent black transparent;
- border-style: solid;
-
- border-width: 10px 0px 10px 2px;
- /*only need bottom left*/
- border-radius: 0% 0% 0% 7%;
-
-}
-
-.pg3ShapeTxtTop{
-position:static;
-
-
-
-color:white;
-/*padding matches h1 space*/
-
-display:flex;
-justify-content: flex-end;
-}
-.pg3ShapeTxtBottom{
-
-
-
-    color:white;
-
-  position:static;
-
-
-
-z-index:4;
-display:flex;
-justify-content: flex-start;
-
-}
-.pg2TableContainer{height:100%}
-
 .magnifier{
   width:100px;
   height:100px;
@@ -2292,104 +1969,6 @@ justify-content: flex-start;
   max-width:100%;
   max-height:100%;
 }
-.pg4Text{
-  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
-when refactor set the h's to the same font but different font sizes and have this one as h1
-  */
-  font-size: 5rem;
-  font-family: 'PT Serif', serif;
-  line-height: 1.5em;
-
-  color:black;
-  position:absolute;
-  right:0;
-  top:0;
-
-  /*use margin or */
-  margin:5vh 5vw;
-}
-
-
-
-.corner-background {
-  background-color: grey;
-  position: fixed;
-  height: 375px;
-  width: 350px;
-  Transform: rotate(45deg);
-  bottom: -200px;
-  Left: -200px;
-  opacity: 0;
-  z-index:9;
-}
-
-.corner-table {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  vertical-align: top;
-  max-height: 30px;
-  border: 0;
-  padding: 0px 75px 0px 75px;
-  margin: 0px 0px 5px 7px;
-  font-size: 3rem;
-  color: #262626;
-}
-
-.corner-links {
-  Transform: rotate(-45deg);
-  max-height: 60px;
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-
-#chosen-beverage {
-  opacity: 0;
-}
-
-.fade-in-beverage {
-  /*careful i am animating it twice as fading in the section it is in too*/
-  animation: fadeIn 1.5s linear;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-
-.fade-in-corner {
-  animation: fadeIn 1.5s linear forwards;
-  animation-fill-mode: forwards;
-}
-
-.end-rolling {
-  animation: spin ease-out linear 1s forwards;
-}
-
-@keyframes spin {
-
-  /* trick will be starting from position it is in  */
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(720deg);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-/*///////////////////////////////////PG4*/
-/*
-
-*/
 
 .page4X0Y0 {
   /*to blend the edge of pg4 and 2 could use blur*/
@@ -2419,49 +1998,10 @@ content:'';
 }
 
 
+.pg2TableContainer{height:100%}
 
-.pg4Text{
-  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
-when refactor set the h's to the same font but different font sizes and have this one as h1
-  */
-  font-size: 5rem;
-  font-family: 'PT Serif', serif;
-  line-height: 1.5em;
 
-  color:black;
-  position:absolute;
-  right:0;
-  top:0;
 
-  /*use margin or */
-  margin:5vh 5vw;
-  z-index:3;
-}
-
-.cardPG4{
-  width:125px;
-  height:150px;
-  margin:0px 10px 10px;
-  background-color:lightCyan;
-  font-size:5rem;
-  position:absolute;
-  border:2.5px;
-  border-radius:5px;
-
-}
-
-/*////////////////// CARD STYLES ///////////////////////*/
-
-.submitButtonNoStyle{
-  background:none;
-  color:inherit;
-  border:none;
-  padding:0;margin:0;
-  font:inherit;
-  outline:inherit;
-  width: 19px;
-  height:15px;/*inherit;*/
-}
 
 .scaleable-wrapper {
 /* position:absolute; */ /*added*/
@@ -2481,428 +2021,40 @@ when refactor set the h's to the same font but different font sizes and have thi
 
 
 /*inside ribbon*/
-.topRightProjectTechnologiesArea{
-  height:auto;  /*dont want to inherit from pseudos*/
-  width:19px;
-
-/*  float:right;*/
-  background:linear-gradient(lightCyan 4px, lightCyan 4px,  white ,  lightCyan 15px);
-  margin:0 5px 0;
-padding-top:22px;
-max-height:150px;
-  overflow:hidden;
-  box-shadow:  1px 1px 20px 3px plum;
-    /* offset-x | offset-y | blur-radius | spread-radius | color */;
-    content:"";
-    font-size:0;
-    line-height:0;
-}
-/*gap at top and shadow there not sure how*/
-/*causes the height to be really big despite no height*/
-/*height now provided elsewhere could put at an angle and have second shadow at few degrees so decreasing in size down right of ribbon*/
-.topRightProjectTechnologiesArea::before
-{
-  /*try removing margin replacing padding, height ...*/
-  margin:0 5px 0;
-  padding: 0;
-max-height:0;
-  overflow:hidden;
-   box-shadow:  0 -30px 10px 10px black;
-
-  width:19px;
-content:"";
-font-size:0;
-line-height:0;
-
-}
-.topRightProjectTechnologiesArea::after
-{
-  margin:0;
-  padding: 0;
-max-height:0px;
-  overflow:hidden;
-  box-shadow:  0 0px 10px 10px black;
-  height:0px; width:19px;
-  content:"";
-  font-size:0;
-  line-height:0;
-  z-index:1000;
-}
-
-.topRightRibbonArea{
-  float:right;
-margin-top: -3px;
-
-  /*here*/
-z-index:4;position:relative; /*relative allows shine to go under but effects loop of ribbon shadow*/
-
-}
-.topRightRibbonArea::before{
-
-position:absolute;
-  font-size:0;
-  content:"";
-  margin: 0;
-  padding:10px 10px;
-  height:0;
-  width:0;
-
-  /*box-shadow: 5px 0 5px -5px #333;*/
-  box-shadow: 7px 4px 4px -3px black;
-  z-index:-1;
-  right:5px;
-    top:-5px;
-line-height:0;
-
-}
-
-.ribbonEnd{
-  width:19px;
-   background:transparent;
-   margin:0 5px;
-   padding:0;
-
- content:"";
- font-size: 0;
-
-      border-bottom:10px solid transparent;
-      border-top:2px solid lightCyan;
-      border-left:9.5px solid lightCyan;
-   border-right:9.5px solid lightCyan;
-   overflow:hidden;
-
-}
-/*so if you making the form have a larger margin find actually the button is triggered up to 10px below
-but there are no boxed ending there on pesticide so i think it is the button click area, some reading suggests can effect it with whether elements are inline block etc or text aligned for position
-im going to leave it till later*/
-.formTechBtn{   margin: 0 0 2px 0; padding:0; width:19px; height:15px;}
-.technologyButtonImg{
-
-  width:15px;
-  height:15px;
-  overflow:hidden;
-  padding:0;
-  margin:0 auto;
 
 
-}
+@media (max-width:1028px) {}/*use something like this to reduce to just the tea icon see media notes in notes document*/
 
 
 
-.fontOrnamentTech {
-  font-size: 0.8rem;
-  font-family: 'nymphetteregular';
 
-   width:15px;
-   height:30px;
-  display: inline-block;
-/*position:relative; */
-
-     overflow:hidden;
-
-text-align:right;
-
-margin:0;padding:0;
-vertical-align:top;
-writing-mode: vertical-lr;
-text-orientation: mixed;
-
-}
-
-.formTechOrnament{
-  display: block;
-position:static;
-
-  margin: 0 0 2px 0; padding:0; width:19px; height:30px;}
-
-.submitButtonNoStyleOrnament{
-  background:none;
-  color:inherit;
-  border:none;
-  padding:0;margin:0;
-  font:inherit;
-  outline:inherit;
-
-  width: 15px;
-  height: 30px;
-  display:inline-block;
-
-  overflow: hidden;
-/*  vertical-align: top;*/
-
-
-}
-
-
-/*
-.technologyButton span{
-padding:0;margin:0;
-  width: 15px;
-  height: 15px;}
 
 
-.technologyButton img{
-padding:0;margin:0;
-  width: 15px;
-  height: 15px;}
-*/
-.technologyCaracellIsDisplaying {
-   width: 15px;
-  height: 15px;
-  background:PaleGreen;
- border: 2px solid green;
-  border-radius: 5px;
-  padding:0;
-  margin:0;
-}
-
-.aCardWritingArea
-{
-   width:auto;
-  height:auto;
-  padding:0 0 0 10px; /*width of the balls div and a bit extra of the right marble area*/
-    overflow:hidden;
-
-}
-.projectTitle{
-  text-align: center;
-
-  font-size:0.9rem;
-  font-family: 'PT Serif, Serif';
-  line-height:1.5em;
-  margin:5px 0 3px;
-  height:20px;
-
-}
-.projectImage{
- height:40px; /*want 30% of the box really*/
-width:auto;
-display: block;
-margin-left: auto;
-margin-right: auto;
-
-}
-.projectImage img {
-
-  max-width: 100%;
-  max-height: 100%;}
-
-.projectDescriptionSubtitle{
-  font-size:0.6rem;
-  font-family: 'PT Serif, Serif';
-  line-height:1rem;
-  margin:1px 0 2px;
-}
-.projectDescriptionText{
-  font-size:0.2rem;
-  font-family:'Noto Sans', sans-serif; ;
-  line-height:auto;
-  margin:1px 0 3px;
-  height:37px;
-  overflow:hidden; /*need tp set min text size and decide how deal overflow*/
-  padding-top:0px;
-  margin-top:0px;
-}
-
-.cardHyperlinksArea{
-
-
-/* content:"";*/
- display:inline-block;
-position:static;
-   bottom:4px;
-  height:15px;
- width:auto;
-  margin:0 auto 0 2px;
-
-  overflow:hidden;
-  vertical-align: top;
-  text-align: left;
-  font-size:0;
-
-  /*two yellows dont blend so maybe need a same width zero height pseudo behind*/
-
-    /* because images have transparencys doesnt work*/
-/*background-color: rgba(255, 255, 0, .3);*/
-
-background:transparent;
-font-size:0;
-border-radius:10%;
-
-  box-shadow:  0 0 10px 2px    yellow;
-
-    float:left;
-  /*    background-color: transparent;*/
-}
-
-
-/*these two effecting the same element*/
-.cardTechlinksImg{
-
-width:18px;
-height:15px;
-display: inline;
-font-size:0;
-/*margin-left: auto;
-margin-right: auto;*/
-  overflow:hidden;
-padding:0 2px;
-vertical-align: top;
-  border-radius:50%;
-
-
-}
-.cardHyperlinksImg{
-
-width:18px;
-height:15px;
-display: inline;
-font-size:0;
-/*margin-left: auto;
-margin-right: auto;*/
-  overflow:hidden;
-padding:0 2px;
-vertical-align: top;
-  border-radius:50%;
-/*background-color:yellow;*/
-background-color:rgba(255, 255, 0, 0.7);
-  box-shadow:  0 0 5px 2px    yellow;
-
-}
-/*
-.cardHyperlinkImg img{
-vertical-align: top;
-  max-width: 100%;
-  max-height: 100%;}
-  */
-/*why does this not have own class!!!*/
-a{
-
-  display:inline-block;margin:0; padding:0;text-align: left; height:inherit;font-size:inherit;
-
-  width:18px;
-  height:15px;
-
-
-}
-/*Carousel Stylings*/
-
-.carouselBlur{
-  filter:blur(5px);
-}
-
-.carouselOverlayBackground{
-  height:inherit;
-  width:inherit;
-  position:absolute;
-  margin:0; padding:0;
-  /*for now using same styling as the marble case*/
-  filter: blur(10px); /*doesnt blur the things underneath use jquery make a blur style and add it to all sections except this one or to body and counteract for this section this will not blur the areas produced by body but shouldnt be noticable*/
-  /*8*/
-  /*tone down the yellow and blue and add grey from first page*/
-
-  background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.5), rgba(255, 255, 255, 0.7) 15%, rgba(254, 241, 96, 0.4) 20%), rgba(0, 0, 0, 0.6)  content-box;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.9);
-  /*the blur is nice with the black edge (especially with the box shadow on it too)*/
-  /*is not blurring the background behind though!*/
-  outline: 8px solid black;
-  outline-offset: -8px;
-
-
-}
-
-
-.carouselOverlay{
-  position:fixed;
-  top:0; left:0;
-  width:100vw;
-  height:100vh;
-  margin:0;
-  padding:0;
-
-
-z-index:10;
-}
-
-#carousel .cloud9-item, #buttons button {
-  cursor: pointer;
-}
-
-.wrap {
-  width: 80vw; /* fixed width, centered in viewport */
-  left: -40vw;
-  margin-left: 50%;
-  position: relative;
-}
-.wrap > h1 {
-  font-size: 2.5em;
-  text-align: center;
-  padding-bottom: 3px;
-  color:black;
-}
-.nav {
-      width: 64px;
-      height: 134px;
-      color: #ccc;
-      font: bold 3em "Lucida Grande";
-      text-align: center;
-      text-shadow: 0px 1px 0px #f5f5f5;
-      background:rgba(254, 241, 96, 0.4); /*rgba(180, 180, 180, 0.5);*/
-      border: solid 2px rgba(0, 0, 0, 0.4);
-      -webkit-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
-      -moz-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
-      box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.45);
-      cursor: pointer;
-      position: absolute;
-      top: 33%;
-    }
-    .nav:active,
-    .nav.left.down {
-      background: rgba(255, 255, 255, 0.5);
-      border: solid 2px rgba(0, 0, 0, 0.5);
-    }
-    .nav.right.down {
-      background: rgba(255, 255, 255, 0.5);
-      border: solid 2px rgba(0, 0, 0, 0.5);
-    }
-    .nav.bottom.down {
-      font: bold 2em "Lucida Grande";
-      background: rgba(255, 255, 255, 0.5);/*not being overwritten by click*/
-      width: 201px;
-      height: 44px;
-      position:absolute;
-      display:block;
-      right:5vw;
-      color:red;
-      text-shadow:0px 1px 0px red;
-
-      -webkit-border-radius: 12px 5px 5px 12px;
-      -moz-border-radius: 12px 5px 5px 12px;
-      border-radius: 5px 5px 12px 12px;
-
-
-    }
-    .nav.left {
-      color:green;
-        text-shadow:0px 1px 0px green;
-      left: -43px;
-      -webkit-border-radius: 12px 5px 5px 12px;
-      -moz-border-radius: 12px 5px 5px 12px;
-      border-radius: 12px 5px 5px 12px;
-    }
-    .nav.right {
-
-      display:inline-block;
-        color:green;
-              text-shadow:0px 1px 0px green;
-        text-align: right;
-    padding-left: auto;
-    margin-left:auto;
-      right: -43px;
-      -webkit-border-radius: 5px 12px 12px 5px;
-      -moz-border-radius: 5px 12px 12px 5px;
-      border-radius: 5px 12px 12px 5px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
