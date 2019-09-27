@@ -13,8 +13,58 @@ $(".test").click(function() {
 //recalcAndPlaceMarblePosOnResizePG4();
 //rollMarblesInPG4();
 // reparentKeepLocation();
-newPG2PosShower();
+//newPG2PosShower();
+
+
+
+// updateDummyData();
+// console.log(projectCards);
+render();
+
 })
+
+const updateDummyData = function () {
+projectCards = $.ajax({ url: '/projectCards', method: 'GET' })
+
+.catch(function (err) {
+console.log(err);
+});
+}
+
+
+const render = function () {
+  var allCrds;//i added
+$.ajax({ url: '/projectCards', method: 'GET' })
+.then(function (allCrds) {
+  projectCards=allCrds;
+let htmlstr = '';
+allCrds.forEach(prjCard => {
+htmlstr += "<h1 class='content'>"+prjCard.projectName+"</h1>";
+});
+$('.page2X0Y1').html(htmlstr);
+})
+
+.catch(function (err) {
+console.log(err);
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function newPG2PosShower(){
 var arrMarbAndCardPos=[];

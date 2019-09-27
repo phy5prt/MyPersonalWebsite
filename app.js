@@ -14,6 +14,24 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static("public"));
 
+
+/* for ajax !!!!!!!!!!!!!!!!!!! */
+
+// Routes
+// API Routes (require from routes folder and pass in Express app)
+//require('./routes/api-routes')(app);
+// HTML Routes (require from routes folder and pass in Express app)
+//require('./routes/html-routes')(app);
+
+/* for ajax end !!!!!!!!!!!!!! */
+
+
+
+
+
+
+
+
 mongoose.connect('mongodb://localhost:27017/projectCardsDB',{useNewUrlParser:true});
 
 //later use a second collection so do not repeatedly store image paths, image paths ....
