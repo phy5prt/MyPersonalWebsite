@@ -16,6 +16,27 @@ https://codepen.io/phy5prt/pen/NZepMr
 //TODO create locations for marbles to go to
 //to do share variables with other pages like idth height of screen
 
+
+
+  var allProjectCards=[{}];
+
+const getAllProjectCards = function () {
+var allCrds;
+$.ajax({ url: '/projectCards', method: 'GET' })
+.then(function (allCrds) {
+  allProjectCards=allCrds;
+})
+.catch(function (err) {
+console.log(err);
+});
+}
+  getAllProjectCards();
+
+
+
+
+
+
 function makeMarbLocArrPG4(){
 
 var  marbleLineLocationArr = [];
@@ -347,8 +368,8 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
 
 
           //this is so when we run out of project cards we just start again at the begginging
-          arrayLoopInt = ((cardsPlaced)%projectCards.length);//not certanin will place whole loop// ((cardsPlaced-1)%projectCards.length)+1; //ones so modulus doesnt end on zero before steps incremented as want to start at zerosa
-          //alert(cardsPlaced + "<--cardsPlaced" + projectCards.length + "  <--length  " + "array loop int -->"+arrayLoopInt);
+          arrayLoopInt = ((cardsPlaced)%allProjectCards.length);//not certanin will place whole loop// ((cardsPlaced-1)%allProjectCards.length)+1; //ones so modulus doesnt end on zero before steps incremented as want to start at zerosa
+          //alert(cardsPlaced + "<--cardsPlaced" + allProjectCards.length + "  <--length  " + "array loop int -->"+arrayLoopInt);
             steps++;
             if (y < H) {
               cardsConsecutivelyNotPlaced = 0;
@@ -356,13 +377,13 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
             // htmlString+= cardHtml;
           techArrayHtml="";
           linksArrayHtml="";
-          console.log(" arrayLoopInt " +arrayLoopInt +" cardsPlaced " + cardsPlaced + " projectCards.length " + projectCards.length);
-            for(var j=0; j<projectCards[arrayLoopInt].technologiesArray.length; j++ ){
-                  techArrayHtml += cardHtml2 + projectCards[arrayLoopInt].technologiesArray[j].technologyName +
-                  cardHtml3+projectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
+          console.log(" arrayLoopInt " +arrayLoopInt +" cardsPlaced " + cardsPlaced + " allProjectCards.length " + allProjectCards.length);
+            for(var j=0; j<allProjectCards[arrayLoopInt].technologiesArray.length; j++ ){
+                  techArrayHtml += cardHtml2 + allProjectCards[arrayLoopInt].technologiesArray[j].technologyName +
+                  cardHtml3+allProjectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
 
-            for(var k=0; k<projectCards[arrayLoopInt].linksArray.length; k++){
-                      linksArrayHtml +=  cardHtml8+projectCards[arrayLoopInt].linksArray[k].linkHyperlink+cardHtml9+projectCards[arrayLoopInt].linksArray[k].linkImagePath+cardHtml10;
+            for(var k=0; k<allProjectCards[arrayLoopInt].linksArray.length; k++){
+                      linksArrayHtml +=  cardHtml8+allProjectCards[arrayLoopInt].linksArray[k].linkHyperlink+cardHtml9+allProjectCards[arrayLoopInt].linksArray[k].linkImagePath+cardHtml10;
                   }
               htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " +   cardHtml1+
 
@@ -370,8 +391,8 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
 
           //end technologies array loop
           techArrayHtml+
-              cardHtml4Endloop + projectCards[arrayLoopInt].projectName + cardHtml5 +projectCards[arrayLoopInt].projectImagePath+
-              cardHtml6 +projectCards[arrayLoopInt].projectDescription+cardHtml7+
+              cardHtml4Endloop + allProjectCards[arrayLoopInt].projectName + cardHtml5 +allProjectCards[arrayLoopInt].projectImagePath+
+              cardHtml6 +allProjectCards[arrayLoopInt].projectDescription+cardHtml7+
           //start links loop
 
           //end links loop

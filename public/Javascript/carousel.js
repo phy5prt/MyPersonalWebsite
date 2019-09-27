@@ -136,3 +136,10 @@ function(){
 
 
 )
+
+const setProjectCardsToAllCards = function () {
+projectCards = $.ajax({ url: '/projectCards', method: 'GET' })
+.catch(function (err) {
+console.log(err);
+});
+}
