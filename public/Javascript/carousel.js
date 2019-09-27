@@ -122,10 +122,13 @@ $showcase.append(cloud9CardTemplate.clone(true))
 
 $(".aMarble").click(
 function(){
-var attr = $(this).attr('name'); /*hasAttr not working*/
+    var saughtTechnology = $(this).attr('name');  /*var attr = $(this).attr('name'); */
   $(".carouselOverlay").toggleClass("carouselDisplayNone");
   $('section').not('.carouselOverlay').toggleClass("carouselBlur");
-   if(typeof attr !== typeof undefined && attr !== false){var saughtTechnology = $(this).attr('name'); console.log(saughtTechnology);  generateCarousel(saughtTechnology);}else{
+   if(typeof attr !== typeof undefined && attr !== false){
+
+    console.log(saughtTechnology);
+    generateCarousel(saughtTechnology);}else{
     generateCarousel();
   }
 

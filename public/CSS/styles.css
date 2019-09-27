@@ -1361,15 +1361,28 @@ z-index:-1;
 
 .aCard::before{
     background: linear-gradient(140deg,
-
-    rgba(255,255,255,0) 10%, rgba(255,255,255,0.2), rgba(255,255,255,0) 12%, rgba(255,255,255,0)
-    ,
-    rgba(225, 225, 225, 0) 30% , rgba(255, 255, 255, 0.3) 33%, rgba(221,160,221, 0.2)38%, rgba(255, 255, 255, 0.2), rgba(255, 255, 0, 0.1)  , rgba(255, 255, 255, 0.1), rgba(255, 255, 0, 0.1),rgba(255, 255, 255, 0.1) 43% ,rgba(255, 255, 255, 0)
-    ,
-    rgba(225, 225, 225, 0) 80% ,  rgba(225, 225, 225, 0), rgba(221,160,221, 0.2)88%, rgba(255, 255, 255, 0.2) ,  rgba(255, 255, 0, 0.1),  rgba(255, 255,255, 0.2), rgba(255, 255,255, 0.1) ,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0) 94% );
-
-
-
+    rgba(255,255,255,0) 10%,
+     rgba(255,255,255,0.2),
+     rgba(255,255,255,0) 12%,
+     rgba(255,255,255,0),
+    rgba(225, 225, 225, 0) 30%,
+     rgba(255, 255, 255, 0.3) 33%,
+      rgba(221,160,221, 0.2)38%,
+       rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 0, 0.1),
+         rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 0, 0.1),
+           rgba(255, 255, 255, 0.1) 43%,
+            rgba(255, 255, 255, 0),
+    rgba(225, 225, 225, 0) 80% ,
+      rgba(225, 225, 225, 0),
+       rgba(221,160,221, 0.2)88%,
+        rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 0, 0.1),
+            rgba(255, 255,255, 0.2),
+             rgba(255, 255,255, 0.1),
+             rgba(255, 255, 255, 0),
+             rgba(255, 255, 255, 0) 94% );
 
   content:"";
   font-size:0;
@@ -1396,7 +1409,7 @@ position:absolute;
 /*  float:right;*/
   background:linear-gradient(lightCyan 4px, lightCyan 4px,  white ,  lightCyan 15px);
   margin:0 5px 0;
-padding-top:22px;
+padding-top:25px;/*padding-top:22px;new element taking some of space*/
 max-height:150px;
   overflow:hidden;
   box-shadow:  1px 1px 20px 3px plum;
@@ -1405,6 +1418,25 @@ max-height:150px;
     font-size:0;
     line-height:0;
 }
+
+.ribbonLoopShadowSpacer{
+  height:0px;  /*dont want to inherit from pseudos*/ /*space for the after to be in*/
+  width:19px;
+/*  float:right;*/
+margin:0;
+padding:0px;
+padding-bottom:0px;
+padding-bottom:0;
+  overflow:hidden;
+
+    content:"";
+    font-size:0;
+    line-height:0;
+      box-shadow:  0 -8px 7px 2px black;
+}
+
+
+
 /*gap at top and shadow there not sure how*/
 /*causes the height to be really big despite no height*/
 /*height now provided elsewhere could put at an angle and have second shadow at few degrees so decreasing in size down right of ribbon*/
@@ -1415,7 +1447,7 @@ max-height:150px;
   padding: 0;
 max-height:0;
   overflow:hidden;
-   box-shadow:  0 -30px 10px 10px black;
+   box-shadow:  0 -33px 10px 10px black;
 
   width:19px;
 content:"";
@@ -1423,7 +1455,9 @@ font-size:0;
 line-height:0;
 
 }
-.topRightProjectTechnologiesArea::after
+
+/* .topRightProjectTechnologiesArea::after
+
 {
   margin:0;
   padding: 0;
@@ -1435,7 +1469,7 @@ max-height:0px;
   font-size:0;
   line-height:0;
   z-index:10;
-}
+} */
 
 .topRightRibbonArea{
   float:right;
@@ -1542,18 +1576,7 @@ position:static;
 }
 
 
-/*
-.technologyButton span{
-padding:0;margin:0;
-  width: 15px;
-  height: 15px;}
 
-
-.technologyButton img{
-padding:0;margin:0;
-  width: 15px;
-  height: 15px;}
-*/
 .technologyCaracellIsDisplaying {
    width: 15px;
   height: 15px;

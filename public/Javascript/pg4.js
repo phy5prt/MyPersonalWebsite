@@ -320,7 +320,7 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
           var techArrayHtml="";
           var linksArrayHtml="";
 
-          var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'> ";
+          var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'><div class ='ribbonLoopShadowSpacer'></div> ";
           var cardHtml2 = " <form class='formTechBtn' action='/carousel' method='get'> <button class='submitButtonNoStyle' type='submit' name='techButton' value= "; /*make sure value given single speach marks */
           var cardHtml3 = " ><img type='image' class='cardTechlinksImg' src= "; /*make sure gets two single marks*/
           var cardHtml4 = " alt='gitLink'></img>  </button>  </form> "
