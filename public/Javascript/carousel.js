@@ -3,6 +3,7 @@
 var saughtTechnologyProjectCards=[{}];
 var showcase = $("#showcase")
 function getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology) {
+
   console.log("using get saught technology");
 var sghtCrds;
 //carousel?techButton=Botox
@@ -63,7 +64,7 @@ console.log(err);
       showcase.fadeIn( 100 );
     }
   } );
-  console.log("applying behaviours of the arrows in the next line");
+
 //$(document).keydown( function( e ) {
 $(document).keydown( function( e ) {
   //
@@ -90,7 +91,7 @@ $(document).keydown( function( e ) {
       $('.nav.right').click();
   }
 } );
-  console.log("at point in code after applying behaviours of the arrows in the next line");
+
   //
   // Simulate physical button click effect
   //
@@ -198,7 +199,7 @@ $('.nav').click( function( e ) {
 
   $(e.target).addClass( 'down' )
   setTimeout( function() { b.removeClass( 'down' ) }, 80 )
-} )
+} );
 
 $(document).keydown( function( e ) {
   //
@@ -222,7 +223,8 @@ $(document).keydown( function( e ) {
     case 39:
       $('.nav.right').click()
   }
-} )
+} );
+
 }
 
 
@@ -238,11 +240,12 @@ function(){
   $('section').not('.carouselOverlay').toggleClass("carouselBlur");
    if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
-    console.log(saughtTechnology);
+
+       $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
     //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
   getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
 
-console.log("no saught tech");
+ $("#carouselTechTitle").text("All "+ "Projects");
   generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
   }
 
