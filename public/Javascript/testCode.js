@@ -19,9 +19,45 @@ $(".test").click(function() {
 
 // updateDummyData();
 // console.log(projectCards);
-render();
 
-})
+var data = updateDummyDataWithCardsOfTechla();
+console.log("this should appear last, it is the data from the backend: " + data);
+});
+
+
+const updateDummyDataWithCardsOfTechla = function updateDummyDataWithCardsOfTechla(saughtTechnology = "la") {
+  console.log("using get saught technology test");
+var sghtCrds;
+//carousel?techButton=Botox
+//this may need to be synchronouse
+var allCrds;
+$.ajax({
+  url: '/carousel',
+  method: 'GET',
+data: {techButton: saughtTechnology},
+ success: function (allCrds) {
+     generateCarouselWithSaughtTechnologyCards(allCrds);
+   projectCards=allCrds;
+ let htmlstr = '';
+ allCrds.forEach(prjCard => {
+ htmlstr += "<h1 class='content'>"+prjCard.projectName+"</h1>";
+ });
+ $('.page2X0Y1').html(htmlstr);
+}})
+// .then(function (saughtTechnologyProjectCards) {
+//
+//   console.log("getSaughtTechnology is returning: " + saughtTechnologyProjectCards.Length + " cards of technology: " + saughtTechnology +  " they look like this " + saughtTechnologyProjectCards + "  " + saughtTechnologyProjectCards[0]);
+// return saughtTechnologyProjectCards;
+// })
+.catch(function (err) {
+console.log(err);
+});}
+
+
+
+
+
+
 
 const updateDummyData = function () {
 projectCards = $.ajax({ url: '/projectCards', method: 'GET' })

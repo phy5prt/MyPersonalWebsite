@@ -194,7 +194,6 @@ maybe even ajoining a space for the marble
               <% for (let i = 0; i<page2BestCard.technologiesArray.length; i++) { %>
 <form class="formTechBtn" action="/carousel" method="get">
   <button class="submitButtonNoStyle" type="submit" name="techButton" value=<%= page2BestCard.technologiesArray[i].technologyName %> >
-
              <Img class="cardTechlinksImg" src= <%=page2BestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
              </button>
              </form>
@@ -388,7 +387,7 @@ in 4.3.1 need use order and offset
 
     <div class="marbleOnShape1">
 <div class="aMarbleX"><div class="aMarbleY">
-                  <div class="aMarble aMarbleGlassEffect" name="batman">
+                  <div class="aMarble aMarbleGlassEffect" name="techButton" value="la">
           <img class="aMarbleImg " src="Images\marbles\nodejs.png" alt="nodejs marble">
 </div></div>
       </div>

@@ -1,10 +1,50 @@
+/*jshint esversion: 6 */
+/*when refactor consider using .done rather than succes*/
+var saughtTechnologyProjectCards=[{}];
+
+function getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology) {
+  console.log("using get saught technology");
+var sghtCrds;
+//carousel?techButton=Botox
+//this may need to be synchronouse
+$.ajax({
+  url: '/carousel',
+  method: 'GET',
+data: {techButton: saughtTechnology},
+ success: function (saughtTechnologyProjectCards) {
+   console.log("complete: getSaughtTechnology is returning: " + saughtTechnologyProjectCards.Length + " cards of technology: " + saughtTechnology +  " they look like this " + JSON.stringify(saughtTechnologyProjectCards) + "  " + JSON.stringify(saughtTechnologyProjectCards[0]))
+  generateCarouselWithSaughtTechnologyCards(saughtTechnologyProjectCards);
+
+ //data: {query: saughtTechnology}       //this is the bit i need to check if it is right
+}})
+// .then(function (saughtTechnologyProjectCards) {
+//   console.log("then: getSaughtTechnology is returning: " + saughtTechnologyProjectCards.Length + " cards of technology: " + saughtTechnology +  " they look like this " + saughtTechnologyProjectCards + "  " + saughtTechnologyProjectCards[0]);
+//   //generateCarouselWithSaughtTechnologyCards(saughtTechnologyProjectCards);
+// })
+.catch(function (err) {
+console.log(err);
+});
+}
 
 
- function generateCarousel(saughtTechnology = "allTechnologies") {
 
-generateCarouselCards(saughtTechnology);
 
-  var showcase = $("#showcase")
+
+
+
+
+
+
+//
+// function generateCarousel(saughtTechnologyProjectCards = "allTechnologies") {
+//
+// //trying to make it happen within itself so it does not run async
+// if (saughtTechnologyProjectCards=="allTechnologies") {generateCarouselCards();}else{generateCarouselCards(saughtTechnologyProjectCards);}
+//
+// }
+
+
+  var showcase = $("#showcase");
 
   showcase.Cloud9Carousel( {
   yOrigin: 150, /* Calc js and get half of the viewport height */
@@ -18,12 +58,39 @@ generateCarouselCards(saughtTechnology);
     buttonTop:$('.nav.top'), /*but there isnt one*/
     bringToFront: true,
     onLoaded: function() {
-      showcase.css( 'visibility', 'visible' )
-      showcase.css( 'display', 'none' )
-      showcase.fadeIn( 100 )
+      showcase.css( 'visibility', 'visible' );
+      showcase.css( 'display', 'none' );
+      showcase.fadeIn( 100 );
     }
-  } )
+  } );
+  console.log("applying behaviours of the arrows in the next line");
+//$(document).keydown( function( e ) {
+$(document).keydown( function( e ) {
+  //
+  // More codes: http://www.javascripter.net/faq/keycodes.htm
+  //
+  console.log("applying behaviours of the arrows now");
+  switch( e.keyCode ) {
+    /* left arrow */
+    case 37:
+      $('.nav.left').click();
 
+      break;
+      /* I added down/bottom arrow */
+      case 40:
+        $('.nav.bottom').click();
+        break;
+/* I added up shall be to open it arrow */
+        case 38:
+          $('.nav.top').click();
+          break;
+
+    /* right arrow */
+    case 39:
+      $('.nav.right').click();
+  }
+} );
+  console.log("at point in code after applying behaviours of the arrows in the next line");
   //
   // Simulate physical button click effect
   //
@@ -31,34 +98,10 @@ generateCarouselCards(saughtTechnology);
   $('.nav').click( function( e ) {
     var b =
 
-    $(e.target).addClass( 'down' )
-    setTimeout( function() { b.removeClass( 'down' ) }, 80 )
-  } )
+    $(e.target).addClass( 'down' );
+    setTimeout( function() { b.removeClass( 'down' ); }, 80 );
+  } );
 
-  $(document).keydown( function( e ) {
-    //
-    // More codes: http://www.javascripter.net/faq/keycodes.htm
-    //
-    switch( e.keyCode ) {
-      /* left arrow */
-      case 37:
-        $('.nav.left').click()
-        break
-        /* I added down/bottom arrow */
-        case 40:
-          $('.nav.bottom').click()
-          break
-  /* I added up shall be to open it arrow */
-          case 38:
-            $('.nav.top').click()
-            break
-
-      /* right arrow */
-      case 39:
-        $('.nav.right').click()
-    }
-  } )
-}
 
 //using const to try and reduce the ammount of searched need to do
 
@@ -68,78 +111,88 @@ const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").c
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
 const $showcase = $("#showcase");
 
-function generateCarouselCards(saughtTechnology = "allTechnologies"){
-
-
-
+function generateCarouselWithSaughtTechnologyCards(saughtTechnologyProjectCards = "allTechnologies"){
+var carouselCards=[{}];
+//rename project cards carousel cards, pg 4 make the all cards
+makeCarousel(           (saughtTechnologyProjectCards == "allTechnologies")?carouselCards = allProjectCards  :   carouselCards=saughtTechnologyProjectCards    );
 //wipe the currentshowcase
+
+}
+
+
+function makeCarousel(carouselCards){
 $showcase.html('');
 
-  for (var i = 0; i < projectCards.length; i++) {
+  for (var i = 0; i < carouselCards.length; i++) {
 
 
 
-    var projectCard = projectCards[i];
-console.log("generateCarouselCards saughtTechnology value:"+ saughtTechnology);
+    var carouselCard = carouselCards[i];
 
-console.log("filter result:"+projectCard.technologiesArray.filter(technologyObject => (technologyObject.technologyName === saughtTechnology)));
 
-var saughtTechnologyArray =projectCard.technologiesArray.filter(technologyObject => (technologyObject.technologyName === saughtTechnology));
-var hasSaughtTechnology;
-if(saughtTechnologyArray && saughtTechnologyArray.length)
- { hasSaughtTechnology = true;}else{hasSaughtTechnology = false;}
-
-    if(saughtTechnology == "allTechnologies" || hasSaughtTechnology){
+// /*filtering now done by backend*/
+// var saughtTechnology= "la"; //added in coz func no longer provides its for testing
+// var saughtTechnologyArray =carouselCard.technologiesArray.filter(technologyObject => (technologyObject.technologyName === saughtTechnology));
+// var hasSaughtTechnology;
+// if(saughtTechnologyArray && saughtTechnologyArray.length)
+//  { hasSaughtTechnology = true;}else{hasSaughtTechnology = false;}
+//
+//     if(saughtTechnology == "allTechnologies" || hasSaughtTechnology){
 
 
     var cloud9CardTemplate = cloud9CardTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
 
-  cloud9CardTemplate.find('.projectTitle').html(projectCard.projectName);
-  cloud9CardTemplate.find('.projectDescriptionText').html(projectCard.projectDescription);
-    cloud9CardTemplate.find('.projectImage').attr("src", projectCard.projectImagePath);
+  cloud9CardTemplate.find('.projectTitle').html(carouselCard.projectName);
+  cloud9CardTemplate.find('.projectDescriptionText').html(carouselCard.projectDescription);
+    cloud9CardTemplate.find('.projectImage').attr("src", carouselCard.projectImagePath);
 
 
-for (var j = 0; j < projectCard.technologiesArray.length; j++){
-      var technology = projectCard.technologiesArray[j];
+for (var j = 0; j < carouselCard.technologiesArray.length; j++){
+      var technology = carouselCard.technologiesArray[j];
   var cardTechnologyButtonTemplate = $cardTechnologyButtonTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
  cardTechnologyButtonTemplate.find('.cardHyperlinksImg').attr("src", technology.technologyImagePath);
-cloud9CardTemplate.find('.topRightProjectTechnologiesArea').append(cardTechnologyButtonTemplate.clone(true))
+cloud9CardTemplate.find('.topRightProjectTechnologiesArea').append(cardTechnologyButtonTemplate.clone(true));
 }
-for (var k = 0; k < projectCard.linksArray.length; k++){
-  var link = projectCard.linksArray[k];
+for (var k = 0; k < carouselCard.linksArray.length; k++){
+  var link = carouselCard.linksArray[k];
 var cardHyperlinkTemplate =$cardHyperlinkTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
 cardHyperlinkTemplate.find('.cardHyperlinksImg').attr("src", link.linkImagePath);
 cardHyperlinkTemplate.find('.hyperlinkAnchor').attr("href", link.linkHyperlink);
-cloud9CardTemplate.find('.cardHyperlinksArea').append(cardHyperlinkTemplate.clone(true))
+cloud9CardTemplate.find('.cardHyperlinksArea').append(cardHyperlinkTemplate.clone(true));
 
 }
 
-$showcase.append(cloud9CardTemplate.clone(true))
+$showcase.append(cloud9CardTemplate.clone(true));
 }
 
+/*this doesnt apply on load because hidden maybe needs something done with it like sepereate function or so it does find it but for now need quick fix*/
+
+
+
+      showcase.Cloud9Carousel();
+
+
+// }
 }
-}
+
 
 $(".aMarble").click(
 function(){
-    var saughtTechnology = $(this).attr('name');  /*var attr = $(this).attr('name'); */
+    var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
+    console.log(saughtTechnology);
   $(".carouselOverlay").toggleClass("carouselDisplayNone");
   $('section').not('.carouselOverlay').toggleClass("carouselBlur");
-   if(typeof attr !== typeof undefined && attr !== false){
+   if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
     console.log(saughtTechnology);
-    generateCarousel(saughtTechnology);}else{
-    generateCarousel();
+    //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
+  getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
+
+console.log("no saught tech");
+  generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
   }
 
 }
 
 
-)
-
-const setProjectCardsToAllCards = function () {
-projectCards = $.ajax({ url: '/projectCards', method: 'GET' })
-.catch(function (err) {
-console.log(err);
-});
-}
+);

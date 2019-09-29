@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static("public"));
 
-
+console.log("test");
 /* for ajax !!!!!!!!!!!!!!!!!!! */
 
 // Routes
@@ -116,7 +116,7 @@ ProjectCard.aggregate([
 */
 
 app.route("/carousel") /*make a version that takes projectName and it just takes one project displays it and all others are randomly sorted around*/
-            .get(function(req, res){
+            .get(function(req, res){      console.log("carousel received body data: " + JSON.stringify(req.body) + " and query data: " +JSON.stringify( req.query));
 
 /* this is more complicated that i expected will need to read docs and also maybe good excuse stackover flow question
 desired behaviour is to only show project cards which have the specifiec technology. And to order the projects by the rating of that technology for them
@@ -129,7 +129,7 @@ desired behaviour is to only show project cards which have the specifiec technol
 */
 
 
-
+/* this currently provides the json as the website page when i click a technology  */
               ProjectCard
               .find( {technologiesArray:{$elemMatch : {technologyName:req.query.techButton}}})
       .sort({"technologiesArray.technologyExampleRating":1})

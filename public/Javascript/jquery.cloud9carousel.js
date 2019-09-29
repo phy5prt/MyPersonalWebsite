@@ -345,7 +345,7 @@ generateCarousel();
           return false;
         } );
       }
-
+console.log("got past my function");
       if( options.buttonRight ) {
         options.buttonRight.on( 'click', function() {
           self.go( 1 );
