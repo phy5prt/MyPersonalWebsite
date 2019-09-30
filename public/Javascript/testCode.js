@@ -15,13 +15,21 @@ $(".test").click(function() {
 // reparentKeepLocation();
 //newPG2PosShower();
 
-
+  $(".drinkButton").removeAttr('style');
 
 // updateDummyData();
 // console.log(projectCards);
+// setTimeout(function(){
+//   $('body').addClass("affordanceDropShadow");
+// setTimeout(function () {
+//     $('body').removeClass("affordanceDropShadow");
+// }, 2000);},2000);
 
-var data = updateDummyDataWithCardsOfTechla();
-console.log("this should appear last, it is the data from the backend: " + data);
+
+// var data = updateDummyDataWithCardsOfTechla();
+// console.log("this should appear last, it is the data from the backend: " + data);
+
+// var data = updateDummyDataWithCardsOfTechla();
 });
 
 

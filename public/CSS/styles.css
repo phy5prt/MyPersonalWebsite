@@ -58,7 +58,9 @@ button{background-color:transparent;}
   top:0vh;
   left:0vw;
 }
-
+.affordanceDropShadow{
+filter: drop-shadow(15px -15px 1px plum);
+}
 /*just for testing*/
 .tabPage1To2 {
   position: absolute;

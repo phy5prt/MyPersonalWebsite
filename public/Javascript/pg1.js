@@ -128,3 +128,70 @@ ifInArcApplyDrag(setInitVars());//seems to work nicer than resizing not quite no
   /*dont like should be positioned where i want it then should change it fixed*/
   //$(".case2position");
 });
+/*drop-shadow(offset-x offset-y blur-radius spread-radius color)*/
+let delayBetweenGlassAnim = 300;
+let delayToAllowRead = 4000;
+
+(function clickMeDrinkAffordance(){
+  $(".drinkButton").delay(delayToAllowRead).each(function (index) {
+
+    let thisDrink = $(this);
+
+    setTimeout(function(){ thisDrink.addClass("affordanceDropShadow"); }, delayToAllowRead+delayBetweenGlassAnim*index);
+
+    thisDrink.delay(delayBetweenGlassAnim*index).animate({  borderSpacing: -10 }, {
+    step: function(now,fx) {
+    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
+    thisDrink.css('-moz-transform','rotate('+now+'deg)');
+    thisDrink.css('transform','rotate('+now+'deg)');
+
+    },
+    duration:delayBetweenGlassAnim/3
+},'linear').animate({  borderSpacing: 10 }, {
+    step: function(now,fx) {
+    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
+    thisDrink.css('-moz-transform','rotate('+now+'deg)');
+    thisDrink.css('transform','rotate('+now+'deg)');
+    },
+    duration:delayBetweenGlassAnim/3
+}, 'linear')
+ .animate({  borderSpacing: '0' }, {
+    step: function(now,fx) {
+    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
+    thisDrink.css('-moz-transform','rotate('+now+'deg)');
+    thisDrink.css('transform','rotate('+now+'deg)');
+    },
+    duration:delayBetweenGlassAnim/3, complete: // ,
+
+       function(){
+        thisDrink.removeClass("affordanceDropShadow");
+
+
+    }
+},
+
+  'linear'
+   )
+
+//removeAttr( 'style' );   the style means hover no longer works
+
+// setTimeout(function(){
+//
+//   $('body').addClass("affordanceDropShadow");
+//
+// setTimeout(function () {
+//     $('body').removeClass("affordanceDropShadow");
+// }, delayBetweenGlassAnim);
+//
+// },delayToAllowRead+delayBetweenGlassAnim*index); //because delay not affect non animatons
+//
+
+}).promise().done(function removeSetRotation(){
+
+    $(".drinkButton").removeAttr('style'); //seems heavy handed but struggledto get anything else to work
+
+    });
+}
+
+
+)();
