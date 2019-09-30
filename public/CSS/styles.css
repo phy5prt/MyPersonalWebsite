@@ -46,8 +46,9 @@ a {
 a :hover { color:
 /*  white;*/
 yellow;
-}
 
+}
+button{background-color:transparent;}
 .grayUntilJQueryLoads{
   position:absolute;
   z-index:11;
@@ -736,12 +737,13 @@ the screen may be a different ratio
 }
 
 .businessCard {
-  background-color: #262626;
+
+/*  background-color: #262626;  *//*i like but others dont probably partly due to i have screen full brightness*/
 
   border-style: groove;
   border-color: black;
   color: black;
-  border-width: 5px 8px 8px 5px;
+ border-width: 5px 8px 8px 5px;
 }
 
 .buisnessCardShadow{
@@ -773,7 +775,9 @@ box-shadow:   0 -10px 10px -5px plum, 0 10px 10px -5px plum, 10px 0 10px -5px ye
   padding: 0;
   margin: 0;
   border: 0;
+  background-color: transparent;
 }
+#shotGlass{padding-top:30% };
 
 .drinkButton {
   justify-content: center;
@@ -1707,7 +1711,7 @@ vertical-align: top;
   max-height: 100%;}
   */
 /*why does this not have own class!!!*/
-a{
+a.techAnchor{ /*dont actually use this seems not to be needed now*/
 
   display:inline-block;margin:0; padding:0;text-align: left; height:inherit;font-size:inherit;
 
