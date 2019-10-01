@@ -137,7 +137,9 @@ let calcRightFromLeftMyMarb = W- ($(".philProfileMarble").offset().left +  $(".p
     'right':calcRightFromLeftMyMarb+'px',
     'left': 'auto'
    });
-
+   /*affordance for clicking !!!*/
+    $(".philProfileMarble").addClass("rollingAntiClockwise");
+    $(".pg2CardContainer").addClass("shakeCardAffordance");
 
 ////!!!!!!!!!!!!!!!!!!!!!!!!! place marble on line and add ajust for that we are placing by top but want bottom on line
 ///console.log("right = " + arrMarbAndCardPos[0][0] + " top = " + arrMarbAndCardPos[0][1] );
@@ -166,7 +168,11 @@ ifInArcApplyDrag(setInitVars());//seems to work nicer than resizing not quite no
 
   $('html, body').animate({
     scrollTop: $(".page2X0Y1").offset().top
-  },{duration: 800, complete: function(){slideInDrawAffordance();}});
+  },{duration: 800, complete: function(){
+    slideInDrawAffordance();
+setTimeout(function(){$(".philProfileMarble").removeClass("rollingAntiClockwise");
+$(".pg2CardContainer").removeClass("shakeCardAffordance");},1000)
+  }});
 
   /*im not dealing with this at moment so getting marble in the right place is just so i can see what im making*/
 
@@ -235,7 +241,7 @@ let resizeIncrementer =function(){
 let incrementWidthPerLoop = posToTravel/(timeToCloseIn/timePerLoop);
 
     k.pageX+=incrementWidthPerLoop;
-    console.log("k.pageX is now " + k.pageX );
+
     resizeMarbleCase(k);     // Do something every 2 seconds
 
 }
@@ -243,7 +249,7 @@ let mySetInterval = setInterval(resizeIncrementer, timePerLoop);
 
 //mySetInterval();
 setTimeout(function(){
-  console.log("!!!!!!!!!!!!!!1   CLEARING INTERVAL !!!!!!!!!!!!!!!!!!!");
+
   clearInterval(mySetInterval);
 },timeToCloseIn);
 }

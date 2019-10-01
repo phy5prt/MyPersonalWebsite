@@ -713,6 +713,20 @@ the screen may be a different ratio
   animation:
     spinAntiClockwise 2s linear infinite forwards;
 }
+.shakeCardAffordance{
+  animation:
+  shakeCardRight 0.1s linear infinite alternate;
+}
+
+@keyframes shakeCardRight{
+  from {
+transform: perspective(400px) rotateY(73deg);
+  }
+
+  to {
+  transform: perspective(400px) rotateY(77deg);
+  }
+}
 
 @keyframes spinClockwise {
 
