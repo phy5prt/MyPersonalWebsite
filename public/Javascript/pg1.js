@@ -43,10 +43,13 @@ for(let i=0;i<41;i+=40){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i,
 
   $('html, body').delay(3500).animate({
     scrollTop: windowHeight - 20
-  }, '300');
+
+  },{ duration: 300
+    //,   complete: function(){$(".case2position").animate({width:'765px',left:'824px'},6000);}
+  });
   setTimeout(function() {
     $(".tabPage1To2").removeClass("invisible").addClass("visible");
-  }, 3800);
+  }, 1000);
 
   setTimeout(function() {
 
@@ -85,7 +88,7 @@ let calcRightFromLeftMyMarb = W- ($(".philProfileMarble").offset().left +  $(".p
 
 
 ////!!!!!!!!!!!!!!!!!!!!!!!!! place marble on line and add ajust for that we are placing by top but want bottom on line
-console.log("right = " + arrMarbAndCardPos[0][0] + " top = " + arrMarbAndCardPos[0][1] );
+///console.log("right = " + arrMarbAndCardPos[0][0] + " top = " + arrMarbAndCardPos[0][1] );
 $(".philProfileMarble").css({
  'right':  arrMarbAndCardPos[0][0]-50 +'px',
  'top':  arrMarbAndCardPos[0][1]-95+'px'
@@ -131,7 +134,7 @@ ifInArcApplyDrag(setInitVars());//seems to work nicer than resizing not quite no
 /*drop-shadow(offset-x offset-y blur-radius spread-radius color)*/
 let delayBetweenGlassAnim = 300;
 let delayToAllowRead = 4000;
-
+//step function so can access rotate which cant normy be animated
 (function clickMeDrinkAffordance(){
   $(".drinkButton").delay(delayToAllowRead).each(function (index) {
 

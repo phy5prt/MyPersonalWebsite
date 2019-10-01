@@ -15,7 +15,6 @@ $(".test").click(function() {
 // reparentKeepLocation();
 //newPG2PosShower();
 
-  $(".drinkButton").removeAttr('style');
 
 // updateDummyData();
 // console.log(projectCards);
@@ -30,7 +29,68 @@ $(".test").click(function() {
 // console.log("this should appear last, it is the data from the backend: " + data);
 
 // var data = updateDummyDataWithCardsOfTechla();
+
+
+
+slideInDraw();
+
+function slideInDraw(){
+
+
+
+  var timePerLoop = 30;
+  original_width = 0;
+  var k = {pageX:0}
+    var timeToCloseIn = 1000;
+var resizeIncrementer =function(){
+  var desiredWidth = 1500;
+
+
+  var incrementWidthPerLoop = desiredWidth/(timeToCloseIn/timePerLoop);
+
+    k.pageX+=incrementWidthPerLoop;
+    console.log("k.pageX is now " + k.pageX);
+    resizeMarbleCase(k);     // Do something every 2 seconds
+
+}
+var mySetInterval = setInterval(resizeIncrementer, timePerLoop);
+
+//mySetInterval();
+setTimeout(function(){
+  console.log("!!!!!!!!!!!!!!1   CLEARING INTERVAL !!!!!!!!!!!!!!!!!!!");
+  clearInterval(mySetInterval);
+},timeToCloseIn);
+}
 });
+
+
+var resizeMarbleCase = function(e) {
+  const element = document.querySelector('.case2position');
+
+  const minimum_size = 180;
+  const maximum_size = 800;
+  let original_width = 0;
+  let original_x = 0;
+  let original_mouse_x = 0;
+  const width = original_width - (e.pageX - original_mouse_x);
+
+
+    element.style.width = width + 'px';
+    element.style.left = original_x + (e.pageX - original_mouse_x) + 'px';
+
+
+};
+// var resizeMarbleCase = function(e) {
+//
+//   const width = original_width - (e.pageX - original_mouse_x);
+//
+//   if (width > minimum_size && width < maximum_size) {
+//     element.style.width = width + 'px';
+//     element.style.left = original_x + (e.pageX - original_mouse_x) + 'px';
+//   }
+//
+// };
+
 
 
 const updateDummyDataWithCardsOfTechla = function updateDummyDataWithCardsOfTechla(saughtTechnology = "la") {
