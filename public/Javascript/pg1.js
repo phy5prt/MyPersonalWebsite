@@ -114,7 +114,8 @@ ifInArcApplyDrag(setInitVars());//seems to work nicer than resizing not quite no
 
   $('html, body').animate({
     scrollTop: $(".page2X0Y1").offset().top
-  }, 800);
+  },{duration: 800, complete: function(){slideInDrawAffordance();}});
+
   /*im not dealing with this at moment so getting marble in the right place is just so i can see what im making*/
 
   /*should i delete the other page with transition*/
@@ -190,11 +191,67 @@ let delayToAllowRead = 4000;
 //
 
 }).promise().done(function removeSetRotation(){
-
     $(".drinkButton").removeAttr('style'); //seems heavy handed but struggledto get anything else to work
-
     });
 }
-
-
 )();
+
+
+
+
+/* copies instead of using resize code on refactor integrate*/
+function slideInDrawAffordance(){
+
+
+  const element = document.querySelector('.case2position');
+
+  let startPos =0; //needs to be where case starts minus its own width i think as does not go to zero thought his may be ebcause of its max
+  let endPos = (document.documentElement.clientWidth/100)*15-70-50; //95vw //so needs to travel 10vw //i must get px as pencent a few time //im minusing borderer width and half a ball
+  let direction = -1; //are we measure from right or left traveling right or left
+  let posToTravel = direction*(startPos - endPos);
+let timeToCloseIn = 100; //750
+  let timePerLoop = 30;//30
+
+let k = {pageX:startPos};//need to start as right hand edge pixels in which we should set to right 15vw so in line with tab
+
+
+
+
+original_width = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));//seems to be out by an amount because its based on left?
+original_x =element.getBoundingClientRect().left;
+original_mouse_x = k.pageX;
+
+  //  let original_width = 0;
+
+
+
+
+    let resizeMarbleCase = function(e) {
+
+
+  const width = original_width - (e.pageX - original_mouse_x);
+        element.style.width = width + 'px';
+        element.style.left = original_x + (e.pageX - original_mouse_x) +'px';//-70 to counteract the right pos
+
+    };
+
+
+let resizeIncrementer =function(){
+
+
+
+let incrementWidthPerLoop = posToTravel/(timeToCloseIn/timePerLoop);
+
+    k.pageX+=incrementWidthPerLoop;
+    console.log("k.pageX is now " + k.pageX );
+    resizeMarbleCase(k);     // Do something every 2 seconds
+
+}
+let mySetInterval = setInterval(resizeIncrementer, timePerLoop);
+
+//mySetInterval();
+setTimeout(function(){
+  console.log("!!!!!!!!!!!!!!1   CLEARING INTERVAL !!!!!!!!!!!!!!!!!!!");
+  clearInterval(mySetInterval);
+},timeToCloseIn);
+}

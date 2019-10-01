@@ -39,20 +39,20 @@ function slideInDraw(){
 
   const element = document.querySelector('.case2position');
 
-  var startPos =0; //needs to be where case starts minus its own width i think as does not go to zero thought his may be ebcause of its max
-  var endPos = (document.documentElement.clientWidth/100)*15-70-50; //95vw //so needs to travel 10vw //i must get px as pencent a few time //im minusing borderer width and half a ball
-  var direction = -1; //are we measure from right or left traveling right or left
-  var posToTravel = direction*(startPos - endPos);
-  var timeToCloseIn = 7500; //750
-  var timePerLoop = 300;//30
+  let startPos =0; //needs to be where case starts minus its own width i think as does not go to zero thought his may be ebcause of its max
+  let endPos = (document.documentElement.clientWidth/100)*15-70-50; //95vw //so needs to travel 10vw //i must get px as pencent a few time //im minusing borderer width and half a ball
+  let direction = -1; //are we measure from right or left traveling right or left
+  let posToTravel = direction*(startPos - endPos);
+let timeToCloseIn = 100; //750
+  let timePerLoop = 30;//30
 
-var k = {pageX:startPos};//need to start as right hand edge pixels in which we should set to right 15vw so in line with tab
+let k = {pageX:startPos};//need to start as right hand edge pixels in which we should set to right 15vw so in line with tab
 
 
 
 
 original_width = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));//seems to be out by an amount because its based on left?
-original_x =element.getBoundingClientRect().right; //left
+original_x =element.getBoundingClientRect().left;
 original_mouse_x = k.pageX;
 
   //  let original_width = 0;
@@ -60,7 +60,7 @@ original_mouse_x = k.pageX;
 
 
 
-    var resizeMarbleCase = function(e) {
+    let resizeMarbleCase = function(e) {
 
 
   const width = original_width - (e.pageX - original_mouse_x);
@@ -70,18 +70,18 @@ original_mouse_x = k.pageX;
     };
 
 
-var resizeIncrementer =function(){
+let resizeIncrementer =function(){
 
 
 
-  var incrementWidthPerLoop = posToTravel/(timeToCloseIn/timePerLoop);
+let incrementWidthPerLoop = posToTravel/(timeToCloseIn/timePerLoop);
 
     k.pageX+=incrementWidthPerLoop;
     console.log("k.pageX is now " + k.pageX );
     resizeMarbleCase(k);     // Do something every 2 seconds
 
 }
-var mySetInterval = setInterval(resizeIncrementer, timePerLoop);
+let mySetInterval = setInterval(resizeIncrementer, timePerLoop);
 
 //mySetInterval();
 setTimeout(function(){
