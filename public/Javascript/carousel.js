@@ -235,7 +235,7 @@ $(document).keydown( function( e ) {
 $(".aMarble").click(
 function(){
     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
-    console.log(saughtTechnology);
+  //  console.log(saughtTechnology);
   $(".carouselOverlay").toggleClass("carouselDisplayNone");
   $('section').not('.carouselOverlay').toggleClass("carouselBlur");
    if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){

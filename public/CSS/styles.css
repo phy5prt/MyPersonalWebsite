@@ -168,9 +168,9 @@ causes it to behave undesireably with heigh change */
   /*to match the angle of the gradient will have to find the viewport ratio*/
   transform: rotate(-15deg);
   font-family: 'Noto Sans', sans-serif;
-  font-size: 5rem;
+  font-size: 5vw;
   text-align: center;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   /*this was so i could use spaces to get an underline but was unable to make my underline
@@ -189,8 +189,13 @@ with top from it
 .pg2Text.higher {
   top: 0;
   left: 0vw;
-}
 
+}
+.bottomAlignBox{
+  position: absolute;
+    left: 0;
+    bottom:0;
+  }
 .pg2Text.lower {
   /*to match the angle of the gradient will have to find the viewport ratio*/
   bottom: 5vh;
@@ -198,12 +203,12 @@ with top from it
 }
 
 .arrow {
-  position: absolute;
+
   /*matching font size to try and get in underline position
   top:15rem;top:18vh;  height: 15rem;width: 90rem;*max-width: 60px;
   height: inherit;width: 100%;top:36.5%;*/
   /*match padding to text size*/
-  padding-top: 5rem;
+  /*padding-top: 5rem;*/
   /*
 height: 250px;
 width: 1250px;
@@ -624,6 +629,18 @@ content: "";
     xAxisStep3 0.5s ease-out 3s normal 1 forwards running;
   /*although made y 140 doesnt seem able to disappear of bottom of the screen way it goes off top*/
 }
+.magnifierAffordanceAnim{
+   animation: magnifierSwingRight 0.5s ease-in-out 0s 2 alternate none running;} /*duration should match timeout on magnifierAffordance() should be double as we run twice*/
+
+
+
+
+   @keyframes magnifierSwingRight {
+     100% {
+
+       transform: rotate(90deg);
+     }
+   }
 
 @keyframes yAxisStep1 {
   100% {
