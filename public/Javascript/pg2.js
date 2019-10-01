@@ -174,5 +174,5 @@ function magnifierAffordance(){
   $('.theMagnifierImg').addClass('magnifierAffordanceAnim').addClass('affordanceDropShadow');
   setTimeout(function(  ){
       $('.theMagnifierImg').removeClass('magnifierAffordanceAnim').removeClass('affordanceDropShadow');
-},1500)
+},1000)
 }

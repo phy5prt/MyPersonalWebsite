@@ -32,7 +32,50 @@ $(".test").click(function() {
 
 
 
-slideInDraw();
+//slideInDraw();
+
+
+});
+
+
+// var resizeMarbleCase = function(e) {
+//
+//   const width = original_width - (e.pageX - original_mouse_x);
+//
+//   if (width > minimum_size && width < maximum_size) {
+//     element.style.width = width + 'px';
+//     element.style.left = original_x + (e.pageX - original_mouse_x) + 'px';
+//   }
+//
+// };
+$(".aCard").click(
+function cardToFront(){
+
+//make card big - nope put it in something big it will stretch
+//make card center
+//clone card
+//check how card looks maybe needs carousel background
+//click off discards card return to previous screens
+//click on links closes card screen and takes you to where the link takes you
+//cannot click card when is massive, can click outside to close, or have the nav bar close button
+$(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').toggleClass("carouselBlur"); /*need renaming glass blur*/
+
+var copyForSingleCardDisplay = $(this).parent().clone();
+
+$(".singleCardContainer").html(copyForSingleCardDisplay);
+setTimeout(function(){initSetCards($("body"));},1000);/*reseting it to the height width makes it zero*/
+
+//  $('this').parentNode.
+
+});
+$(".singleCardOverlay").click(function(e){  /*$(".singleCardContainer")*/
+console.log($(this).attr('class')+"  "+ $(this).hasClass(".aCard"));
+if($(this).hasClass("aCard")){console.log("in the if");return;}
+$(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').toggleClass("carouselBlur");
+});
+
 
 function slideInDraw(){
 
@@ -89,20 +132,6 @@ setTimeout(function(){
   clearInterval(mySetInterval);
 },timeToCloseIn);
 }
-});
-
-
-// var resizeMarbleCase = function(e) {
-//
-//   const width = original_width - (e.pageX - original_mouse_x);
-//
-//   if (width > minimum_size && width < maximum_size) {
-//     element.style.width = width + 'px';
-//     element.style.left = original_x + (e.pageX - original_mouse_x) + 'px';
-//   }
-//
-// };
-
 
 
 const updateDummyDataWithCardsOfTechla = function updateDummyDataWithCardsOfTechla(saughtTechnology = "la") {

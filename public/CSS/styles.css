@@ -1759,11 +1759,61 @@ a.techAnchor{ /*dont actually use this seems not to be needed now*/
   filter:blur(5px);
 }
 
+/*these going to be similar to carousel when refactor button working make them the same*/
+.singleCardOverlay{  position:fixed;
+  top:0; left:0;
+  width:100vw;
+  height:100vh;
+  margin:0;
+  padding:0;
+z-index:11;
+  display:flex;
+}
+.singleCardOverlayDisplayNone{
+
+  display:none;
+  pointer-events:none;
+
+}
+.singleCardOverlayBackground{
+
+   right: 0;
+    display:flex;
+  height:inherit;
+  width:inherit;
+  position:absolute;
+  margin:0; padding:0;
+  /*for now using same styling as the marble case*/
+  filter: blur(10px); /*doesnt blur the things underneath use jquery make a blur style and add it to all sections except this one or to body and counteract for this section this will not blur the areas produced by body but shouldnt be noticable*/
+  /*8*/
+  /*tone down the yellow and blue and add grey from first page*/
+
+  background: repeating-linear-gradient(-35deg, rgba(129, 207, 224, 0.5), rgba(255, 255, 255, 0.7) 15%, rgba(254, 241, 96, 0.4) 20%), rgba(0, 0, 0, 0.6)  content-box;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.9);
+  /*the blur is nice with the black edge (especially with the box shadow on it too)*/
+  /*is not blurring the background behind though!*/
+  outline: 8px solid black;
+  outline-offset: -8px;
+
+}
+.singleCardContainer{
+  display: inline-block;
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 10vw;
+  height:80vh;
+  width:80vw;
+  margin:auto;
+}
+
+
 .carouselOverlayBackground{
   height:inherit;
   width:inherit;
   position:absolute;
   margin:0; padding:0;
+
   /*for now using same styling as the marble case*/
   filter: blur(10px); /*doesnt blur the things underneath use jquery make a blur style and add it to all sections except this one or to body and counteract for this section this will not blur the areas produced by body but shouldnt be noticable*/
   /*8*/
