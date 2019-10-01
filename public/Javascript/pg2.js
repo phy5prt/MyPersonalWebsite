@@ -120,7 +120,7 @@ marbleWorkingOnProf.css({'right':'auto'}).appendTo(".page3").offset( marbleOldOf
 
 /*Make resizable div a simplified version base on one by Hung Nguyen*/
 function makeResizableDiv(div) {
-  console.log("make resizeable called");
+  //console.log("make resizeable called");
   const element = document.querySelector('div');
 
   const minimum_size = 180;
@@ -142,7 +142,7 @@ function makeResizableDiv(div) {
 
   var stopResizeMarbleCase = function() {
 
-    console.log("stopping resize");
+//    console.log("stopping resize");
     window.removeEventListener('mousemove', resizeMarbleCase);
   };
 

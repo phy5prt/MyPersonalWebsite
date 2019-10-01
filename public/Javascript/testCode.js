@@ -37,19 +37,47 @@ slideInDraw();
 function slideInDraw(){
 
 
+  const element = document.querySelector('.case2position');
 
-  var timePerLoop = 30;
-  original_width = 0;
-  var k = {pageX:0}
-    var timeToCloseIn = 1000;
+  var startPos =0; //needs to be where case starts minus its own width i think as does not go to zero thought his may be ebcause of its max
+  var endPos = (document.documentElement.clientWidth/100)*15-70-50; //95vw //so needs to travel 10vw //i must get px as pencent a few time //im minusing borderer width and half a ball
+  var direction = -1; //are we measure from right or left traveling right or left
+  var posToTravel = direction*(startPos - endPos);
+  var timeToCloseIn = 7500; //750
+  var timePerLoop = 300;//30
+
+var k = {pageX:startPos};//need to start as right hand edge pixels in which we should set to right 15vw so in line with tab
+
+
+
+
+original_width = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));//seems to be out by an amount because its based on left?
+original_x =element.getBoundingClientRect().right; //left
+original_mouse_x = k.pageX;
+
+  //  let original_width = 0;
+
+
+
+
+    var resizeMarbleCase = function(e) {
+
+
+  const width = original_width - (e.pageX - original_mouse_x);
+        element.style.width = width + 'px';
+        element.style.left = original_x + (e.pageX - original_mouse_x) +'px';//-70 to counteract the right pos
+
+    };
+
+
 var resizeIncrementer =function(){
-  var desiredWidth = 1500;
 
 
-  var incrementWidthPerLoop = desiredWidth/(timeToCloseIn/timePerLoop);
+
+  var incrementWidthPerLoop = posToTravel/(timeToCloseIn/timePerLoop);
 
     k.pageX+=incrementWidthPerLoop;
-    console.log("k.pageX is now " + k.pageX);
+    console.log("k.pageX is now " + k.pageX );
     resizeMarbleCase(k);     // Do something every 2 seconds
 
 }
@@ -64,22 +92,6 @@ setTimeout(function(){
 });
 
 
-var resizeMarbleCase = function(e) {
-  const element = document.querySelector('.case2position');
-
-  const minimum_size = 180;
-  const maximum_size = 800;
-  let original_width = 0;
-  let original_x = 0;
-  let original_mouse_x = 0;
-  const width = original_width - (e.pageX - original_mouse_x);
-
-
-    element.style.width = width + 'px';
-    element.style.left = original_x + (e.pageX - original_mouse_x) + 'px';
-
-
-};
 // var resizeMarbleCase = function(e) {
 //
 //   const width = original_width - (e.pageX - original_mouse_x);

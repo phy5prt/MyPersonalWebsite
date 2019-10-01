@@ -243,11 +243,11 @@ or a border over the top of both which is the pattern with transparency it has t
 if going to be on other screen making it fixed and then just toggle it sliding off and on screens
 with page changes
   */
-  width: 120px;
+  width: calc(70px + 15vw); /*was 120*/ /*not sure whate tilde does*/
   height: 70vh;
   position: absolute;
   z-index: 8;
-  right: -70px;
+  right: -70px; /*-was -70px*/
   /*to accommodate border something like this would be useful top: 50vh - 40px;*/
   top: 10vh;
   margin: 4em auto;
