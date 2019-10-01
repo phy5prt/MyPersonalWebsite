@@ -2,8 +2,60 @@
 $(".bottomRightPage1").get(0).scrollIntoView();
 $(".grayUntilJQueryLoads").remove();
 
-$(" .drinkButton ").click(function(e) {
 
+
+
+let delayBetweenGlassAnim = 300;
+let delayToAllowRead = 4000;
+//step function so can access rotate which cant normy be animated
+var clickMeDrinkAffordanceTimeout;
+function turnOnDrinkButtonAffordanceTimer(){clickMeDrinkAffordanceTimeout = setTimeout(clickMeDrinkAffordance,delayToAllowRead);}
+turnOnDrinkButtonAffordanceTimer();
+
+  function clickMeDrinkAffordance(){
+  $(".drinkButton").each(function (index) {
+
+    let thisDrink = $(this);
+
+    setTimeout(function(){ thisDrink.addClass("affordanceDropShadow"); }, delayBetweenGlassAnim*index);
+
+    thisDrink.delay(delayBetweenGlassAnim*index).animate({  borderSpacing: -10 }, {
+    step: function(now,fx) {
+    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
+    thisDrink.css('-moz-transform','rotate('+now+'deg)');
+    thisDrink.css('transform','rotate('+now+'deg)');
+
+    },
+    duration:delayBetweenGlassAnim/3
+},'linear').animate({  borderSpacing: 10 }, {
+    step: function(now,fx) {
+    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
+    thisDrink.css('-moz-transform','rotate('+now+'deg)');
+    thisDrink.css('transform','rotate('+now+'deg)');
+    },
+    duration:delayBetweenGlassAnim/3
+}, 'linear')
+ .animate({  borderSpacing: '0' }, {
+    step: function(now,fx) {
+    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
+    thisDrink.css('-moz-transform','rotate('+now+'deg)');
+    thisDrink.css('transform','rotate('+now+'deg)');
+    },
+    duration:delayBetweenGlassAnim/3, complete: // ,
+       function(){
+        thisDrink.removeClass("affordanceDropShadow");
+    }
+},
+  'linear'
+   )
+}).promise().done(function removeSetRotation(){
+    $(".drinkButton").removeAttr('style'); //seems heavy handed but struggledto get anything else to work
+    });
+}
+
+
+$(" .drinkButton ").click(function(e) {
+clearTimeout(clickMeDrinkAffordanceTimeout);
 //gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, useLeft =true)
 var arrMarbAndCardPos=[];
 // this works for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, -50, -90));}
@@ -133,68 +185,8 @@ ifInArcApplyDrag(setInitVars());//seems to work nicer than resizing not quite no
   //$(".case2position");
 });
 /*drop-shadow(offset-x offset-y blur-radius spread-radius color)*/
-let delayBetweenGlassAnim = 300;
-let delayToAllowRead = 4000;
-//step function so can access rotate which cant normy be animated
-(function clickMeDrinkAffordance(){
-  $(".drinkButton").delay(delayToAllowRead).each(function (index) {
-
-    let thisDrink = $(this);
-
-    setTimeout(function(){ thisDrink.addClass("affordanceDropShadow"); }, delayToAllowRead+delayBetweenGlassAnim*index);
-
-    thisDrink.delay(delayBetweenGlassAnim*index).animate({  borderSpacing: -10 }, {
-    step: function(now,fx) {
-    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
-    thisDrink.css('-moz-transform','rotate('+now+'deg)');
-    thisDrink.css('transform','rotate('+now+'deg)');
-
-    },
-    duration:delayBetweenGlassAnim/3
-},'linear').animate({  borderSpacing: 10 }, {
-    step: function(now,fx) {
-    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
-    thisDrink.css('-moz-transform','rotate('+now+'deg)');
-    thisDrink.css('transform','rotate('+now+'deg)');
-    },
-    duration:delayBetweenGlassAnim/3
-}, 'linear')
- .animate({  borderSpacing: '0' }, {
-    step: function(now,fx) {
-    thisDrink.css('-webkit-transform','rotate('+now+'deg)');
-    thisDrink.css('-moz-transform','rotate('+now+'deg)');
-    thisDrink.css('transform','rotate('+now+'deg)');
-    },
-    duration:delayBetweenGlassAnim/3, complete: // ,
-
-       function(){
-        thisDrink.removeClass("affordanceDropShadow");
 
 
-    }
-},
-
-  'linear'
-   )
-
-//removeAttr( 'style' );   the style means hover no longer works
-
-// setTimeout(function(){
-//
-//   $('body').addClass("affordanceDropShadow");
-//
-// setTimeout(function () {
-//     $('body').removeClass("affordanceDropShadow");
-// }, delayBetweenGlassAnim);
-//
-// },delayToAllowRead+delayBetweenGlassAnim*index); //because delay not affect non animatons
-//
-
-}).promise().done(function removeSetRotation(){
-    $(".drinkButton").removeAttr('style'); //seems heavy handed but struggledto get anything else to work
-    });
-}
-)();
 
 
 
