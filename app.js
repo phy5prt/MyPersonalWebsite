@@ -196,13 +196,13 @@ app.route("/")
 
 ProjectCard.find()
 .sort({overallProjectRating:-1})
-.limit(4)
-.exec(function(err,best4Cards){
+.limit(3)
+.exec(function(err,best3Cards){
   res.render("myWebsite", {
-    page2BestCard:best4Cards[0]
-    ,page3SecondBestCard:best4Cards[1]
-    ,page3ThirdBestCard:best4Cards[2]
-    ,page3FourthBestCard:best4Cards[3]
+    page3FirstBestCard:best3Cards[0]
+    ,page3SecondBestCard:best3Cards[1]
+    ,page3ThirdBestCard:best3Cards[2]
+  //  ,page3FourthBestCard:best4Cards[3]
 
 
   });

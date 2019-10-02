@@ -28,14 +28,7 @@
 </head>
 <!--put no scroll back in later-->
 <!--class="no Scroll"-->
-<!--
 
-<body >
-  <h6>  <%=page2BestCard.projectName   %> </h6>
-  <h2>  <%= page3SecondBestCard.overallProjectRating  %>  </h2>
-  <h5>  <%= page3ThirdBestCard.projectDescription  %>  </h5>
-  <h4>  <%= page3FourthBestCard.projectImage  %>   </h4>
--->
 
 <body>
 
@@ -189,12 +182,12 @@ maybe even ajoining a space for the marble
 
 
 <div class="topRightProjectTechnologiesArea"><div class ="ribbonLoopShadowSpacer"></div>
-              <% for (let i = 0; i<page2BestCard.technologiesArray.length; i++) { %>
+
 <div class="cardTechMarbleImgHolder">
-             <Img class="cardTechlinksImg aMarble" src= <%=page2BestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+             <Img class="cardTechlinksImg aMarble" src= ""alt="gitLink">
              </div>
 
-<% }%></div>
+</div>
 <div class="ribbonEnd">
 
 </div>
@@ -204,22 +197,22 @@ maybe even ajoining a space for the marble
 
             <div class="aCardWritingArea">
 
-            <div class="projectTitle"><%= page2BestCard.projectName %></div>
-  <img class="projectImage " src=<%=page2BestCard.projectImagePath %> alt="projectImg">
+            <div class="projectTitle"></div>
+  <img class="projectImage " src= alt="projectImg">
 
 
              <div class="projectDescriptionSubtitle">Description</div>
-                   <div class="projectDescriptionText"><%= page2BestCard.projectDescription %></div>
+                   <div class="projectDescriptionText">Title</div>
               </div> <div class="cardHyperlinksArea">
 
 
 
 
-                                                      <% for (let i = 0; i<page2BestCard.linksArray.length; i++) { %>
 
 
-                                                     <a href= <%= page2BestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page2BestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
-                      <% }%></div>
+
+                                                     <a href= "" ><Img class="cardHyperlinksImg" src= "" alt="gitLink"></a>
+                    </div>
 
 
               </div>
@@ -482,9 +475,9 @@ in 4.3.1 need use order and offset
 
 <div class="topRightProjectTechnologiesArea"><div class ="ribbonLoopShadowSpacer"></div>
 
-                                <% for (let i = 0; i<page3SecondBestCard.technologiesArray.length; i++) { %>
+                                <% for (let i = 0; i<page3FirstBestCard.technologiesArray.length; i++) { %>
 <div class="cardTechMarbleImgHolder">
-                                  <img type="image" class="cardTechlinksImg aMarble" src= <%=page3SecondBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+                                  <img type="image" class="cardTechlinksImg aMarble" src= <%=page3FirstBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
 </div>
 <% }%>
                           </div>
@@ -496,17 +489,17 @@ in 4.3.1 need use order and offset
 
                               <div class="aCardWritingArea">
 
-                              <div class="projectTitle"> <%= page3SecondBestCard.projectName %> </div>
-                                            <img class="projectImage " src=<%=page3SecondBestCard.projectImagePath %> alt="projectImg">
+                              <div class="projectTitle"> <%= page3FirstBestCard.projectName %> </div>
+                                            <img class="projectImage " src=<%=page3FirstBestCard.projectImagePath %> alt="projectImg">
 
 
                                <div class="projectDescriptionSubtitle">Description</div>
-                                     <div class="projectDescriptionText"><%=page3SecondBestCard.projectDescription %></div>
+                                     <div class="projectDescriptionText"><%=page3FirstBestCard.projectDescription %></div>
                                 </div> <div class="cardHyperlinksArea">
-                                  <% for (let i = 0; i<page3SecondBestCard.linksArray.length; i++) { %>
+                                  <% for (let i = 0; i<page3FirstBestCard.linksArray.length; i++) { %>
 
 
-                                 <a href= <%= page3SecondBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3SecondBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                                 <a href= <%= page3FirstBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3FirstBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
   <% }%>
                                 </div>
                               </div>
@@ -526,10 +519,10 @@ in 4.3.1 need use order and offset
 <div class="topRightProjectTechnologiesArea"><div class ="ribbonLoopShadowSpacer"></div>
 
                                <!--loop throough the number of tech items-->
-                                                               <% for (let i = 0; i<page3ThirdBestCard.technologiesArray.length; i++) { %>
+                                                               <% for (let i = 0; i<page3SecondBestCard.technologiesArray.length; i++) { %>
 
 <div class="cardTechMarbleImgHolder">
-                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3ThirdBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3SecondBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
 </div>
 
                                <% }%></div>
@@ -540,17 +533,17 @@ in 4.3.1 need use order and offset
 </div>
                             <div class="aCardWritingArea">
 
-                            <div class="projectTitle"><%=page3ThirdBestCard.projectName%></div>
-                                          <img class="projectImage " src=<%=page3ThirdBestCard.projectImagePath %> alt="projectImg">
+                            <div class="projectTitle"><%=page3SecondBestCard.projectName%></div>
+                                          <img class="projectImage " src=<%=page3SecondBestCard.projectImagePath %> alt="projectImg">
 
 
                              <div class="projectDescriptionSubtitle">Description</div>
-                                   <div class="projectDescriptionText"><%=page3ThirdBestCard.projectDescription%></div>
+                                   <div class="projectDescriptionText"><%=page3SecondBestCard.projectDescription%></div>
                               </div> <div class="cardHyperlinksArea">
-                                <% for (let i = 0; i<page3ThirdBestCard.linksArray.length; i++) { %>
+                                <% for (let i = 0; i<page3SecondBestCard.linksArray.length; i++) { %>
 
 
-                               <a href= <%= page3ThirdBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3ThirdBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                               <a href= <%= page3SecondBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3SecondBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
                               <% }%>
 
 
@@ -574,11 +567,11 @@ in 4.3.1 need use order and offset
 
 
                                <!--loop throough the number of tech items-->
-                                                               <% for (let i = 0; i<page3FourthBestCard.technologiesArray.length; i++) { %>
+                                                               <% for (let i = 0; i<page3ThirdBestCard.technologiesArray.length; i++) { %>
 
 
 <div class="cardTechMarbleImgHolder">
-                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3FourthBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3ThirdBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
 </div>
                                <% }%></div>
 
@@ -591,17 +584,17 @@ in 4.3.1 need use order and offset
 
                             <div class="aCardWritingArea">
 
-                            <div class="projectTitle"><%= page3FourthBestCard.projectName %></div>
-                                          <img class="projectImage " src=<%= page3FourthBestCard.projectImagePath %> alt="projectImg">
+                            <div class="projectTitle"><%= page3ThirdBestCard.projectName %></div>
+                                          <img class="projectImage " src=<%= page3ThirdBestCard.projectImagePath %> alt="projectImg">
 
 
                              <div class="projectDescriptionSubtitle">Description</div>
-                                   <div class="projectDescriptionText"><%= page3FourthBestCard.projectDescription %></div>
+                                   <div class="projectDescriptionText"><%= page3ThirdBestCard.projectDescription %></div>
                               </div> <div class="cardHyperlinksArea">
-                                <% for (let i = 0; i<page3FourthBestCard.linksArray.length; i++) { %>
+                                <% for (let i = 0; i<page3ThirdBestCard.linksArray.length; i++) { %>
 
 
-                               <a href= <%= page3FourthBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3FourthBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                               <a href= <%= page3ThirdBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3ThirdBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
 <% }%>
                               </div>
 
