@@ -48,7 +48,7 @@ $(".test").click(function() {
 //   }
 //
 // };
-$(".aCard").click(
+$(".aCard").on('click',
 function cardToFront(){
 
 //make card big - nope put it in something big it will stretch
@@ -58,23 +58,23 @@ function cardToFront(){
 //click off discards card return to previous screens
 //click on links closes card screen and takes you to where the link takes you
 //cannot click card when is massive, can click outside to close, or have the nav bar close button
-$(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
-$('section').not('.singleCardOverlay').toggleClass("carouselBlur"); /*need renaming glass blur*/
+toggleSingleCardOverlay();
 
 var copyForSingleCardDisplay = $(this).parent().clone();
-
 $(".singleCardContainer").html(copyForSingleCardDisplay);
-setTimeout(function(){initSetCards($("body"));},1000);/*reseting it to the height width makes it zero*/
-
-//  $('this').parentNode.
-
+initSetCards($(".singleCardContainer"));/*reseting it to the height width makes it zero*/
 });
-$(".singleCardOverlay").click(function(e){  /*$(".singleCardContainer")*/
-console.log($(this).attr('class')+"  "+ $(this).hasClass(".aCard"));
-if($(this).hasClass("aCard")){console.log("in the if");return;}
+
+$(".singleCardOverlay").on('click',toggleSingleCardOverlay);
+
+function toggleSingleCardOverlay(){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
 $(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').toggleClass("carouselBlur");
-});
+
+}
+
+
+
 
 
 function slideInDraw(){
