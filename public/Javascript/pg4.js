@@ -407,6 +407,26 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
               }
             }
           }
+
+
+/*after make cards make them clickable*/
+$(".page4X0Y0").find(".aCard").on('click',
+function cardToFront(e){
+
+$(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').addClass("carouselBlur");
+var copyForSingleCardDisplay = $(this).parent().clone();
+$(".singleCardContainer").html(copyForSingleCardDisplay);
+initSetCards($(".singleCardContainer"));
+
+copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+//do not do anything if this event was propagated from children
+  if( e.target !== this ){  return;}else{
+$(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').removeClass("carouselBlur");
+}
+});
+});
 }
 
 
