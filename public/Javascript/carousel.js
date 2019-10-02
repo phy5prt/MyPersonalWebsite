@@ -168,14 +168,33 @@ $showcase.append(cloud9CardTemplate.clone(true));
 
 /*this doesnt apply on load because hidden maybe needs something done with it like sepereate function or so it does find it but for now need quick fix*/
 
+/*allowing cards to be scaled and clickable*/
+initSetCards( $showcase);
+ $showcase.find(".aCard").on('click',
+function cardToFront(e){
+
+$(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').addClass("carouselBlur");
+var copyForSingleCardDisplay = $(this).parent().clone();
+$(".singleCardContainer").html(copyForSingleCardDisplay);
+initSetCards($(".singleCardContainer"));
+
+copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+//do not do anything if this event was propagated from children
+  if( e.target !== this ){  return;}else{
+$(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').removeClass("carouselBlur");
+}
+});
+});
 
 
 
 
 showcase.Cloud9Carousel( {
-yOrigin: 150, /* Calc js and get half of the viewport height */
-
- yRadius: 150,
+yOrigin: ($(window).height()/100)*35/4 +($(window).height()/100)*5, /*second is half marging*//* Calc js and get half of the viewport height */
+//
+ yRadius: ($(window).height()/100)*35/2, /*why divided by two twice from 70vh to 35 then again is it giving height whole page*/
   farScale:0.5,
   itemClass: "cloud9-item",
   buttonLeft: $(".nav.left"),
@@ -237,7 +256,7 @@ function(){
     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
   //  console.log(saughtTechnology);
   $(".carouselOverlay").toggleClass("carouselDisplayNone");
-  $('section').not('.carouselOverlay').toggleClass("carouselBlur");
+  $('section').not('.carouselOverlay, .singleCardOverlay').toggleClass("carouselBlur");
    if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
 

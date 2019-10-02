@@ -28,7 +28,7 @@ $('section').not('.singleCardOverlay').addClass("carouselBlur");
 var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
-  console.log("clicked");
+
 copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
 //do not do anything if this event was propagated from children
   if( e.target !== this ){  return;}else{
