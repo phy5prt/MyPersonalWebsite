@@ -107,11 +107,9 @@ also cause a white space at bottom because now contributes to the height-->
 
   <template id="cardTechnologyButtonTemplate">
 
-    <form class="formTechBtn" action="/carousel" method="get">
-    <button class="submitButtonNoStyle" type="submit" name="techButton" value="" >
-                                            <Img class="cardTechlinksImg" src= "" alt="gitLink">
-    </button>
-    </form>
+    <div class="cardTechMarbleImgHolder">
+                                            <Img class="cardTechlinksImg aMarble" src= "" alt="gitLink">
+</div>
 
   </template>
 
@@ -192,11 +190,9 @@ maybe even ajoining a space for the marble
 
 <div class="topRightProjectTechnologiesArea"><div class ="ribbonLoopShadowSpacer"></div>
               <% for (let i = 0; i<page2BestCard.technologiesArray.length; i++) { %>
-<form class="formTechBtn" action="/carousel" method="get">
-  <button class="submitButtonNoStyle" type="submit" name="techButton" value=<%= page2BestCard.technologiesArray[i].technologyName %> >
-             <Img class="cardTechlinksImg" src= <%=page2BestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
-             </button>
-             </form>
+<div class="cardTechMarbleImgHolder">
+             <Img class="cardTechlinksImg aMarble" src= <%=page2BestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+             </div>
 
 <% }%></div>
 <div class="ribbonEnd">
@@ -487,9 +483,9 @@ in 4.3.1 need use order and offset
 <div class="topRightProjectTechnologiesArea"><div class ="ribbonLoopShadowSpacer"></div>
 
                                 <% for (let i = 0; i<page3SecondBestCard.technologiesArray.length; i++) { %>
-
+<div class="cardTechMarbleImgHolder">
                                   <img type="image" class="cardTechlinksImg aMarble" src= <%=page3SecondBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
-
+</div>
 <% }%>
                           </div>
                           <div class="ribbonEnd">
@@ -532,12 +528,9 @@ in 4.3.1 need use order and offset
                                <!--loop throough the number of tech items-->
                                                                <% for (let i = 0; i<page3ThirdBestCard.technologiesArray.length; i++) { %>
 
-<form class="formTechBtn" action="/carousel" method="get">
-
-  <button class="submitButtonNoStyle" type="submit" name="techButton" value=<%= page3ThirdBestCard.technologiesArray[i].technologyName %> >
-                                                              <Img class="cardTechlinksImg" src= <%=page3ThirdBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
-</button>
-</form>
+<div class="cardTechMarbleImgHolder">
+                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3ThirdBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+</div>
 
                                <% }%></div>
 
@@ -584,11 +577,9 @@ in 4.3.1 need use order and offset
                                                                <% for (let i = 0; i<page3FourthBestCard.technologiesArray.length; i++) { %>
 
 
-                                                                 <form class="formTechBtn" action="/carousel" method="get">
-                                                                   <button class="submitButtonNoStyle" type="submit" name="techButton" value=<%= page3FourthBestCard.technologiesArray[i].technologyName %> >
-                                                              <Img class="cardTechlinksImg" src= <%=page3FourthBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
-                                                              </button>
-                                                              </form>
+<div class="cardTechMarbleImgHolder">
+                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3FourthBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+</div>
                                <% }%></div>
 
                                <div class="ribbonEnd">

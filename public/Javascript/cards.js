@@ -28,6 +28,28 @@ $('section').not('.singleCardOverlay').addClass("carouselBlur");
 var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
+copyForSingleCardDisplay.find(".aMarble").click(
+function(){
+    var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
+  //  console.log(saughtTechnology);
+  $(".carouselOverlay").toggleClass("carouselDisplayNone");
+  $('section').not('.carouselOverlay, .singleCardOverlay').toggleClass("carouselBlur");
+   if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
+
+
+       $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
+    //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
+  getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
+
+ $("#carouselTechTitle").text("All "+ "Projects");
+  generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
+  }
+
+}
+
+
+);
+
 
 copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
 //do not do anything if this event was propagated from children
