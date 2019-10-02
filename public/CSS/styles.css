@@ -1396,7 +1396,28 @@ z-index:-1;
 }
 
 /*for card sheen*/
+.exampleProjectRibbonWritingArea{
+width:19px;
+height:70px;
+margin:0;padding:0;
+}
+.exampleProjectRibbonWriting{
+  transform: rotate(90deg);
+transform-origin: left bottom;
+top:0%;/*left:0;*/
 
+/*bottom:0%;left:100%;*/
+
+white-space: nowrap;
+width:70px;
+height:19px;
+font-size: 1vh;
+font-stretch: expanded;
+text-align: left;
+vertical-align: middle;
+margin:0;padding:25% 5px;
+position:absolute;
+}
 .theExplanationCard::before{
     background: linear-gradient(140deg,
     rgba(255,255,255,0) 10%,
@@ -1758,6 +1779,16 @@ margin-right: auto;
 }
 .projectDescriptionText{
   font-size:0.2rem;
+  font-family:'Noto Sans', sans-serif; ;
+  line-height:auto;
+  margin:1px 0 3px;
+  height:37px;
+  overflow:hidden; /*need tp set min text size and decide how deal overflow*/
+  padding-top:0px;
+  margin-top:0px;
+}
+.projectExampleDescriptionText{
+  font-size:0.5vh;
   font-family:'Noto Sans', sans-serif; ;
   line-height:auto;
   margin:1px 0 3px;
