@@ -1,8 +1,8 @@
 /*jshint esversion: 6 */
 
 
-
-$(".pg2CardContainer").click(function() {
+/*triggered by example card being single view being closed*/
+function animateToPage3() {
 
   /*detach page 1 replace with page 4*/
   /*where keep pg4*/
@@ -15,9 +15,7 @@ $(".pg2CardContainer").click(function() {
   /*later replace making it invisible with rotating it looking at it and popping a second marble out of its middles
 shrink and drop it behind and both can roll to next page
     */
-  $(".pg2CardContainer").addClass("invisible");
-  /*make spin*/
-  $(".philProfileMarbleImg").addClass("rollingAntiClockwise");
+
   /*move marble same angle as the background gap 135*/
   /*really need some code to trace the trajectory */
   /*
@@ -115,7 +113,7 @@ marbleWorkingOnProf.css({'right':'auto'}).appendTo(".page3").offset( marbleOldOf
 
 
 
-});
+}
 
 
 /*Make resizable div a simplified version base on one by Hung Nguyen*/

@@ -4,7 +4,7 @@
 function initSetCards(parent){
     parent.find(".scaleable-wrapper").each(
      function(){
-                var vsd = $(this).find(".aCard");
+                var vsd = $(this).find(".aCard,.theExplanationCard");
                  var scale = Math.min(
                          $(this).width() / vsd.outerWidth(),
                           $(this).height() / vsd.outerHeight()
@@ -60,9 +60,38 @@ $('section').not('.singleCardOverlay').removeClass("carouselBlur");
 });
 });
 
+
+
 $(" .singleCardOverlayBackground").on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
   if( e.target !== this ){ return;}else{
 e.stopPropagation();
 $(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').removeClass("carouselBlur");}
 });
+
+
+$(".theExplanationCard").on('click',
+function cardToFront(e){
+  var copyForSingleCardDisplay = $(this).parent().clone();
+  //!!!!!!!!!!!!!!!!!!!!!added bit
+  $(".pg2CardContainer").addClass("invisible");
+  $(".philProfileMarbleImg").addClass("rollingAntiClockwise");
+  ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+  setTimeout(function(){
+$(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').addClass("carouselBlur");
+
+$(".singleCardContainer").html(copyForSingleCardDisplay);
+initSetCards($(".singleCardContainer"));
+copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+//do not do anything if this event was propagated from children
+  if( e.target !== this ){  return;}else{
+$(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').removeClass("carouselBlur");
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
+animateToPage3();
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
+}
+});
+},100);});
