@@ -151,7 +151,7 @@ $showcase.html('');
 for (var j = 0; j < carouselCard.technologiesArray.length; j++){
       var technology = carouselCard.technologiesArray[j];
   var cardTechnologyButtonTemplate = $cardTechnologyButtonTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
- cardTechnologyButtonTemplate.find('.cardHyperlinksImg').attr("src", technology.technologyImagePath);
+ cardTechnologyButtonTemplate.find('.cardTechlinksImg').attr("src", technology.technologyImagePath);
 cloud9CardTemplate.find('.topRightProjectTechnologiesArea').append(cardTechnologyButtonTemplate.clone(true));
 }
 for (var k = 0; k < carouselCard.linksArray.length; k++){
