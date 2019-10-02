@@ -48,8 +48,10 @@ $(".test").click(function() {
 //   }
 //
 // };
+
+
 $(".aCard").on('click',
-function cardToFront(){
+function cardToFront(e){
 
 //make card big - nope put it in something big it will stretch
 //make card center
@@ -58,20 +60,69 @@ function cardToFront(){
 //click off discards card return to previous screens
 //click on links closes card screen and takes you to where the link takes you
 //cannot click card when is massive, can click outside to close, or have the nav bar close button
-toggleSingleCardOverlay();
+//toggleSingleCardOverlay(e);
 
+ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+
+ //really want if not a form or a button or an anchor
+//  if( e.target !== this ){console.log(" not toggling because of this being "+ this + " and target being " + e.target);  return;}else{
+$(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').toggleClass("carouselBlur");
+//}
+
+
+
+console.log("card front trigger"+ e);
 var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));/*reseting it to the height width makes it zero*/
+
+copyForSingleCardDisplay.on('click',function toggleSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+  if( e.target !== this ){ console.log(" not !UN! toggling because of this being "+ this + " and target being " + e.target.getClass); return;}else{
+
+console.log("hide overlay triggered"+ e);
+$(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').removeClass("carouselBlur");}
+
+});
 });
 
-$(".singleCardOverlay").on('click',toggleSingleCardOverlay);
+// $(".singleCardOverlay .singleCardContainer, .singleCardOverlayBackground").on('click',function toggleSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+//   if( e.target !== this ){ console.log(" not !UN! toggling because of this being "+ this + " and target being " + e.target.getClass); return;}else{
+//
+// console.log("hide overlay triggered"+ e);
+// $(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
+// $('section').not('.singleCardOverlay').toggleClass("carouselBlur");}
+//
+// });
+// $(" .singleCardContainer").on('click',function toggleSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+//   if( e.target !== this ){ console.log(" not !UN! toggling because of this being "+ this + " and target being " + e.target.getClass); return;}else{
+//
+// console.log("hide overlay triggered"+ e);
+// $(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
+// $('section').not('.singleCardOverlay').toggleClass("carouselBlur");}
+//
+// });
 
-function toggleSingleCardOverlay(){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
-$(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
-$('section').not('.singleCardOverlay').toggleClass("carouselBlur");
+$(" .singleCardOverlayBackground").on('click',function toggleSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+  if( e.target !== this ){ console.log(" not !UN! toggling because of this being "+ this + " and target being " + e.target.getClass); return;}else{
+e.stopPropagation();
+console.log("hide overlay triggered"+ e);
+$(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
+$('section').not('.singleCardOverlay').removeClass("carouselBlur");}
 
-}
+});
+
+
+
+// function toggleSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+//   if( e.target !== this ){console.log(" not toggling because of this being "+ this + " and target being " + e.target);  return;}
+//
+//
+// $(".singleCardOverlay").toggleClass("singleCardOverlayDisplayNone");
+// $('section').not('.singleCardOverlay').toggleClass("carouselBlur");
+//
+// }
 
 
 
