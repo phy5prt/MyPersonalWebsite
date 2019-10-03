@@ -1884,6 +1884,9 @@ a.techAnchor{ /*dont actually use this seems not to be needed now*/
 .carouselBlur{
   filter:blur(5px);
 }
+.singleCardDisplayingBlur{
+  filter:blur(5px);
+}
 
 /*these going to be similar to carousel when refactor button working make them the same*/
 .singleCardOverlay{  position:fixed;

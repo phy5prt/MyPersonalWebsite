@@ -174,7 +174,7 @@ initSetCards( $showcase);
 function cardToFront(e){
 
 $(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
-$('section').not('.singleCardOverlay').addClass("carouselBlur");
+$('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
 var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
@@ -183,7 +183,7 @@ copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //renam
 //do not do anything if this event was propagated from children
   if( e.target !== this ){  return;}else{
 $(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
-$('section').not('.singleCardOverlay').removeClass("carouselBlur");
+$('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 }
 });
 });
@@ -256,7 +256,7 @@ function(){
     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
   //  console.log(saughtTechnology);
   $(".carouselOverlay").toggleClass("carouselDisplayNone");
-  $('section').not('.carouselOverlay, .singleCardOverlay').toggleClass("carouselBlur");
+  $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
    if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
 
