@@ -96,3 +96,33 @@ animateToPage3();
 }
 });
 },100);});
+const cardTemplateMaster = $("#cardTemplate").contents();
+const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
+const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
+function makeACard(projectCard){
+
+    var cardTemplate = cardTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
+
+  cardTemplate.find('.projectTitle').html(projectCard.projectName);
+  cardTemplate.find('.projectDescriptionText').html(projectCard.projectDescription);
+    cardTemplate.find('.projectImage').attr("src", projectCard.projectImagePath);
+
+
+  for (var j = 0; j < projectCard.technologiesArray.length; j++){
+        var technology = projectCard.technologiesArray[j];
+    var cardTechnologyButtonTemplate = $cardTechnologyButtonTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
+   cardTechnologyButtonTemplate.find('.cardTechlinksImg').attr("src", technology.technologyImagePath);
+  cardTemplate.find('.topRightProjectTechnologiesArea').append(cardTechnologyButtonTemplate.clone(true));
+  }
+  for (var k = 0; k < projectCard.linksArray.length; k++){
+    var link = projectCard.linksArray[k];
+  var cardHyperlinkTemplate =$cardHyperlinkTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
+  cardHyperlinkTemplate.find('.cardHyperlinksImg').attr("src", link.linkImagePath);
+  cardHyperlinkTemplate.find('.hyperlinkAnchor').attr("href", link.linkHyperlink);
+  cardTemplate.find('.cardHyperlinksArea').append(cardHyperlinkTemplate.clone(true));
+
+
+
+  }
+  return cardTemplate;
+}

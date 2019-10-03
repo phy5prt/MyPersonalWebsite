@@ -106,10 +106,8 @@ $(document).keydown( function( e ) {
 
 //using const to try and reduce the ammount of searched need to do
 
+const cloud9ItemTemplateMaster =  $("#cloud9ItemTemplate").contents();
 
-const cloud9CardTemplateMaster = $("#cloud9CardTemplate").contents();
-const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
-const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
 const $showcase = $("#showcase");
 
 function generateCarouselWithSaughtTechnologyCards(saughtTechnologyProjectCards = "allTechnologies"){
@@ -127,8 +125,8 @@ $showcase.html('');
   for (var i = 0; i < carouselCards.length; i++) {
 
 
+var cloud9ItemTemplate = cloud9ItemTemplateMaster.clone(true);
 
-    var carouselCard = carouselCards[i];
 
 
 // /*filtering now done by backend*/
@@ -141,29 +139,14 @@ $showcase.html('');
 //     if(saughtTechnology == "allTechnologies" || hasSaughtTechnology){
 
 
-    var cloud9CardTemplate = cloud9CardTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
-
-  cloud9CardTemplate.find('.projectTitle').html(carouselCard.projectName);
-  cloud9CardTemplate.find('.projectDescriptionText').html(carouselCard.projectDescription);
-    cloud9CardTemplate.find('.projectImage').attr("src", carouselCard.projectImagePath);
 
 
-for (var j = 0; j < carouselCard.technologiesArray.length; j++){
-      var technology = carouselCard.technologiesArray[j];
-  var cardTechnologyButtonTemplate = $cardTechnologyButtonTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
- cardTechnologyButtonTemplate.find('.cardTechlinksImg').attr("src", technology.technologyImagePath);
-cloud9CardTemplate.find('.topRightProjectTechnologiesArea').append(cardTechnologyButtonTemplate.clone(true));
-}
-for (var k = 0; k < carouselCard.linksArray.length; k++){
-  var link = carouselCard.linksArray[k];
-var cardHyperlinkTemplate =$cardHyperlinkTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
-cardHyperlinkTemplate.find('.cardHyperlinksImg').attr("src", link.linkImagePath);
-cardHyperlinkTemplate.find('.hyperlinkAnchor').attr("href", link.linkHyperlink);
-cloud9CardTemplate.find('.cardHyperlinksArea').append(cardHyperlinkTemplate.clone(true));
 
-}
 
-$showcase.append(cloud9CardTemplate.clone(true));
+/*do i need the cloning?*/
+cloud9ItemTemplate.html(makeACard(carouselCards[i]));
+
+$showcase.append(cloud9ItemTemplate);
 }
 
 /*this doesnt apply on load because hidden maybe needs something done with it like sepereate function or so it does find it but for now need quick fix*/
