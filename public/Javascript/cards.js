@@ -99,6 +99,7 @@ animateToPage3();
 const cardTemplateMaster = $("#cardTemplate").contents();
 const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
+
 function makeACard(projectCard){
 
     var cardTemplate = cardTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/

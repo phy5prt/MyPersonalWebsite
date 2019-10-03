@@ -308,8 +308,9 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
 //placeCardsPG4(); called by transistion
 
   function placeCardsPG4(){
-
-
+    const cardHolderPG4MasterTemplate = $("#cardHolderPG4Template").contents();
+    const page4TitleMasterTemplate = $("#page4TitleTemplate").contents();
+    var page4TitleTemplate = page4TitleMasterTemplate.clone(true)
 
 
     var divTransOriginYAdjustment;
@@ -338,21 +339,21 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
           var cardsPlaced = 0;
           var cardsConsecutivelyNotPlaced = 0;
           var htmlString = "";
-          var techArrayHtml="";
-          var linksArrayHtml="";
-
-          var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'><div class ='ribbonLoopShadowSpacer'></div> ";
-          var cardHtml2 = " <div class='cardTechMarbleImgHolder'>"; /*make sure value given single speach marks */
-          var cardHtml3 = " <img type='image' class='cardTechlinksImg aMarble' src= "; /*make sure gets two single marks*/
-          var cardHtml4 = " alt='gitLink'></img>  </div> "
-          var cardHtml4Endloop = "  </div> <div class='ribbonEnd'> </div>  </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
-          var cardHtml5 = " </div> <img class='projectImage ' src= ";   /* make sure gets double '' */
-          var cardHtml6 = " alt='projectImg'></img>  <div class='projectDescriptionSubtitle'>Description</div>  <div class='projectDescriptionText'> ";
-          var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
-          var cardHtml8 =  " <a href= "; /* marks needed '' */
-           var cardHtml9 =  " ><img class='cardHyperlinksImg' src= "; /* marks needed */
-           var cardHtml10 = " alt='gitLink'></img> </a> ";
-           var cardHtml11 = " </div></div></div> ";
+          // var techArrayHtml="";
+          // var linksArrayHtml="";
+          //
+          // var cardHtml1 = " <div class='scaleable-wrapper'> <div class='aCard'>    <div class='topRightRibbonArea'> <div class='topRightProjectTechnologiesArea'><div class ='ribbonLoopShadowSpacer'></div> ";
+          // var cardHtml2 = " <div class='cardTechMarbleImgHolder'>"; /*make sure value given single speach marks */
+          // var cardHtml3 = " <img type='image' class='cardTechlinksImg aMarble' src= "; /*make sure gets two single marks*/
+          // var cardHtml4 = " alt='gitLink'></img>  </div> "
+          // var cardHtml4Endloop = "  </div> <div class='ribbonEnd'> </div>  </div> <div class='aCardWritingArea'> <div class='projectTitle'> ";
+          // var cardHtml5 = " </div> <img class='projectImage ' src= ";   /* make sure gets double '' */
+          // var cardHtml6 = " alt='projectImg'></img>  <div class='projectDescriptionSubtitle'>Description</div>  <div class='projectDescriptionText'> ";
+          // var cardHtml7 = " </div> </div> <div class='cardHyperlinksArea'> ";
+          // var cardHtml8 =  " <a href= "; /* marks needed '' */
+          //  var cardHtml9 =  " ><img class='cardHyperlinksImg' src= "; /* marks needed */
+          //  var cardHtml10 = " alt='gitLink'></img> </a> ";
+          //  var cardHtml11 = " </div></div></div> ";
 
 
 
@@ -365,7 +366,7 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
             var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, false);
   var x = xLoc; //w- because the while is based on placing using left and we use right
   var y = pos[1]
-
+var cardsForPage4;
 
           //this is so when we run out of project cards we just start again at the begginging
           arrayLoopInt = ((cardsPlaced)%allProjectCards.length);//not certanin will place whole loop// ((cardsPlaced-1)%allProjectCards.length)+1; //ones so modulus doesnt end on zero before steps incremented as want to start at zerosa
@@ -374,36 +375,48 @@ delayBeginningAtFirstAnim+=animationTimeForConstSpeed/2; //think needs setTimeou
             if (y < H) {
               cardsConsecutivelyNotPlaced = 0;
             cardsPlaced++; //put this where aCardHtml is to get the numbers
+
+
+          var cardHolderPG4Template = cardHolderPG4MasterTemplate.clone(true);
+           cardHolderPG4Template.attr('style','top:'+y+'px; left:'+x+'px;');
+
+            cardHolderPG4Template.html(makeACard(allProjectCards[arrayLoopInt]));
+            page4TitleTemplate.append(cardHolderPG4Template);
+
+          //cardHolderPG4Template.insertAfter(page4TitleTemplate);
+
             // htmlString+= cardHtml;
-          techArrayHtml="";
-          linksArrayHtml="";
-          console.log(" arrayLoopInt " +arrayLoopInt +" cardsPlaced " + cardsPlaced + " allProjectCards.length " + allProjectCards.length);
-            for(var j=0; j<allProjectCards[arrayLoopInt].technologiesArray.length; j++ ){
-                  techArrayHtml += cardHtml2 + allProjectCards[arrayLoopInt].technologiesArray[j].technologyName +
-                  cardHtml3+allProjectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
+          // techArrayHtml="";
+          // linksArrayHtml="";
+          // console.log(" arrayLoopInt " +arrayLoopInt +" cardsPlaced " + cardsPlaced + " allProjectCards.length " + allProjectCards.length);
+          //   for(var j=0; j<allProjectCards[arrayLoopInt].technologiesArray.length; j++ ){
+          //         techArrayHtml += cardHtml2 + allProjectCards[arrayLoopInt].technologiesArray[j].technologyName +
+          //         cardHtml3+allProjectCards[arrayLoopInt].technologiesArray[j].technologyImagePath+cardHtml4;}
+          //
+          //   for(var k=0; k<allProjectCards[arrayLoopInt].linksArray.length; k++){
+          //             linksArrayHtml +=  cardHtml8+allProjectCards[arrayLoopInt].linksArray[k].linkHyperlink+cardHtml9+allProjectCards[arrayLoopInt].linksArray[k].linkImagePath+cardHtml10;
+          //         }
+          //     htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " +   cardHtml1+
+          //
+          // //start technologies array loop
+          //
+          // //end technologies array loop
+          // techArrayHtml+
+          //     cardHtml4Endloop + allProjectCards[arrayLoopInt].projectName + cardHtml5 +allProjectCards[arrayLoopInt].projectImagePath+
+          //     cardHtml6 +allProjectCards[arrayLoopInt].projectDescription+cardHtml7+
+          // //start links loop
+          //
+          // //end links loop
+          // linksArrayHtml+
+          //     cardHtml11+" </div> ";
 
-            for(var k=0; k<allProjectCards[arrayLoopInt].linksArray.length; k++){
-                      linksArrayHtml +=  cardHtml8+allProjectCards[arrayLoopInt].linksArray[k].linkHyperlink+cardHtml9+allProjectCards[arrayLoopInt].linksArray[k].linkImagePath+cardHtml10;
-                  }
-              htmlString += "<div class=' cardPG4 ' style='top:" + y + "px;left:" + x + "px;'> " +   cardHtml1+
-
-          //start technologies array loop
-
-          //end technologies array loop
-          techArrayHtml+
-              cardHtml4Endloop + allProjectCards[arrayLoopInt].projectName + cardHtml5 +allProjectCards[arrayLoopInt].projectImagePath+
-              cardHtml6 +allProjectCards[arrayLoopInt].projectDescription+cardHtml7+
-          //start links loop
-
-          //end links loop
-          linksArrayHtml+
-              cardHtml11+" </div> ";
             } else {
               cardsConsecutivelyNotPlaced++;
               if (cardsConsecutivelyNotPlaced > numCols) {
                 cardsStillToBePlaced = false;
-                htmlString = "<div class='pg4Text'>Phil Tate</div>" + htmlString ;
-                $(".page4X0Y0").html(htmlString);
+
+
+                $(".page4X0Y0").html(  page4TitleTemplate);
               }
             }
           }
