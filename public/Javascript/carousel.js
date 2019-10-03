@@ -13,7 +13,7 @@ $.ajax({
   method: 'GET',
 data: {techButton: saughtTechnology},
  success: function (saughtTechnologyProjectCards) {
-   console.log("complete: getSaughtTechnology is returning: " + saughtTechnologyProjectCards.Length + " cards of technology: " + saughtTechnology +  " they look like this " + JSON.stringify(saughtTechnologyProjectCards) + "  " + JSON.stringify(saughtTechnologyProjectCards[0]))
+  // console.log("complete: getSaughtTechnology is returning: " + saughtTechnologyProjectCards.Length + " cards of technology: " + saughtTechnology +  " they look like this " + JSON.stringify(saughtTechnologyProjectCards) + "  " + JSON.stringify(saughtTechnologyProjectCards[0]))
   generateCarouselWithSaughtTechnologyCards(saughtTechnologyProjectCards);
 
  //data: {query: saughtTechnology}       //this is the bit i need to check if it is right
@@ -178,17 +178,56 @@ $('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
 var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
+copyForSingleCardDisplay.find(".aMarble").click(function(ev){
+//  ev.stopPropagation(); //!!!! we want it to close the card too
+    var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
+  //  console.log(saughtTechnology);
+  $(".carouselOverlay").removeClass("carouselDisplayNone");
+  $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
+   if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
+
+       $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
+    //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
+  getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
+
+ $("#carouselTechTitle").text("All "+ "Projects");
+  generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
+  }
+
+})
 copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
 //do not do anything if this event was propagated from children
-  if( e.target !== this ){  return;}else{
+//  if( e.target !== this ){  return;}else{
 $(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 }
-});
+//}
+);
 });
 
+$(".aMarble").click(
+function(ev){
+  ev.stopPropagation();
+    var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
+  //  console.log(saughtTechnology);
+  $(".carouselOverlay").removeClass("carouselDisplayNone");
+  $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
+   if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
+
+       $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
+    //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
+  getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
+
+ $("#carouselTechTitle").text("All "+ "Projects");
+  generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
+  }
+
+}
+
+
+);
 
 
 showcase.Cloud9Carousel( {
@@ -247,15 +286,12 @@ $(document).keydown( function( e ) {
 }
 
 
-// }
-
-
-
 $(".aMarble").click(
-function(){
+function(ev){
+  ev.stopPropagation();
     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
   //  console.log(saughtTechnology);
-  $(".carouselOverlay").toggleClass("carouselDisplayNone");
+  $(".carouselOverlay").removeClass("carouselDisplayNone");
   $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
    if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
@@ -272,3 +308,5 @@ function(){
 
 
 );
+
+// }

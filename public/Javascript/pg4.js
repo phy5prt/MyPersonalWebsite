@@ -419,7 +419,7 @@ var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
 copyForSingleCardDisplay.find(".aMarble").click(
-function(){
+function(ev){ev.stopPropagation();
     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
   //  console.log(saughtTechnology);
   $(".carouselOverlay").toggleClass("carouselDisplayNone");
@@ -441,15 +441,16 @@ function(){
 );
 copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
 //do not do anything if this event was propagated from children
-  if( e.target !== this ){  return;}else{
+//  if( e.target !== this ){  return;}else{
 $(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 }
-});
+//}
+);
 });
 /*and make their links clickable*/
 $(".page4X0Y0").find(".cardTechlinksImg.aMarble").click( //so dont double apply it to the marbles not in cards
-function(){
+function(ev){ev.stopPropagation();
     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
   //  console.log(saughtTechnology);
   $(".carouselOverlay").toggleClass("carouselDisplayNone");
