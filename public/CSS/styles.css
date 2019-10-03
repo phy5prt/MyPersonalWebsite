@@ -1396,6 +1396,11 @@ z-index:-1;
 }
 
 /*for card sheen*/
+
+.exampleCardHyperlinkWriting{font-size:1vh; width:70px; height:15px; vertical-align:text-bottom;; text-align:left;padding-top:2px;
+  background-color: rgba(255, 255, 0, 0.7);
+  box-shadow: 0 0 5px 2px yellow;
+}
 .exampleProjectRibbonWritingArea{
 width:19px;
 height:70px;
