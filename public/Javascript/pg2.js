@@ -86,12 +86,14 @@ marbleWorkingOnProf.css({'right':'auto'}).appendTo(".page3").offset( marbleOldOf
   }
 );
 },slopeTravelTime+jumpTravelTime);
-
+setTimeout(magnifierAffordance,200);
 //move view screen
   $('html, body').animate({
     scrollTop: $(".page3").offset().top,
     scrollLeft: $(".page3").offset().left
-  },{ duration: 1000, complete:function(){magnifierAffordance();}});
+  },{ duration: 1000
+    //, complete:function(){magnifierAffordance();}
+  }); //should it actually be during
 
 
 
