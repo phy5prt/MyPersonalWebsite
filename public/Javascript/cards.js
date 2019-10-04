@@ -20,8 +20,9 @@ var allCards = $('body');
 initSetCards(allCards);
 
 
-$(".aCard").on('click',
-function cardToFront(e){
+
+
+function cardToFrontClick(event){
 
 $(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
@@ -29,17 +30,21 @@ var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
 
-copyForSingleCardDisplay.find(".aMarble").click({propagate:false},marbleTechClick);
+copyForSingleCardDisplay.find(".aMarble").click({propagate:event.data.propagate},marbleTechClick);
 
 
 copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
 //do not do anything if this event was propagated from children
-  if( e.target !== this ){  return;}else{
+//  if( event.target !== this ){  return;}else{
 $(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
-}
+//}
 });
 }
+
+
+$(".aCard").on('click',
+
 );
 
 
@@ -52,9 +57,10 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");}
 //}
 );
 
-
+//!!!!!!!!    This the same except im inserting the animation so if i put cardToFrontClick in time out it will not have the animation in its
+//click to close single card display function, so i would need to find the event function and add to it so for now leaving it
 $(".theExplanationCard").on('click',
-function cardToFront(e){
+function exampleCardToFront(){
   var copyForSingleCardDisplay = $(this).parent().clone();
   //!!!!!!!!!!!!!!!!!!!!!added bit
   $(".pg2CardContainer").addClass("invisible");
@@ -68,14 +74,14 @@ $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
 copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
 //do not do anything if this event was propagated from children
-  if( e.target !== this ){  return;}else{
+  //if( e.target !== this ){  return;}else{
 $(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 animateToPage3();
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
-}
+//}
 });
 },100);});
 const cardTemplateMaster = $("#cardTemplate").contents();
