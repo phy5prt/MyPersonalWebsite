@@ -2,9 +2,17 @@
 /*when refactor consider using .done rather than succes*/
 var saughtTechnologyProjectCards=[{}];
 var showcase = $("#showcase")
-function getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology) {
+function     getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology) {
 
-  console.log("using get saught technology");
+if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
+
+
+      $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
+   //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
+
+
+
+
 var sghtCrds;
 //carousel?techButton=Botox
 //this may need to be synchronouse
@@ -25,6 +33,10 @@ data: {techButton: saughtTechnology},
 .catch(function (err) {
 console.log(err);
 });
+
+}else{
+
+  $("#carouselTechTitle").text("All "+ "Projects");generateCarouselWithSaughtTechnologyCards();}
 }
 
 
