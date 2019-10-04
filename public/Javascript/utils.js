@@ -4,7 +4,7 @@ var windowHeight = $(window).height();
 
 function anchorClick(){
 event.cancelBubble = true; if(event.stopPropagation) {
-    window.open(url,'_blank');
+
   event.stopPropagation();
 
 

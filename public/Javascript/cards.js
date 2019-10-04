@@ -107,8 +107,11 @@ function makeACard(projectCard){
   for (var k = 0; k < projectCard.linksArray.length; k++){
     var link = projectCard.linksArray[k];
   var cardHyperlinkTemplate =$cardHyperlinkTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
+
   cardHyperlinkTemplate.find('.cardHyperlinksImg').attr("src", link.linkImagePath);
-  cardHyperlinkTemplate.find('.hyperlinkAnchor').attr("href", "whatever");   //link.linkHyperlink);
+
+  cardHyperlinkTemplate.attr('href', link.linkHyperlink  ); //wasnt working coz find only works on children not self
+//but cardTemplate.find('a').attr('href', link.linkHyperlink  ); does work is this an execution order thing
   cardTemplate.find('.cardHyperlinksArea').append(cardHyperlinkTemplate.clone(true));
 
 

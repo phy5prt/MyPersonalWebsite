@@ -114,7 +114,7 @@ also cause a white space at bottom because now contributes to the height-->
 
   <template id="cardHyperlinkTemplate">
 
-<a onclick="anchorClick();"class="hyperlinkAnchor" href=""> <Img class="cardHyperlinksImg"  alt="gitLink" > </a>
+<a alt="" href="" target="_blank" onclick="anchorClick();"  > <Img class="cardHyperlinksImg"  alt="gitLink" ></a>
 
   </template>
 
@@ -503,7 +503,7 @@ in 4.3.1 need use order and offset
                                   <% for (let i = 0; i<page3FirstBestCard.linksArray.length; i++) { %>
 
 
-                                 <a onclick="anchorClick();"  href= <%= page3FirstBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3FirstBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                                 <a onclick="anchorClick();"  href= <%= page3FirstBestCard.linksArray[i].linkHyperlink %> target="_blank"><Img class="cardHyperlinksImg" src= <%=page3FirstBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
   <% }%>
                                 </div>
                               </div>
@@ -547,7 +547,7 @@ in 4.3.1 need use order and offset
                                 <% for (let i = 0; i<page3SecondBestCard.linksArray.length; i++) { %>
 
 
-                               <a onclick="anchorClick();" href= <%= page3SecondBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3SecondBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                               <a onclick="anchorClick();" href= <%= page3SecondBestCard.linksArray[i].linkHyperlink %> target="_blank"><Img class="cardHyperlinksImg" src= <%=page3SecondBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
                               <% }%>
 
 
@@ -598,7 +598,7 @@ in 4.3.1 need use order and offset
                                 <% for (let i = 0; i<page3ThirdBestCard.linksArray.length; i++) { %>
 
 
-                               <a onclick="anchorClick();"  href= <%= page3ThirdBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3ThirdBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                               <a onclick="anchorClick();"  href= <%= page3ThirdBestCard.linksArray[i].linkHyperlink %> target="_blank" ><Img class="cardHyperlinksImg" src= <%=page3ThirdBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
 <% }%>
                               </div>
 
@@ -658,7 +658,7 @@ in 4.3.1 need use order and offset
       </div>
       <div class="row">
         <div class="col-sm-12">
-           <a href="https://github.com/phy5prt/CV">
+           <a href="https://github.com/phy5prt/CV" target="_blank">
           <h1><i class="fas fa-file-download "></i></h1></a>
 
         </div>
