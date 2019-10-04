@@ -43,7 +43,7 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 }
 
 
-$(".aCard").on('click',
+$(".aCard").on('click',{propagation:false},cardToFrontClick
 
 );
 
