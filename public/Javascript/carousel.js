@@ -167,7 +167,7 @@ var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
 
-giveObjectItsMarblesTechClicks(copyForSingleCardDisplay, true  );
+copyForSingleCardDisplay.find(".aMarble").click({propagate:true},marbleTechClick);
 // copyForSingleCardDisplay.find(".aMarble").click(function(ev){
 // //  ev.stopPropagation(); //!!!! we want it to close the card too
 //     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
@@ -195,7 +195,8 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 //}
 );
 });
-giveObjectItsMarblesTechClicks($showcase);
+$showcase.find(".aMarble").click({propagate:false},marbleTechClick);
+
 
 
 //

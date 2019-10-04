@@ -1,9 +1,10 @@
 /*jshint esversion: 6 */
 
-function giveObjectItsMarblesTechClicks(objectWithMarbles, propagate = false  ){
-
-  objectWithMarbles.find(".aMarble").click(function(ev){
-    if(propagate==false){ev.stopPropagation();}
+// function giveObjectItsMarblesTechClicks(objectWithMarbles, propagate = false  ){
+//   objectWithMarbles.find(".aMarble").click(
+//     function(ev){
+      function marbleTechClick(event){
+    if(event.data.propagate==false){event.stopPropagation();}
   //  ev.stopPropagation(); //!!!! we want it to close the card too
       var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
     //  console.log(saughtTechnology);
@@ -25,5 +26,5 @@ function giveObjectItsMarblesTechClicks(objectWithMarbles, propagate = false  ){
 
   }
 
-);}
-giveObjectItsMarblesTechClicks($('body'));
+
+$(".aMarble").click({propagate:false},marbleTechClick);

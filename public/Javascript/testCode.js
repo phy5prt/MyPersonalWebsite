@@ -1,6 +1,9 @@
 /*jshint esversion: 6 */
-
-$(".test").click(function() {
+function doIHaveEvent(event){
+  console.log(event);
+    console.log(event.data.aStringPP);
+}
+$(".test").click({aStringPP:"goat"},doIHaveEvent);
 
 
 
@@ -67,7 +70,7 @@ $(".test").click(function() {
 //slideInDraw();
 
 
-});
+//});
 
 
 // var resizeMarbleCase = function(e) {

@@ -431,7 +431,8 @@ $('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
 var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
-giveObjectItsMarblesTechClicks(copyForSingleCardDisplay )
+copyForSingleCardDisplay.find(".aMarble").click({propagate:false},marbleTechClick);
+
 // copyForSingleCardDisplay.find(".aMarble").click(
 // function(ev){ev.stopPropagation();
 //     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
