@@ -105,15 +105,16 @@ also cause a white space at bottom because now contributes to the height-->
 
   <template id="cardTechnologyButtonTemplate">
 
-    <div class="cardTechMarbleImgHolder" value="Atom">
-                                            <Img class="cardTechlinksImg aMarble" src= "" alt="gitLink" >
+    <div class="cardTechMarbleImgHolder" >
+    <!--   <div class="aMarble aMarbleGlassEffect"value="CSS"><img class="aMarbleImg " src="Images\marbles\css.png" alt="css marble"></div> -->
+                                           <Img class="cardTechlinksImg aMarble" src= "" alt="gitLink" value="Atom">
 </div>
 
   </template>
 
   <template id="cardHyperlinkTemplate">
 
-<a class="hyperlinkAnchor" href="j"> <Img class="cardHyperlinksImg"  alt="gitLink" > </a>
+<a onclick="anchorClick();"class="hyperlinkAnchor" href=""> <Img class="cardHyperlinksImg"  alt="gitLink" > </a>
 
   </template>
 
@@ -167,7 +168,7 @@ also cause a white space at bottom because now contributes to the height-->
 
 
 
-    <div class="pg2Text higher"><div class="bottomAlignBox"><div >What I Can Do</div><div>
+    <div class="pg2Text higher" ><div class="bottomAlignBox"><div >What I Can Do</div><div>
       <img class="arrow " src="Images\replaceGeometricArrow.png" alt="arrow left"></div></div>
     </div>
 
@@ -502,7 +503,7 @@ in 4.3.1 need use order and offset
                                   <% for (let i = 0; i<page3FirstBestCard.linksArray.length; i++) { %>
 
 
-                                 <a href= <%= page3FirstBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3FirstBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                                 <a onclick="anchorClick();"  href= <%= page3FirstBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3FirstBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
   <% }%>
                                 </div>
                               </div>
@@ -546,7 +547,7 @@ in 4.3.1 need use order and offset
                                 <% for (let i = 0; i<page3SecondBestCard.linksArray.length; i++) { %>
 
 
-                               <a href= <%= page3SecondBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3SecondBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                               <a onclick="anchorClick();" href= <%= page3SecondBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3SecondBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
                               <% }%>
 
 
@@ -597,7 +598,7 @@ in 4.3.1 need use order and offset
                                 <% for (let i = 0; i<page3ThirdBestCard.linksArray.length; i++) { %>
 
 
-                               <a href= <%= page3ThirdBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3ThirdBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                               <a onclick="anchorClick();"  href= <%= page3ThirdBestCard.linksArray[i].linkHyperlink %> ><Img class="cardHyperlinksImg" src= <%=page3ThirdBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
 <% }%>
                               </div>
 

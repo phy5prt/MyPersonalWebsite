@@ -101,13 +101,14 @@ function makeACard(projectCard){
         var technology = projectCard.technologiesArray[j];
     var cardTechnologyButtonTemplate = $cardTechnologyButtonTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
    cardTechnologyButtonTemplate.find('.cardTechlinksImg').attr("src", technology.technologyImagePath);
+    cardTechnologyButtonTemplate.find('.cardTechlinksImg').attr("value", technology.technologyName);
   cardTemplate.find('.topRightProjectTechnologiesArea').append(cardTechnologyButtonTemplate.clone(true));
   }
   for (var k = 0; k < projectCard.linksArray.length; k++){
     var link = projectCard.linksArray[k];
   var cardHyperlinkTemplate =$cardHyperlinkTemplateMaster.clone(true); /*not sure if clone is needed just worried about overwriting template*/
   cardHyperlinkTemplate.find('.cardHyperlinksImg').attr("src", link.linkImagePath);
-  cardHyperlinkTemplate.find('.hyperlinkAnchor').attr("href", link.linkHyperlink);
+  cardHyperlinkTemplate.find('.hyperlinkAnchor').attr("href", "whatever");   //link.linkHyperlink);
   cardTemplate.find('.cardHyperlinksArea').append(cardHyperlinkTemplate.clone(true));
 
 

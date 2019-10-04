@@ -1,4 +1,6 @@
 /*jshint esversion: 6 */
+
+function hi(){alert('Hi!');}
 function doIHaveEvent(event){
   console.log(event);
     console.log(event.data.aStringPP);

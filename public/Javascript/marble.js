@@ -13,7 +13,7 @@
 
 
     /*!!!!!!!!!Make this a function */
-
+console.log($(this));
         var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
 
   getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);

@@ -2105,15 +2105,7 @@ z-index:10;
  overflow: visible !important;
   visibility:inherit; /*I added*/
 }
-.cloud9-item {
-  width: auto;
-height:auto;
-  padding: 0;
-  text-align: center;
-  background-color: rgba(61, 9, 9, 0.8);
-/*  position:absolute;
-display:inline-block;added*/
-}
+
 
 /*Carousel Stylings*/
 
@@ -2363,7 +2355,7 @@ width:30vh;
 height:36vh;
   padding: 0;
   text-align: center;
-  background-color: rgba(61, 9, 9, 0.8);
+  background-color: transparent;
 /*  position:absolute;
 display:inline-block;added*/
 }
