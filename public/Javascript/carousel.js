@@ -111,11 +111,15 @@ const cloud9ItemTemplateMaster =  $("#cloud9ItemTemplate").contents();
 const $showcase = $("#showcase");
 
 function generateCarouselWithSaughtTechnologyCards(saughtTechnologyProjectCards = "allTechnologies"){
-var carouselCards=[{}];
+//var carouselCards=[{}];
 //rename project cards carousel cards, pg 4 make the all cards
-makeCarousel(           (saughtTechnologyProjectCards == "allTechnologies")?carouselCards = allProjectCards  :   carouselCards=saughtTechnologyProjectCards    );
+//makeCarousel(          ((saughtTechnologyProjectCards == "allTechnologies")?carouselCards = allProjectCards  :   carouselCards=saughtTechnologyProjectCards    );
 //wipe the currentshowcase
-
+if(saughtTechnologyProjectCards == "allTechnologies"){makeCarousel(allProjectCards);}
+  else if(saughtTechnologyProjectCards.length==0){
+       $("#carouselTechTitle").append(" couldn't be found showing all projects instead");
+    makeCarousel(allProjectCards);}
+  else{makeCarousel(saughtTechnologyProjectCards);}
 }
 
 
@@ -153,6 +157,7 @@ $showcase.append(cloud9ItemTemplate);
 
 /*allowing cards to be scaled and clickable*/
 initSetCards( $showcase);
+
  $showcase.find(".aCard").on('click',
 function cardToFront(e){
 
@@ -161,24 +166,26 @@ $('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
 var copyForSingleCardDisplay = $(this).parent().clone();
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
-copyForSingleCardDisplay.find(".aMarble").click(function(ev){
-//  ev.stopPropagation(); //!!!! we want it to close the card too
-    var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
-  //  console.log(saughtTechnology);
-  $(".carouselOverlay").removeClass("carouselDisplayNone");
-  $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
-   if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
-
-       $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
-    //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
-  getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
-
- $("#carouselTechTitle").text("All "+ "Projects");
-  generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
-  }
-
-})
+giveObjectItsMarblesTechClicks(copyForSingleCardDisplay, true  );
+// copyForSingleCardDisplay.find(".aMarble").click(function(ev){
+// //  ev.stopPropagation(); //!!!! we want it to close the card too
+//     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
+//   //  console.log(saughtTechnology);
+//   $(".carouselOverlay").removeClass("carouselDisplayNone");
+//   $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
+//    if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
+//
+//
+//        $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
+//     //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
+//   getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
+//
+//  $("#carouselTechTitle").text("All "+ "Projects");
+//   generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
+//   }
+//
+// })
 copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
 //do not do anything if this event was propagated from children
 //  if( e.target !== this ){  return;}else{
@@ -188,29 +195,32 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 //}
 );
 });
-
-$(".aMarble").click(
-function(ev){
-  ev.stopPropagation();
-    var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
-  //  console.log(saughtTechnology);
-  $(".carouselOverlay").removeClass("carouselDisplayNone");
-  $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
-   if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
+giveObjectItsMarblesTechClicks($showcase);
 
 
-       $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
-    //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
-  getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
-
- $("#carouselTechTitle").text("All "+ "Projects");
-  generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
-  }
-
-}
-
-
-);
+//
+// $(".aMarble").click(
+// function(ev){
+//   ev.stopPropagation();
+//     var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
+//   //  console.log(saughtTechnology);
+//   $(".carouselOverlay").removeClass("carouselDisplayNone");
+//   $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
+//    if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
+//
+//
+//        $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
+//     //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
+//   getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
+//
+//  $("#carouselTechTitle").text("All "+ "Projects");
+//   generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
+//   }
+//
+// }
+//
+//
+// );
 
 
 showcase.Cloud9Carousel( {
@@ -269,27 +279,6 @@ $(document).keydown( function( e ) {
 }
 
 
-$(".aMarble").click(
-function(ev){
-  ev.stopPropagation();
-    var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
-  //  console.log(saughtTechnology);
-  $(".carouselOverlay").removeClass("carouselDisplayNone");
-  $('section').not('.carouselOverlay, .singleCardOverlay').addClass("carouselBlur");
-   if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
-
-       $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
-    //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
-  getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);}else{
-
- $("#carouselTechTitle").text("All "+ "Projects");
-  generateCarouselWithSaughtTechnologyCards(); /*if havent found the technology just show all its a graceful fail*/
-  }
-
-}
-
-
-);
 
 // }
