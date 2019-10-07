@@ -1,4 +1,10 @@
 /*jshint esversion: 6 */
+/*
+<button class="test">ClickMe</button>
+*/
+
+
+
 
 function hi(){alert('Hi!');}
 function doIHaveEvent(event){
