@@ -16,6 +16,10 @@ event.cancelBubble = true; if(event.stopPropagation) {
 //probably need a page manager function for make files relevant and use that in the pg.js to call events
 
 
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+// $(function () {
+//   $('[data-toggle="tooltip"]').tooltip()
+// })
+/*so focus only from hover so if button clicked doesnt stay on with button being down*/
+$('[data-toggle="tooltip"]').tooltip({
+    trigger : 'hover'
 })

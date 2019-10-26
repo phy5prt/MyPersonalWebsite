@@ -698,6 +698,27 @@ content: "";
   }
 }
 
+.pulseAffordance {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+animation: pulse 1s infinite ;
+ -webkit-animation: pulse 0.5s infinite alternate;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+
+
+  }
+  75% {
+
+  /*  box-shadow: 0 0 0 25px rgba(255,255,255, 0);*/
+  }
+    100% {
+  /* box-shadow: 0 0 0 0 rgba(255,255,255, 0); */
+    box-shadow: 0 0 0 25px rgba(255,255,255, 0);
+  }
+}
+
 /*make it so can toggle between rolling and end rolling with pseudo ::*/
 /*pg2*/
 .pg2MarbleAnimX {

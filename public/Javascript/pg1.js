@@ -4,7 +4,7 @@ $(window).on('beforeunload', function() {
 $(".bottomRightPage1").get(0).scrollIntoView();
 });
 
-$(document).ready(function(){
+ //$(document).ready(function(){ //breaks the case!
 //setTimeout( function () {
 
   //something is interupting it give it a second and it will move
@@ -16,7 +16,7 @@ $(".bottomRightPage1").get(0).scrollIntoView();
 
 $(".grayUntilJQueryLoads").remove();
 //}, 1000);
-});
+// });
 
 
 let delayBetweenGlassAnim = 300;
@@ -31,7 +31,11 @@ turnOnDrinkButtonAffordanceTimer();
 
     let thisDrink = $(this);
 
+    setTimeout(function(){ thisDrink.addClass("pulseAffordance"); }, delayBetweenGlassAnim*2*index+delayToAllowRead); /*so get read delay twice*/
+
     setTimeout(function(){ thisDrink.addClass("affordanceDropShadow"); }, delayBetweenGlassAnim*index);
+
+
 
     thisDrink.delay(delayBetweenGlassAnim*index).animate({  borderSpacing: -10 }, {
     step: function(now,fx) {
@@ -70,7 +74,7 @@ turnOnDrinkButtonAffordanceTimer();
 
 $(" .drinkButton ").click(function(e) {
 
-
+$(this).tooltip('hide');
 
 clearTimeout(clickMeDrinkAffordanceTimeout);
 //gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, useLeft =true)
