@@ -1,10 +1,11 @@
 /*jshint esversion: 6 */
 //$(".bottomRightPage1").get(0).scrollIntoView();
 $(window).on('beforeunload', function() {
-$(".bottomRightPage1").get(0).scrollIntoView();
+
+$(".bottomRightPage1").get(0).scrollIntoView({block: "center", inline: "center"});
 });
 
- //$(document).ready(function(){ //breaks the case!
+ //$(document).ready(function(){ //breaks the marblecase!
 //setTimeout( function () {
 
   //something is interupting it give it a second and it will move
