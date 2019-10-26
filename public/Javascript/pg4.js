@@ -42,10 +42,10 @@ function makeMarbLocArrPG4(){
 var  marbleLineLocationArr = [];
   var marbleOnLineWidth = 100; // later just make marble width in utils
     var marbleOnLineHeight = 100;
-  var divTransOriginYAdjustment = -(marbleOnLineHeight+25);
+  var divTransOriginYAdjustment = -(marbleOnLineHeight+27);//+25
   var divTransOriginXAdjustment = 0;
   var linearGradDeg = 195;
-  var gradPerc = 43;
+  var gradPerc = 43; //43
     for ( i = 0; i<= (W-marbleOnLineWidth); i+=marbleOnLineWidth){
       var xLoc=i;
     //  gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment)
@@ -65,10 +65,10 @@ function makeMarbSpawnLoc(xValueRightRelPg4){
 
 
   var marbleOnLineHeight = 100;
-  var divTransOriginYAdjustment = -(marbleOnLineHeight+25);
+  var divTransOriginYAdjustment = -(marbleOnLineHeight);//25 but change because scroll removal changed it
   var divTransOriginXAdjustment = 0;
   var linearGradDeg = 195;
-  var gradPerc = 44;
+  var gradPerc = 43;
 
       var xLoc=xValueRightRelPg4;
     //  gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment)
