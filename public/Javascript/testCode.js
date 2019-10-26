@@ -14,13 +14,13 @@
 // {aStringPP:"goat"},doIHaveEvent
 $(".test").click(
 
-// function(){
+function(){
 //
 //    $("#firstRowCornerNav").fadeTo(1000, 0);
 //    $("#firstRowCornerNav").
   // children.fadeOut(1000);
 
-
+$(".bottomRightPage1").get(0).scrollIntoView();
 
 }
 

@@ -1,8 +1,21 @@
 /*jshint esversion: 6 */
+//$(".bottomRightPage1").get(0).scrollIntoView();
+$(window).on('beforeunload', function() {
 $(".bottomRightPage1").get(0).scrollIntoView();
+});
+$(document).ready(function(){
+//setTimeout( function () {
+
+  //something is interupting it give it a second and it will move
+    //thought not to the right place
+
+$(".bottomRightPage1").get(0).scrollIntoView();
+// var viewStart = document.getElementById('viewStart');
+// viewStart.scrollIntoView();
+
 $(".grayUntilJQueryLoads").remove();
-
-
+//}, 1000);
+});
 
 
 let delayBetweenGlassAnim = 300;
@@ -56,8 +69,7 @@ turnOnDrinkButtonAffordanceTimer();
 
 $(" .drinkButton ").click(function(e) {
 
-$(" .drinkButton ").not(this).hide("slow"); //hide the other buttons
- //css in buis card make this take 4 seconds
+
 
 clearTimeout(clickMeDrinkAffordanceTimeout);
 //gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, useLeft =true)
@@ -159,9 +171,20 @@ $(".pg2CardContainer").css({
 
 });
 
+/*the shake animation if it occurs during this will re show the glasses*/
+  $(" .drinkButton ").not(this).fadeTo(1000,0); //hide the other buttons
+  $(".fontOrnaments, #fancyADrink ").fadeTo(1000,0);
+
+//hide works but is too distracting
+// $(" .drinkButton ").not(this).hide("slow"); //hide the other buttons
+// $(".fontOrnaments, #fancyADrink ").hide("slow");
+ //css in buis card make this take 4 seconds
+
    }, 4150); //this is a magic number at moment it should be all the animation times added together
 
  });
+
+
 
 
 $(".tabPage1To2").click(function() {
