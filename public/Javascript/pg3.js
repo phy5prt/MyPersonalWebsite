@@ -363,27 +363,29 @@ function calcEllipsePos(objectToMove, ang) {
 
   if (cosAng >= 0 && sinAng <= 0) { //console.log("top right");
     sinAng = -1;
-    adjustYMovePoint = adjustYMovePoint + 10;
+    //adjustYMovePoint = adjustYMovePoint + 10;
   } else if (cosAng <= 0 && sinAng < 0) { //console.log("top left");
     adjustXMovePoint = adjustXMovePoint - marbleRadius / 2 * sinAng + 10;
-    adjustYMovePoint = adjustYMovePoint - marbleRadius / 2 * cosAng + 10;
+    adjustYMovePoint = adjustYMovePoint - marbleRadius / 2 * cosAng;// + 10;
   } else if (cosAng < 0 && sinAng >= 0) { //console.log("bottom left");
     if (sinAng < 0.5) { //"bottom left top, halved this is the left section");
       cosAng = -1; //stick left hand side
       sinAng = sinAng + (sinAng - 0.5) + (0.5 - 0); //first brackets tend to zero start -0.5  //stretch so doesnt jump
-      adjustXMovePoint = adjustXMovePoint + 10; // just trying to adjust for it being off 10px
+      adjustXMovePoint = adjustXMovePoint;// + 10; // just trying to adjust for it being off 10px
     } else if (sinAng >= 0.5) { //"bottom left top, halved this is the right section");
       //console.log("bottom flat");
       sinAng = 1; //stickToBottom
       //= desiredStart+(finish-desiredStart)*(progress-start)/(finish-start)   //stretchBackWardsLeft
       var whereCosAWillActuallyStart = -Math.cos(Math.asin(0.5));
       cosAng = -1 + (1) * ((cosAng - whereCosAWillActuallyStart) / (0 - whereCosAWillActuallyStart));
+      adjustXMovePoint = adjustXMovePoint;// + 10 * cosAng;
+      adjustYMovePoint = adjustYMovePoint- 10 * sinAng;
     }
   } else if (cosAng > 0 && sinAng > 0) { //console.log("bottom right");
-    adjustXMovePoint = adjustXMovePoint + 10 * cosAng;
-    adjustYMovePoint = adjustYMovePoint - 10 * sinAng;
+    adjustXMovePoint = adjustXMovePoint; //+ 10 * cosAng;
+    adjustYMovePoint = adjustYMovePoint - 10 * sinAng-10;
   } else {
-    console.log("at angle " + ang + " sinAng was " + sinAng + " cosAng was " + cosAng + " and they didnt fall into an if ");
+  //  console.log("at angle " + ang + " sinAng was " + sinAng + " cosAng was " + cosAng + " and they didnt fall into an if ");
   }
 
   calcEllipsePos.pageX = centerEllipseX + leftMidX * sinAng + halfEllipseWidth * cosAng + adjustXMovePoint;
