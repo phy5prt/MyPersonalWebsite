@@ -3,6 +3,7 @@
 $(window).on('beforeunload', function() {
 $(".bottomRightPage1").get(0).scrollIntoView();
 });
+
 $(document).ready(function(){
 //setTimeout( function () {
 

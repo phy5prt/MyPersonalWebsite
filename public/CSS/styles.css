@@ -1205,23 +1205,6 @@ justify-content: flex-start;
 
 
 
-.pg4Text{
-  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
-when refactor set the h's to the same font but different font sizes and have this one as h1
-  */
-  font-size: 5rem;
-  font-family: 'PT Serif', serif;
-  line-height: 1.5em;
-
-  color:black;
-  position:absolute;
-  right:0;
-  top:0;
-
-  /*use margin or */
-  margin:5vh 5vw;
-    z-index:3;
-}
 
 
 
@@ -1315,23 +1298,7 @@ background:transparent;
 }
 
 
-.pg4Text{
-  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
-when refactor set the h's to the same font but different font sizes and have this one as h1
-  */
-  font-size: 5rem;
-  font-family: 'PT Serif', serif;
-  line-height: 1.5em;
 
-  color:black;
-  position:absolute;
-  right:0;
-  top:0;
-
-  /*use margin or */
-  margin:5vh 5vw;
-  z-index:3;
-}
 
 .cardPG4{
   width:125px;
@@ -2241,7 +2208,40 @@ content:'';
   z-index:2;
   pointer-events: none;
 }
+.myNumber{
+height:2rem;
+display:block;
+margin:1rem 0 1rem auto;
+}
+.myEmail{height:2rem;
+display:block;
+margin:1rem 0 1rem auto;
+}
+.personalDetailsPG4{
+  position:absolute;
+  right:0;
+  top:0;
 
+  /*use margin or */
+  margin:3vh 3vw; /*was 5*/
+    z-index:3;
+    display:block;
+
+
+}
+
+.pg4Text{
+  /*i'm taking element from the h1 because i want the h1 properties but not the sizes
+when refactor set the h's to the same font but different font sizes and have this one as h1
+  */
+  font-size: 5rem;
+  font-family: 'PT Serif', serif;
+
+white-space:nowrap;
+  color:black;
+
+text-align: right;
+}
 
 .pg2TableContainer{height:100%}
 
