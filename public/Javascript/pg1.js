@@ -31,7 +31,7 @@ turnOnDrinkButtonAffordanceTimer();
 
     let thisDrink = $(this);
 
-    setTimeout(function(){ thisDrink.addClass("pulseAffordance"); }, delayBetweenGlassAnim*2*index+delayToAllowRead); /*so get read delay twice*/
+    setTimeout(function(){ thisDrink.addClass("pulseAffordanceBox"); }, delayBetweenGlassAnim*2*index+delayToAllowRead); /*so get read delay twice*/
 
     setTimeout(function(){ thisDrink.addClass("affordanceDropShadow"); }, delayBetweenGlassAnim*index);
 

@@ -698,26 +698,81 @@ content: "";
   }
 }
 
-.pulseAffordance {
-  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
-animation: pulse 1s infinite ;
- -webkit-animation: pulse 0.5s infinite alternate;
+
+.pulseAffordanceDrop {
+  filter: drop-shadow(0 0 0 white);
+animation: pulseDrop 0.5s infinite alternate;
+ -webkit-animation: pulseDrop 0.5s infinite alternate;
 }
 
-@-webkit-keyframes pulse {
+@-webkit-keyframes pulseDrop {
+  0% {
+
+
+  }
+  50% {
+filter:drop-shadow(0  0 25px white);
+  /*  box-shadow: 0 0 0 25px rgba(255,255,255, 0);*/
+  }
+    100% {
+  /* box-shadow: 0 0 0 0 rgba(255,255,255, 0); */
+
+  }
+}
+
+
+
+
+.pulseAffordanceBox {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+animation: pulseBox 0.5s infinite alternate;
+ -webkit-animation: pulseBox 0.5s infinite alternate;
+}
+
+@-webkit-keyframes pulseBox {
   0% {
 
 
   }
   75% {
 
-  /*  box-shadow: 0 0 0 25px rgba(255,255,255, 0);*/
+
   }
     100% {
   /* box-shadow: 0 0 0 0 rgba(255,255,255, 0); */
     box-shadow: 0 0 0 25px rgba(255,255,255, 0);
   }
 }
+
+
+
+.pulseAffordanceBoxStrong {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+animation: pulseBoxStrong 1s infinite ;
+ -webkit-animation: pulseBoxStrong 1s infinite;
+}
+
+@-webkit-keyframes pulseBoxStrong {
+  0% {
+
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  25% {
+  box-shadow: 0 0 0 15px rgba(255,255,255, 1);
+
+  }
+  50%{
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+    75% {
+  /* box-shadow: 0 0 0 0 rgba(255,255,255, 0); */
+    box-shadow: 0 0 0 15px rgba(0,0,0, 0.5);
+  }
+  100%{
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
 
 /*make it so can toggle between rolling and end rolling with pseudo ::*/
 /*pg2*/

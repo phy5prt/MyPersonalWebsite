@@ -205,6 +205,7 @@ function getRadOfARelativeToB(AXCoord, AYCoord, BXCoord, BYCoord) { // i think t
 
 //applies the function to the down event
 $dial.mousedown(function(event) {
+
   var startDragRad = getStartClickRad(event);
   $(document).bind('mousemove', startDragRad, function(event) {
     calcCurrentRadDragCoveredAndApply(event, startDragRad);
@@ -256,11 +257,11 @@ function outOfArcInvisMarb23(marbleNo, marble1Rads, radsOfMag) {
         case 2:
           marb2Img.hide();
           marb3Img.hide();
-          console.log("im hiding marble 3");
+        //  console.log("im hiding marble 3");
           break;
         case 3:
           marb3Img.hide();
-          console.log("im hiding marble 3");
+        //  console.log("im hiding marble 3");
           break;
 
       }
@@ -291,6 +292,7 @@ var wheelListnerIncMagRad = function(e) {
 
 /*change name so its runTransistionPG3To4*/
 function runPageTransistion() {
+  $('.dial').removeClass("pulseAffordanceBox");
   console.log("page transistion triggered");
 
   window.removeEventListener("resize", updatePG3VarsWithWindow);

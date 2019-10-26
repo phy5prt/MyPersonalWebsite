@@ -120,7 +120,7 @@ setTimeout(magnifierAffordance,200);
 
 /*Make resizable div a simplified version base on one by Hung Nguyen*/
 function makeResizableDiv(div) {
-  console.log("make resizeable called");
+//  console.log("make resizeable called");
   const element = document.querySelector('div');
 
   const minimum_size = 180;
@@ -142,12 +142,13 @@ function makeResizableDiv(div) {
 
   var stopResizeMarbleCase = function() {
 
-   console.log("stopping resize");
+   //console.log("stopping resize");
     window.removeEventListener('mousemove', resizeMarbleCase);
   };
 
   element.addEventListener('mousedown', function(e) {
 
+$(".handle").removeClass("pulseAffordanceDrop");
 
     e.preventDefault();
     original_width = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));
@@ -174,5 +175,7 @@ function magnifierAffordance(){
   $('.theMagnifierImg').addClass('magnifierAffordanceAnim').addClass('affordanceDropShadow');
   setTimeout(function(  ){
       $('.theMagnifierImg').removeClass('magnifierAffordanceAnim').removeClass('affordanceDropShadow');
+      $(".handle").removeClass("pulseAffordanceDrop");
+      setTimeout(function(){$('.dial').addClass("pulseAffordanceBox");},1000)
 },1000)
 }
