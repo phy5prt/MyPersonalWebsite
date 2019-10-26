@@ -203,18 +203,39 @@ function getRadOfARelativeToB(AXCoord, AYCoord, BXCoord, BYCoord) { // i think t
   return radsRelative;
 }
 
+
+function  fadeBackInTopNavRow() {
+$(document).unbind('mouseup',fadeBackInTopNavRow);
+
+    $("#firstRowCornerNav").fadeTo(1000,1);
+     $(".cornerNav").css( 'background-color', '	rgba(128,128,128,1)');
+
+
+   }
+
 //applies the function to the down event
 $dial.mousedown(function(event) {
 
+  $("#firstRowCornerNav").fadeTo(500,0);
+   $(".cornerNav").css( 'background-color', '	rgba(128,128,128,0)');
+
   var startDragRad = getStartClickRad(event);
   $(document).bind('mousemove', startDragRad, function(event) {
+
     calcCurrentRadDragCoveredAndApply(event, startDragRad);
   });
+  $(document).bind('mouseup',fadeBackInTopNavRow);
   //believe this is so you dont pull the image using normal drag rules
 
   return false;
 
 });
+
+
+//why isnt there another mouse up
+//so want to include if mouse up happens after no longer over element so using page
+//could do mouse leave mouse out etc
+
 
 /* - moving this to the transistion for now - but it has two issue
  - one using bind is seems too global as effects the glass case

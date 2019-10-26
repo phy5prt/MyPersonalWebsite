@@ -1283,9 +1283,20 @@ justify-content: flex-start;
 
 
 
-
-.corner-background {
-  background-color: grey;
+.cornerBackground{  background-color: 	rgba(128,128,128,1);
+  -webkit-transition:background-color 0.75s;
+     -moz-transition:background-color 0.75s;
+     transition:background-color 0.75s;}
+.cornerBackgroundTest{  background-color: rgba(128,128,128,1);
+  -webkit-transition:background-color 0.75s;
+     -moz-transition:background-color 0.75s;
+     transition:background-color 0.75s;
+}
+.cornerNav {
+ background-color: rgba(128,128,128,1);
+ -webkit-transition:background-color 0.75s;
+   -moz-transition:background-color 0.75s;
+   transition:background-color 0.75s;
   position: fixed;
   height: 375px;
   width: 350px;
