@@ -1,3 +1,5 @@
+//should exclude scroll bars 
+
 var W = document.documentElement.clientWidth;
 var H = document.documentElement.clientHeight;
 
@@ -46,7 +48,7 @@ var blackLineC = intersectY - blackLineGrad * intersectX;
 //var blackLineCReverse = intersectY - (-1)*blackLineGrad * intersectX;
 
 //does this make sense we want to find something relative to a point on an object
-//but move their corner based on top left, 
+//but move their corner based on top left,
     var right = xLoc+divTransOriginXAdjustment;
   //  console.log("blackLineGrad=  "+blackLineGrad+"  blackLineC= " + blackLineC +"  divTransOriginYAdjustment=  "+divTransOriginYAdjustment);
     var top = blackLineGrad * (right)+ blackLineC+divTransOriginYAdjustment; //but some cards wont be placed

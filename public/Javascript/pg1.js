@@ -83,7 +83,7 @@ var arrMarbAndCardPos=[];
 // this works for(let i=0;i<101;i+=100){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, -50, -90));}
 //the object are different sizies so not altering the x and y here really should calc seperately
 //using i as pixel doesnt make sense card is in vw and is transformed with perspective
-for(let i=0;i<41;i+=40){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, 0, 0));}
+for(let i=0;i<41;i+=30){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i, 0, 0));}
   $(".drinkButton").prop("disabled", true); //TODO need to stop unhovering from drinks Div changing animation trajectory
 
   $(this).find("img").css(
@@ -166,14 +166,14 @@ let calcRightFromLeftMyMarb = W- ($(".philProfileMarble").offset().left +  $(".p
 ////!!!!!!!!!!!!!!!!!!!!!!!!! place marble on line and add ajust for that we are placing by top but want bottom on line
 ///console.log("right = " + arrMarbAndCardPos[0][0] + " top = " + arrMarbAndCardPos[0][1] );
 $(".philProfileMarble").css({
- 'right':  arrMarbAndCardPos[0][0]-50 +'px',
- 'top':  arrMarbAndCardPos[0][1]-95+'px'
+ 'right':  arrMarbAndCardPos[0][0]-55 +'px',
+ 'top':  arrMarbAndCardPos[0][1]-105+'px'
 
 });
 //the cards transform is after card placed
 $(".pg2CardContainer").css({
- 'right': arrMarbAndCardPos[1][0]-50 +'px' , //minus 50 so touching card
- 'top':  'calc(' + arrMarbAndCardPos[1][1]+'px' + ' - 18vh )'  //this is the height of card 20vh and a bit to adjust for perspective
+ 'right': arrMarbAndCardPos[1][0]-55 +'px' , //minus 50 so touching card
+ 'top':  'calc(' + (arrMarbAndCardPos[1][1]-10)+'px' + ' - 18vh )'  //this is the height of card 20vh and a bit to adjust for perspective
 
 });
 
@@ -204,7 +204,7 @@ ifInArcApplyDrag(setInitVars());//seems to work nicer than resizing not quite no
   },{duration: 800, complete: function(){
     slideInDrawAffordance();
 setTimeout(function(){$(".philProfileMarble").removeClass("rollingAntiClockwise");
-$(".pg2CardContainer").removeClass("shakeCardAffordance");},1000)
+$(".pg2CardContainer").removeClass("shakeCardAffordance");},3000)
   }});
 
   /*im not dealing with this at moment so getting marble in the right place is just so i can see what im making*/
