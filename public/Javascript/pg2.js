@@ -54,8 +54,8 @@ let marbleOldOffsetProf;
   marbleWorkingOnProf
    //down slope calculate bottom location
    .animate({
-    right: endLinePosPG2[0]-50, //these vars same as pg1
-    top: endLinePosPG2[1]-95,
+    right: endLinePosPG2[0]-55, //these vars same as pg1
+    top: endLinePosPG2[1]-105,
   },slopeTravelTime, 'linear')
 //jump
 .animate({

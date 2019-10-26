@@ -65,7 +65,7 @@ function makeMarbSpawnLoc(xValueRightRelPg4){
 
 
   var marbleOnLineHeight = 100;
-  var divTransOriginYAdjustment = -(marbleOnLineHeight);//25 but change because scroll removal changed it
+  var divTransOriginYAdjustment = -(marbleOnLineHeight+27);//25 but change because scroll removal changed it
   var divTransOriginXAdjustment = 0;
   var linearGradDeg = 195;
   var gradPerc = 43;
