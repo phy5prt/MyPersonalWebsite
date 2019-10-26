@@ -55,6 +55,10 @@ turnOnDrinkButtonAffordanceTimer();
 
 
 $(" .drinkButton ").click(function(e) {
+
+$(" .drinkButton ").not(this).hide("slow"); //hide the other buttons
+ //css in buis card make this take 4 seconds
+
 clearTimeout(clickMeDrinkAffordanceTimeout);
 //gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment, useLeft =true)
 var arrMarbAndCardPos=[];
@@ -105,7 +109,7 @@ for(let i=0;i<41;i+=40){arrMarbAndCardPos.push( gradLinePosCalc(165, 43,0.3*W+i,
 
   setTimeout(function() {
 
-
+$('.businessCard').css('background', '#262626');
     $(".drinkButton").prop("disabled", true);
 
 

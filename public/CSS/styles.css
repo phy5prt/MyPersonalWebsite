@@ -775,10 +775,17 @@ transform: perspective(400px) rotateY(73deg);
 
 /*  background-color: #262626;  *//*i like but others dont probably partly due to i have screen full brightness*/
 
+
   border-style: groove;
   border-color: black;
   color: black;
  border-width: 5px 8px 8px 5px;
+
+ background: transparent;
+   transition: background 1s linear;
+   -webkit-transition: background 1s linear;
+   -moz-transition: background 1s linear;
+
 }
 
 .buisnessCardShadow{
