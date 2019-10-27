@@ -84,7 +84,7 @@ var centerMagGlobalY = $dial.offset().top + centerMagImgY;
 
 //These variables are used for producing the ellipse they assume the center of the ellipse is center of the page instead of calculating it
 var centerEllipseX = [document.documentElement.clientWidth] / 2;
-var centerEllipseY = [document.documentElement.clientHeight] / 2;
+var centerEllipseY = [document.documentElement.clientHeight]*0.8 / 2+100; //Changed from divide by two because ensuring gap at top now as 100px
 
 var halfEllipseWidth = parseInt($(".bestCardsArea").css("width"), 10) / 2;
 var halfEllipseHeight = parseInt($(".bestCardsArea").css("height"), 10) / 2;

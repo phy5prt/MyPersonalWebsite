@@ -1153,7 +1153,9 @@ the two objects are exactly the same i think
   z-index: 1;
   display: flex;
   flex-direction: column;
-  margin:auto; /* auto auto 200px;*/
+/*  margin:auto; */
+margin:100px auto auto auto;
+/* auto auto 200px;*/
 }
 
 
