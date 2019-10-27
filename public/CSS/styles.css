@@ -1463,7 +1463,11 @@ z-index:-1;
 
 /*for card sheen*/
 
-.exampleCardHyperlinkWriting{font-size:1vh; width:70px; height:15px; vertical-align:text-bottom;; text-align:left;padding-top:2px;
+.exampleCardHyperlinkWriting{
+  font-size:8px;
+  width:70px;
+  height:15px;
+  vertical-align:text-bottom;; text-align:left;padding-top:2px;
   background-color: rgba(255, 255, 0, 0.7);
   box-shadow: 0 0 5px 2px yellow;
 }
@@ -1482,7 +1486,7 @@ top:0%;/*left:0;*/
 white-space: nowrap;
 width:70px;
 height:19px;
-font-size: 1vh;
+font-size: 8px;
 font-stretch: expanded;
 text-align: left;
 vertical-align: middle;
