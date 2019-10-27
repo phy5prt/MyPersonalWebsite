@@ -548,11 +548,11 @@ function magnifyCards(magCardAng){
   cosAngVal = Math.cos(magCardAng);
   sinAngVal = Math.sin(magCardAng);
 
-lgLeftCardScaleChange = maxScalePercChange*cosAngVal;
+lgLeftCardScaleChange = maxScalePercChange*(-1)*sinAngVal;
 if(lgLeftCardScaleChange<0){lgLeftCardScaleChange=0;}
-lgMiddleCardScaleChange = maxScalePercChange*(sinAngVal);
+lgMiddleCardScaleChange = maxScalePercChange*(cosAngVal);
 if(lgMiddleCardScaleChange<0){lgMiddleCardScaleChange=0;}
-lgRightCardScaleChange = maxScalePercChange*(-1)*sinAngVal;
+lgRightCardScaleChange = maxScalePercChange*sinAngVal;
 if(lgRightCardScaleChange<0){lgRightCardScaleChange=0;}
 
 //console.log("lgLeftCardScaleChange = " + lgLeftCardScaleChange +" were using cosAngVal = "+cosAngVal+" sinAngVal = "+ sinAngVal)
