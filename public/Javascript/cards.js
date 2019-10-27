@@ -11,6 +11,8 @@ function initSetCards(parent){
        );
 
     // vsd.css({transform: "translate(-50%, -50%) " + "scale(" + scale + ")"  });
+    if(vsd.is("#shapeCardsOriginalScale")){$shapeCardsOriginalScale = scale;} //this is because it is hard to read style element for scale
+
      vsd.css({transform: "translate(-50%, 0%) " + "scale(" + scale + ")"  });
 
      });

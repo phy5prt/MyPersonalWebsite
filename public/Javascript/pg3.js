@@ -179,6 +179,7 @@ function ifInArcApplyDrag(radTravelledThisDrag) {
     placeMarbles(totalRadDragCovered);
 
     var rotMagAmountFinal = totalRadDragCovered + initRadRotToMakeMagNorth; //the number added is to correct for the image not naturally pointing north
+
     $dial.css('transform', 'rotate(' + rotMagAmountFinal + 'rad)'); // this is changing the magnifier angle
   }
 }
@@ -334,7 +335,8 @@ rollAllMarblesInPG4();
 
 //////                                                                                                    !!!!!!!!the ellipse equation
 function calcEllipsePos(objectToMove, ang) {
-
+//unfortunately being here means it runs 3x once per marble not once per distance turned
+magnifyCards(ang);
 
   //trying to find the center based on shape top offset too large - wondering if its the editor
   //var centerEllipseX = parseInt($(".bestCardsArea").css("width"), 10) / 2 + $(".bestCardsArea").offset().left;
@@ -364,6 +366,7 @@ function calcEllipsePos(objectToMove, ang) {
   if (cosAng >= 0 && sinAng <= 0) { //console.log("top right");
     sinAng = -1;
     //adjustYMovePoint = adjustYMovePoint + 10;
+
   } else if (cosAng <= 0 && sinAng < 0) { //console.log("top left");
     adjustXMovePoint = adjustXMovePoint - marbleRadius / 2 * sinAng + 10;
     adjustYMovePoint = adjustYMovePoint - marbleRadius / 2 * cosAng;// + 10;
@@ -438,7 +441,7 @@ function placeMarbles(rads1stMarble) {
     if (marbleToMove == 3) {
       /*if there is a gap set the location and move on to next sequence*/
       if (checkIfSpaceToMoveIfSoMove(marbleRadius, calcEllipsePos(marbleOnShape2, rads2ndMarble), calcEllipsePos(marbleOnShape3, i))) {
-        console.log("placing marble3");
+      //  console.log("placing marble3");
         outOfArcInvisMarb23(3, rads1stMarble, i); //this is a fix for the different centers issue
         marbleToMove++;
         break;
@@ -448,7 +451,7 @@ function placeMarbles(rads1stMarble) {
     }
   }
   if (marbleToMove < 4) {
-    console.log(" not all marbles placed the marbles not placed have been made invisible  the  variables for the loop need to be tweaked so this doesnt happen ");
+  //  console.log(" not all marbles placed the marbles not placed have been made invisible  the  variables for the loop need to be tweaked so this doesnt happen ");
     switch (marbleToMove) {
       case 2:
         marb2Img.hide();
@@ -533,8 +536,35 @@ function getRotationRad(obj) {
 }
 
 
+$lgLeftCard = $("#lgLeftCard").find(".aCard");
+$lgRightCard = $("#lgRightCard").find(".aCard");
+$lgMiddleCard = $("#lgMiddleCard").find(".aCard");
 
+var $shapeCardsOriginalScale;
+let lgLeftCardScaleChange, lgMiddleCardScaleChange, lgRightCardScaleChange,cosAngVal,  sinAngVal;
+let maxScalePercChange = 0.75;//0.25;
 
+function magnifyCards(magCardAng){
+  cosAngVal = Math.cos(magCardAng);
+  sinAngVal = Math.sin(magCardAng);
+
+lgLeftCardScaleChange = maxScalePercChange*cosAngVal;
+if(lgLeftCardScaleChange<0){lgLeftCardScaleChange=0;}
+lgMiddleCardScaleChange = maxScalePercChange*(sinAngVal);
+if(lgMiddleCardScaleChange<0){lgMiddleCardScaleChange=0;}
+lgRightCardScaleChange = maxScalePercChange*(-1)*sinAngVal;
+if(lgRightCardScaleChange<0){lgRightCardScaleChange=0;}
+
+//console.log("lgLeftCardScaleChange = " + lgLeftCardScaleChange +" were using cosAngVal = "+cosAngVal+" sinAngVal = "+ sinAngVal)
+
+$lgLeftCard.css({transform: "translate(-50%, 0%) " + "scale(" + $shapeCardsOriginalScale*(lgLeftCardScaleChange+1) + ")"  });
+//+"+(-1)*100*lgLeftCardScaleChange + "+
+$lgRightCard.css({transform: "translate(-50%, 0%) " + "scale(" + $shapeCardsOriginalScale*(lgRightCardScaleChange+1) + ")"  });
+//+"+(-1)*100*lgRightCardScaleChange + "+
+$lgMiddleCard.css({transform: "translate(-50%, 0%) " + "scale(" + $shapeCardsOriginalScale*(lgMiddleCardScaleChange+1) + ")"  });
+//+"+(-1)*100*lgMiddleCardScaleChange +"+
+
+}
 
 
 ////                                                           !!!!!!!!!! Notes for when return to doing the front end
