@@ -59,9 +59,9 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");}
 
 //!!!!!!!!    This the same except im inserting the animation so if i put cardToFrontClick in time out it will not have the animation in its
 //click to close single card display function, so i would need to find the event function and add to it so for now leaving it
-$(".theExplanationCard").on('click',
+$(".theExplanationCard, #myMarble").on('click',exampleCardToFront);
 function exampleCardToFront(){
-  var copyForSingleCardDisplay = $(this).parent().clone();
+  var copyForSingleCardDisplay = $(".theExplanationCard").parent().clone();
   //!!!!!!!!!!!!!!!!!!!!!added bit
   $(".pg2CardContainer").addClass("invisible");
   $(".philProfileMarbleImg").addClass("rollingAntiClockwise");
@@ -78,12 +78,17 @@ copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //renam
 $(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 
+
+//were excluding the me marble initially so easy to click eithe marble or card to start the roll on pg2 then setting it to how it should be
+$("#myMarble").off('click',exampleCardToFront);
+$("#myMarble").click({propagate:false},marbleTechClick);
+
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 animateToPage3();
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 //}
 });
-},100);});
+},100);}
 const cardTemplateMaster = $("#cardTemplate").contents();
 const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();

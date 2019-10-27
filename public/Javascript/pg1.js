@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 //$(".bottomRightPage1").get(0).scrollIntoView();
 $(window).on('beforeunload', function() {
-
+$("body").prepend("<div class='grayUntilJQueryLoads'></div>");
 $(".bottomRightPage1").get(0).scrollIntoView({block: "center", inline: "center"});
 });
 

@@ -13,7 +13,7 @@
 
 
     /*!!!!!!!!!Make this a function */
-console.log($(this));
+//console.log($(this));
         var saughtTechnology = $(this).attr('value');  /*var attr = $(this).attr('name'); */
 
   getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology);
@@ -22,4 +22,4 @@ console.log($(this));
   }
 
 
-$(".aMarble").click({propagate:false},marbleTechClick);
+$(".aMarble").not("#myMarble").click({propagate:false},marbleTechClick);
