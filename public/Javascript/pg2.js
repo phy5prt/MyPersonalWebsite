@@ -117,14 +117,15 @@ setTimeout(magnifierAffordance,200);
 
 }
 
-
+const thirtyPercViewportWidth = $(window).width()*0.3;
 /*Make resizable div a simplified version base on one by Hung Nguyen*/
 function makeResizableDiv(div) {
 //  console.log("make resizeable called");
   const element = document.querySelector('div');
 
   const minimum_size = 180;
-  const maximum_size = 800;
+/*  const maximum_size = 800;*/
+  const maximum_size = thirtyPercViewportWidth;
   let original_width = 0;
   let original_x = 0;
   let original_mouse_x = 0;
