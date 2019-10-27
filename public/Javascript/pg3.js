@@ -494,26 +494,39 @@ function moveMyObject(ObjAndMoveLoc) {
 /////////////////////////////////                             !!!!!!!!!!!!!!!!!!!!Rotate the marbles
 
 function rotateMarbleBasedOnDelta(marble) {
+  //lots wrong with this
+  //all marbles are moving so calculating rotation once would be better
+//small rotations arnt visible and may not be readable so may actually not turn
+// if css rounds it down each step
+// so should stock pile the change and add only apply when enough for smallest visible change
+//could drop the square route and just square the deltas if wanted as curve is neither shortest or longest distance
+
+  //Y change doesnt seem to be contributing to rotation
   /*rotation direction based on x direction*/
 
   var marbleWillTravelX = marble.pageX - parseInt($(marble.objectToMove).css("left"), 10);
 
-  var rotDirection = Math.sign(marbleWillTravelX); //put in math round?
+  var rotDirection = Math.sign( marbleWillTravelX ); //put in math round?
+
   /*need drop the px*/
   var marbleWillTravelY = marble.pageY - parseInt($(marble.objectToMove).css("top"), 10);
 
   /*flawed because not measuring arc but straight but at this scale doesnt really matter*/
-  var distanceTravelled = Math.sqrt((Math.pow(marbleWillTravelX, 2) + Math.pow(marbleWillTravelY, 2))); /*same math as min distance calcuation but needs current location marble.css right etc*/
 
+  var distanceTravelled = Math.sqrt((Math.pow(marbleWillTravelX, 2) + Math.pow(marbleWillTravelY, 2))); /*same math as min distance calcuation but needs current location marble.css right etc*/
+//console.log(Math.abs(marbleWillTravelY));
+//var distanceTravelled = (Math.abs(marbleWillTravelX)>Math.abs(marbleWillTravelY))? Math.abs(marbleWillTravelX) : Math.abs(marbleWillTravelY);
 
   /*im rotating by an amount that is change in distance from where it was last, divided by pi*diameter of the image
   this will give how many circumferences the move is (the movement is actually straight line between two old position so bigger jumps will be less acurate representation of the arc distance covered) then i multiply by 2*Pi which is a full rotation in radians
   im not cancelling so easier to follow later*/
+//var asDistanceIsNotCurveUsingAMagicNumber = 0.200; //*asDistanceIsNotCurveUsingAMagicNumber; ///
+  var rotAmount = rotDirection *  ((distanceTravelled/(Math.PI* 2*marbleRadius))* 2 * Math.PI );// doesnt work it is the distance dived by the circumference to give how many times its turned a full turn in rotation is 2pi in rads to times by that
 
-  var rotAmount = rotDirection * distanceTravelled * 2 * Math.PI / (Math.PI * marbleRadius);
+  var currentRotationRad = getRotationRadNoRound($(marble.objectToMove).find("img")); //expensive to keep looking this up couldnt each marble remember its own rotation
 
-  var currentRotationRad = getRotationRad($(marble.objectToMove).find("img")); //expensive to keep looking this up couldnt each marble remember its own rotation
   var rotToApplyRad = currentRotationRad + rotAmount;
+
 
 
   $(marble.objectToMove).find("img").css({
@@ -535,6 +548,19 @@ function getRotationRad(obj) {
   return angle; //(angle < 0) ? angle + radCircle : angle;
 }
 
+//this just an experiment because the small rounding and small rotations may not work for rotating marbles
+function getRotationRadNoRound(obj) {
+  var matrix = obj.css("transform");
+  if (matrix !== 'none') {
+    var values = matrix.split('(')[1].split(')')[0].split(',');
+    var a = values[0];
+    var b = values[1];
+    var angle = Math.atan2(b, a);
+  } else {
+    var angle = 0;
+  }
+  return angle; //(angle < 0) ? angle + radCircle : angle;
+}
 
 $lgLeftCard = $("#lgLeftCard").find(".aCard");
 $lgRightCard = $("#lgRightCard").find(".aCard");
