@@ -1564,7 +1564,7 @@ position:absolute;
 
 
 
-
+.theExplanationCard:hover{ background:white;box-shadow: 0px 1px 20px 3px white;}
 
 
 
@@ -1657,7 +1657,7 @@ position:absolute;
   z-index:1;
 }
 
-.aCard:hover{ background:white;}
+.aCard:hover{ background:white;box-shadow: 0px 1px 20px 3px white;}
 
 
 /*inside ribbon*/
@@ -2313,6 +2313,7 @@ position:absolute;
 .theMagnifierImg{
   max-width:100%;
   max-height:100%;
+      background: radial-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.3),rgba(255,255,255,0.1), transparent,transparent, transparent);
 }
 
 .page4X0Y0 {
