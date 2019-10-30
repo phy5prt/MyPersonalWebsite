@@ -29,7 +29,11 @@ function cardToFrontClick(event){
 $(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
 var copyForSingleCardDisplay = $(this).parent().clone();
+copyForSingleCardDisplay.find(".aCard").css('cursor','zoom-out');
 $(".singleCardContainer").html(copyForSingleCardDisplay);
+
+//do we need to step between two.
+
 initSetCards($(".singleCardContainer"));
 
 copyForSingleCardDisplay.find(".aMarble").click({propagate:event.data.propagate},marbleTechClick);
@@ -64,6 +68,7 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");}
 $(".theExplanationCard, #myMarble").on('click',exampleCardToFront);
 function exampleCardToFront(){
   var copyForSingleCardDisplay = $(".theExplanationCard").parent().clone();
+  copyForSingleCardDisplay.find(".theExplanationCard").css('cursor','zoom-out');
   //!!!!!!!!!!!!!!!!!!!!!added bit
   $(".pg2CardContainer").addClass("invisible");
   $(".philProfileMarbleImg").addClass("rollingAntiClockwise");

@@ -63,6 +63,7 @@ turnOnDrinkButtonAffordanceTimer();
     duration:delayBetweenGlassAnim/3, complete: // ,
        function(){
         thisDrink.removeClass("affordanceDropShadow");
+
     }
 },
   'linear'

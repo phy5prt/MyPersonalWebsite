@@ -206,6 +206,7 @@ function getRadOfARelativeToB(AXCoord, AYCoord, BXCoord, BYCoord) { // i think t
 
 
 function  fadeBackInTopNavRow() {
+//  $(".dial").css('cursor','grab');
 $(document).unbind('mouseup',fadeBackInTopNavRow);
 
     $("#firstRowCornerNav").fadeTo(1000,1);
@@ -216,7 +217,7 @@ $(document).unbind('mouseup',fadeBackInTopNavRow);
 
 //applies the function to the down event
 $dial.mousedown(function(event) {
-
+//$(".dial").css('cursor','grabbing');
   $("#firstRowCornerNav").fadeTo(500,0);
    $(".cornerNav").css( 'background-color', '	rgba(128,128,128,0)');
 

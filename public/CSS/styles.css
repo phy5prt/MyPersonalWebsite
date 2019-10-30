@@ -48,6 +48,18 @@ a :hover { color:
 yellow;
 
 }
+.hoverYellow:hover {
+  color:
+  /*  white;*/
+  yellow;
+
+}
+
+.hoverImageYellow:hover {
+    filter: invert(100) brightness(100%) sepia(100) saturate(100) hue-rotate(0deg);
+
+}
+
 button{background-color:transparent;}
 .grayUntilJQueryLoads{
   position:absolute;
@@ -335,6 +347,7 @@ pointer-events: none;
 }
 
 .handle {
+  cursor:ew-resize;
   position: absolute;
   top: 40%;
   left: -40px;
@@ -1420,6 +1433,7 @@ background:transparent;
 
 
 .theExplanationCard{
+       cursor:pointer;
 background-image: url(/Images/cardTextures/favourites/w1.jpg);
   background-repeat:repeat;
   width:125px;
@@ -1460,7 +1474,8 @@ position:absolute;
 z-index:-1;
     transform: rotate(3deg);
    transform: translateZ(-1px); /*dirty stacking sollution to get pseudo under acard*/
-     pointer-events:none;
+
+
 }
 
 /*for card sheen*/
@@ -1544,6 +1559,7 @@ position:absolute;
 
 
 .aCard{
+       cursor:zoom-in;
 background-image: url(/Images/cardTextures/favourites/w1.jpg);
   background-repeat:repeat;
   width:125px;
@@ -1628,7 +1644,7 @@ position:absolute;
   z-index:1;
 }
 
-
+.aCard:hover{ background:white;}
 
 
 /*inside ribbon*/
@@ -1966,7 +1982,10 @@ a.techAnchor{ /*dont actually use this seems not to be needed now*/
 }
 
 /*these going to be similar to carousel when refactor button working make them the same*/
-.singleCardOverlay{  position:fixed;
+.singleCardOverlay{
+
+cursor:zoom-out;
+  position:fixed;
   top:0; left:0;
   width:100vw;
   height:100vh;
@@ -1974,6 +1993,7 @@ a.techAnchor{ /*dont actually use this seems not to be needed now*/
   padding:0;
 z-index:11;
   display:flex;
+
 }
 .singleCardOverlayDisplayNone{
 
@@ -2241,6 +2261,7 @@ z-index:10;
 
 
 .dial {
+  cursor:grab;
   /*ive halfed the image size and set its height and width as the width and height. if this were to be dynamic and the image change size with the viewport then i would need to write some code calculating the center for the origin to set transform origin and it may be necessary to change the jquery code as well to catch these variables*/
 	width: 100px;
 	height: 100px;
@@ -2258,7 +2279,7 @@ z-index:10;
 position:absolute;
 }
 
-
+.dial:active { cursor: grabbing; }
 
 
 .magnifier{
