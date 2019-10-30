@@ -507,6 +507,16 @@ height: 100px;
 
     background-size: 100%;
    /*trying to make white transparent*/
+    /*add for hover*/
+}
+
+
+
+.aMarble:hover
+{
+
+    transform: rotate(360deg);
+    transition: all 0.3s ease-in-out 0s;
 }
 
 
@@ -514,7 +524,7 @@ height: 100px;
   width:100px;height:100px;position:absolute;z-index:3;}
 
 .aMarble {
-
+transition: all 0.3s ease-in-out 0s; /*for hover*/
   border-radius: 50%;
   /*background delete*/
 
