@@ -519,7 +519,7 @@ height: 100px;
     transition: all 0.3s ease-in-out 0s;
 }
 
-
+.noHover{pointer-events:none !important;}
 .philProfileMarble{
   width:100px;height:100px;position:absolute;z-index:3;}
 
