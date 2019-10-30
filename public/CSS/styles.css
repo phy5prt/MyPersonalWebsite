@@ -397,6 +397,7 @@ pointer-events: none;
 
 
 .pg2CardContainer {
+
   position: absolute;
   /*try aligning in same way as background so responds the same*/
   /*align both to width as gets to low as shorten window
@@ -430,6 +431,10 @@ transform: perspective(400px) rotateY(75deg);
 /*should we define in height or width*/
 width:17vh;
 height:20vh;
+
+animation: pg2CardContainerAnimFrames 0.2s 1 linear ;
+-webkit-animation: pg2CardContainerAnimFrames 0.2s 1 linear ;
+
 }
 
 
@@ -659,6 +664,37 @@ content: "";
     xAxisStep3 0.5s ease-out 3s normal 1 forwards running;
   /*although made y 140 doesnt seem able to disappear of bottom of the screen way it goes off top*/
 }
+.pg2CardContainerAnim{
+animation: pg2CardContainerAnimFrames 0.20s linear forwards infinite;
+
+}
+@keyframes pg2CardContainerAnimFrames {
+0%{
+
+/* // 	width: 17vh;
+// 	height: 20vh;
+// 	perspective: 400px;
+// 	box-shadow: 0 0 10px;
+// 			transform: perspective(400px) rotateY(75deg); */
+
+
+
+
+
+	}
+
+	100% { transform: rotateX(0deg) rotateY(0deg);
+	right:10vw;
+		top:10vh;
+
+
+	width:80vw;
+		height:80vh;
+
+
+	}
+}
+
 .magnifierAffordanceAnim{
    animation: magnifierSwingRight 1s ease-in-out 0s 1 normal none running;} /*duration should match timeout on magnifierAffordance() should be double as we run twice*/
 

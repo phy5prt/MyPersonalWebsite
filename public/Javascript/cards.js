@@ -66,8 +66,19 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");}
 //!!!!!!!!    This the same except im inserting the animation so if i put cardToFrontClick in time out it will not have the animation in its
 //click to close single card display function, so i would need to find the event function and add to it so for now leaving it
 $(".theExplanationCard, #myMarble").on('click',exampleCardToFront);
+
+
+
 function exampleCardToFront(){
-  var copyForSingleCardDisplay = $(".theExplanationCard").parent().clone();
+  let $pg2CardConatiner = $(".pg2CardContainer");
+$pg2CardConatiner.removeClass("pulseAffordanceBoxStrong").addClass("pg2CardContainerAnim");
+// setInterval(alertFunc, 2000, "First param", "Second param");
+
+let throwToFront = setInterval(initSetCards, 10, $pg2CardConatiner);
+
+setTimeout(function(){
+clearInterval(throwToFront);
+  var copyForSingleCardDisplay =  $(".theExplanationCard").parent().clone();
   copyForSingleCardDisplay.find(".theExplanationCard").css('cursor','zoom-out');
   //!!!!!!!!!!!!!!!!!!!!!added bit
   $(".pg2CardContainer").addClass("invisible");
@@ -95,7 +106,7 @@ animateToPage3();
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 //}
 });
-},100);}
+},100);},200);}
 const cardTemplateMaster = $("#cardTemplate").contents();
 const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
