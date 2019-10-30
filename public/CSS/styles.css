@@ -512,19 +512,12 @@ height: 100px;
 
 
 
-.aMarble:hover
-{
 
-    transform: rotate(360deg);
-    transition: all 0.3s ease-in-out 0s;
-}
-
-.noHover{pointer-events:none !important;}
 .philProfileMarble{
   width:100px;height:100px;position:absolute;z-index:3;}
 
 .aMarble {
-transition: all 0.3s ease-in-out 0s; /*for hover*/
+/* transition: all 0.3s ease-in-out 0s; /*for hover but causes animation to messup*/
   border-radius: 50%;
   /*background delete*/
 
@@ -538,6 +531,16 @@ transition: all 0.3s ease-in-out 0s; /*for hover*/
      pointer-events: auto;
      cursor:pointer
 }
+
+.aMarble:hover
+{
+
+    transform: rotate(360deg);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.noHover{pointer-events:none !important;}
+
 .aMarble::after {/*seem to need this or cant get click events in marble case*/
 content: "";
 

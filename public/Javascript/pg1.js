@@ -136,7 +136,7 @@ $('.businessCard').css('background', '#262626');
 
 
     $(".philProfileMarbleImg").removeClass("rollingClockwise");
-  //  $("#myMarble").removeClass("noHover");
+   $("#myMarble").removeClass("noHover");
 
     /*philProfileMarbleX and philProfileMarble y have a left and top position, but they should just be handles the marble should of started in a container with these handles
        when redo animation will have to put it in such a container or have it start invisible and change the animation start location for Now
