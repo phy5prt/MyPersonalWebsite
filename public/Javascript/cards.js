@@ -93,7 +93,9 @@ $('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
 
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 initSetCards($(".singleCardContainer"));
-copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+//copyForSingleCardDisplay.on('click',function removeSingleCardOverlay(e){ //rename glass blur when can refactor and put on the carousel too //problem is triggers even if display none
+
+$(".singleCardOverlay").on('click',function removeSingleCardOverlay(e){
 //do not do anything if this event was propagated from children
   //if( e.target !== this ){  return;}else{
 $(".singleCardOverlay").addClass("singleCardOverlayDisplayNone");
@@ -101,6 +103,7 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 
 
 //were excluding the me marble initially so easy to click eithe marble or card to start the roll on pg2 then setting it to how it should be
+$(".singleCardOverlay").off('click',removeSingleCardOverlay);
 $("#myMarble").off('click',exampleCardToFront);
 $("#myMarble").click({propagate:false},marbleTechClick);
 
