@@ -14,7 +14,7 @@ $(".bottomRightPage1").get(0).scrollIntoView({block: "center", inline: "center"}
   //something is interupting it give it a second and it will move
     //thought not to the right place
 
-$(".bottomRightPage1").get(0).scrollIntoView();
+$(".bottomRightPage1").get(0).scrollIntoView({block: "center", inline: "center"});
 // var viewStart = document.getElementById('viewStart');
 // viewStart.scrollIntoView();
 

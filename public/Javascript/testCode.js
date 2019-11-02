@@ -20,8 +20,10 @@ function(){
 //    $("#firstRowCornerNav").
   // children.fadeOut(1000);
 
-$(".bottomRightPage1").get(0).scrollIntoView();
-
+//$(".bottomRightPage1").get(0).scrollIntoView({block: "center", inline: "center"});
+//document.querySelector('some-element').scrollIntoView({behavior: 'smooth'});
+//$(".bottomRightPage1").get(0).scrollIntoView({behavior: 'smooth'});
+//console.log($(".bottomRightPage1").get(0));
 }
 
 );
