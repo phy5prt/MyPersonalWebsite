@@ -70,13 +70,17 @@ $(".theExplanationCard, #myMarble").on('click',exampleCardToFront);
 
 
 function exampleCardToFront(){
-  let $pg2CardConatiner = $(".pg2CardContainer");
-$pg2CardConatiner.removeClass("pulseAffordanceBoxStrong").addClass("pg2CardContainerAnim");
+  let $pg2CardContainer = $(".pg2CardContainer");
+$pg2CardContainer.removeClass("pulseAffordanceBoxStrong").addClass("pg2CardContainerAnim");
 // setInterval(alertFunc, 2000, "First param", "Second param");
 
-let throwToFront = setInterval(initSetCards, 10, $pg2CardConatiner);
+let throwToFront = setInterval(initSetCards, 10, $pg2CardContainer);
 
 setTimeout(function(){
+  clearInterval(throwToFront);
+  $(".pg2CardContainer").addClass("invisible");
+  $(".philProfileMarbleImg").addClass("rollingAntiClockwise");
+
 
   var copyForSingleCardDisplay =  $(".theExplanationCard").parent().clone();
   copyForSingleCardDisplay.find(".theExplanationCard").css('cursor','zoom-out');
@@ -100,15 +104,14 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 $("#myMarble").off('click',exampleCardToFront);
 $("#myMarble").click({propagate:false},marbleTechClick);
 
-clearInterval(throwToFront);
-$(".pg2CardContainer").addClass("invisible");
-$(".philProfileMarbleImg").addClass("rollingAntiClockwise");
+
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 animateToPage3();
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 //}
 });
 },150);}
+
 const cardTemplateMaster = $("#cardTemplate").contents();
 const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
