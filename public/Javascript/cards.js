@@ -77,12 +77,11 @@ $pg2CardConatiner.removeClass("pulseAffordanceBoxStrong").addClass("pg2CardConta
 let throwToFront = setInterval(initSetCards, 10, $pg2CardConatiner);
 
 setTimeout(function(){
-clearInterval(throwToFront);
+
   var copyForSingleCardDisplay =  $(".theExplanationCard").parent().clone();
   copyForSingleCardDisplay.find(".theExplanationCard").css('cursor','zoom-out');
   //!!!!!!!!!!!!!!!!!!!!!added bit
-  $(".pg2CardContainer").addClass("invisible");
-  $(".philProfileMarbleImg").addClass("rollingAntiClockwise");
+
   ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
   setTimeout(function(){
 $(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
@@ -101,12 +100,15 @@ $('section').not('.singleCardOverlay').removeClass("singleCardDisplayingBlur");
 $("#myMarble").off('click',exampleCardToFront);
 $("#myMarble").click({propagate:false},marbleTechClick);
 
+clearInterval(throwToFront);
+$(".pg2CardContainer").addClass("invisible");
+$(".philProfileMarbleImg").addClass("rollingAntiClockwise");
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 animateToPage3();
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 //}
 });
-},100);},200);}
+},100);},190);}
 const cardTemplateMaster = $("#cardTemplate").contents();
 const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();

@@ -174,6 +174,7 @@ causes it to behave undesireably with heigh change */
 
 
 .pg2Text {
+  z-index:1;
   position: absolute;
   height: 50vh;
   width: 50vw;
@@ -397,7 +398,7 @@ pointer-events: none;
 
 
 .pg2CardContainer {
-
+z-index:2;
   position: absolute;
   /*try aligning in same way as background so responds the same*/
   /*align both to width as gets to low as shorten window
@@ -665,7 +666,7 @@ content: "";
   /*although made y 140 doesnt seem able to disappear of bottom of the screen way it goes off top*/
 }
 .pg2CardContainerAnim{
-animation: pg2CardContainerAnimFrames 0.20s linear forwards infinite;
+animation: pg2CardContainerAnimFrames 0.20s 1 linear forwards;
 
 }
 @keyframes pg2CardContainerAnimFrames {
@@ -683,7 +684,7 @@ animation: pg2CardContainerAnimFrames 0.20s linear forwards infinite;
 
 	}
 
-	100% { transform: rotateX(0deg) rotateY(0deg);
+	90% { transform: rotateX(0deg) rotateY(0deg);
 	right:10vw;
 		top:10vh;
 
@@ -693,6 +694,16 @@ animation: pg2CardContainerAnimFrames 0.20s linear forwards infinite;
 
 
 	}
+  100% { transform: rotateX(0deg) rotateY(0deg);
+  right:10vw;
+    top:10vh;
+
+
+  width:80vw;
+    height:80vh;
+
+
+  }
 }
 
 .magnifierAffordanceAnim{
