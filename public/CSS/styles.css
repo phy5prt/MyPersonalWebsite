@@ -433,8 +433,8 @@ transform: perspective(400px) rotateY(75deg);
 width:17vh;
 height:20vh;
 
-animation: pg2CardContainerAnimFrames 0.2s 1 linear ;
--webkit-animation: pg2CardContainerAnimFrames 0.2s 1 linear ;
+animation: pg2CardContainerAnimFrames 0.15s 1 linear forwards;
+-webkit-animation: pg2CardContainerAnimFrames 0.15s 1 linear forwards;
 
 }
 
@@ -666,7 +666,7 @@ content: "";
   /*although made y 140 doesnt seem able to disappear of bottom of the screen way it goes off top*/
 }
 .pg2CardContainerAnim{
-animation: pg2CardContainerAnimFrames 0.20s 1 linear forwards;
+animation: pg2CardContainerAnimFrames 0.15s 1 linear forwards;
 
 }
 @keyframes pg2CardContainerAnimFrames {
@@ -684,7 +684,7 @@ animation: pg2CardContainerAnimFrames 0.20s 1 linear forwards;
 
 	}
 
-	90% { transform: rotateX(0deg) rotateY(0deg);
+	100% { transform: rotateX(0deg) rotateY(0deg);
 	right:10vw;
 		top:10vh;
 
@@ -694,16 +694,7 @@ animation: pg2CardContainerAnimFrames 0.20s 1 linear forwards;
 
 
 	}
-  100% { transform: rotateX(0deg) rotateY(0deg);
-  right:10vw;
-    top:10vh;
 
-
-  width:80vw;
-    height:80vh;
-
-
-  }
 }
 
 .magnifierAffordanceAnim{

@@ -209,7 +209,7 @@ ifInArcApplyDrag(setInitVars());//seems to work nicer than resizing not quite no
   },{duration: 800, complete: function(){
     slideInDrawAffordance();
 setTimeout(function(){$(".philProfileMarble").removeClass("rollingAntiClockwise");
-$(".pg2CardContainer").removeClass("shakeCardAffordance");},3000)
+$(".pg2CardContainer").removeClass("shakeCardAffordance");},1000)
   }});
 
   /*im not dealing with this at moment so getting marble in the right place is just so i can see what im making*/

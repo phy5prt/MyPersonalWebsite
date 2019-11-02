@@ -83,7 +83,7 @@ setTimeout(function(){
   //!!!!!!!!!!!!!!!!!!!!!added bit
 
   ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-  setTimeout(function(){
+
 $(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
 
@@ -108,7 +108,7 @@ animateToPage3();
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 the different bit
 //}
 });
-},100);},190);}
+},150);}
 const cardTemplateMaster = $("#cardTemplate").contents();
 const $cardTechnologyButtonTemplateMaster = $("#cardTechnologyButtonTemplate").contents();
 const $cardHyperlinkTemplateMaster = $("#cardHyperlinkTemplate").contents();
