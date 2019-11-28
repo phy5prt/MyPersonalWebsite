@@ -1,5 +1,5 @@
 //later should store all the images on the database so i can change them easier and then just pupulate the image folder have them in an array of their path and themselves
-
+require("dotenv").config(); //not running think json is messed up
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static("public"));
 
-console.log("test");
+// console.log("test");
 /* for ajax !!!!!!!!!!!!!!!!!!! */
 
 // Routes
@@ -33,6 +33,8 @@ console.log("test");
 
 
 mongoose.connect('mongodb://localhost:27017/projectCardsDB',{useNewUrlParser:true});
+// mongoose.connect("mongodb+srv://phy5prtAdmin:"+process.env.PASSWORD_ATLASDB+"@cluster0-su305.mongodb.net/projectCardsDB", {useNewUrlParser:true});
+// mongoose.set("useCreateIndex", true);
 
 //later use a second collection so do not repeatedly store image paths, image paths ....
 const projectCardSchema = new mongoose.Schema({
