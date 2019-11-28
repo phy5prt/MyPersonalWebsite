@@ -46,7 +46,8 @@ var  marbleLineLocationArr = [];
   var divTransOriginXAdjustment = 0;
   var linearGradDeg = 195;
   var gradPerc = 43; //43
-    for ( i = 0; i<= (W-marbleOnLineWidth); i+=marbleOnLineWidth){
+    // for ( i = 0; i<= (W-marbleOnLineWidth); i+=marbleOnLineWidth){
+          for ( i = 0; i<= (W); i+=marbleOnLineWidth){
       var xLoc=i;
     //  gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment)
     var pos = gradLinePosCalc(linearGradDeg, gradPerc,xLoc, divTransOriginXAdjustment, divTransOriginYAdjustment);
