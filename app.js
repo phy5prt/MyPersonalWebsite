@@ -33,8 +33,24 @@ app.use(express.static("public"));
 
 
 // mongoose.connect('mongodb://localhost:27017/projectCardsDB',{useNewUrlParser:true});
+
 mongoose.connect("mongodb+srv://phy5prtAdmin:"+process.env.PASSWORD_ATLASDB+"@cluster0-su305.mongodb.net/projectCardsDB", {useNewUrlParser:true});
 mongoose.set("useCreateIndex", true);
+
+// mongoose.connect("mongodb+srv://phy5prtAdmin:"+process.env.PASSWORD_ATLASDB+"@cluster0-su305.mongodb.net/projectCardsDB",{},function(err,res)
+// {
+//         if(err)
+//         {
+//             console.log("mongo lab server not connected");
+//             console.log(err);
+//         }
+//         else
+//         {
+//              // console.log(res);
+//             console.log("Connectd to mongolab db");
+//
+//         }
+// });
 
 //later use a second collection so do not repeatedly store image paths, image paths ....
 const projectCardSchema = new mongoose.Schema({
@@ -232,4 +248,4 @@ ProjectCard.find()
 });
 
 
-app.listen(3000, function(){console.log("EJS Server started on port 3000");});
+app.listen(3000, function(){});
