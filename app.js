@@ -32,9 +32,9 @@ app.use(express.static("public"));
 
 
 
-mongoose.connect('mongodb://localhost:27017/projectCardsDB',{useNewUrlParser:true});
-// mongoose.connect("mongodb+srv://phy5prtAdmin:"+process.env.PASSWORD_ATLASDB+"@cluster0-su305.mongodb.net/projectCardsDB", {useNewUrlParser:true});
-// mongoose.set("useCreateIndex", true);
+// mongoose.connect('mongodb://localhost:27017/projectCardsDB',{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://phy5prtAdmin:"+process.env.PASSWORD_ATLASDB+"@cluster0-su305.mongodb.net/projectCardsDB", {useNewUrlParser:true});
+mongoose.set("useCreateIndex", true);
 
 //later use a second collection so do not repeatedly store image paths, image paths ....
 const projectCardSchema = new mongoose.Schema({
