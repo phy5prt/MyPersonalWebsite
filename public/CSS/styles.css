@@ -1916,26 +1916,31 @@ margin-right: auto;
   max-height: 100%;}
 
 .projectDescriptionSubtitle{
-  font-size:0.6rem;
+  font-size: 9px;  /*0.6rem;*/
   font-family: 'PT Serif, Serif';
-  line-height:1rem;
-  margin:1px 0 2px;
+  line-height:1;
+padding:3px 0;
+  height:14px; /*added*/
 }
 .projectDescriptionText{
-  font-size:0.2rem;
+
+
+  overflow: hidden;
+  font-size:5px;
   font-family:'Noto Sans', sans-serif; ;
-  line-height:auto;
-  margin:1px 0 3px;
-  height:37px;
+  line-height:1.5;
+  margin:0 0 6px;
+
+  height:40px;
   overflow:hidden; /*need tp set min text size and decide how deal overflow*/
-  padding-top:0px;
-  margin-top:0px;
+
+
 }
 .projectExampleDescriptionText{
   font-size:0.5vh;
   font-family:'Noto Sans', sans-serif; ;
   line-height:auto;
-  margin:1px 0 3px;
+  padding:1px 0 3px;
   height:37px;
   overflow:hidden; /*need tp set min text size and decide how deal overflow*/
   padding-top:0px;
