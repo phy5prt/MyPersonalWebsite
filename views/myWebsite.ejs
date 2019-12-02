@@ -152,6 +152,7 @@ also cause a white space at bottom because now contributes to the height-->
           <!-- <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use C#"><div class="aMarble aMarbleGlassEffect"value="cSharp"><img class="aMarbleImg " src="Images\marbles\cSharp.png" alt="C# marble"></div></li> -->
 
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use CSS"><div class="aMarble aMarbleGlassEffect"value="css"><img class="aMarbleImg " src="Images\marbles\css.png" alt="CSS marble"></div></li>
+
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use HTML"><div class="aMarble aMarbleGlassEffect"value="html"><img class="aMarbleImg " src="Images\marbles\html.png" alt="HTML marble"></div></li>
 
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use NodeJS"><div class="aMarble aMarbleGlassEffect"value="nodeJS"><img class="aMarbleImg " src="Images\marbles\nodeJS.png" alt="NodeJS marble"></div></li>
@@ -173,15 +174,15 @@ also cause a white space at bottom because now contributes to the height-->
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Postman"><div class="aMarble aMarbleGlassEffect"value="postman"><img class="aMarbleImg " src="Images\marbles\postman.png" alt="Postman marble" ></div></li>
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Robo3T"><div class="aMarble aMarbleGlassEffect"value="robo3T"><img class="aMarbleImg " src="Images\marbles\robo3T.png" alt="Robo3T marble" ></div></li>
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Trello"><div class="aMarble aMarbleGlassEffect"value="trello"><img class="aMarbleImg " src="Images\marbles\trello.png" alt="Trello marble" ></div></li>
-          <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use GitHub"><div class="aMarble aMarbleGlassEffect"value="gitHub"><img class="aMarbleImg " src="Images\marbles\gitHub.png" alt="GitHub marble" ></div></li>
+          <!-- <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use GitHub"><div class="aMarble aMarbleGlassEffect"value="gitHub"><img class="aMarbleImg " src="Images\marbles\gitHub.png" alt="GitHub marble" ></div></li> -->
             <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use StackOverflow"><div class="aMarble aMarbleGlassEffect"value="stackOverflow"><img class="aMarbleImg " src="Images\marbles\stackOverflow.png" alt="StackOverflow marble" ></div></li>
 <!-- Hosting and IDE -->
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use DataFire"><div class="aMarble aMarbleGlassEffect"value="dataFire"><img class="aMarbleImg " src="Images\marbles\dataFire.png" alt="DataFire marble" ></div></li>
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use GitPages"><div class="aMarble aMarbleGlassEffect"value="gitPages"><img class="aMarbleImg " src="Images\marbles\gitPages.jfif" alt="GitPages marble" ></div></li>
 <!-- No Image-->      <!-- <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Mongo Atlas"><div class="aMarble aMarbleGlassEffect"value="mongoAtlas"><img class="aMarbleImg " src="Images\marbles\mongoAtlas.png" alt="Mongo Atlas marble" ></div></li> -->
           <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Heroku"><div class="aMarble aMarbleGlassEffect"value="heroku"><img class="aMarbleImg " src="Images\marbles\heroku.png" alt="Heroku marble" ></div></li>
-          <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Atom"><div class="aMarble aMarbleGlassEffect"value="atom"><img class="aMarbleImg " src="Images\marbles\atom.png" alt="Atom marble" ></div></li>
-          <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Visual Studio"><div class="aMarble aMarbleGlassEffect"value="visualStudio"><img class="aMarbleImg " src="Images\marbles\visualStudio.jfif" alt="Visual Studio marble" ></div></li>
+          <!-- <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Atom"><div class="aMarble aMarbleGlassEffect"value="atom"><img class="aMarbleImg " src="Images\marbles\atom.png" alt="Atom marble" ></div></li> -->
+          <!-- <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Visual Studio"><div class="aMarble aMarbleGlassEffect"value="visualStudio"><img class="aMarbleImg " src="Images\marbles\visualStudio.jfif" alt="Visual Studio marble" ></div></li> -->
 <!--methodologies not many examples -->
 <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Agile"><div class="aMarble aMarbleGlassEffect"value="agile"><img class="aMarbleImg " src="Images\marbles\agile.png" alt="Agile marble" ></div></li>
 <li data-toggle="tooltip" data-placement="top" title="Click to see all projects that use Java"><div class="aMarble aMarbleGlassEffect"value="java"><img class="aMarbleImg " src="Images\marbles\java.png" alt="Java marble" ></div></li>
@@ -513,7 +514,8 @@ in 4.3.1 need use order and offset
 
                                 <% for (let i = 0; i<page3FirstBestCard.technologiesArray.length; i++) { %>
 <div class="cardTechMarbleImgHolder">
-                                  <img type="image" class="cardTechlinksImg aMarble" src= <%=page3FirstBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+                                  <img type="image" class="cardTechlinksImg aMarble" src= <%=page3FirstBestCard.technologiesArray[i].technologyImagePath %> alt='<%=page3FirstBestCard.technologiesArray[i].technologyName
+ %>  Link' value='<%=page3FirstBestCard.technologiesArray[i].technologyName%>'>
 </div>
 <% }%>
                           </div>
@@ -558,7 +560,8 @@ in 4.3.1 need use order and offset
                                                                <% for (let i = 0; i<page3SecondBestCard.technologiesArray.length; i++) { %>
 
 <div class="cardTechMarbleImgHolder">
-                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3SecondBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3SecondBestCard.technologiesArray[i].technologyImagePath %> alt='<%=page3SecondBestCard.technologiesArray[i].technologyName
+                             %>  Link' value='<%=page3SecondBestCard.technologiesArray[i].technologyName%>'>
 </div>
 
                                <% }%></div>
@@ -607,7 +610,8 @@ in 4.3.1 need use order and offset
 
 
 <div class="cardTechMarbleImgHolder">
-                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3ThirdBestCard.technologiesArray[i].technologyImagePath %> alt="gitLink">
+                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3ThirdBestCard.technologiesArray[i].technologyImagePath %> alt='<%=page3ThirdBestCard.technologiesArray[i].technologyName
+                             %>  Link' value='<%=page3ThirdBestCard.technologiesArray[i].technologyName%>'>
 </div>
                                <% }%></div>
 
