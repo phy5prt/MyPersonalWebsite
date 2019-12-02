@@ -500,7 +500,7 @@ in 4.3.1 need use order and offset
 
             <div class="  d-flex col-md-12 col-lg-4  order-1 order-lg-2 " id="lgMiddleCard">
 <div class="seventyFivePercentOfSize">
-
+<!-- first card -->
 <div class="scaleable-wrapper" >
 
                             <div class="aCard" id="shapeCardsOriginalScale">
@@ -514,8 +514,7 @@ in 4.3.1 need use order and offset
 
                                 <% for (let i = 0; i<page3FirstBestCard.technologiesArray.length; i++) { %>
 <div class="cardTechMarbleImgHolder">
-                                  <img type="image" class="cardTechlinksImg aMarble" src= <%=page3FirstBestCard.technologiesArray[i].technologyImagePath %> alt='<%=page3FirstBestCard.technologiesArray[i].technologyName
- %>  Link' value='<%=page3FirstBestCard.technologiesArray[i].technologyName%>'>
+                                  <img type="image" class="cardTechlinksImg aMarble" src= "<%=page3FirstBestCard.technologiesArray[i].technologyImagePath %>" alt="<%=page3FirstBestCard.technologiesArray[i].technologyName%>  Link" value="<%=page3FirstBestCard.technologiesArray[i].technologyName%>">
 </div>
 <% }%>
                           </div>
@@ -528,7 +527,7 @@ in 4.3.1 need use order and offset
                               <div class="aCardWritingArea">
 
                               <div class="projectTitle"> <%= page3FirstBestCard.projectName %> </div>
-                                            <img class="projectImage " src=<%=page3FirstBestCard.projectImagePath %> alt="projectImg">
+                                            <img class="projectImage " src="<%=page3FirstBestCard.projectImagePath %>" alt="projectImg">
 
 
                                <div class="projectDescriptionSubtitle">Description</div>
@@ -537,7 +536,7 @@ in 4.3.1 need use order and offset
                                   <% for (let i = 0; i<page3FirstBestCard.linksArray.length; i++) { %>
 
 
-                                 <a onclick="anchorClick();"  href= <%= page3FirstBestCard.linksArray[i].linkHyperlink %> target="_blank"><Img class="cardHyperlinksImg" src= <%=page3FirstBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                                 <a onclick="anchorClick();"  href= "<%= page3FirstBestCard.linksArray[i].linkHyperlink %>" target="_blank"><Img class="cardHyperlinksImg" src= "<%=page3FirstBestCard.linksArray[i].linkImagePath %>" alt="page3FirstBestCard.linksArray[i].linkName Image Link"></a>
   <% }%>
                                 </div>
                               </div>
@@ -549,6 +548,7 @@ in 4.3.1 need use order and offset
             <div class="  d-flex col-sm-12 col-md-6 col-lg-4  order-2 order-lg-1" id="lgLeftCard">
 
 <div class="seventyFivePercentOfSize">
+  <!-- second card -->
 <div class="scaleable-wrapper" >
                           <div class="aCard">
                             <div class="topRightRibbonArea">
@@ -560,8 +560,7 @@ in 4.3.1 need use order and offset
                                                                <% for (let i = 0; i<page3SecondBestCard.technologiesArray.length; i++) { %>
 
 <div class="cardTechMarbleImgHolder">
-                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3SecondBestCard.technologiesArray[i].technologyImagePath %> alt='<%=page3SecondBestCard.technologiesArray[i].technologyName
-                             %>  Link' value='<%=page3SecondBestCard.technologiesArray[i].technologyName%>'>
+                                                              <Img class="cardTechlinksImg aMarble" src= "<%=page3SecondBestCard.technologiesArray[i].technologyImagePath %>" alt="<%=page3SecondBestCard.technologiesArray[i].technologyName%>  Link" value="<%=page3SecondBestCard.technologiesArray[i].technologyName%>">
 </div>
 
                                <% }%></div>
@@ -582,7 +581,7 @@ in 4.3.1 need use order and offset
                                 <% for (let i = 0; i<page3SecondBestCard.linksArray.length; i++) { %>
 
 
-                               <a onclick="anchorClick();" href= <%= page3SecondBestCard.linksArray[i].linkHyperlink %> target="_blank"><Img class="cardHyperlinksImg" src= <%=page3SecondBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                               <a onclick="anchorClick();" href= "<%=page3SecondBestCard.linksArray[i].linkHyperlink%>" target="_blank"><Img class="cardHyperlinksImg" src= "<%=page3SecondBestCard.linksArray[i].linkImagePath%>" alt="<%=page3SecondBestCard.linksArray[i].linkName %> link"></a>
                               <% }%>
 
 
@@ -597,6 +596,7 @@ in 4.3.1 need use order and offset
             <div class=" d-flex  col-xs-12 col-md-6 col-lg-4  order-3 order-lg-3 " id="lgRightCard">
 
 <div class="seventyFivePercentOfSize">
+  <!-- third card -->
 <div class="scaleable-wrapper" >
                           <div class="aCard">
                             <div class="topRightRibbonArea">
@@ -610,8 +610,7 @@ in 4.3.1 need use order and offset
 
 
 <div class="cardTechMarbleImgHolder">
-                                                              <Img class="cardTechlinksImg aMarble" src= <%=page3ThirdBestCard.technologiesArray[i].technologyImagePath %> alt='<%=page3ThirdBestCard.technologiesArray[i].technologyName
-                             %>  Link' value='<%=page3ThirdBestCard.technologiesArray[i].technologyName%>'>
+                                                              <Img class="cardTechlinksImg aMarble" src="<%=page3ThirdBestCard.technologiesArray[i].technologyImagePath%>" alt="<%=page3ThirdBestCard.technologiesArray[i].technologyName%>  Link" value="<%=page3ThirdBestCard.technologiesArray[i].technologyName%>">
 </div>
                                <% }%></div>
 
@@ -634,7 +633,7 @@ in 4.3.1 need use order and offset
                                 <% for (let i = 0; i<page3ThirdBestCard.linksArray.length; i++) { %>
 
 
-                               <a onclick="anchorClick();"  href= <%= page3ThirdBestCard.linksArray[i].linkHyperlink %> target="_blank" ><Img class="cardHyperlinksImg" src= <%=page3ThirdBestCard.linksArray[i].linkImagePath %> alt="gitLink"></a>
+                               <a onclick="anchorClick();"  href= "<%=page3ThirdBestCard.linksArray[i].linkHyperlink%>" target="_blank" ><Img class="cardHyperlinksImg" src="<%=page3ThirdBestCard.linksArray[i].linkImagePath %>" alt="<%=page3ThirdBestCard.linksArray[i].linkName%> Link"></a>
 <% }%>
                               </div>
 

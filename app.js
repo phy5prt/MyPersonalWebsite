@@ -134,7 +134,7 @@ ProjectCard.aggregate([
 */
 
 app.route("/carousel") /*make a version that takes projectName and it just takes one project displays it and all others are randomly sorted around*/
-            .get(function(req, res){      console.log("carousel received body data: " + JSON.stringify(req.body) + " and query data: " +JSON.stringify( req.query));
+          .get(function(req, res){     //    console.log("carousel received body data: " + JSON.stringify(req.body) + " and query data: " +JSON.stringify( req.query));
 
 /* this is more complicated that i expected will need to read docs and also maybe good excuse stackover flow question
 desired behaviour is to only show project cards which have the specifiec technology. And to order the projects by the rating of that technology for them
@@ -208,7 +208,7 @@ app.route("/projectCards/:projectName")
                }else{res.send(err);}
           })})
 
-
+// cards for pg3
 app.route("/")
 .get(function(req,res){
 
