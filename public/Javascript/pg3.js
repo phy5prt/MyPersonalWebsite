@@ -563,13 +563,13 @@ function getRotationRadNoRound(obj) {
   return angle; //(angle < 0) ? angle + radCircle : angle;
 }
 
-$lgLeftCard = $("#lgLeftCard").find(".aCard");
-$lgRightCard = $("#lgRightCard").find(".aCard");
-$lgMiddleCard = $("#lgMiddleCard").find(".aCard");
+const $lgLeftCard = $("#lgLeftCard").find(".aCard");
+const $lgRightCard = $("#lgRightCard").find(".aCard");
+const $lgMiddleCard = $("#lgMiddleCard").find(".aCard");
 
-var $shapeCardsOriginalScale;
+let $shapeCardsOriginalScale;
 let lgLeftCardScaleChange, lgMiddleCardScaleChange, lgRightCardScaleChange,cosAngVal,  sinAngVal;
-let maxScalePercChange = 0.75;//0.25;
+const maxScalePercChange = 0.75;//0.25;
 
 function magnifyCards(magCardAng){
   cosAngVal = Math.cos(magCardAng);

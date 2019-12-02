@@ -29,6 +29,7 @@ function cardToFrontClick(event){
 $(".singleCardOverlay").removeClass("singleCardOverlayDisplayNone");
 $('section').not('.singleCardOverlay').addClass("singleCardDisplayingBlur");
 var copyForSingleCardDisplay = $(this).parent().clone();
+copyForSingleCardDisplay.find(".aCard").removeAttr('id');
 copyForSingleCardDisplay.find(".aCard").css('cursor','zoom-out');
 $(".singleCardContainer").html(copyForSingleCardDisplay);
 
