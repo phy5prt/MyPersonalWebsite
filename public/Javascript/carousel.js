@@ -6,8 +6,8 @@ function     getSaughtTechnologyProjectCardsAndMakeCarousel(saughtTechnology) {
 
 if(typeof saughtTechnology  !== typeof undefined && saughtTechnology  !== false){
 
-if(saughtTechnology=="allProjects"){  $("#carouselTechTitle").text("All "+ "Projects");generateCarouselWithSaughtTechnologyCards();}
-      $("#carouselTechTitle").text(saughtTechnology+ " Projects"); // will need some formatting
+if(saughtTechnology=="allProjects"){  $("#carouselTechTitle").text("All "+ "Projects");generateCarouselWithSaughtTechnologyCards();}else{
+     // will need some formatting
    //putting the generation into get saughts code so it happen in right order another approach would be to make getCards async
 
 
@@ -34,7 +34,7 @@ data: {techButton: saughtTechnology},
 console.log(err);
 });
 
-}else{
+}}else{
 
   $("#carouselTechTitle").text("All "+ "Projects");generateCarouselWithSaughtTechnologyCards();}
 }
