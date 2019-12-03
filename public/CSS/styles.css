@@ -1899,7 +1899,7 @@ position:static;
   font-family: 'PT Serif, Serif';
   line-height:1.5;
   margin:5px 0 3px;
-  height:20px;
+  height:19px;
 
 }
 .projectImage{
@@ -1931,7 +1931,7 @@ padding:3px 0;
   line-height:1.5;
   margin:0 0 6px;
 
-  height:40px;
+  height:41px;
   overflow:hidden; /*need tp set min text size and decide how deal overflow*/
 
 
