@@ -1895,9 +1895,9 @@ position:static;
 .projectTitle{
   text-align: center;
 
-  font-size:0.9rem;
+  font-size:13px;
   font-family: 'PT Serif, Serif';
-  line-height:1.5em;
+  line-height:1.5;
   margin:5px 0 3px;
   height:20px;
 
