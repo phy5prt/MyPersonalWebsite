@@ -1937,14 +1937,15 @@ padding:3px 0;
 
 }
 .projectExampleDescriptionText{
-  font-size:0.5vh;
+  font-size:4.5px;
   font-family:'Noto Sans', sans-serif; ;
-  line-height:auto;
-  padding:1px 0 3px;
-  height:37px;
+  line-height:1.5;
+  padding:0px 0 6px;
+  height:44px;
   overflow:hidden; /*need tp set min text size and decide how deal overflow*/
   padding-top:0px;
   margin-top:0px;
+  margin-bottom:3px;
 }
 
 .cardHyperlinksArea{
