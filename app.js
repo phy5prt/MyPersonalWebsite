@@ -258,7 +258,11 @@ ProjectCard.find()
 //added later so could have first page
 app.route("/")
 .get(function(req,res){
-  res.render("PageDescriptionIntro")});
+  res.render("PageDescriptionIntro");
+
+}).post(function(req,res){
+  res.render("PageDescriptionIntro",{myData:post});
+});;
 
 let port = process.env.PORT;
 if (port == null || port == "") {
