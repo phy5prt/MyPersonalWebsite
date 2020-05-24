@@ -209,8 +209,16 @@ app.route("/projectCards/:projectName")
           })})
 
 // cards for pg3
-app.route("/")
+app.route("/Main")
 .get(function(req,res){
+
+  //here show landing context page qqqq
+
+  //
+
+
+
+
 
 ProjectCard.find()
 .sort({overallProjectRating:-1})
@@ -225,6 +233,7 @@ ProjectCard.find()
 
   });
     });
+
 
 
 //.toArray((err,projectCards)=>{ this needs cursor
@@ -246,7 +255,10 @@ ProjectCard.find()
   var post = "posted";
   res.render("myWebsite",{myData:post});
 });
-
+//added later so could have first page
+app.route("/")
+.get(function(req,res){
+  res.render("PageDescriptionIntro")});
 
 let port = process.env.PORT;
 if (port == null || port == "") {
