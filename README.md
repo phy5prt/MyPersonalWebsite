@@ -7,7 +7,9 @@ My bootstrap site is accessible at https://lit-escarpment-48431.herokuapp.com/ i
 
 ---------About Me and my repos-------
 
-Hi my name is Phil Tate. I've taken a career break to learn the skills I need to be a software developer. These repos are of projects I've made.
+Hi my name is Phil Tate. I am a software developer. These are repos of personal projects I've made.
+
+My CV is available at: https://github.com/phy5prt/CV
 
 I have two portfolio websites: This is my creative portfolio website: https://lit-escarpment-48431.herokuapp.com/ 
 
