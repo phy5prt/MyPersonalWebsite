@@ -262,7 +262,7 @@ app.route("/")
 
 }).post(function(req,res){
   res.render("PageDescriptionIntro",{myData:post});
-});;
+});
 
 let port = process.env.PORT;
 if (port == null || port == "") {
